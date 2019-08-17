@@ -1,5 +1,7 @@
 package com.frogobox.speechbooster.source.local
 
+import com.frogobox.speechbooster.source.DataSource
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -17,3 +19,4 @@ package com.frogobox.speechbooster.source.local
  * com.frogobox.publicspeakingbooster.source.local
  *
  */
+class LocalDataSource : DataSource {}

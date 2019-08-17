@@ -17,3 +17,7 @@ package com.frogobox.speechbooster.model
  * com.frogobox.speechbooster.model
  *
  */
+data class Note(
+    val title: String,
+    val description: String
+)

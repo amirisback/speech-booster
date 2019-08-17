@@ -1,11 +1,14 @@
-package com.frogobox.speechbooster.source.remote.network
+package com.frogobox.speechbooster.source
+
+import com.frogobox.speechbooster.source.local.LocalDataSource
+import com.frogobox.speechbooster.source.remote.RemoteDataSource
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
- * PublicSpeakingBooster
- * Copyright (C) 16/08/2019.
+ * SpeechBooster
+ * Copyright (C) 18/08/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -14,7 +17,9 @@ package com.frogobox.speechbooster.source.remote.network
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.publicspeakingbooster.source.remote.network
+ * com.frogobox.speechbooster.source
  *
  */
-object ApiService {}
+class DataRepository(val remoteDataSource: RemoteDataSource, val localDataSource: LocalDataSource) : DataSource {
+
+}
