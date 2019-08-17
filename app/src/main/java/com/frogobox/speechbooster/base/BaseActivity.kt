@@ -31,4 +31,8 @@ open class BaseActivity : AppCompatActivity() {
 
     }
 
+    fun amirIsBack(){
+
+    }
+
 }

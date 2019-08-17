@@ -1,14 +1,13 @@
 package com.frogobox.speechbooster.view.activity
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.base.BaseActivity
 
-class MainActivity : BaseActivity() {
+class NoteAddActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_note_add)
     }
-
 }

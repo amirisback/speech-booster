@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.model.Note
+import kotlinx.android.synthetic.main.activity_note_add.view.*
 
 /**
  * Created by Faisal Amir
@@ -28,7 +29,7 @@ import com.frogobox.speechbooster.model.Note
 class NoteAdapter (private val context: Context?, private val dataList: List<Note>) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_notes, parent, false))
+        ViewHolder(LayoutInflater.from(context).inflate(R.layout.recyclerview_item_notes, parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItem(dataList[position])
@@ -38,7 +39,13 @@ class NoteAdapter (private val context: Context?, private val dataList: List<Not
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
+        val tvTitle = view.tv_title
+        val tvDescription = view.tv_description
+
         fun bindItem(data: Note) {
+
+            tvTitle.text = data.title
+            tvDescription.text = data.description
 
         }
     }
