@@ -6,7 +6,12 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.frogobox.speechbooster.helper.FunHelper
+import android.R.attr.fragment
+
+
 
 /**
  * Created by Faisal Amir
@@ -33,6 +38,13 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mActivity = this
 
+    }
+
+    protected fun setupFragment(frameId: Int, fragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(frameId, fragment)
+            commit()
+        }
     }
 
     protected inline fun <reified ClassActivity> baseStartActivity(context: Context) {

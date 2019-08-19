@@ -1,11 +1,6 @@
 package com.frogobox.speechbooster.base
 
-import android.content.Context
-import android.net.ConnectivityManager
 import android.os.Bundle
-import android.view.View
-import android.view.inputmethod.InputMethodManager
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 /**
