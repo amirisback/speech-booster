@@ -2,7 +2,11 @@ package com.frogobox.speechbooster.helper
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.frogobox.speechbooster.BuildConfig
 import com.frogobox.speechbooster.helper.ConstHelper.Pref.PREF_NAME
+import com.google.gson.Gson
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * Created by Faisal Amir
@@ -22,6 +26,32 @@ import com.frogobox.speechbooster.helper.ConstHelper.Pref.PREF_NAME
  *
  */
 class FunHelper {
+
+    object ConverterJson {
+
+        fun <T> toJson(model: T) : String? {
+            return Gson().toJson(model)
+        }
+
+        inline fun <reified T> fromJson(word: String?) : T {
+            return Gson().fromJson<T>(word, T::class.java)
+        }
+
+    }
+
+    object Func {
+
+        fun showVersion() : String {
+            return "Version " + BuildConfig.VERSION_NAME
+        }
+
+        fun getDateToday(formatDate: String) : String {
+            val formater = SimpleDateFormat(formatDate)
+            return formater.format(Date())
+        }
+
+    }
+
     object Preference {
 
         fun getSp(context: Context): SharedPreferences {

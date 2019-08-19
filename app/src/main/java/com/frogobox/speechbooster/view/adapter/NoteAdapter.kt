@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.speechbooster.R
+import com.frogobox.speechbooster.base.BaseActionListener
 import com.frogobox.speechbooster.model.Note
 import kotlinx.android.synthetic.main.activity_note_add.view.*
 
@@ -26,13 +27,16 @@ import kotlinx.android.synthetic.main.activity_note_add.view.*
  * com.frogobox.speechbooster.view.adapter
  *
  */
-class NoteAdapter (private val context: Context?, private val dataList: List<Note>) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
+class NoteAdapter (private val context: Context?,
+                   private val dataList: List<Note>,
+                   private val listener: BaseActionListener<Note>)
+    : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(LayoutInflater.from(context).inflate(R.layout.recyclerview_item_notes, parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItem(dataList[position])
+        holder.bindItem(dataList[position], listener)
     }
 
     override fun getItemCount(): Int = dataList.size
@@ -42,11 +46,15 @@ class NoteAdapter (private val context: Context?, private val dataList: List<Not
         val tvTitle = view.tv_title
         val tvDescription = view.tv_description
 
-        fun bindItem(data: Note) {
-
+        fun bindItem(data: Note, listener: BaseActionListener<Note>) {
             tvTitle.text = data.title
             tvDescription.text = data.description
 
+            itemView.setOnClickListener {
+                listener.onItemClicked(data)
+            }
         }
+
     }
+
 }
