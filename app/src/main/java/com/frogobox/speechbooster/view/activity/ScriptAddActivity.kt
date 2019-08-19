@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.frogobox.speechbooster.R
 
-class NoteAddActivity : AppCompatActivity() {
+class ScriptAddActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_note_add)
+        setContentView(R.layout.activity_script_add)
     }
 }

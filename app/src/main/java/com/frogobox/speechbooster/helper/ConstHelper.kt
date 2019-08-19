@@ -53,8 +53,6 @@ class ConstHelper {
 
     object Pref {
         const val PREF_NAME = "SpeechBooster"
-        const val PREF_USER_DATA = "PREF_USER_DATA"
-        const val PREF_USER_PASS = "PREF_USER_PASS"
     }
 
     object Extra {
@@ -63,11 +61,9 @@ class ConstHelper {
 
     object Tag {
         const val TAG_DEFAULT_FORM = 7000
-        const val TAG_DEFAULT_FORM_HEADER = 7001
     }
 
     object Const {
-
         const val JOGET_VAR_ORG = "org"
 
     }

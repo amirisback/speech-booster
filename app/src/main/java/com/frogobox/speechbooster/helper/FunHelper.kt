@@ -2,6 +2,7 @@ package com.frogobox.speechbooster.helper
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.net.ConnectivityManager
 import com.frogobox.speechbooster.BuildConfig
 import com.frogobox.speechbooster.helper.ConstHelper.Pref.PREF_NAME
 import com.google.gson.Gson
@@ -41,13 +42,22 @@ class FunHelper {
 
     object Func {
 
-        fun showVersion() : String {
-            return "Version " + BuildConfig.VERSION_NAME
+        fun checkInternet(context: Context): Boolean {
+            val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val networkInfo = connectivityManager.activeNetworkInfo
+            if (networkInfo != null) {
+                if (networkInfo.type == ConnectivityManager.TYPE_WIFI) {
+                    return true
+                } else if (networkInfo.type == ConnectivityManager.TYPE_MOBILE) {
+                    return true
+                }
+                return false
+            }
+            return false
         }
 
-        fun getDateToday(formatDate: String) : String {
-            val formater = SimpleDateFormat(formatDate)
-            return formater.format(Date())
+        fun showVersion() : String {
+            return "Version " + BuildConfig.VERSION_NAME
         }
 
     }

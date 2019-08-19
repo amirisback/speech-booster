@@ -7,7 +7,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_medium_8dp"
         android:background="@drawable/background_card"
-        tools:context=".view.activity.NoteAddActivity" android:minHeight="@dimen/dimen_large_64dp">
+        tools:context=".view.activity.ScriptAddActivity" android:minHeight="@dimen/dimen_large_64dp">
 
     <TextView
             android:text="TextView"

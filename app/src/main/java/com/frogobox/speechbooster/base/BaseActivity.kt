@@ -1,8 +1,12 @@
 package com.frogobox.speechbooster.base
 
+import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.frogobox.speechbooster.helper.FunHelper
+import com.google.gson.Gson
 
 /**
  * Created by Faisal Amir
@@ -31,8 +35,21 @@ open class BaseActivity : AppCompatActivity() {
 
     }
 
-    fun amirIsBack(){
+    inline fun <reified ClassActivity> baseStartActivity(context: Context) {
+        context.startActivity(Intent(context, ClassActivity::class.java))
+    }
 
+    inline fun <reified ClassActivity, Model> baseStartActivity(context: Context, extraKey: String, data: Model) {
+        val intent = Intent(context, ClassActivity::class.java)
+        val extraData = FunHelper.ConverterJson.toJson(data)
+        intent.putExtra(extraKey, extraData)
+        context.startActivity(intent)
+    }
+
+    inline fun <reified Model> baseGetExtraData(extraKey: String) : Model {
+        val extraIntent = intent.getStringExtra(extraKey)
+        val extraData = FunHelper.ConverterJson.fromJson<Model>(extraIntent)
+        return extraData
     }
 
 }
