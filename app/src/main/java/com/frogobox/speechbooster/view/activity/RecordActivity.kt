@@ -4,10 +4,10 @@ import android.os.Bundle
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseActivity
 
-class VideoDetailActivity : BaseActivity() {
+class RecordActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_video_detail)
+        setContentView(R.layout.activity_record)
     }
 }

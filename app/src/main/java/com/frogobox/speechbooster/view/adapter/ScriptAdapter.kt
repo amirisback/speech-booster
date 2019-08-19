@@ -27,10 +27,10 @@ import kotlinx.android.synthetic.main.activity_script_add.view.*
  * com.frogobox.speechbooster.view.adapter
  *
  */
-class NoteAdapter (private val context: Context?,
-                   private val dataList: List<Script>,
-                   private val listener: BaseActionListener<Script>)
-    : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
+class ScriptAdapter (private val context: Context?,
+                     private val dataList: List<Script>,
+                     private val listener: BaseActionListener<Script>)
+    : RecyclerView.Adapter<ScriptAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(LayoutInflater.from(context).inflate(R.layout.recyclerview_item_notes, parent, false))

@@ -93,6 +93,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/source/dao/ScriptDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/source/local/LocalDataSource.kt">
           <value>
             <set />
@@ -128,6 +133,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/activity/RecordActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/activity/ScriptActivity.kt">
           <value>
             <set />
@@ -149,6 +159,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/adapter/NoteAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/adapter/ScriptAdapter.kt">
           <value>
             <set />
           </value>

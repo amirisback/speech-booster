@@ -3,6 +3,7 @@
           package="com.frogobox.speechbooster">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -10,6 +11,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".view.activity.RecordActivity">
+        </activity>
         <activity android:name=".view.activity.ScriptAddActivity">
         </activity>
         <activity android:name=".view.activity.ScriptActivity">
@@ -24,7 +27,6 @@
         <activity android:name=".view.activity.ScriptDetailActivity">
         </activity>
         <activity android:name=".view.activity.MainActivity">
-
         </activity>
     </application>
 

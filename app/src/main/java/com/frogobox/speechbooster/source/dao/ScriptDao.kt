@@ -17,4 +17,4 @@ package com.frogobox.speechbooster.source.dao
  * com.frogobox.speechbooster.source.dao
  *
  */
-interface NoteDao {}
+interface ScriptDao {}

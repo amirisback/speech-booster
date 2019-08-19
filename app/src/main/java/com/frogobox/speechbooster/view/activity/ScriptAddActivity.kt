@@ -1,10 +1,10 @@
 package com.frogobox.speechbooster.view.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.frogobox.speechbooster.R
+import com.frogobox.speechbooster.base.BaseActivity
 
-class ScriptAddActivity : AppCompatActivity() {
+class ScriptAddActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
