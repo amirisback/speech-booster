@@ -13,10 +13,8 @@ class ScriptDetailActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_script_detail)
 
-//        val data = baseGetExtraData<Script>(EXTRA_NOTE)
-
         val data = baseGetBundleObject<Script>(mActivity, EXTRA_NOTE)
-        setTitle(data.description)
+        setupDetail(data.description)
 
     }
 }

@@ -3,6 +3,8 @@ package com.frogobox.speechbooster.base
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.speechbooster.helper.FunHelper
 
@@ -48,6 +50,25 @@ abstract class BaseActivity : AppCompatActivity() {
         val extraIntent = intent.getStringExtra(extraKey)
         val extraData = FunHelper.ConverterJson.fromJson<Model>(extraIntent)
         return extraData
+    }
+
+    protected fun setupDetail(title: String) {
+        setTitle(title)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 }
