@@ -7,6 +7,8 @@ import com.frogobox.speechbooster.base.BaseActionListener
 import com.frogobox.speechbooster.base.BaseActivity
 import com.frogobox.speechbooster.helper.ConstHelper.Extra.EXTRA_NOTE
 import com.frogobox.speechbooster.model.Script
+import com.frogobox.speechbooster.navigation.Navigation.createBundle.baseCreateBundleObject
+import com.frogobox.speechbooster.navigation.Route.routeImplicit.openScriptDetailActivity
 import com.frogobox.speechbooster.view.adapter.ScriptAdapter
 import kotlinx.android.synthetic.main.activity_script.*
 
@@ -34,7 +36,7 @@ class ScriptActivity : BaseActivity(), BaseActionListener<Script> {
     }
 
     override fun onItemClicked(data: Script) {
-        baseStartActivity<ScriptDetailActivity, Script>(this, EXTRA_NOTE, data)
+        openScriptDetailActivity(this, baseCreateBundleObject(EXTRA_NOTE, data))
     }
 
     override fun onItemLongClicked(data: Script) {

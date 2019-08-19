@@ -73,6 +73,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/navigation/Navigation.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/navigation/Route.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/service/Notification.kt">
           <value>
             <set />
@@ -213,12 +223,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/FOOTSTEPMILL/android-footstep-mill/apputils/src/main/java/id/co/gits/gitsutils/GitsRouteNavigation.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/FOOTSTEPMILL/android-footstep-mill/apputils/src/main/java/id/co/gits/gitsutils/helper/extensions/ActivityExt.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/base/BaseFragment.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/main/MainAdapterRencanaKerja.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/Starter Kits/gits-mvvm-kotlin-v2.0.0-master/gits-mvvm-kotlin-v2.0.0-master/gitsutils/src/main/java/id/co/gits/gitsutils/extensions/PreferencesExt.kt">
           <value>
             <set />
           </value>

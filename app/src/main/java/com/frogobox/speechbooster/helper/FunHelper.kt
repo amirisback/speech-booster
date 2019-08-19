@@ -3,6 +3,7 @@ package com.frogobox.speechbooster.helper
 import android.content.Context
 import android.content.SharedPreferences
 import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import com.frogobox.speechbooster.BuildConfig
 import com.frogobox.speechbooster.helper.ConstHelper.Pref.PREF_NAME
 import com.google.gson.Gson
@@ -42,18 +43,12 @@ class FunHelper {
 
     object Func {
 
-        fun checkInternet(context: Context): Boolean {
+        fun isNetworkAvailable(context: Context): Boolean? {
+            var isConnected: Boolean? = false // Initial Value
             val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val networkInfo = connectivityManager.activeNetworkInfo
-            if (networkInfo != null) {
-                if (networkInfo.type == ConnectivityManager.TYPE_WIFI) {
-                    return true
-                } else if (networkInfo.type == ConnectivityManager.TYPE_MOBILE) {
-                    return true
-                }
-                return false
-            }
-            return false
+            val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
+            if (activeNetwork != null && activeNetwork.isConnected) isConnected = true
+            return isConnected
         }
 
         fun showVersion() : String {

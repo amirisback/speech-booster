@@ -51,6 +51,13 @@ class ConstHelper {
 
     }
 
+    object TypeData {
+        const val TYPE_INT = "TYPE_INT"
+        const val TYPE_STRING = "TYPE_STRING"
+        const val TYPE_FLOAT = "TYPE_FLOAT"
+        const val TYPE_BOOLEAN = "TYPE_BOOLEAN"
+    }
+
     object Pref {
         const val PREF_NAME = "SpeechBooster"
     }
