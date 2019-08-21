@@ -8,6 +8,7 @@ import android.view.ViewGroup
 
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseFragment
+import com.frogobox.speechbooster.model.Script
 
 class ScriptFragment : BaseFragment() {
 
@@ -17,5 +18,9 @@ class ScriptFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_script, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+
+    }
 }

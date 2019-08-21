@@ -19,5 +19,7 @@ class ExampleScriptFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_example_script, container, false)
     }
 
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
 }

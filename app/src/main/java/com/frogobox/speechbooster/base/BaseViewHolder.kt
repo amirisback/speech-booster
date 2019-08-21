@@ -5,7 +5,7 @@ package com.frogobox.speechbooster.base
  * FrogoBox Inc License
  * =========================================
  * SpeechBooster
- * Copyright (C) 18/08/2019.
+ * Copyright (C) 21/08/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -17,7 +17,7 @@ package com.frogobox.speechbooster.base
  * com.frogobox.speechbooster.base
  *
  */
-interface BaseActionListener<T> {
-    fun onItemClicked(data: T)
-    fun onItemLongClicked(data: T)
+interface BaseViewHolder<T> {
+    fun bindItem(data: T, listener: BaseListener<T>)
+    fun onItemViewClicked(data: T, listener: BaseListener<T>)
 }

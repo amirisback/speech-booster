@@ -58,6 +58,14 @@ class ConstHelper {
         const val TYPE_BOOLEAN = "TYPE_BOOLEAN"
     }
 
+    object Code {
+        const val CODE_NAME = 1
+    }
+
+    object Arg {
+        const val ARGUMENTS_NAME = "FRAGMENT"
+    }
+
     object Pref {
         const val PREF_NAME = "SpeechBooster"
     }

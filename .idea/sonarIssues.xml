@@ -28,12 +28,37 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/base/BaseAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/base/BaseApiModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/base/BaseDataSource.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/base/BaseFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/base/BaseListener.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/base/BaseViewAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/base/BaseViewHolder.kt">
           <value>
             <set />
           </value>
@@ -178,6 +203,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/adapter/holder/ScriptViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/adapter/viewadapter/ScriptAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/callback/BindItemCallBack.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/callback/NoteItemClickCallback.kt">
           <value>
             <set />
@@ -194,6 +234,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/fragment/VideoFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/viewadapter/adapter/ScriptAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/viewadapter/holder/ScriptViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/viewadapter/viewadapter/ScriptAdapter.kt">
           <value>
             <set />
           </value>
@@ -278,12 +333,37 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/base/BaseApiModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/base/BaseFragment.kt">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/ecerkeranidetail/EcerKeraniDetailFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/ecerkeranilist/EcerKeraniListFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/main/MainAdapterRencanaKerja.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/mainbar/MainBarFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/util/GitsExt.kt">
           <value>
             <set />
           </value>
