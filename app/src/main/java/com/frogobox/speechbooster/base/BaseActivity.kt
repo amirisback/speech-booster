@@ -40,7 +40,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     }
 
-    protected fun setupFragment(frameId: Int, fragment: Fragment) {
+    protected fun setupBaseFragment(frameId: Int, fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(frameId, fragment)
             commit()

@@ -16,17 +16,17 @@
         <activity android:name=".view.activity.ScriptAddActivity">
         </activity>
         <activity android:name=".view.activity.ScriptActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".view.activity.VideoDetailActivity">
         </activity>
         <activity android:name=".view.activity.ScriptDetailActivity">
         </activity>
         <activity android:name=".view.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 

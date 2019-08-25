@@ -19,11 +19,6 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-            android:id="@+id/bottom_menu_sample_script"
-            android:icon="@drawable/ic_bottom_nav_example_script_24dp"
-            android:title="@string/title_sample_script"
-            app:showAsAction="ifRoom"/>
 
     <item
             android:id="@+id/bottom_menu_myscript"
@@ -36,4 +31,11 @@
             android:icon="@drawable/ic_bottom_nav_video_24dp"
             android:title="@string/title_video"
             app:showAsAction="ifRoom"/>
+
+    <item
+            android:id="@+id/bottom_menu_sample_script"
+            android:icon="@drawable/ic_bottom_nav_example_script_24dp"
+            android:title="@string/title_sample_script"
+            app:showAsAction="ifRoom"/>
+
 </menu>
