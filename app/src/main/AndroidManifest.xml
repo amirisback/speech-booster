@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".view.activity.ScriptDetailActivity">
         </activity>
-        <activity android:name=".view.activity.MainActivity">
+        <activity android:name=".view.activity.MainActivity"
+                android:theme="@style/AppThemeNoToolbar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
