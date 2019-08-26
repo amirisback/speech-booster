@@ -35,18 +35,11 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
 
     private fun setupRecyclerView(){
         val noteList = mutableListOf<Script>()
-        noteList.add(Script(getString(R.string.dummy), getString(R.string.dummyLong)))
-        noteList.add(Script(getString(R.string.dummy), getString(R.string.dummy)))
-        noteList.add(Script(getString(R.string.dummy), getString(R.string.dummy)))
-        noteList.add(Script(getString(R.string.dummy), getString(R.string.dummyLong)))
-        noteList.add(Script(getString(R.string.dummy), getString(R.string.dummy)))
-        noteList.add(Script(getString(R.string.dummy), getString(R.string.dummyLong)))
-        noteList.add(Script(getString(R.string.dummy), getString(R.string.dummyLong)))
-        noteList.add(Script(getString(R.string.dummy), getString(R.string.dummy)))
-        noteList.add(Script(getString(R.string.dummy), getString(R.string.dummy)))
-        noteList.add(Script(getString(R.string.dummy), getString(R.string.dummyLong)))
-        noteList.add(Script(getString(R.string.dummy), getString(R.string.dummyLong)))
-        noteList.add(Script(getString(R.string.dummy), getString(R.string.dummy)))
+        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummyLong)))
+        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummy)))
+        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummy)))
+        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummyLong)))
+        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummyLong)))
 
         val adapter = ScriptAdapter()
         context?.let { adapter.setLayoutItem(it, R.layout.recyclerview_item_notes) }

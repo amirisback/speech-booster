@@ -1,5 +1,10 @@
 package com.frogobox.speechbooster.source.dao
 
+import androidx.lifecycle.LiveData
+import androidx.room.*
+import com.frogobox.speechbooster.model.Script
+import io.reactivex.Single
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -17,4 +22,22 @@ package com.frogobox.speechbooster.source.dao
  * com.frogobox.speechbooster.source.dao
  *
  */
-interface ScriptDao {}
+@Dao
+interface ScriptDao {
+
+    @Query("SELECT * FROM script")
+    fun getAllData(): LiveData<List<Script>>
+
+//    @Update
+//    fun updateData(data: ScriptDao)
+
+    @Insert(onConflict =  OnConflictStrategy.REPLACE)
+    fun inserAllData(assets : List<Script>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertData(data: Script)
+
+    @Query("DELETE FROM script")
+    fun deleteAllData()
+
+}

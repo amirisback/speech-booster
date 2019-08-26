@@ -51,6 +51,10 @@ class ConstHelper {
 
     }
 
+    object RoomDatabase {
+        const val DATABASE_NAME = "speechbooster.db"
+    }
+
     object TypeData {
         const val TYPE_INT = "TYPE_INT"
         const val TYPE_STRING = "TYPE_STRING"

@@ -4,13 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.frogobox.speechbooster.BuildConfig
+import com.frogobox.speechbooster.helper.ConstHelper.RoomDatabase.DATABASE_NAME
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.source.dao.ScriptDao
-import com.frogobox.speechbooster.util.Converters
 
 /**
  * Created by Faisal Amir
@@ -33,10 +32,10 @@ import com.frogobox.speechbooster.util.Converters
     (Script::class)
 ], version = 1)
 
-@TypeConverters(Converters::class)
+
 abstract class FrogoAppDatabase : RoomDatabase() {
 
-    abstract fun ccriptDao(): ScriptDao
+    abstract fun scriptDao(): ScriptDao
 
     companion object {
 
@@ -53,13 +52,13 @@ abstract class FrogoAppDatabase : RoomDatabase() {
         private fun buildDatabase(context: Context): FrogoAppDatabase {
             return if (BuildConfig.DEBUG) {
                 Room.databaseBuilder(context.applicationContext,
-                    FrogoAppDatabase::class.java, "surfacing.db")
+                    FrogoAppDatabase::class.java, DATABASE_NAME)
                     .addMigrations(MIGRATION_2_3)
                     .fallbackToDestructiveMigration() // FOR DEVELOPMENT ONLY !!!!
                     .build()
             } else {
                 Room.databaseBuilder(context.applicationContext,
-                    FrogoAppDatabase::class.java, "surfacing.db")
+                    FrogoAppDatabase::class.java, DATABASE_NAME)
                     .addMigrations(MIGRATION_2_3)
                     .build()
             }

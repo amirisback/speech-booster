@@ -29,10 +29,8 @@ object Injection {
 
     fun provideGitsRepository(context: Context): FrogoDataRepository {
         val scriptDao: ScriptDao by lazy {
-            FrogoAppDatabase.getInstance(context).userDao()
+            FrogoAppDatabase.getInstance(context).scriptDao()
         }
-
-
 
         val appExecutors = AppExecutors()
 
