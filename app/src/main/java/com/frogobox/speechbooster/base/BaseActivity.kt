@@ -69,6 +69,7 @@ abstract class BaseActivity : AppCompatActivity() {
     protected fun setupDetail(title: String) {
         setTitle(title)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.elevation = 0f
     }
 
     fun <T : ViewModel> obtainViewModel(viewModelClass: Class<T>) =

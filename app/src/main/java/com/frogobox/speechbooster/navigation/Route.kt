@@ -3,7 +3,10 @@ package com.frogobox.speechbooster.navigation
 import android.content.Context
 import android.os.Bundle
 import com.frogobox.speechbooster.navigation.Navigation.navigatorImplicit
+import com.frogobox.speechbooster.navigation.Route.Endpoint.RECORD_ACTIVITY
 import com.frogobox.speechbooster.navigation.Route.Endpoint.SCRIPT_DETAIL_ACTIVITY
+import com.frogobox.speechbooster.navigation.Route.Endpoint.SCRIPT_EDITOR_ACTIVITY
+import com.frogobox.speechbooster.navigation.Route.Endpoint.VIDEO_DETAIL_ACTIVITY
 import com.frogobox.speechbooster.navigation.Route.Module.BASE_PACKAGE
 
 /**
@@ -31,11 +34,30 @@ object Route {
 
     object Endpoint {
         const val SCRIPT_DETAIL_ACTIVITY = "com.frogobox.speechbooster.view.activity.ScriptDetailActivity"
+        const val SCRIPT_EDITOR_ACTIVITY = "com.frogobox.speechbooster.view.activity.ScriptEditorActivity"
+        const val VIDEO_DETAIL_ACTIVITY = "com.frogobox.speechbooster.view.activity.VideoDetailActivity"
+        const val RECORD_ACTIVITY = "com.frogobox.speechbooster.view.activity.RecordActivity"
+
     }
 
     object routeImplicit {
+
+        // Detail Activity -------------------------------------------------------------------------
         fun openScriptDetailActivity(context: Context, data: Bundle){
             navigatorImplicit(context, BASE_PACKAGE, SCRIPT_DETAIL_ACTIVITY, data)
+        }
+
+        fun openVideoDetailActivity(context: Context, data: Bundle) {
+            navigatorImplicit(context, BASE_PACKAGE, VIDEO_DETAIL_ACTIVITY, data)
+        }
+        // -----------------------------------------------------------------------------------------
+
+        fun openScriptEditorActivity(context: Context, data: Bundle) {
+            navigatorImplicit(context, BASE_PACKAGE, SCRIPT_EDITOR_ACTIVITY, data)
+        }
+
+        fun openRecordActivity(context: Context, data: Bundle) {
+            navigatorImplicit(context, BASE_PACKAGE, RECORD_ACTIVITY, data)
         }
     }
 

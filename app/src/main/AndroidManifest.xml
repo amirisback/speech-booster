@@ -11,11 +11,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+
         <activity android:name=".view.activity.RecordActivity">
         </activity>
-        <activity android:name=".view.activity.ScriptAddActivity">
-        </activity>
-        <activity android:name=".view.activity.ScriptActivity">
+        <activity android:name=".view.activity.ScriptEditorActivity">
         </activity>
         <activity android:name=".view.activity.VideoDetailActivity">
         </activity>

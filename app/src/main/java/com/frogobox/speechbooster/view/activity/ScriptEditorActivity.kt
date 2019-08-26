@@ -4,10 +4,10 @@ import android.os.Bundle
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseActivity
 
-class ScriptAddActivity : BaseActivity() {
+class ScriptEditorActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_script_add)
+        setContentView(R.layout.activity_script_editor)
     }
 }

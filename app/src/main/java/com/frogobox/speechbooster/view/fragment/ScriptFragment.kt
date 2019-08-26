@@ -12,12 +12,10 @@ import com.frogobox.speechbooster.base.BaseFragment
 import com.frogobox.speechbooster.base.BaseListener
 import com.frogobox.speechbooster.helper.ConstHelper
 import com.frogobox.speechbooster.model.Script
-import com.frogobox.speechbooster.navigation.Navigation
 import com.frogobox.speechbooster.navigation.Navigation.createBundle.baseCreateBundleObject
-import com.frogobox.speechbooster.navigation.Route
 import com.frogobox.speechbooster.navigation.Route.routeImplicit.openScriptDetailActivity
 import com.frogobox.speechbooster.view.viewadapter.adapter.ScriptAdapter
-import kotlinx.android.synthetic.main.activity_script.*
+import kotlinx.android.synthetic.main.fragment_script.*
 
 class ScriptFragment : BaseFragment(), BaseListener<Script> {
 
@@ -63,7 +61,7 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
 
     override fun onItemClicked(data: Script) {
         context?.let {
-            openScriptDetailActivity(it,baseCreateBundleObject(ConstHelper.Extra.EXTRA_NOTE, data))
+            openScriptDetailActivity(it,baseCreateBundleObject(ConstHelper.Extra.EXTRA_SCRIPT, data))
         }
     }
 

@@ -8,5 +8,6 @@
     <string name="title_sample_script">Example</string>
     <string name="title_myscript">My Script</string>
     <string name="title_video">Video</string>
+    <string name="button_start_record">Start</string>
 
 </resources>
