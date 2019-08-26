@@ -6,6 +6,7 @@ import com.frogobox.speechbooster.base.BaseActivity
 import com.frogobox.speechbooster.view.fragment.ExampleScriptFragment
 import com.frogobox.speechbooster.view.fragment.ScriptFragment
 import com.frogobox.speechbooster.view.fragment.VideoFragment
+import com.frogobox.speechbooster.viewmodel.ScriptViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -22,6 +23,7 @@ class MainActivity : BaseActivity() {
         setupBaseFragment(frameLayout, ScriptFragment())
     }
 
+    fun obtainScriptViewModel(): ScriptViewModel = obtainViewModel(ScriptViewModel::class.java)
 
     private fun setupBottomNav(frameLayout: Int){
         bottom_nav_main_menu.clearAnimation()

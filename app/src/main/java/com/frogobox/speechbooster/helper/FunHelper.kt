@@ -43,6 +43,10 @@ class FunHelper {
 
     object Func {
 
+        fun noAction() : Boolean {
+            return true
+        }
+
         fun isNetworkAvailable(context: Context): Boolean? {
             var isConnected: Boolean? = false // Initial Value
             val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

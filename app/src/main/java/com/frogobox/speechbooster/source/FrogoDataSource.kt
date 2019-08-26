@@ -1,6 +1,7 @@
 package com.frogobox.speechbooster.source
 
 import com.frogobox.speechbooster.base.BaseDataSource
+import com.frogobox.speechbooster.model.Script
 
 /**
  * Created by Faisal Amir
@@ -19,4 +20,27 @@ import com.frogobox.speechbooster.base.BaseDataSource
  * com.frogobox.speechbooster.source
  *
  */
-interface FrogoDataSource : BaseDataSource {}
+interface FrogoDataSource : BaseDataSource {
+
+
+    // Room Database -------------------------------------------------------------------------------
+
+    // Save
+    fun saveRoomScript(data: Script)
+
+    // Update
+
+    // Delete
+
+    // Get
+
+    // ---------------------------------------------------------------------------------------------
+
+
+
+    // Interface Helper ---------------------------------------------------------------------------
+    interface SaveRoomDataCallBack<T>: BaseDataSource.ResponseCallback<T>
+    interface SavePrefCallBack<T>: BaseDataSource.ResponseCallback<T>
+    // ---------------------------------------------------------------------------------------------
+
+}

@@ -2,6 +2,7 @@ package com.frogobox.speechbooster.source.local
 
 import android.content.SharedPreferences
 import androidx.annotation.VisibleForTesting
+import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.source.FrogoDataSource
 import com.frogobox.speechbooster.source.dao.ScriptDao
 import com.frogobox.speechbooster.util.AppExecutors
@@ -29,6 +30,13 @@ class FrogoLocalDataSource private constructor(
     private val appExecutors: AppExecutors,
     private val sharedPreferences: SharedPreferences,
     private val scriptDao: ScriptDao) : FrogoDataSource {
+
+    override fun saveRoomScript(data: Script) {
+        appExecutors.diskIO.execute {
+            scriptDao.insertData(data)
+        }
+    }
+
 
     private
     var compositeDisposable: CompositeDisposable? = null

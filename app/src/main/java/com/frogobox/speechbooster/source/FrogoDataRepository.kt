@@ -1,5 +1,6 @@
 package com.frogobox.speechbooster.source
 
+import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.source.local.FrogoLocalDataSource
 import com.frogobox.speechbooster.source.remote.FrogoRemoteDataSource
 
@@ -20,7 +21,12 @@ import com.frogobox.speechbooster.source.remote.FrogoRemoteDataSource
  * com.frogobox.speechbooster.source
  *
  */
-class FrogoDataRepository(val remoteDataSource: FrogoRemoteDataSource, val localDataSource: FrogoLocalDataSource) : FrogoDataSource {
+open class FrogoDataRepository(val remoteDataSource: FrogoRemoteDataSource,
+                               val localDataSource: FrogoLocalDataSource) : FrogoDataSource {
+
+    override fun saveRoomScript(data: Script) {
+        localDataSource.saveRoomScript(data)
+    }
 
 
     companion object {
