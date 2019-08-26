@@ -1,13 +1,14 @@
-package com.frogobox.speechbooster.source
+package com.frogobox.speechbooster.util
 
-import com.frogobox.speechbooster.base.BaseDataSource
+import androidx.room.TypeConverter
+import com.google.gson.Gson
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * SpeechBooster
- * Copyright (C) 18/08/2019.
+ * Copyright (C) 26/08/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -16,7 +17,12 @@ import com.frogobox.speechbooster.base.BaseDataSource
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.speechbooster.source
+ * com.frogobox.speechbooster.util
  *
  */
-interface DataSource : BaseDataSource {}
+class Converters {
+
+    companion object {
+
+    }
+}

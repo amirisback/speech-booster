@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.frogobox.speechbooster.helper.FunHelper
 import android.R.attr.fragment
-
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProviders
+import com.frogobox.speechbooster.util.ViewModelFactory
 
 
 /**
@@ -68,6 +70,10 @@ abstract class BaseActivity : AppCompatActivity() {
         setTitle(title)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
+
+    fun <T : ViewModel> obtainViewModel(viewModelClass: Class<T>) =
+        ViewModelProviders.of(this, ViewModelFactory.getInstance(application)).get(viewModelClass)
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         return true

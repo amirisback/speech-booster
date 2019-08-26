@@ -1,13 +1,14 @@
-package com.frogobox.speechbooster.source.local
+package com.frogobox.speechbooster.util
 
-import com.frogobox.speechbooster.source.DataSource
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
- * PublicSpeakingBooster
- * Copyright (C) 16/08/2019.
+ * SpeechBooster
+ * Copyright (C) 26/08/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -16,7 +17,14 @@ import com.frogobox.speechbooster.source.DataSource
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.publicspeakingbooster.source.local
+ * com.frogobox.speechbooster.util
  *
  */
-class LocalDataSource : DataSource {}
+class DiskIOThreadExecutor: Executor {
+
+    private val diskIO = Executors.newSingleThreadExecutor()
+
+    override fun execute(command: Runnable) {
+        diskIO.execute(command)
+    }
+}

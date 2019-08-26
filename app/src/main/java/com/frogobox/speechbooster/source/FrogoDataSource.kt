@@ -1,7 +1,6 @@
 package com.frogobox.speechbooster.source
 
-import com.frogobox.speechbooster.source.local.LocalDataSource
-import com.frogobox.speechbooster.source.remote.RemoteDataSource
+import com.frogobox.speechbooster.base.BaseDataSource
 
 /**
  * Created by Faisal Amir
@@ -20,6 +19,4 @@ import com.frogobox.speechbooster.source.remote.RemoteDataSource
  * com.frogobox.speechbooster.source
  *
  */
-class DataRepository(val remoteDataSource: RemoteDataSource, val localDataSource: LocalDataSource) : DataSource {
-
-}
+interface FrogoDataSource : BaseDataSource {}

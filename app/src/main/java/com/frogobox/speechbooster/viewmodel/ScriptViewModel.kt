@@ -1,15 +1,15 @@
-package com.frogobox.speechbooster.base
+package com.frogobox.speechbooster.viewmodel
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import com.frogobox.speechbooster.util.SingleLiveEvent
+import com.frogobox.speechbooster.base.BaseViewModel
+import com.frogobox.speechbooster.source.FrogoDataRepository
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * SpeechBooster
- * Copyright (C) 18/08/2019.
+ * Copyright (C) 26/08/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -18,9 +18,11 @@ import com.frogobox.speechbooster.util.SingleLiveEvent
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.speechbooster.base
+ * com.frogobox.speechbooster.viewmodel
  *
  */
-open class BaseViewModel(application: Application) : AndroidViewModel(application) {
-    var eventShowProgress = SingleLiveEvent<Boolean>()
+class ScriptViewModel(application: Application,
+                      private val frogoDataRepository: FrogoDataRepository)
+    : BaseViewModel(application) {
+
 }

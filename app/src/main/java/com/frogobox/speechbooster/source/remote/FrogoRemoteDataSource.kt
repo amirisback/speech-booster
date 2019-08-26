@@ -1,6 +1,9 @@
 package com.frogobox.speechbooster.source.remote
 
-import com.frogobox.speechbooster.source.DataSource
+import android.content.Context
+import com.frogobox.speechbooster.source.FrogoDataSource
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 
 /**
  * Created by Faisal Amir
@@ -19,4 +22,8 @@ import com.frogobox.speechbooster.source.DataSource
  * com.frogobox.publicspeakingbooster.source.remote
  *
  */
-class RemoteDataSource : DataSource {}
+class FrogoRemoteDataSource(private val context: Context) : FrogoDataSource {
+
+
+
+}
