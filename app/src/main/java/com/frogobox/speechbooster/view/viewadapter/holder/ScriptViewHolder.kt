@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.speechbooster.base.BaseListener
 import com.frogobox.speechbooster.base.BaseViewHolder
 import com.frogobox.speechbooster.model.Script
-import kotlinx.android.synthetic.main.activity_script_editor.view.*
+import kotlinx.android.synthetic.main.recyclerview_item_notes.view.*
 
 /**
  * Created by Faisal Amir

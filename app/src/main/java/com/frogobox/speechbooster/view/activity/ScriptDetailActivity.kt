@@ -19,7 +19,7 @@ class ScriptDetailActivity : BaseActivity() {
         setContentView(R.layout.activity_script_detail)
 
         val data = baseGetBundleObject<Script>(mActivity, EXTRA_SCRIPT)
-        setupDetail("")
+        setupDetailActivity("")
 
         tv_title_detail.text = data.title
         tv_date_detail.text = data.title

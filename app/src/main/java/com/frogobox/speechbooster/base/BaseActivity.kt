@@ -7,10 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import com.frogobox.speechbooster.helper.FunHelper
-import android.R.attr.fragment
-import android.graphics.PorterDuff
 import android.graphics.drawable.ColorDrawable
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
@@ -70,7 +67,7 @@ abstract class BaseActivity : AppCompatActivity() {
         return extraData
     }
 
-    protected fun setupDetail(title: String) {
+    protected fun setupDetailActivity(title: String) {
         setTitle(title)
         val upArrow = ContextCompat.getDrawable(this, R.drawable.ic_toolbar_back_home)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

@@ -52,8 +52,8 @@ object Route {
         }
         // -----------------------------------------------------------------------------------------
 
-        fun openScriptEditorActivity(context: Context, data: Bundle) {
-            navigatorImplicit(context, BASE_PACKAGE, SCRIPT_EDITOR_ACTIVITY, data)
+        fun openScriptEditorActivity(context: Context, option: Bundle) {
+            navigatorImplicit(context, BASE_PACKAGE, SCRIPT_EDITOR_ACTIVITY, option = option)
         }
 
         fun openRecordActivity(context: Context, data: Bundle) {

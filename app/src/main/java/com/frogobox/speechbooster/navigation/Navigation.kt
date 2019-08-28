@@ -45,9 +45,9 @@ object Navigation {
         fun <T> baseCreateBundle(typeKey: String, extraKey: String, data: T) : Bundle {
             val extraBundle = Bundle()
             if (typeKey.equals(TYPE_INT)) {
-                extraBundle.putString(extraKey, data as String)
-            } else if (typeKey.equals(TYPE_STRING)) {
                 extraBundle.putInt(extraKey, data as Int)
+            } else if (typeKey.equals(TYPE_STRING)) {
+                extraBundle.putString(extraKey, data as String)
             } else if (typeKey.equals(TYPE_FLOAT)) {
                 extraBundle.putFloat(extraKey, data as Float)
             } else if (typeKey.equals(TYPE_BOOLEAN)) {

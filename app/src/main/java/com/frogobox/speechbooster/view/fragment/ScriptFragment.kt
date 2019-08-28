@@ -18,6 +18,7 @@ import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.navigation.Navigation.createBundle.baseCreateBundle
 import com.frogobox.speechbooster.navigation.Navigation.createBundle.baseCreateBundleObject
 import com.frogobox.speechbooster.navigation.Route.routeImplicit.openScriptDetailActivity
+import com.frogobox.speechbooster.navigation.Route.routeImplicit.openScriptEditorActivity
 import com.frogobox.speechbooster.view.viewadapter.adapter.ScriptAdapter
 import kotlinx.android.synthetic.main.fragment_script.*
 
@@ -31,7 +32,20 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         setupRecyclerView()
+        setupFabButton()
+
+    }
+
+    private fun setupFabButton(){
+
+        val option = baseCreateBundle(TYPE_INT, OPTION_ACTIVITY_EDIT, TAG_ACTIVITY_EDIT)
+        fab_script_editor.setOnClickListener {
+            context?.let {
+                openScriptEditorActivity(it, option)
+            }
+        }
 
     }
 

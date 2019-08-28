@@ -23,7 +23,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/toolbar_menu_hanya_ubah"
+        android:id="@+id/toolbar_menu_edit"
         android:icon="@drawable/ic_toolbar_edit"
         android:title="@string/text_edit"
         app:showAsAction="ifRoom"/>
