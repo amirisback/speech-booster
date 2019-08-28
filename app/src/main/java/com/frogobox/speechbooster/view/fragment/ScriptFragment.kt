@@ -10,8 +10,12 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseFragment
 import com.frogobox.speechbooster.base.BaseListener
-import com.frogobox.speechbooster.helper.ConstHelper
+import com.frogobox.speechbooster.helper.ConstHelper.Extra.EXTRA_SCRIPT
+import com.frogobox.speechbooster.helper.ConstHelper.Extra.OPTION_ACTIVITY_EDIT
+import com.frogobox.speechbooster.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
+import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_INT
 import com.frogobox.speechbooster.model.Script
+import com.frogobox.speechbooster.navigation.Navigation.createBundle.baseCreateBundle
 import com.frogobox.speechbooster.navigation.Navigation.createBundle.baseCreateBundleObject
 import com.frogobox.speechbooster.navigation.Route.routeImplicit.openScriptDetailActivity
 import com.frogobox.speechbooster.view.viewadapter.adapter.ScriptAdapter
@@ -60,8 +64,12 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
     }
 
     override fun onItemClicked(data: Script) {
+
+        val extras = baseCreateBundleObject(EXTRA_SCRIPT, data)
+        val option = baseCreateBundle(TYPE_INT, OPTION_ACTIVITY_EDIT, TAG_ACTIVITY_EDIT)
+
         context?.let {
-            openScriptDetailActivity(it,baseCreateBundleObject(ConstHelper.Extra.EXTRA_SCRIPT, data))
+            openScriptDetailActivity(it, extras, option)
         }
     }
 

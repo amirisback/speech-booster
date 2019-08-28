@@ -1,6 +1,8 @@
 package com.frogobox.speechbooster.view.activity
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseActivity
 import com.frogobox.speechbooster.helper.ConstHelper.Extra.EXTRA_SCRIPT
@@ -28,5 +30,26 @@ class ScriptDetailActivity : BaseActivity() {
         }
 
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_toolbar_edit_delete, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+
+            R.id.toolbar_menu_edit -> {
+                true
+            }
+
+            R.id.toolbar_menu_delete -> {
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
 
 }

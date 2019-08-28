@@ -43,8 +43,8 @@ object Route {
     object routeImplicit {
 
         // Detail Activity -------------------------------------------------------------------------
-        fun openScriptDetailActivity(context: Context, data: Bundle){
-            navigatorImplicit(context, BASE_PACKAGE, SCRIPT_DETAIL_ACTIVITY, data)
+        fun openScriptDetailActivity(context: Context, data: Bundle, option: Bundle){
+            navigatorImplicit(context, BASE_PACKAGE, SCRIPT_DETAIL_ACTIVITY, data, option = option)
         }
 
         fun openVideoDetailActivity(context: Context, data: Bundle) {

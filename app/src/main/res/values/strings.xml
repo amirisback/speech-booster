@@ -9,5 +9,8 @@
     <string name="title_myscript">My Script</string>
     <string name="title_video">Video</string>
     <string name="button_start_record">Start</string>
+    <string name="text_edit">Edit</string>
+    <string name="text_delete">Delete</string>
+    <string name="text_accept">Accept</string>
 
 </resources>

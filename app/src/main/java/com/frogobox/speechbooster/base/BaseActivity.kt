@@ -10,8 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.frogobox.speechbooster.helper.FunHelper
 import android.R.attr.fragment
+import android.graphics.PorterDuff
+import android.graphics.drawable.ColorDrawable
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
+import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.util.ViewModelFactory
 
 
@@ -68,13 +72,14 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected fun setupDetail(title: String) {
         setTitle(title)
+        val upArrow = ContextCompat.getDrawable(this, R.drawable.ic_toolbar_back_home)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.elevation = 0f
+        supportActionBar?.setHomeAsUpIndicator(upArrow)
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.colorBaseWhite)))
     }
 
     fun <T : ViewModel> obtainViewModel(viewModelClass: Class<T>) =
         ViewModelProviders.of(this, ViewModelFactory.getInstance(application)).get(viewModelClass)
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         return true

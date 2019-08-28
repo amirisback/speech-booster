@@ -18,6 +18,7 @@
     <color name="colorBaseWhite">#FFFFFF</color>
     <color name="colorBaseBlack">#000000</color>
     <color name="colorBaseRed">#FF0000</color>
+    <color name="colorBaseToolbarIcon">#757575</color>
 
     <!-- Background Color-->
     <color name="colorBackgroundWhite">@color/colorBaseWhite</color>
