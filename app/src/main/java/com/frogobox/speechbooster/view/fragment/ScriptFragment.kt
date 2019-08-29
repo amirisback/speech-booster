@@ -12,13 +12,14 @@ import com.frogobox.speechbooster.base.BaseFragment
 import com.frogobox.speechbooster.base.BaseListener
 import com.frogobox.speechbooster.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.helper.ConstHelper.Extra.OPTION_ACTIVITY_EDIT
+import com.frogobox.speechbooster.helper.ConstHelper.Tag.TAG_ACTIVITY_CREATE
 import com.frogobox.speechbooster.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_INT
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.navigation.Navigation.createBundle.baseCreateBundle
 import com.frogobox.speechbooster.navigation.Navigation.createBundle.baseCreateBundleObject
-import com.frogobox.speechbooster.navigation.Route.routeImplicit.openScriptDetailActivity
-import com.frogobox.speechbooster.navigation.Route.routeImplicit.openScriptEditorActivity
+import com.frogobox.speechbooster.navigation.Route.routeImplicit.startScriptDetailActivity
+import com.frogobox.speechbooster.navigation.Route.routeImplicit.startScriptEditorActivity
 import com.frogobox.speechbooster.view.viewadapter.adapter.ScriptAdapter
 import kotlinx.android.synthetic.main.fragment_script.*
 
@@ -40,10 +41,10 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
 
     private fun setupFabButton(){
 
-        val option = baseCreateBundle(TYPE_INT, OPTION_ACTIVITY_EDIT, TAG_ACTIVITY_EDIT)
+        val option = baseCreateBundle(TYPE_INT, OPTION_ACTIVITY_EDIT, TAG_ACTIVITY_CREATE)
         fab_script_editor.setOnClickListener {
             context?.let {
-                openScriptEditorActivity(it, option)
+                startScriptEditorActivity(it,null, option)
             }
         }
 
@@ -54,17 +55,6 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
         noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummyLong)))
         noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummy)))
         noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummy)))
-        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummyLong)))
-        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummyLong)))
-        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummyLong)))
-        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummy)))
-        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummy)))
-        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummyLong)))
-        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummyLong)))
-        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummyLong)))
-        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummy)))
-        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummy)))
-        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummyLong)))
         noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummyLong)))
 
         val adapter = ScriptAdapter()
@@ -83,7 +73,7 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
         val option = baseCreateBundle(TYPE_INT, OPTION_ACTIVITY_EDIT, TAG_ACTIVITY_EDIT)
 
         context?.let {
-            openScriptDetailActivity(it, extras, option)
+            startScriptDetailActivity(it, extras, option)
         }
     }
 

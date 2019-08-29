@@ -43,20 +43,20 @@ object Route {
     object routeImplicit {
 
         // Detail Activity -------------------------------------------------------------------------
-        fun openScriptDetailActivity(context: Context, data: Bundle, option: Bundle){
+        fun startScriptDetailActivity(context: Context, data: Bundle, option: Bundle){
             navigatorImplicit(context, BASE_PACKAGE, SCRIPT_DETAIL_ACTIVITY, data, option = option)
         }
 
-        fun openVideoDetailActivity(context: Context, data: Bundle) {
+        fun startVideoDetailActivity(context: Context, data: Bundle) {
             navigatorImplicit(context, BASE_PACKAGE, VIDEO_DETAIL_ACTIVITY, data)
         }
         // -----------------------------------------------------------------------------------------
 
-        fun openScriptEditorActivity(context: Context, option: Bundle) {
-            navigatorImplicit(context, BASE_PACKAGE, SCRIPT_EDITOR_ACTIVITY, option = option)
+        fun startScriptEditorActivity(context: Context, data: Bundle?, option: Bundle) {
+            navigatorImplicit(context, BASE_PACKAGE, SCRIPT_EDITOR_ACTIVITY, data, option = option)
         }
 
-        fun openRecordActivity(context: Context, data: Bundle) {
+        fun startRecordActivity(context: Context, data: Bundle) {
             navigatorImplicit(context, BASE_PACKAGE, RECORD_ACTIVITY, data)
         }
     }

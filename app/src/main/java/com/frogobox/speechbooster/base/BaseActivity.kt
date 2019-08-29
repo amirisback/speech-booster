@@ -13,6 +13,8 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.frogobox.speechbooster.R
+import com.frogobox.speechbooster.helper.ConstHelper
+import com.frogobox.speechbooster.navigation.Navigation
 import com.frogobox.speechbooster.util.ViewModelFactory
 
 
@@ -73,6 +75,29 @@ abstract class BaseActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(upArrow)
         supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.colorBaseWhite)))
+    }
+
+    protected fun optionToolbar() : Int {
+
+        val optionEdit = Navigation.getBundle.baseGetBundle<Int>(
+            ConstHelper.TypeData.TYPE_INT,
+            this,
+            ConstHelper.Extra.OPTION_ACTIVITY_EDIT
+        )
+        val optionCreate = Navigation.getBundle.baseGetBundle<Int>(
+            ConstHelper.TypeData.TYPE_INT,
+            this,
+            ConstHelper.Extra.OPTION_ACTIVITY_CREATE
+        )
+        var option = 0
+
+        if (optionEdit != 0) {
+            option = optionEdit
+        } else if (optionCreate != 0) {
+            option = optionCreate
+        }
+
+        return option
     }
 
     fun <T : ViewModel> obtainViewModel(viewModelClass: Class<T>) =

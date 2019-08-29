@@ -82,10 +82,10 @@ object Navigation {
     }
 
     fun navigatorImplicit(context: Context, activityPackage: String, className: String,
-                          extras: Bundle = Bundle(), clearStack: Boolean = false, option: Bundle? = null) {
+                          extras: Bundle? = null, clearStack: Boolean = false, option: Bundle? = null) {
         val intent = Intent()
         try {
-            intent.setClassName(activityPackage, className).putExtras(extras)
+            extras?.let { intent.setClassName(activityPackage, className).putExtras(it) }
 
             if (clearStack) {
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
