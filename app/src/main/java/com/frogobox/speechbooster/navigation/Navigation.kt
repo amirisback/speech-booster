@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_BOOLEAN
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_FLOAT
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_INT
+import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_STRING
 import com.frogobox.speechbooster.helper.FunHelper
 
@@ -33,16 +34,9 @@ object Navigation {
 
     lateinit var bundle: Any
 
-    object createBundle {
+    object BundleHelper {
 
-        fun <T> baseCreateBundleObject(extraKey: String, data: T) : Bundle {
-            val extraData = FunHelper.ConverterJson.toJson(data)
-            val extraBundle = Bundle()
-            extraBundle.putString(extraKey, extraData)
-            return extraBundle
-        }
-
-        fun <T> baseCreateBundle(typeKey: String, extraKey: String, data: T) : Bundle {
+        fun <T> createBaseBundle(typeKey: String, extraKey: String, data: T): Bundle {
             val extraBundle = Bundle()
             if (typeKey.equals(TYPE_INT)) {
                 extraBundle.putInt(extraKey, data as Int)
@@ -50,29 +44,29 @@ object Navigation {
                 extraBundle.putString(extraKey, data as String)
             } else if (typeKey.equals(TYPE_FLOAT)) {
                 extraBundle.putFloat(extraKey, data as Float)
+            } else if (typeKey.equals(TYPE_OBJECT)) {
+                val extraData = FunHelper.ConverterJson.toJson(data)
+                extraBundle.putString(extraKey, extraData)
             } else if (typeKey.equals(TYPE_BOOLEAN)) {
                 extraBundle.putBoolean(extraKey, data as Boolean)
             }
             return extraBundle
         }
 
-    }
-
-    object getBundle {
-
-        inline fun <reified Model> baseGetBundleObject(activity: Activity, extraKey: String) : Model {
-            val extraBundle = activity.intent.extras?.getString(extraKey)
-            val extraData = FunHelper.ConverterJson.fromJson<Model>(extraBundle)
-            return extraData
-        }
-
-        fun <T> baseGetBundle(typeKey: String, activity: Activity, extraKey: String) : T {
+        inline fun <reified T> getBaseBundle(
+            typeKey: String,
+            activity: Activity,
+            extraKey: String
+        ): T {
             if (typeKey.equals(TYPE_INT)) {
                 bundle = activity.intent.extras?.getInt(extraKey)!!
             } else if (typeKey.equals(TYPE_STRING)) {
                 bundle = activity.intent.extras?.getString(extraKey)!!
             } else if (typeKey.equals(TYPE_FLOAT)) {
                 bundle = activity.intent.extras?.getFloat(extraKey)!!
+            } else if (typeKey.equals(TYPE_OBJECT)) {
+                val extraBundle = activity.intent.extras?.getString(extraKey)
+                bundle = FunHelper.ConverterJson.fromJson<T>(extraBundle)!!
             } else if (typeKey.equals(TYPE_BOOLEAN)) {
                 bundle = activity.intent.extras?.getBoolean(extraKey)!!
             }
@@ -81,21 +75,20 @@ object Navigation {
 
     }
 
-    fun navigatorImplicit(context: Context, activityPackage: String, className: String,
-                          extras: Bundle? = null, clearStack: Boolean = false, option: Bundle? = null) {
+    fun navigatorImplicit(
+        context: Context, activityPackage: String, className: String,
+        extras: Bundle? = null, clearStack: Boolean = false, option: Bundle? = null
+    ) {
         val intent = Intent()
         try {
             extras?.let { intent.setClassName(activityPackage, className).putExtras(it) }
+            option?.let { intent.setClassName(activityPackage, className).putExtras(it) }
 
             if (clearStack) {
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             }
 
-            if (option != null) {
-                context.startActivity(intent, option)
-            } else {
-                context.startActivity(intent)
-            }
+            context.startActivity(intent)
 
         } catch (e: Exception) {
             Toast.makeText(context, "Activity not found", Toast.LENGTH_SHORT).show()

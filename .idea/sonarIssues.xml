@@ -13,6 +13,11 @@
             <set />
           </value>
         </entry>
+        <entry key="D:/android/sdk/platforms/android-29/android.jar!/android/content/Intent.class">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="D:/android/sdk/platforms/android-29/android.jar!/android/content/res/Resources.class">
           <value>
             <set />
@@ -533,6 +538,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/approval/ApprovalUserActionListener.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/approvalDetail/ApprovalDetailFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/cubication/CubicationFragment.kt">
           <value>
             <set />
@@ -559,6 +574,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/ecerkeranilist/EcerKeraniListFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/ecermandor/EcerMandorFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/ecermandor/EcerMandorViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/ecermandordetail/EcerMandorDetailFragment.kt">
           <value>
             <set />
           </value>

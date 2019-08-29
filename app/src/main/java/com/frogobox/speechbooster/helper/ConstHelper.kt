@@ -60,6 +60,7 @@ class ConstHelper {
         const val TYPE_STRING = "TYPE_STRING"
         const val TYPE_FLOAT = "TYPE_FLOAT"
         const val TYPE_BOOLEAN = "TYPE_BOOLEAN"
+        const val TYPE_OBJECT = "TYPE_OBJECT"
     }
 
     object Code {
