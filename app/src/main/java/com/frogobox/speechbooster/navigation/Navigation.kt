@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import com.frogobox.speechbooster.helper.ConstHelper.Extra.EXTRA_OPTION
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_BOOLEAN
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_FLOAT
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_INT
@@ -54,8 +55,8 @@ object Navigation {
         }
 
         inline fun <reified T> getBaseBundle(
-            typeKey: String,
             activity: Activity,
+            typeKey: String,
             extraKey: String
         ): T {
             if (typeKey.equals(TYPE_INT)) {
@@ -71,6 +72,16 @@ object Navigation {
                 bundle = activity.intent.extras?.getBoolean(extraKey)!!
             }
             return bundle as T
+        }
+
+        fun createOptionBundle(tag: Int): Bundle {
+            val extraBundle = Bundle()
+            extraBundle.putInt(EXTRA_OPTION, tag)
+            return extraBundle
+        }
+
+        fun getOptionBundle(activity: Activity): Int {
+            return activity.intent.extras?.getInt(EXTRA_OPTION)!!
         }
 
     }

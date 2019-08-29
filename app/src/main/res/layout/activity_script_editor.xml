@@ -14,13 +14,26 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:padding="@dimen/dimen_big_16dp"
-            android:text="Name"
             android:elevation="@dimen/dimens_elevation_2dp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_script_date"
+            android:hint="@string/hint_title"
+            android:padding="@dimen/dimen_big_16dp"
+            android:maxLines="1"
+            app:layout_constraintBottom_toTopOf="@+id/view_line"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+            android:id="@+id/view_line"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:background="@color/colorBackground"
+            app:layout_constraintBottom_toTopOf="@+id/tv_script_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_script_title" />
 
     <EditText
             android:id="@+id/et_script_description"
@@ -31,7 +44,7 @@
             android:gravity="top"
             android:inputType="textMultiLine"
             android:padding="@dimen/dimen_big_16dp"
-            android:text="Name"
+            android:hint="@string/hint_description"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,9 +54,11 @@
             android:id="@+id/tv_script_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:text="TextView"
+            android:layout_marginBottom="8dp"
+            android:text="29 Agustus 2019"
             app:layout_constraintBottom_toTopOf="@+id/et_script_description"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_script_title" />
+            app:layout_constraintTop_toBottomOf="@+id/view_line" />
 </androidx.constraintlayout.widget.ConstraintLayout>
