@@ -22,19 +22,19 @@
 
     <item
             android:id="@+id/bottom_menu_myscript"
-            android:icon="@drawable/ic_bottom_nav_myscript_24dp"
+            android:icon="@drawable/ic_bottom_nav_myscrip"
             android:title="@string/title_myscript"
             app:showAsAction="ifRoom"/>
 
     <item
             android:id="@+id/bottom_menu_video"
-            android:icon="@drawable/ic_bottom_nav_video_24dp"
+            android:icon="@drawable/ic_bottom_nav_video"
             android:title="@string/title_video"
             app:showAsAction="ifRoom"/>
 
     <item
             android:id="@+id/bottom_menu_sample_script"
-            android:icon="@drawable/ic_bottom_nav_example_script_24dp"
+            android:icon="@drawable/ic_bottom_nav_example_script"
             android:title="@string/title_sample_script"
             app:showAsAction="ifRoom"/>
 

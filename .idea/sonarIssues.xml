@@ -33,6 +33,11 @@
             <set />
           </value>
         </entry>
+        <entry key="D:/android/sdk/platforms/android-29/android.jar!/android/view/SurfaceView.class">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../CODELABS-GOOGLE/android-room-with-a-view-kotlin/app/src/main/java/com/example/android/roomwordssample/MainActivity.kt">
           <value>
             <set />
@@ -479,6 +484,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_note_add.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_record.xml">
           <value>
             <set />
           </value>

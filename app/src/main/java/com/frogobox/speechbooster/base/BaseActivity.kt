@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.frogobox.speechbooster.helper.FunHelper
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
+import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
@@ -42,6 +44,14 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mActivity = this
 
+    }
+
+    protected fun noLimitStatBar() {
+        val windows = window // in Activity's onCreate() for instance
+        windows.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
     }
 
     protected fun setupBaseFragment(frameId: Int, fragment: Fragment) {

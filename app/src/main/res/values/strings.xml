@@ -16,5 +16,9 @@
     <string name="hint_description">Description</string>
     <string name="dialog_button_yes">Ya</string>
     <string name="dialog_button_no">Tidak</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="permission_message">Permisi</string>
+    <string name="permission_required">Minta Permisi</string>
+    <string name="permission_warning">Bahaya</string>
 
 </resources>
