@@ -11,35 +11,57 @@ import com.frogobox.speechbooster.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.navigation.Navigation.BundleHelper.getBaseBundle
+import com.frogobox.speechbooster.viewmodel.ScriptEditorViewModel
 import kotlinx.android.synthetic.main.activity_script_editor.*
 
 class ScriptEditorActivity : BaseActivity() {
 
+    lateinit var mViewModel: ScriptEditorViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_script_editor)
+        setupViewModel()
         setupDetailActivity("")
-        setupRole()
+        setupRole({setupExtraData()}){}
     }
 
-    fun setupRole(){
-
-        if (tagOption() == TAG_ACTIVITY_EDIT) {
-            setupExtraData()
-        } else if (tagOption() == TAG_ACTIVITY_CREATE) {
+    private fun setupViewModel() {
+        mViewModel = obtainScriptViewModel().apply {
 
         }
-
     }
 
-    fun setupExtraData() {
+    private fun setupRole(listenerEdit: ()-> Unit, listenerCreate: () -> Unit){
+        if (tagOption() == TAG_ACTIVITY_EDIT) {
+            listenerEdit()
+        } else if (tagOption() == TAG_ACTIVITY_CREATE) {
+            listenerCreate()
+        }
+    }
+
+    private fun saveToRoom() {
+        val textTitle = et_script_title.text.toString()
+        val textDescription = et_script_description.text.toString()
+        val dataScript = Script(title = textTitle, description = textDescription)
+        mViewModel.saveData(dataScript)
+    }
+
+    private fun updateToRoom() {
+        val textTitle = et_script_title.text.toString()
+        val textDescription = et_script_description.text.toString()
+        val dataScript = Script(title = textTitle, description = textDescription)
+//        mViewModel.saveData(dataScript)
+    }
+
+    private fun setupExtraData() {
         val extraData = getBaseBundle<Script>(mActivity, TYPE_OBJECT,  EXTRA_SCRIPT)
         et_script_title.setText(extraData.title)
         et_script_description.setText(extraData.description)
     }
 
 
-
+    private fun obtainScriptViewModel(): ScriptEditorViewModel = obtainViewModel(ScriptEditorViewModel::class.java)
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_toolbar_accept, menu)
@@ -50,6 +72,11 @@ class ScriptEditorActivity : BaseActivity() {
         return when (item.itemId) {
 
             R.id.toolbar_menu_accept -> {
+                setupRole({
+                    updateToRoom()
+                }){
+                    saveToRoom()
+                }
                 true
             }
 

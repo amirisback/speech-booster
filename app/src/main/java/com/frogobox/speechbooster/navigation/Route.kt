@@ -33,17 +33,17 @@ object Route {
     }
 
     object Endpoint {
-        const val SCRIPT_DETAIL_ACTIVITY  = "com.frogobox.speechbooster.view.activity.ScriptDetailActivity"
-        const val SCRIPT_EDITOR_ACTIVITY  = "com.frogobox.speechbooster.view.activity.ScriptEditorActivity"
-        const val VIDEO_DETAIL_ACTIVITY   = "com.frogobox.speechbooster.view.activity.VideoDetailActivity"
-        const val RECORD_ACTIVITY         = "com.frogobox.speechbooster.view.activity.RecordActivity"
+        const val SCRIPT_DETAIL_ACTIVITY  = "$BASE_PACKAGE.view.activity.ScriptDetailActivity"
+        const val SCRIPT_EDITOR_ACTIVITY  = "$BASE_PACKAGE.view.activity.ScriptEditorActivity"
+        const val VIDEO_DETAIL_ACTIVITY   = "$BASE_PACKAGE.view.activity.VideoDetailActivity"
+        const val RECORD_ACTIVITY         = "$BASE_PACKAGE.view.activity.RecordActivity"
 
     }
 
     object routeImplicit {
 
         // Detail Activity -------------------------------------------------------------------------
-        fun startScriptDetailActivity(context: Context, data: Bundle, option: Bundle){
+        fun startScriptDetailActivity(context: Context, data: Bundle, option: Bundle) {
             navigatorImplicit(context, BASE_PACKAGE, SCRIPT_DETAIL_ACTIVITY, data, option = option)
         }
 

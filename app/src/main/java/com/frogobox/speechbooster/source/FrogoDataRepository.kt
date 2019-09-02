@@ -3,6 +3,7 @@ package com.frogobox.speechbooster.source
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.source.local.FrogoLocalDataSource
 import com.frogobox.speechbooster.source.remote.FrogoRemoteDataSource
+import com.frogobox.speechbooster.util.SingleLiveEvent
 
 /**
  * Created by Faisal Amir
@@ -26,6 +27,18 @@ open class FrogoDataRepository(val remoteDataSource: FrogoRemoteDataSource,
 
     override fun saveRoomScript(data: Script) {
         localDataSource.saveRoomScript(data)
+    }
+
+    override fun updateRoomScript(data: Script, param: String) {
+        localDataSource.updateRoomScript(data, param)
+    }
+
+    override fun deleteRoomScript(param: String) {
+        localDataSource.deleteRoomScript(param)
+    }
+
+    override fun getRoomScript(callback: FrogoDataSource.GetRoomDataCallBack<List<Script>>) {
+       return localDataSource.getRoomScript(callback)
     }
 
 

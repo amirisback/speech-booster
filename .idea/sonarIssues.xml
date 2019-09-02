@@ -28,7 +28,42 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../CODELABS-GOOGLE/android-room-with-a-view-kotlin/app/src/main/java/com/example/android/roomwordssample/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../CODELABS-GOOGLE/android-room-with-a-view-kotlin/app/src/main/java/com/example/android/roomwordssample/WordDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../CODELABS-GOOGLE/android-room-with-a-view-kotlin/app/src/main/java/com/example/android/roomwordssample/WordRepository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../CODELABS-GOOGLE/android-room-with-a-view-kotlin/app/src/main/java/com/example/android/roomwordssample/WordViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build/generated/source/kapt/debug/com/frogobox/speechbooster/source/dao/ScriptDao_Impl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/frogobox/speechbooster/source/dao/ScriptDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/frogobox/speechbooster/source/local/FrogoAppDatabase.java">
           <value>
             <set />
           </value>
@@ -54,6 +89,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/base/BaseApiModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/base/BaseCallback.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/base/BaseCallbackAsync.kt">
           <value>
             <set />
           </value>
@@ -343,6 +388,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/viewmodel/ScriptEditorViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/viewmodel/ScriptViewModel.kt">
           <value>
             <set />
@@ -498,12 +548,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/FOOTSTEPMILL/android-footstep-mill/apputils/src/main/java/id/co/gits/gitsutils/GitsRouteNavigation.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/FOOTSTEPMILL/android-footstep-mill/apputils/src/main/java/id/co/gits/gitsutils/helper/extensions/ActivityExt.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/build/generated/source/kapt/productionDebug/ssc/surfacing/gits/databinding/ContainerHeaderUploadBinding.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/AndroidManifest.xml">
           <value>
             <set />
           </value>
@@ -529,6 +594,51 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/source/local/GitsLocalDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/source/local/dao/AssetDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/source/local/dao/BlockDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/source/local/dao/DestinationNoteDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/source/local/dao/KonfirmasiPengirimanDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/source/local/dao/PhotoRoomDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/source/local/dao/RencanaKerjaApprovalDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/source/local/dao/RencanaKerjaDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/source/local/dao/RencanaKerjaMandorDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/source/local/dao/UserDao.kt">
           <value>
             <set />
           </value>
@@ -578,12 +688,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/ecermandor/EcerMandorAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/ecermandor/EcerMandorFragment.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/ecermandor/EcerMandorViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/ecermandordetail/EcerMandorDetailActivity.kt">
           <value>
             <set />
           </value>
@@ -598,7 +718,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/main/MainFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/main/MainViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/mainbar/MainBarFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/mainbar/MainBarViewModel.kt">
           <value>
             <set />
           </value>
@@ -614,6 +749,81 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/Starter Kits/gits-mvvm-kotlin-v2.0.0-master/gits-mvvm-kotlin-v2.0.0-master/gitsutils/src/main/java/id/co/gits/gitsutils/extensions/PreferencesExt.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/CameraActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/CategoryDescriptionActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/DetailDescriptionActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/activity/CameraActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/activity/CategoryDescriptionActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/activity/ControlEditorActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/activity/DetailDescriptionActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/activity/EditorListActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/activity/MainActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/adapter/CategoryAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/adapter/ListAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/adapter/ListRecyclerAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/helper/CameraPreview.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/helper/DatabaseHelper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/model/CategoryClass.java">
           <value>
             <set />
           </value>

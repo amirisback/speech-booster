@@ -21,15 +21,16 @@ import androidx.room.PrimaryKey
  * com.frogobox.speechbooster.model
  *
  */
-@Entity(tableName = "script")
+@Entity(tableName = "script_table")
 data class Script(
 
     @PrimaryKey(autoGenerate = true)
-    var id: Int = 0,
+    @ColumnInfo(name = "table_id")
+    var table_id: Int? = 0,
 
     @ColumnInfo(name = "title")
-    val title: String,
+    var title: String? = "",
 
     @ColumnInfo(name = "description")
-    val description: String
+    var description: String? = ""
 )
