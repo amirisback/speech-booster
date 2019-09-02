@@ -29,8 +29,14 @@ interface ScriptDao {
     @Query("SELECT * FROM script_table")
     fun getAllData(): Single<List<Script>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     fun insertData(data: Script)
+
+    @Query("UPDATE script_table SET title = :title, description = :description, dateTime = :dateTime WHERE table_id = :tableid")
+    fun updateData(tableid: Int, title: String, description: String, dateTime: String)
+
+    @Query("DELETE FROM script_table WHERE table_id = :tableid")
+    fun deleteData(tableid: Int)
 
     @Query("DELETE FROM script_table")
     fun nukeData()

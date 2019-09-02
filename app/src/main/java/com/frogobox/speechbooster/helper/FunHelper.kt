@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import android.widget.Toast
 import com.frogobox.speechbooster.BuildConfig
 import com.frogobox.speechbooster.helper.ConstHelper.Pref.PREF_NAME
 import com.google.gson.Gson
@@ -57,6 +58,10 @@ class FunHelper {
 
         fun showVersion() : String {
             return "Version " + BuildConfig.VERSION_NAME
+        }
+
+        fun showToast(context: Context, message: String) {
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
 
     }

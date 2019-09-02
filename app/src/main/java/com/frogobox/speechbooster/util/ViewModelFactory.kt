@@ -5,7 +5,9 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.frogobox.speechbooster.source.FrogoDataRepository
+import com.frogobox.speechbooster.viewmodel.ScriptDetailViewModel
 import com.frogobox.speechbooster.viewmodel.ScriptEditorViewModel
+import com.frogobox.speechbooster.viewmodel.ScriptMainViewModel
 
 /**
  * Created by Faisal Amir
@@ -35,7 +37,10 @@ class ViewModelFactory private constructor(
             when {
                 isAssignableFrom(ScriptEditorViewModel::class.java) ->
                     ScriptEditorViewModel(mApplication, frogoDataRepository)
-
+                isAssignableFrom(ScriptMainViewModel::class.java) ->
+                    ScriptMainViewModel(mApplication, frogoDataRepository)
+                isAssignableFrom(ScriptDetailViewModel::class.java) ->
+                    ScriptDetailViewModel(mApplication, frogoDataRepository)
                 else ->
                     throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
             }

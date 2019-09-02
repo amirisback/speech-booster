@@ -23,11 +23,12 @@ import com.frogobox.speechbooster.navigation.Route.routeImplicit.startScriptEdit
 import com.frogobox.speechbooster.view.activity.MainActivity
 import com.frogobox.speechbooster.view.viewadapter.adapter.ScriptAdapter
 import com.frogobox.speechbooster.viewmodel.ScriptEditorViewModel
+import com.frogobox.speechbooster.viewmodel.ScriptMainViewModel
 import kotlinx.android.synthetic.main.fragment_script.*
 
 class ScriptFragment : BaseFragment(), BaseListener<Script> {
 
-    lateinit var mViewModel: ScriptEditorViewModel
+    lateinit var mViewModel: ScriptMainViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +40,7 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
     }
 
     fun setupViewModel() {
-        mViewModel = (activity as MainActivity).obtainScriptViewModel().apply {
+        mViewModel = (activity as MainActivity).obtainScriptMainViewModel().apply {
 
             scriptLive.observe(this@ScriptFragment, Observer {
                 setupRecyclerView(it)
@@ -48,10 +49,10 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
         }
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupFabButton()
+        setupDataRoomScript()
     }
 
     private fun setupFabButton() {
@@ -65,13 +66,16 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
 
     }
 
-    private fun setupRecyclerView(noteList: List<Script>) {
-//        val noteList = mutableListOf<Script>()
-//        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummyLong)))
-//        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummy)))
-//        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummy)))
-//        noteList.add(Script(1, getString(R.string.dummy), getString(R.string.dummyLong)))
+    override fun onResume() {
+        super.onResume()
+        setupDataRoomScript()
+    }
 
+    private fun setupDataRoomScript(){
+        mViewModel.getData()
+    }
+
+    private fun setupRecyclerView(noteList: List<Script>) {
         val adapter = ScriptAdapter()
         context?.let { adapter.setLayoutItem(it, R.layout.recyclerview_item_notes) }
         adapter.setListener(this)

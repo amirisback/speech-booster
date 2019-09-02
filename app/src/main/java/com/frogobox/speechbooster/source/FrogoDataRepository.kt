@@ -25,21 +25,31 @@ import com.frogobox.speechbooster.util.SingleLiveEvent
 open class FrogoDataRepository(val remoteDataSource: FrogoRemoteDataSource,
                                val localDataSource: FrogoLocalDataSource) : FrogoDataSource {
 
-    override fun saveRoomScript(data: Script) {
-        localDataSource.saveRoomScript(data)
+    override fun saveRoomScript(data: Script): Boolean {
+        return localDataSource.saveRoomScript(data)
     }
 
-    override fun updateRoomScript(data: Script, param: String) {
-        localDataSource.updateRoomScript(data, param)
+    override fun updateRoomScript(
+        tableId: Int,
+        title: String,
+        description: String,
+        dateTime: String
+    ): Boolean {
+        return localDataSource.updateRoomScript(tableId, title, description, dateTime)
     }
 
-    override fun deleteRoomScript(param: String) {
-        localDataSource.deleteRoomScript(param)
+    override fun deleteRoomScript(tableId: Int): Boolean {
+        return localDataSource.deleteRoomScript(tableId)
     }
 
     override fun getRoomScript(callback: FrogoDataSource.GetRoomDataCallBack<List<Script>>) {
        return localDataSource.getRoomScript(callback)
     }
+
+    override fun nukeRoomScript(): Boolean {
+        return localDataSource.nukeRoomScript()
+    }
+
 
 
     companion object {

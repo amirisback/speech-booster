@@ -3,9 +3,7 @@ package com.frogobox.speechbooster.viewmodel
 import android.app.Application
 import com.frogobox.speechbooster.base.BaseViewModel
 import com.frogobox.speechbooster.helper.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
-import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.source.FrogoDataRepository
-import com.frogobox.speechbooster.util.SingleLiveEvent
 import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
 
 /**
@@ -13,7 +11,7 @@ import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
  * FrogoBox Inc License
  * =========================================
  * SpeechBooster
- * Copyright (C) 26/08/2019.
+ * Copyright (C) 02/09/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -25,28 +23,14 @@ import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
  * com.frogobox.speechbooster.viewmodel
  *
  */
-class ScriptEditorViewModel(
+class ScriptDetailViewModel(
     application: Application,
     private val frogoDataRepository: FrogoDataRepository
 ) : BaseViewModel(application) {
 
-    fun saveData(data: Script, callback: ScriptEditorViewCallback) {
+    fun deleteData(tableId: Int, callback: ScriptEditorViewCallback){
         callback.onShowProgress()
-        if (frogoDataRepository.saveRoomScript(data)) {
-            callback.onHideProgress()
-            callback.onSucces()
-        } else {
-            callback.onHideProgress()
-            callback.onFailed(DEFAULT_ERROR_MESSAGE)
-        }
-    }
-
-    fun updateData(tableId: Int, data: Script, callback: ScriptEditorViewCallback) {
-        callback.onShowProgress()
-        val newTitle = data.title!!
-        val newDescription = data.description!!
-        val newDateTime = data.dateTime!!
-        if (frogoDataRepository.updateRoomScript(tableId, newTitle, newDescription, newDateTime)) {
+        if (frogoDataRepository.deleteRoomScript(tableId)) {
             callback.onHideProgress()
             callback.onSucces()
         } else {

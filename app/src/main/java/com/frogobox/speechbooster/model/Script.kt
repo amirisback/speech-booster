@@ -26,11 +26,14 @@ data class Script(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "table_id")
-    var table_id: Int? = 0,
+    var table_id: Int = 0,
 
     @ColumnInfo(name = "title")
     var title: String? = "",
 
     @ColumnInfo(name = "description")
-    var description: String? = ""
+    var description: String? = "",
+
+    @ColumnInfo(name = "dateTime")
+    var dateTime: String? = ""
 )

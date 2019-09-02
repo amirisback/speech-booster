@@ -85,10 +85,13 @@ class ConstHelper {
     object Tag {
         const val TAG_ACTIVITY_EDIT = 300
         const val TAG_ACTIVITY_CREATE = 301
+
+        const val TAG_FROM_ACTIVITY = 801
+        const val TAG_FROM_FRAGMENT = 800
     }
 
     object Const {
-        const val JOGET_VAR_ORG = "org"
+        const val DEFAULT_ERROR_MESSAGE = "Failed"
 
     }
 

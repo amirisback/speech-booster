@@ -4,9 +4,6 @@ import android.content.Context
 import com.frogobox.speechbooster.helper.FunHelper.Func.noAction
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.source.FrogoDataSource
-import com.frogobox.speechbooster.util.SingleLiveEvent
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 
 /**
  * Created by Faisal Amir
@@ -27,21 +24,29 @@ import io.reactivex.disposables.Disposable
  */
 class FrogoRemoteDataSource(private val context: Context) : FrogoDataSource {
 
-    override fun saveRoomScript(data: Script) {
-        noAction()
+    override fun saveRoomScript(data: Script): Boolean {
+        return noAction()
     }
 
-    override fun updateRoomScript(data: Script, param: String) {
-        noAction()
+    override fun updateRoomScript(
+        tableId: Int,
+        title: String,
+        description: String,
+        dateTime: String
+    ): Boolean {
+        return noAction()
     }
 
-    override fun deleteRoomScript(param: String) {
-        noAction()
+    override fun deleteRoomScript(tableId: Int): Boolean {
+        return noAction()
     }
 
     override fun getRoomScript(callback: FrogoDataSource.GetRoomDataCallBack<List<Script>>) {
         noAction()
     }
 
+    override fun nukeRoomScript(): Boolean {
+        return noAction()
+    }
 
 }

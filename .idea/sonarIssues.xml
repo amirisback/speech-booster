@@ -13,6 +13,11 @@
             <set />
           </value>
         </entry>
+        <entry key="D:/android/sdk/platforms/android-29/android.jar!/android/content/ContextWrapper.class">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="D:/android/sdk/platforms/android-29/android.jar!/android/content/Intent.class">
           <value>
             <set />
@@ -29,6 +34,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../CODELABS-GOOGLE/android-room-with-a-view-kotlin/app/src/main/java/com/example/android/roomwordssample/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../CODELABS-GOOGLE/android-room-with-a-view-kotlin/app/src/main/java/com/example/android/roomwordssample/Word.kt">
           <value>
             <set />
           </value>
@@ -119,6 +129,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/base/BaseViewAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/base/BaseViewCallback.kt">
           <value>
             <set />
           </value>
@@ -358,6 +373,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/callback/ScriptEditorViewCallback.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/callback/ScriptViewCallback.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/fragment/ExampleScriptFragment.kt">
           <value>
             <set />
@@ -388,7 +413,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/viewmodel/ScriptDetailViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/viewmodel/ScriptEditorViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/viewmodel/ScriptMainViewModel.kt">
           <value>
             <set />
           </value>

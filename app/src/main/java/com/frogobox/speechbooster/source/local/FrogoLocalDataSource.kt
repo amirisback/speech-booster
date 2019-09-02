@@ -3,7 +3,6 @@ package com.frogobox.speechbooster.source.local
 import android.content.SharedPreferences
 import androidx.annotation.VisibleForTesting
 import com.frogobox.speechbooster.base.BaseCallback
-import com.frogobox.speechbooster.helper.FunHelper.Func.noAction
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.source.FrogoDataSource
 import com.frogobox.speechbooster.source.dao.ScriptDao
@@ -33,20 +32,40 @@ import io.reactivex.schedulers.Schedulers
 class FrogoLocalDataSource private constructor(
     private val appExecutors: AppExecutors,
     private val sharedPreferences: SharedPreferences,
-    private val scriptDao: ScriptDao) : FrogoDataSource {
+    private val scriptDao: ScriptDao
+) : FrogoDataSource {
 
-    override fun saveRoomScript(data: Script) {
+    override fun saveRoomScript(data: Script): Boolean {
         appExecutors.diskIO.execute {
             scriptDao.insertData(data)
         }
+        return true
     }
 
-    override fun updateRoomScript(data: Script, param: String) {
-        noAction()
+    override fun updateRoomScript(
+        tableId: Int,
+        title: String,
+        description: String,
+        dateTime: String
+    ): Boolean {
+        appExecutors.diskIO.execute {
+            scriptDao.updateData(tableId, title, description, dateTime)
+        }
+        return true
     }
 
-    override fun deleteRoomScript(param: String) {
-        noAction()
+    override fun deleteRoomScript(tableId: Int): Boolean {
+        appExecutors.diskIO.execute {
+            scriptDao.deleteData(tableId)
+        }
+        return true
+    }
+
+    override fun nukeRoomScript(): Boolean {
+        appExecutors.diskIO.execute {
+            scriptDao.nukeData()
+        }
+        return true
     }
 
     override fun getRoomScript(callback: FrogoDataSource.GetRoomDataCallBack<List<Script>>) {
@@ -113,7 +132,8 @@ class FrogoLocalDataSource private constructor(
                     INSTANCE = FrogoLocalDataSource(
                         appExecutors,
                         sharedPreferences,
-                        scriptDao)
+                        scriptDao
+                    )
                 }
             }
             return INSTANCE!!
@@ -124,5 +144,5 @@ class FrogoLocalDataSource private constructor(
             INSTANCE = null
         }
     }
-    
+
 }

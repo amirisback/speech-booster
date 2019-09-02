@@ -26,16 +26,19 @@ interface FrogoDataSource : BaseDataSource {
 
     // Room Database -------------------------------------------------------------------------------
     // Save
-    fun saveRoomScript(data: Script)
+    fun saveRoomScript(data: Script) : Boolean
 
     // Get
     fun getRoomScript(callback: GetRoomDataCallBack<List<Script>>)
 
     // Update
-    fun updateRoomScript(data: Script, param: String)
+    fun updateRoomScript(tableId: Int, title: String, description: String, dateTime: String) : Boolean
 
     // Delete
-    fun deleteRoomScript(param: String)
+    fun deleteRoomScript(tableId: Int) : Boolean
+
+    // Nuke
+    fun nukeRoomScript() : Boolean
     // ---------------------------------------------------------------------------------------------
 
     // Interface Helper ---------------------------------------------------------------------------
