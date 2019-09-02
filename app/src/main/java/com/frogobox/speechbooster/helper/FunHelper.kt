@@ -1,11 +1,14 @@
 package com.frogobox.speechbooster.helper
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.widget.Toast
 import com.frogobox.speechbooster.BuildConfig
+import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.helper.ConstHelper.Pref.PREF_NAME
 import com.google.gson.Gson
 import java.text.SimpleDateFormat
@@ -43,6 +46,29 @@ class FunHelper {
     }
 
     object Func {
+
+        fun createDialogDefault(context: Context, title: String, message: String, listener: ()-> Unit) {
+            val dialogBuilder = AlertDialog.Builder(context)
+            // set message of alert dialog
+            dialogBuilder.setMessage(message)
+                // if the dialog is cancelable
+                .setCancelable(false)
+                // positive button text and action
+                .setPositiveButton(context.getText(R.string.dialog_button_yes), DialogInterface.OnClickListener {
+                        dialog, id -> listener()
+                })
+                // negative button text and action
+                .setNegativeButton(context.getText(R.string.dialog_button_no), DialogInterface.OnClickListener {
+                        dialog, id -> dialog.cancel()
+                })
+
+            // create dialog box
+            val alert = dialogBuilder.create()
+            // set title for alert dialog box
+            alert.setTitle(title)
+            // show alert dialog
+            alert.show()
+        }
 
         fun noAction() : Boolean {
             return true

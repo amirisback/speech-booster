@@ -1,13 +1,13 @@
-package com.frogobox.speechbooster.navigation
+package com.frogobox.speechbooster.view.navigation
 
 import android.content.Context
 import android.os.Bundle
-import com.frogobox.speechbooster.navigation.Navigation.navigatorImplicit
-import com.frogobox.speechbooster.navigation.Route.Endpoint.RECORD_ACTIVITY
-import com.frogobox.speechbooster.navigation.Route.Endpoint.SCRIPT_DETAIL_ACTIVITY
-import com.frogobox.speechbooster.navigation.Route.Endpoint.SCRIPT_EDITOR_ACTIVITY
-import com.frogobox.speechbooster.navigation.Route.Endpoint.VIDEO_DETAIL_ACTIVITY
-import com.frogobox.speechbooster.navigation.Route.Module.BASE_PACKAGE
+import com.frogobox.speechbooster.view.navigation.Navigation.navigatorImplicit
+import com.frogobox.speechbooster.view.navigation.Route.Endpoint.RECORD_ACTIVITY
+import com.frogobox.speechbooster.view.navigation.Route.Endpoint.SCRIPT_DETAIL_ACTIVITY
+import com.frogobox.speechbooster.view.navigation.Route.Endpoint.SCRIPT_EDITOR_ACTIVITY
+import com.frogobox.speechbooster.view.navigation.Route.Endpoint.VIDEO_DETAIL_ACTIVITY
+import com.frogobox.speechbooster.view.navigation.Route.Module.BASE_PACKAGE
 
 /**
  * Created by Faisal Amir
@@ -23,7 +23,7 @@ import com.frogobox.speechbooster.navigation.Route.Module.BASE_PACKAGE
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.speechbooster.navigation
+ * com.frogobox.speechbooster.view.navigation
  *
  */
 object Route {

@@ -16,13 +16,12 @@ import com.frogobox.speechbooster.helper.ConstHelper.Tag.TAG_ACTIVITY_CREATE
 import com.frogobox.speechbooster.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.model.Script
-import com.frogobox.speechbooster.navigation.Navigation.BundleHelper.createBaseBundle
-import com.frogobox.speechbooster.navigation.Navigation.BundleHelper.createOptionBundle
-import com.frogobox.speechbooster.navigation.Route.routeImplicit.startScriptDetailActivity
-import com.frogobox.speechbooster.navigation.Route.routeImplicit.startScriptEditorActivity
+import com.frogobox.speechbooster.view.navigation.Navigation.BundleHelper.createBaseBundle
+import com.frogobox.speechbooster.view.navigation.Navigation.BundleHelper.createOptionBundle
+import com.frogobox.speechbooster.view.navigation.Route.routeImplicit.startScriptDetailActivity
+import com.frogobox.speechbooster.view.navigation.Route.routeImplicit.startScriptEditorActivity
 import com.frogobox.speechbooster.view.activity.MainActivity
 import com.frogobox.speechbooster.view.viewadapter.adapter.ScriptAdapter
-import com.frogobox.speechbooster.viewmodel.ScriptEditorViewModel
 import com.frogobox.speechbooster.viewmodel.ScriptMainViewModel
 import kotlinx.android.synthetic.main.fragment_script.*
 

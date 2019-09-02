@@ -14,7 +14,7 @@ import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.helper.DateHelper.Companion.getCurrentDate
 import com.frogobox.speechbooster.helper.FunHelper.Func.showToast
 import com.frogobox.speechbooster.model.Script
-import com.frogobox.speechbooster.navigation.Navigation.BundleHelper.getBaseBundle
+import com.frogobox.speechbooster.view.navigation.Navigation.BundleHelper.getBaseBundle
 import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
 import com.frogobox.speechbooster.viewmodel.ScriptEditorViewModel
 import kotlinx.android.synthetic.main.activity_script_editor.*
@@ -26,8 +26,9 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_script_editor)
-        setupViewModel()
         setupDetailActivity("")
+        setupCreateView()
+        setupViewModel()
         setupRole({setupExtraData()}){}
     }
 
@@ -45,10 +46,14 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
         }
     }
 
+    private fun setupCreateView(){
+        tv_script_date.text = getCurrentDate(DATE_DD_MM_YYYY)
+    }
+
     private fun saveToRoom() {
         val textTitle = et_script_title.text.toString()
         val textDescription = et_script_description.text.toString()
-        val dataScript = Script(title = textTitle, description = textDescription)
+        val dataScript = Script(title = textTitle, description = textDescription, dateTime = getCurrentDate(DATE_DD_MM_YYYY))
         mViewModel.saveData(dataScript, this)
     }
 

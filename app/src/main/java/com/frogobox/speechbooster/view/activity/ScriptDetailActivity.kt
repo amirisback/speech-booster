@@ -8,13 +8,14 @@ import com.frogobox.speechbooster.base.BaseActivity
 import com.frogobox.speechbooster.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_OBJECT
+import com.frogobox.speechbooster.helper.FunHelper.Func.createDialogDefault
 import com.frogobox.speechbooster.helper.FunHelper.Func.showToast
 import com.frogobox.speechbooster.model.Script
-import com.frogobox.speechbooster.navigation.Navigation.BundleHelper.createBaseBundle
-import com.frogobox.speechbooster.navigation.Navigation.BundleHelper.createOptionBundle
-import com.frogobox.speechbooster.navigation.Navigation.BundleHelper.getBaseBundle
-import com.frogobox.speechbooster.navigation.Route.routeImplicit.startRecordActivity
-import com.frogobox.speechbooster.navigation.Route.routeImplicit.startScriptEditorActivity
+import com.frogobox.speechbooster.view.navigation.Navigation.BundleHelper.createBaseBundle
+import com.frogobox.speechbooster.view.navigation.Navigation.BundleHelper.createOptionBundle
+import com.frogobox.speechbooster.view.navigation.Navigation.BundleHelper.getBaseBundle
+import com.frogobox.speechbooster.view.navigation.Route.routeImplicit.startRecordActivity
+import com.frogobox.speechbooster.view.navigation.Route.routeImplicit.startScriptEditorActivity
 import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
 import com.frogobox.speechbooster.viewmodel.ScriptDetailViewModel
 import kotlinx.android.synthetic.main.activity_script_detail.*
@@ -73,11 +74,16 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback {
         val extras = createBaseBundle(TYPE_OBJECT, EXTRA_SCRIPT, data)
         val option = createOptionBundle(TAG_ACTIVITY_EDIT)
         startScriptEditorActivity(this, extras, option)
+        finish()
     }
 
     private fun listenerMenuDelete() {
-        val data = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
-        mViewModel.deleteData(data.table_id!!, this)
+        val titleDialog = "Hapus data"
+        val messageDialog = "Apakah anda yakin ingin menghapus dialog ?"
+        createDialogDefault(this, titleDialog, messageDialog) {
+            val data = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
+            mViewModel.deleteData(data.table_id, this)
+        }
     }
 
 

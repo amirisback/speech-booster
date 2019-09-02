@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.navigation
+package com.frogobox.speechbooster.view.navigation
 
 import android.app.Activity
 import android.content.Context
@@ -27,7 +27,7 @@ import com.frogobox.speechbooster.helper.FunHelper
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.speechbooster.navigation
+ * com.frogobox.speechbooster.view.navigation
  *
  */
 

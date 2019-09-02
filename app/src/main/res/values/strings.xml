@@ -14,5 +14,7 @@
     <string name="text_accept">Accept</string>
     <string name="hint_title">Title</string>
     <string name="hint_description">Description</string>
+    <string name="dialog_button_yes">Ya</string>
+    <string name="dialog_button_no">Tidak</string>
 
 </resources>

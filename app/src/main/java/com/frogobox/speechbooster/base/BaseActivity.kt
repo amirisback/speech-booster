@@ -13,7 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.navigation.Navigation.BundleHelper.getOptionBundle
+import com.frogobox.speechbooster.view.navigation.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ViewModelFactory
 
 
