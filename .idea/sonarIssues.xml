@@ -38,6 +38,31 @@
             <set />
           </value>
         </entry>
+        <entry key="D:/android/sdk/platforms/android-29/android.jar!/java/util/concurrent/Semaphore.class">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../CODELABS-GOOGLE/RecordingVideo/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../CODELABS-GOOGLE/RecordingVideo/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../CODELABS-GOOGLE/RecordingVideo/app/src/main/java/com/frogobox/recordingvideo/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../CODELABS-GOOGLE/RecordingVideo/app/src/main/res/layout/activity_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../CODELABS-GOOGLE/android-room-with-a-view-kotlin/app/src/main/java/com/example/android/roomwordssample/MainActivity.kt">
           <value>
             <set />
@@ -273,7 +298,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/util/AutoFitTextureView.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/util/CompareSizeByArea.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/util/CompareSizesByArea.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/util/Converters.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/util/DialogConfirmation.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/util/DialogError.kt">
           <value>
             <set />
           </value>
@@ -393,6 +443,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/fragment/RecordFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/fragment/ScriptFragment.kt">
           <value>
             <set />
@@ -493,6 +548,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_record_new.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_script.xml">
           <value>
             <set />
@@ -509,6 +569,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/fragment_example_script.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/fragment_record.xml">
           <value>
             <set />
           </value>
@@ -798,6 +863,51 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Camera2Video/androidx/kotlinApp/Application/src/main/java/com/example/android/camera2video/AutoFitTextureView.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Camera2Video/androidx/kotlinApp/Application/src/main/java/com/example/android/camera2video/Camera2VideoFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Camera2Video/androidx/kotlinApp/Application/src/main/java/com/example/android/camera2video/CameraActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Camera2Video/androidx/kotlinApp/Application/src/main/java/com/example/android/camera2video/ConfirmationDialog.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Camera2Video/androidx/kotlinApp/Application/src/main/java/com/example/android/camera2video/ConstHelper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Camera2Video/androidx/kotlinApp/Application/src/main/java/com/example/android/camera2video/dialog/DialogConfirmation.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Camera2Video/androidx/kotlinApp/Application/src/main/java/com/example/android/camera2video/dialog/DialogError.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Camera2Video/kotlinApp/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Camera2Video/kotlinApp/gradle/wrapper/gradle-wrapper.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/CameraActivity.java">
           <value>
             <set />
@@ -843,6 +953,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/activity/util/ImageSaver.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/adapter/CategoryAdapter.java">
           <value>
             <set />
@@ -869,6 +984,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/java/org/d3ifcool/belajarpidato/model/CategoryClass.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../Pidato/40-mobpro-4002-belajar-pidato-master/app/src/main/res/layout/activity_camera.xml">
           <value>
             <set />
           </value>

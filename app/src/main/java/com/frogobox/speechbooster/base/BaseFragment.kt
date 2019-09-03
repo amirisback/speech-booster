@@ -30,6 +30,13 @@ abstract class BaseFragment : Fragment() {
         mActivity = (activity as BaseActivity)
     }
 
+    protected fun setupChildFragment(frameId: Int, fragment: Fragment){
+        childFragmentManager.beginTransaction().apply {
+            replace(frameId, fragment)
+            commit()
+        }
+    }
+
     protected fun <Fragment : androidx.fragment.app.Fragment> putArgs(argsBuilder: Bundle.() -> Unit) {
         this.apply {
             arguments = Bundle().apply(argsBuilder)

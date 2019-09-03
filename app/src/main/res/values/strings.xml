@@ -21,4 +21,15 @@
     <string name="permission_required">Minta Permisi</string>
     <string name="permission_warning">Bahaya</string>
 
+
+    <string name="record">Record</string>
+    <string name="stop">Stop</string>
+    <string name="description_info">Info</string>
+    <string name="permission_request">This sample needs permission for camera and audio recording.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="intro_message">Intro</string>
+
 </resources>

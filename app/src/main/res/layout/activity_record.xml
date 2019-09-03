@@ -16,28 +16,69 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+            android:id="@+id/img_record_menu"
+            android:layout_width="@dimen/dimen_big_super_24dp"
+            android:layout_height="@dimen/dimen_big_super_24dp"
+            android:layout_gravity="center_horizontal|bottom"
             android:layout_marginTop="@dimen/dimen_big_ultra_32dp"
             android:layout_marginRight="@dimen/dimen_big_16dp"
-            android:id="@+id/startBtn"
-            android:layout_width="@dimen/dimen_big_ultra_32dp"
-            android:layout_height="@dimen/dimen_big_ultra_32dp"
-            android:layout_gravity="center_horizontal|bottom"
             android:src="@drawable/ic_videocam"
             android:text="@string/take_photo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-            android:layout_marginTop="@dimen/dimen_big_ultra_32dp"
-            android:layout_marginLeft="@dimen/dimen_big_16dp"
-            android:id="@+id/backBtn"
-            android:layout_width="@dimen/dimen_big_ultra_32dp"
-            android:layout_height="@dimen/dimen_big_ultra_32dp"
+            android:id="@+id/img_toolbar_home"
+            android:layout_width="@dimen/dimen_big_super_24dp"
+            android:layout_height="@dimen/dimen_big_super_24dp"
             android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginLeft="@dimen/dimen_big_16dp"
+            android:layout_marginTop="@dimen/dimen_big_ultra_32dp"
             android:src="@drawable/ic_toolbar_back_home"
             android:text="@string/take_photo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+            android:background="@color/colorBackgroundSemiBlack"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline">
+
+        <LinearLayout
+                android:padding="@dimen/dimen_big_16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+            <TextView
+                    android:textSize="@dimen/text_size_title_medium_20sp"
+                    android:id="@+id/tv_title"
+                    tools:text="@string/dummy"
+                    android:textColor="@color/colorTextWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:textSize="@dimen/text_size_title_medium_20sp"
+                    android:id="@+id/tv_description"
+                    tools:text="@string/dummyLong"
+                    android:textColor="@color/colorTextWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="250dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

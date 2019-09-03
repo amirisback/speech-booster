@@ -46,7 +46,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     }
 
-    protected fun noLimitStatBar() {
+    protected fun setupNoLimitStatBar() {
         val windows = window // in Activity's onCreate() for instance
         windows.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
@@ -54,7 +54,7 @@ abstract class BaseActivity : AppCompatActivity() {
         )
     }
 
-    protected fun setupBaseFragment(frameId: Int, fragment: Fragment) {
+    protected fun setupChildFragment(frameId: Int, fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(frameId, fragment)
             commit()

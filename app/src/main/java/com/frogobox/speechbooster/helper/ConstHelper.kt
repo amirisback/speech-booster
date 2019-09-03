@@ -1,5 +1,7 @@
 package com.frogobox.speechbooster.helper
 
+import android.Manifest
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -65,6 +67,9 @@ class ConstHelper {
 
     object Code {
         const val CODE_NAME = 1
+        const val CODE_REQUEST_VIDEO_PERMISSIONS = 1
+        val CODE_VIDEO_PERMISSIONS = arrayOf(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
+
     }
 
     object Arg {
@@ -82,16 +87,26 @@ class ConstHelper {
 
     }
 
+    object Value {
+        const val VALUE_SENSOR_ORIENTATION_DEFAULT_DEGREES = 90
+        const val VALUE_SENSOR_ORIENTATION_INVERSE_DEGREES = 270
+
+    }
+
     object Tag {
         const val TAG_ACTIVITY_EDIT = 300
         const val TAG_ACTIVITY_CREATE = 301
 
         const val TAG_FROM_ACTIVITY = 801
         const val TAG_FROM_FRAGMENT = 800
+
+        const val TAG_CAMERA_VIDEO = "Camera2VideoFragment"
+
     }
 
     object Const {
         const val DEFAULT_ERROR_MESSAGE = "Failed"
+        const val FRAGMENT_DIALOG = "dialog"
 
     }
 

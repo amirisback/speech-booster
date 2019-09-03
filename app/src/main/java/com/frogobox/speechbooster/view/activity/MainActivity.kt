@@ -6,7 +6,6 @@ import com.frogobox.speechbooster.base.BaseActivity
 import com.frogobox.speechbooster.view.fragment.ExampleScriptFragment
 import com.frogobox.speechbooster.view.fragment.ScriptFragment
 import com.frogobox.speechbooster.view.fragment.VideoFragment
-import com.frogobox.speechbooster.viewmodel.ScriptEditorViewModel
 import com.frogobox.speechbooster.viewmodel.ScriptMainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -21,7 +20,7 @@ class MainActivity : BaseActivity() {
 
     private fun setupFragment(frameLayout: Int) {
         setTitle(R.string.title_myscript)
-        setupBaseFragment(frameLayout, ScriptFragment())
+        setupChildFragment(frameLayout, ScriptFragment())
     }
 
     fun obtainScriptMainViewModel(): ScriptMainViewModel = obtainViewModel(ScriptMainViewModel::class.java)
@@ -33,17 +32,17 @@ class MainActivity : BaseActivity() {
             when(it.itemId){
                 R.id.bottom_menu_myscript -> {
                     setTitle(R.string.title_myscript)
-                    setupBaseFragment(frameLayout, ScriptFragment())
+                    setupChildFragment(frameLayout, ScriptFragment())
                 }
 
                 R.id.bottom_menu_video -> {
                     setTitle(R.string.title_video)
-                    setupBaseFragment(frameLayout, VideoFragment())
+                    setupChildFragment(frameLayout, VideoFragment())
                 }
 
                 R.id.bottom_menu_sample_script -> {
                     setTitle(R.string.title_sample_script)
-                    setupBaseFragment(frameLayout, ExampleScriptFragment())
+                    setupChildFragment(frameLayout, ExampleScriptFragment())
                 }
             }
 
