@@ -18,13 +18,11 @@ import android.util.Log
 import android.util.Size
 import android.util.SparseIntArray
 import android.view.*
-import androidx.fragment.app.Fragment
 import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
-
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseFragment
 import com.frogobox.speechbooster.helper.ConstHelper
@@ -38,12 +36,25 @@ import java.util.concurrent.Semaphore
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class RecordFragment : BaseFragment(), View.OnClickListener,
     ActivityCompat.OnRequestPermissionsResultCallback {
 
+    private lateinit var textureView: AutoFitTextureView
+    private lateinit var videoButton: Button
+    private lateinit var previewSize: Size
+    private lateinit var videoSize: Size
+    private lateinit var previewRequestBuilder: CaptureRequest.Builder
+
+    private var cameraDevice: CameraDevice? = null
+    private var captureSession: CameraCaptureSession? = null
+    private var isRecordingVideo = false
+    private var backgroundThread: HandlerThread? = null
+    private var backgroundHandler: Handler? = null
+
+    private var sensorOrientation = 0
+    private var nextVideoAbsolutePath: String? = null
+    private var mediaRecorder: MediaRecorder? = null
     private val cameraOpenCloseLock = Semaphore(1)
 
     private val stateCallback = object : CameraDevice.StateCallback() {
@@ -97,25 +108,10 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
 
     }
 
-    private lateinit var textureView: AutoFitTextureView
-    private lateinit var videoButton: Button
-    private lateinit var previewSize: Size
-    private lateinit var videoSize: Size
-    private lateinit var previewRequestBuilder: CaptureRequest.Builder
-
-    private var cameraDevice: CameraDevice? = null
-    private var captureSession: CameraCaptureSession? = null
-    private var isRecordingVideo = false
-    private var backgroundThread: HandlerThread? = null
-    private var backgroundHandler: Handler? = null
-
-    private var sensorOrientation = 0
-    private var nextVideoAbsolutePath: String? = null
-    private var mediaRecorder: MediaRecorder? = null
-
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_record, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -243,12 +239,14 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
 
             // Choose the sizes for camera preview and video recording
             val characteristics = manager.getCameraCharacteristics(cameraId)
-            val map = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP) ?:
-            throw RuntimeException("Cannot get available preview/video sizes")
+            val map = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
+                ?: throw RuntimeException("Cannot get available preview/video sizes")
             sensorOrientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION)!!
             videoSize = chooseVideoSize(map.getOutputSizes(MediaRecorder::class.java))
-            previewSize = chooseOptimalSize(map.getOutputSizes(SurfaceTexture::class.java),
-                width, height, videoSize)
+            previewSize = chooseOptimalSize(
+                map.getOutputSizes(SurfaceTexture::class.java),
+                width, height, videoSize
+            )
 
             if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 textureView.setAspectRatio(previewSize.width, previewSize.height)
@@ -293,7 +291,8 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
             closePreviewSession()
             val texture = textureView.surfaceTexture
             texture.setDefaultBufferSize(previewSize.width, previewSize.height)
-            previewRequestBuilder = cameraDevice!!.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW)
+            previewRequestBuilder =
+                cameraDevice!!.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW)
 
             val previewSurface = Surface(texture)
             previewRequestBuilder.addTarget(previewSurface)
@@ -309,7 +308,8 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
                     override fun onConfigureFailed(session: CameraCaptureSession) {
                         if (activity != null) showToast("Failed")
                     }
-                }, backgroundHandler)
+                }, backgroundHandler
+            )
         } catch (e: CameraAccessException) {
             Log.e(ConstHelper.Tag.TAG_CAMERA_VIDEO, e.toString())
         }
@@ -322,8 +322,10 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
         try {
             setUpCaptureRequestBuilder(previewRequestBuilder)
             HandlerThread("CameraPreview").start()
-            captureSession?.setRepeatingRequest(previewRequestBuilder.build(),
-                null, backgroundHandler)
+            captureSession?.setRepeatingRequest(
+                previewRequestBuilder.build(),
+                null, backgroundHandler
+            )
         } catch (e: CameraAccessException) {
             Log.e(ConstHelper.Tag.TAG_CAMERA_VIDEO, e.toString())
         }
@@ -336,7 +338,8 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
 
     private fun configureTransform(viewWidth: Int, viewHeight: Int) {
         activity ?: return
-        val rotation = (activity as androidx.fragment.app.FragmentActivity).windowManager.defaultDisplay.rotation
+        val rotation =
+            (activity as androidx.fragment.app.FragmentActivity).windowManager.defaultDisplay.rotation
         val matrix = Matrix()
         val viewRect = RectF(0f, 0f, viewWidth.toFloat(), viewHeight.toFloat())
         val bufferRect = RectF(0f, 0f, previewSize.height.toFloat(), previewSize.width.toFloat())
@@ -348,7 +351,8 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
             matrix.setRectToRect(viewRect, bufferRect, Matrix.ScaleToFit.FILL)
             val scale = Math.max(
                 viewHeight.toFloat() / previewSize.height,
-                viewWidth.toFloat() / previewSize.width)
+                viewWidth.toFloat() / previewSize.width
+            )
             with(matrix) {
                 postScale(scale, scale, centerX, centerY)
                 postRotate((90 * (rotation - 2)).toFloat(), centerX, centerY)
@@ -414,10 +418,11 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
                 add(previewSurface)
                 add(recorderSurface)
             }
-            previewRequestBuilder = cameraDevice!!.createCaptureRequest(CameraDevice.TEMPLATE_RECORD).apply {
-                addTarget(previewSurface)
-                addTarget(recorderSurface)
-            }
+            previewRequestBuilder =
+                cameraDevice!!.createCaptureRequest(CameraDevice.TEMPLATE_RECORD).apply {
+                    addTarget(previewSurface)
+                    addTarget(recorderSurface)
+                }
 
             cameraDevice?.createCaptureSession(surfaces,
                 object : CameraCaptureSession.StateCallback() {
@@ -435,7 +440,8 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
                     override fun onConfigureFailed(cameraCaptureSession: CameraCaptureSession) {
                         if (activity != null) showToast("Failed")
                     }
-                }, backgroundHandler)
+                }, backgroundHandler
+            )
         } catch (e: CameraAccessException) {
             Log.e(ConstHelper.Tag.TAG_CAMERA_VIDEO, e.toString())
         } catch (e: IOException) {
@@ -462,11 +468,13 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
         startPreview()
     }
 
-    private fun showToast(message : String) = Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+    private fun showToast(message: String) =
+        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
 
 
     private fun chooseVideoSize(choices: Array<Size>) = choices.firstOrNull {
-        it.width == it.height * 4 / 3 && it.width <= 1080 } ?: choices[choices.size - 1]
+        it.width == it.height * 4 / 3 && it.width <= 1080
+    } ?: choices[choices.size - 1]
 
 
     private fun chooseOptimalSize(
@@ -480,7 +488,8 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
         val w = aspectRatio.width
         val h = aspectRatio.height
         val bigEnough = choices.filter {
-            it.height == it.width * h / w && it.width >= width && it.height >= height }
+            it.height == it.width * h / w && it.width >= width && it.height >= height
+        }
 
         // Pick the smallest of those, assuming we found any
         return if (bigEnough.isNotEmpty()) {

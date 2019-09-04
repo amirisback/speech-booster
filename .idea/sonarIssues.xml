@@ -28,6 +28,11 @@
             <set />
           </value>
         </entry>
+        <entry key="D:/android/sdk/platforms/android-29/android.jar!/android/hardware/camera2/CameraManager.class">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="D:/android/sdk/platforms/android-29/android.jar!/android/os/Bundle.class">
           <value>
             <set />
@@ -198,6 +203,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/helper/PagerHelper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/model/Category.kt">
           <value>
             <set />
@@ -348,6 +358,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/activity/AboutUsActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/activity/MainActivity.kt">
           <value>
             <set />
@@ -438,6 +453,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/fragment/ExampleCategoryFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/fragment/ExampleFavoriteFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/fragment/ExampleScriptFragment.kt">
           <value>
             <set />
@@ -508,6 +533,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/drawable/ic_toolbar_about_us.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/drawable/ic_toolbar_accept.xml">
           <value>
             <set />
@@ -564,6 +594,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_script_editor.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/fragment_example_category.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/fragment_example_favorite.xml">
           <value>
             <set />
           </value>
@@ -629,6 +669,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/menu/menu_toolbar_editor.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/menu/menu_toolbar_main.xml">
           <value>
             <set />
           </value>
@@ -904,6 +949,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../KOTLIN/Camera2Video/kotlinApp/gradle/wrapper/gradle-wrapper.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/FootBallApps/app/src/main/java/id/frogobox/footballapps/views/adapters/FragmentViewPagerAdapter.kt">
           <value>
             <set />
           </value>

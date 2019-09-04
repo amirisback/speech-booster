@@ -76,7 +76,7 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
 
     private fun setupRecyclerView(noteList: List<Script>) {
         val adapter = ScriptAdapter()
-        context?.let { adapter.setLayoutItem(it, R.layout.recyclerview_item_notes) }
+        context?.let { adapter.setLayoutItem(it, R.layout.recyclerview_item_script) }
         adapter.setListener(this)
         adapter.setRecyclerViewData(noteList)
 

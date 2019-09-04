@@ -22,7 +22,7 @@
             android:layout_gravity="center_horizontal|bottom"
             android:layout_marginTop="@dimen/dimen_big_ultra_32dp"
             android:layout_marginRight="@dimen/dimen_big_16dp"
-            android:src="@drawable/ic_videocam"
+            android:src="@drawable/ic_toolbar_record"
             android:text="@string/take_photo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

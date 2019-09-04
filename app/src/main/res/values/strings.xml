@@ -31,5 +31,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="intro_message">Intro</string>
+    <string name="tab_favorite_script">Favorite</string>
+    <string name="tab_favorite_category">Category</string>
+    <string name="text_about_us">toolbar_about_us</string>
 
 </resources>
