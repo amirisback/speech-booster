@@ -9,6 +9,7 @@ import com.frogobox.speechbooster.base.BaseActivity
 import com.frogobox.speechbooster.view.fragment.ExampleScriptFragment
 import com.frogobox.speechbooster.view.fragment.ScriptFragment
 import com.frogobox.speechbooster.view.fragment.VideoFragment
+import com.frogobox.speechbooster.view.navigation.Route.routeImplicit.startAboutUsActivity
 import com.frogobox.speechbooster.viewmodel.ScriptMainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar_main.*
@@ -44,7 +45,7 @@ class MainActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.toolbar_menu_about -> {
-                baseStartActivity<AboutUsActivity>(this)
+                startAboutUsActivity(this)
                 true
             }
             else -> super.onOptionsItemSelected(item)

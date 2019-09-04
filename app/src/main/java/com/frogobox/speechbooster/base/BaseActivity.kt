@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.frogobox.speechbooster.helper.FunHelper
 import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
