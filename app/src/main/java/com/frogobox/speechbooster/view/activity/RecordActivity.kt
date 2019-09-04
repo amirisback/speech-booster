@@ -12,10 +12,7 @@ class RecordActivity : BaseActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_record_new)
-
         setupNoLimitStatBar()
-//        setupViewElement()
-
         setupChildFragment(R.id.container, RecordFragment())
     }
 

@@ -2,7 +2,9 @@ package com.frogobox.speechbooster.source.remote
 
 import android.content.Context
 import com.frogobox.speechbooster.helper.FunHelper.Func.noAction
+import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.Script
+import com.frogobox.speechbooster.model.VideoScript
 import com.frogobox.speechbooster.source.FrogoDataSource
 
 /**
@@ -23,6 +25,50 @@ import com.frogobox.speechbooster.source.FrogoDataSource
  *
  */
 class FrogoRemoteDataSource(private val context: Context) : FrogoDataSource {
+    override fun saveRoomFavoriteScript(data: FavoriteScript): Boolean {
+        return noAction()
+    }
+
+    override fun saveRoomVideoScript(data: VideoScript): Boolean {
+        return noAction()
+    }
+
+    override fun getRoomFavoriteScript(callback: FrogoDataSource.GetRoomDataCallBack<List<FavoriteScript>>) {
+        noAction()
+    }
+
+    override fun getRoomVideoScript(callback: FrogoDataSource.GetRoomDataCallBack<List<VideoScript>>) {
+        noAction()
+    }
+
+    override fun updateRoomFavoriteScript(
+        tableId: Int,
+        title: String,
+        description: String,
+        dateTime: String
+    ): Boolean {
+        return noAction()
+    }
+
+    override fun updateRoomVideoScript(tableId: Int, urlVideo: String): Boolean {
+        return noAction()
+    }
+
+    override fun deleteRoomFavoriteScript(tableId: Int): Boolean {
+        return noAction()
+    }
+
+    override fun deleteRoomVideoScript(tableId: Int): Boolean {
+        return noAction()
+    }
+
+    override fun nukeRoomFavoriteScript(): Boolean {
+        return noAction()
+    }
+
+    override fun nukeRoomVideoScript(): Boolean {
+        return noAction()
+    }
 
     override fun saveRoomScript(data: Script): Boolean {
         return noAction()

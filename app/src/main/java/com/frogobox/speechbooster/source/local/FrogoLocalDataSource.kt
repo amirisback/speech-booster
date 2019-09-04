@@ -3,9 +3,13 @@ package com.frogobox.speechbooster.source.local
 import android.content.SharedPreferences
 import androidx.annotation.VisibleForTesting
 import com.frogobox.speechbooster.base.BaseCallback
+import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.Script
+import com.frogobox.speechbooster.model.VideoScript
 import com.frogobox.speechbooster.source.FrogoDataSource
+import com.frogobox.speechbooster.source.dao.FavoriteScriptDao
 import com.frogobox.speechbooster.source.dao.ScriptDao
+import com.frogobox.speechbooster.source.dao.VideoScriptDao
 import com.frogobox.speechbooster.util.AppExecutors
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -32,8 +36,125 @@ import io.reactivex.schedulers.Schedulers
 class FrogoLocalDataSource private constructor(
     private val appExecutors: AppExecutors,
     private val sharedPreferences: SharedPreferences,
-    private val scriptDao: ScriptDao
+    private val scriptDao: ScriptDao,
+    private val favoriteScriptDao: FavoriteScriptDao,
+    private val videoScriptDao: VideoScriptDao
 ) : FrogoDataSource {
+
+    override fun saveRoomFavoriteScript(data: FavoriteScript): Boolean {
+        appExecutors.diskIO.execute {
+            favoriteScriptDao.insertData(data)
+        }
+        return true
+    }
+
+    override fun saveRoomVideoScript(data: VideoScript): Boolean {
+        appExecutors.diskIO.execute {
+            videoScriptDao.insertData(data)
+        }
+        return true
+    }
+
+    override fun getRoomFavoriteScript(callback: FrogoDataSource.GetRoomDataCallBack<List<FavoriteScript>>) {
+        appExecutors.diskIO.execute {
+            favoriteScriptDao.getAllData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : BaseCallback<List<FavoriteScript>>() {
+                    override fun onCallbackSucces(data: List<FavoriteScript>) {
+                        callback.onShowProgressDialog()
+                        callback.onSuccess(data)
+                        callback.onHideProgressDialog()
+                    }
+
+                    override fun onCallbackError(code: Int, errorMessage: String) {
+                        callback.onFailed(code, errorMessage)
+                    }
+
+                    override fun onAddSubscribe(disposable: Disposable) {
+                        addSubscribe(disposable = disposable)
+                    }
+
+                    override fun onCompleted() {
+                        callback.onHideProgressDialog()
+                    }
+                })
+        }
+    }
+
+    override fun getRoomVideoScript(callback: FrogoDataSource.GetRoomDataCallBack<List<VideoScript>>) {
+        appExecutors.diskIO.execute {
+            videoScriptDao.getAllData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : BaseCallback<List<VideoScript>>() {
+                    override fun onCallbackSucces(data: List<VideoScript>) {
+                        callback.onShowProgressDialog()
+                        callback.onSuccess(data)
+                        callback.onHideProgressDialog()
+                    }
+
+                    override fun onCallbackError(code: Int, errorMessage: String) {
+                        callback.onFailed(code, errorMessage)
+                    }
+
+                    override fun onAddSubscribe(disposable: Disposable) {
+                        addSubscribe(disposable = disposable)
+                    }
+
+                    override fun onCompleted() {
+                        callback.onHideProgressDialog()
+                    }
+                })
+        }
+    }
+
+    override fun updateRoomFavoriteScript(
+        tableId: Int,
+        title: String,
+        description: String,
+        dateTime: String
+    ): Boolean {
+        appExecutors.diskIO.execute {
+            favoriteScriptDao.updateData(tableId, title, description, dateTime)
+        }
+        return true
+    }
+
+    override fun updateRoomVideoScript(tableId: Int, urlVideo: String): Boolean {
+        appExecutors.diskIO.execute {
+            videoScriptDao.updateData(tableId, urlVideo)
+        }
+        return true
+    }
+
+    override fun deleteRoomFavoriteScript(tableId: Int): Boolean {
+        appExecutors.diskIO.execute {
+            favoriteScriptDao.deleteData(tableId)
+        }
+        return true
+    }
+
+    override fun deleteRoomVideoScript(tableId: Int): Boolean {
+        appExecutors.diskIO.execute {
+            videoScriptDao.deleteData(tableId)
+        }
+        return true
+    }
+
+    override fun nukeRoomFavoriteScript(): Boolean {
+        appExecutors.diskIO.execute {
+            favoriteScriptDao.nukeData()
+        }
+        return true
+    }
+
+    override fun nukeRoomVideoScript(): Boolean {
+        appExecutors.diskIO.execute {
+            videoScriptDao.nukeData()
+        }
+        return true
+    }
 
     override fun saveRoomScript(data: Script): Boolean {
         appExecutors.diskIO.execute {
@@ -124,7 +245,9 @@ class FrogoLocalDataSource private constructor(
         fun getInstance(
             appExecutors: AppExecutors,
             sharedPreferences: SharedPreferences,
-            scriptDao: ScriptDao
+            scriptDao: ScriptDao,
+            favoriteScriptDao: FavoriteScriptDao,
+            videoScriptDao: VideoScriptDao
 
         ): FrogoLocalDataSource {
             if (INSTANCE == null) {
@@ -132,7 +255,9 @@ class FrogoLocalDataSource private constructor(
                     INSTANCE = FrogoLocalDataSource(
                         appExecutors,
                         sharedPreferences,
-                        scriptDao
+                        scriptDao,
+                        favoriteScriptDao,
+                        videoScriptDao
                     )
                 }
             }

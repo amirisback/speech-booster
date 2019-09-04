@@ -62,13 +62,6 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback {
     fun obtainScriptDetailViewModel(): ScriptDetailViewModel =
         obtainViewModel(ScriptDetailViewModel::class.java)
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        if (tagOption() == TAG_ACTIVITY_EDIT) {
-            menuInflater.inflate(R.menu.menu_toolbar_edit_delete, menu)
-        }
-        return true
-    }
-
     private fun listenerMenuEdit() {
         val data = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
         val extras = createBaseBundle(TYPE_OBJECT, EXTRA_SCRIPT, data)
@@ -86,6 +79,12 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        if (tagOption() == TAG_ACTIVITY_EDIT) {
+            menuInflater.inflate(R.menu.menu_toolbar_edit_delete, menu)
+        }
+        return true
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {

@@ -3,7 +3,9 @@ package com.frogobox.speechbooster.util
 import android.content.Context
 import android.preference.PreferenceManager
 import com.frogobox.speechbooster.source.FrogoDataRepository
+import com.frogobox.speechbooster.source.dao.FavoriteScriptDao
 import com.frogobox.speechbooster.source.dao.ScriptDao
+import com.frogobox.speechbooster.source.dao.VideoScriptDao
 import com.frogobox.speechbooster.source.local.FrogoAppDatabase
 import com.frogobox.speechbooster.source.local.FrogoLocalDataSource
 import com.frogobox.speechbooster.source.remote.FrogoRemoteDataSource
@@ -32,13 +34,23 @@ object Injection {
             FrogoAppDatabase.getInstance(context).scriptDao()
         }
 
+        val favoriteScriptDao: FavoriteScriptDao by lazy {
+            FrogoAppDatabase.getInstance(context).favoriteScriptDao()
+        }
+
+        val videoScriptDao: VideoScriptDao by lazy {
+            FrogoAppDatabase.getInstance(context).videoScriptDao()
+        }
+
         val appExecutors = AppExecutors()
 
         return FrogoDataRepository.getInstance(FrogoRemoteDataSource(context),
             FrogoLocalDataSource.getInstance(
                 appExecutors,
                 PreferenceManager.getDefaultSharedPreferences(context),
-                scriptDao))
+                scriptDao,
+                favoriteScriptDao,
+                videoScriptDao))
     }
 
 }
