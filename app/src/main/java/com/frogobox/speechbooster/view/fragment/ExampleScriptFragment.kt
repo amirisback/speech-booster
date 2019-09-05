@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager.widget.PagerAdapter
 
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseFragment
@@ -26,8 +25,8 @@ class ExampleScriptFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val pagerAdapter = PagerHelper(childFragmentManager)
-        pagerAdapter.setupPagerFragment(ExampleFavoriteFragment(), resources.getString(R.string.tab_favorite_category))
-        pagerAdapter.setupPagerFragment(ExampleCategoryFragment(), resources.getString(R.string.tab_favorite_script))
+        pagerAdapter.setupPagerFragment(ExampleFavoriteFragment(), resources.getString(R.string.title_favorite_category))
+        pagerAdapter.setupPagerFragment(ExampleCategoryFragment(), resources.getString(R.string.title_favorite_script))
         viewpager.adapter = pagerAdapter
         tablayout.setupWithViewPager(viewpager)
 

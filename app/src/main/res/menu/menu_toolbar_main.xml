@@ -23,6 +23,6 @@
     <item
             android:id="@+id/toolbar_menu_about"
             android:icon="@drawable/ic_toolbar_about_us"
-            android:title="@string/text_about_us"
+            android:title="@string/title_about_us"
             app:showAsAction="ifRoom"/>
 </menu>

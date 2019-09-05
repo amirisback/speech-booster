@@ -13,6 +13,11 @@
             <set />
           </value>
         </entry>
+        <entry key="D:/android/sdk/platforms/android-29/android.jar!/android/content/Context.class">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="D:/android/sdk/platforms/android-29/android.jar!/android/content/ContextWrapper.class">
           <value>
             <set />
@@ -104,6 +109,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/build/generated/source/kapt/debug/com/frogobox/speechbooster/source/dao/ScriptDao_Impl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml">
           <value>
             <set />
           </value>
@@ -403,6 +413,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/activity/ExampleScriptActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/activity/MainActivity.kt">
           <value>
             <set />
@@ -519,6 +534,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/fragment/VideoFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/navigation/Navigation.kt">
           <value>
             <set />
           </value>
@@ -823,6 +843,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/model/Asset.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/source/GitsDataSource.kt">
           <value>
             <set />
@@ -894,6 +919,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/approvalDetail/ApprovalDetailFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/checkpointconfirm/CheckpointConfirmFragment.kt">
           <value>
             <set />
           </value>

@@ -3,12 +3,12 @@ package com.frogobox.speechbooster.view.activity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toolbar
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseActivity
 import com.frogobox.speechbooster.view.fragment.ExampleScriptFragment
 import com.frogobox.speechbooster.view.fragment.ScriptFragment
 import com.frogobox.speechbooster.view.fragment.VideoFragment
+import com.frogobox.speechbooster.view.navigation.Route
 import com.frogobox.speechbooster.view.navigation.Route.routeImplicit.startAboutUsActivity
 import com.frogobox.speechbooster.viewmodel.ScriptMainViewModel
 import kotlinx.android.synthetic.main.activity_main.*

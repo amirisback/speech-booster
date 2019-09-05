@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.frogobox.speechbooster.helper.ConstHelper.Extra.EXTRA_OPTION
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_BOOLEAN
@@ -91,6 +92,8 @@ object Navigation {
         extras: Bundle? = null, clearStack: Boolean = false, option: Bundle? = null
     ) {
         val intent = Intent()
+        Log.d("Activity Package", activityPackage)
+        Log.d("className", className)
         try {
             extras?.let { intent.setClassName(activityPackage, className).putExtras(it) }
             option?.let { intent.setClassName(activityPackage, className).putExtras(it) }

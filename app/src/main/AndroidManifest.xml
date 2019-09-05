@@ -14,13 +14,14 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".view.activity.ExampleScriptActivity"></activity>
         <activity android:name=".view.activity.AboutUsActivity"></activity>
         <activity
                 android:name=".view.activity.RecordActivity"
-                android:theme="@style/AppThemeNoToolbar"></activity>
-        <activity android:name=".view.activity.ScriptEditorActivity"></activity>
-        <activity android:name=".view.activity.VideoDetailActivity"></activity>
-        <activity android:name=".view.activity.ScriptDetailActivity"></activity>
+                android:theme="@style/AppThemeNoToolbar" />
+        <activity android:name=".view.activity.ScriptEditorActivity" />
+        <activity android:name=".view.activity.VideoDetailActivity" />
+        <activity android:name=".view.activity.ScriptDetailActivity" />
         <activity
                 android:name=".view.activity.MainActivity"
                 android:theme="@style/AppThemeNoToolbar">

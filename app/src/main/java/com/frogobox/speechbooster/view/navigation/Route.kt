@@ -9,6 +9,7 @@ import com.frogobox.speechbooster.view.navigation.Route.Endpoint.SCRIPT_DETAIL_A
 import com.frogobox.speechbooster.view.navigation.Route.Endpoint.SCRIPT_EDITOR_ACTIVITY
 import com.frogobox.speechbooster.view.navigation.Route.Endpoint.VIDEO_DETAIL_ACTIVITY
 import com.frogobox.speechbooster.view.navigation.Route.Module.BASE_PACKAGE
+import com.frogobox.speechbooster.view.navigation.Route.Module.BASE_ACTIVITY
 
 /**
  * Created by Faisal Amir
@@ -31,14 +32,16 @@ object Route {
 
     object Module {
         const val BASE_PACKAGE = "com.frogobox.speechbooster"
+        const val BASE_ACTIVITY = "view.activity"
+
     }
 
     object Endpoint {
-        const val SCRIPT_DETAIL_ACTIVITY  = "$BASE_PACKAGE.view.activity.ScriptDetailActivity"
-        const val SCRIPT_EDITOR_ACTIVITY  = "$BASE_PACKAGE.view.activity.ScriptEditorActivity"
-        const val VIDEO_DETAIL_ACTIVITY   = "$BASE_PACKAGE.view.activity.VideoDetailActivity"
-        const val RECORD_ACTIVITY         = "$BASE_PACKAGE.view.activity.RecordActivity"
-        const val ABOUT_US_ACTIVITY       = "$BASE_PACKAGE.view.activity.AboutUsActivity"
+        const val SCRIPT_DETAIL_ACTIVITY  = "$BASE_PACKAGE.$BASE_ACTIVITY.ScriptDetailActivity"
+        const val SCRIPT_EDITOR_ACTIVITY  = "$BASE_PACKAGE.$BASE_ACTIVITY.ScriptEditorActivity"
+        const val VIDEO_DETAIL_ACTIVITY   = "$BASE_PACKAGE.$BASE_ACTIVITY.VideoDetailActivity"
+        const val RECORD_ACTIVITY         = "$BASE_PACKAGE.$BASE_ACTIVITY.RecordActivity"
+        const val ABOUT_US_ACTIVITY       = "$BASE_PACKAGE.$BASE_ACTIVITY.AboutUsActivity"
 
     }
 
