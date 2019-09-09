@@ -5,9 +5,7 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.frogobox.speechbooster.source.FrogoDataRepository
-import com.frogobox.speechbooster.viewmodel.ScriptDetailViewModel
-import com.frogobox.speechbooster.viewmodel.ScriptEditorViewModel
-import com.frogobox.speechbooster.viewmodel.ScriptMainViewModel
+import com.frogobox.speechbooster.viewmodel.*
 
 /**
  * Created by Faisal Amir
@@ -35,12 +33,29 @@ class ViewModelFactory private constructor(
     override fun <T : ViewModel?> create(modelClass: Class<T>) =
         with(modelClass) {
             when {
+
+                isAssignableFrom(CategoryScriptViewModel::class.java) ->
+                    CategoryScriptViewModel(mApplication, frogoDataRepository)
+                isAssignableFrom(CategoryViewModel::class.java) ->
+                    CategoryViewModel(mApplication, frogoDataRepository)
+
+                isAssignableFrom(FavoriteScriptDetailViewModel::class.java) ->
+                    FavoriteScriptDetailViewModel(mApplication, frogoDataRepository)
+                isAssignableFrom(FavoriteScriptMainViewModel::class.java) ->
+                    FavoriteScriptMainViewModel(mApplication, frogoDataRepository)
+
                 isAssignableFrom(ScriptEditorViewModel::class.java) ->
                     ScriptEditorViewModel(mApplication, frogoDataRepository)
                 isAssignableFrom(ScriptMainViewModel::class.java) ->
                     ScriptMainViewModel(mApplication, frogoDataRepository)
                 isAssignableFrom(ScriptDetailViewModel::class.java) ->
                     ScriptDetailViewModel(mApplication, frogoDataRepository)
+
+                isAssignableFrom(VideoScriptDetailViewModel::class.java) ->
+                    VideoScriptDetailViewModel(mApplication, frogoDataRepository)
+                isAssignableFrom(VideoScriptMainViewModel::class.java) ->
+                    VideoScriptMainViewModel(mApplication, frogoDataRepository)
+
                 else ->
                     throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
             }

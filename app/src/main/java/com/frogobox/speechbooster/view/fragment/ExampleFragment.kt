@@ -11,7 +11,7 @@ import com.frogobox.speechbooster.base.BaseFragment
 import com.frogobox.speechbooster.helper.PagerHelper
 import kotlinx.android.synthetic.main.fragment_example.*
 
-class ExampleScriptFragment : BaseFragment() {
+class ExampleFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

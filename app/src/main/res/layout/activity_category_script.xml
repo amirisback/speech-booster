@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:paddingTop="@dimen/dimen_big_16dp"
+        android:background="@color/colorBackgroundWhite"
+        android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackgroundWhite"
         tools:listitem="@layout/recyclerview_item_category_script"
         tools:context=".view.activity.CategoryScriptActivity">
 

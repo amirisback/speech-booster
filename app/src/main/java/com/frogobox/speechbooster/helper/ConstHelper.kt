@@ -84,6 +84,7 @@ class ConstHelper {
         const val BASE_EXTRA = "com.frogobox.speechbooster."
         const val EXTRA_OPTION = BASE_EXTRA+"EXTRA_OPTION"
         const val EXTRA_SCRIPT = BASE_EXTRA+"EXTRA_SCRIPT"
+        const val EXTRA_EXAMPLE_SCRIPT = BASE_EXTRA+"EXTRA_EXAMPLE_SCRIPT"
         const val EXTRA_CATEGORY = BASE_EXTRA+"EXTRA_CATEGORY"
 
     }
@@ -97,6 +98,7 @@ class ConstHelper {
     object Tag {
         const val TAG_ACTIVITY_EDIT = 300
         const val TAG_ACTIVITY_CREATE = 301
+        const val TAG_ACTIVITY_DETAIL = 302
 
         const val TAG_FROM_ACTIVITY = 801
         const val TAG_FROM_FRAGMENT = 800

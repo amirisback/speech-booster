@@ -5,15 +5,13 @@ import android.view.Menu
 import android.view.MenuItem
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseActivity
-import com.frogobox.speechbooster.view.fragment.ExampleScriptFragment
+import com.frogobox.speechbooster.view.fragment.ExampleFragment
 import com.frogobox.speechbooster.view.fragment.ScriptFragment
 import com.frogobox.speechbooster.view.fragment.VideoFragment
-import com.frogobox.speechbooster.view.navigation.Route
-import com.frogobox.speechbooster.view.navigation.Route.routeImplicit.startAboutUsActivity
+import com.frogobox.speechbooster.viewmodel.CategoryViewModel
 import com.frogobox.speechbooster.viewmodel.ScriptMainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar_main.*
-
 
 
 class MainActivity : BaseActivity() {
@@ -31,7 +29,11 @@ class MainActivity : BaseActivity() {
         setupChildFragment(frameLayout, ScriptFragment())
     }
 
-    fun obtainScriptMainViewModel(): ScriptMainViewModel = obtainViewModel(ScriptMainViewModel::class.java)
+    fun obtainScriptMainViewModel(): ScriptMainViewModel =
+        obtainViewModel(ScriptMainViewModel::class.java)
+
+    fun obtainCategoryViewModel(): CategoryViewModel =
+        obtainViewModel(CategoryViewModel::class.java)
 
     private fun setupToolbar() {
         setSupportActionBar(toolbar_main)
@@ -52,11 +54,11 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    private fun setupBottomNav(frameLayout: Int){
+    private fun setupBottomNav(frameLayout: Int) {
         bottom_nav_main_menu.clearAnimation()
         bottom_nav_main_menu.setOnNavigationItemSelectedListener {
 
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.bottom_menu_myscript -> {
                     setTitle(R.string.title_myscript)
                     setupChildFragment(frameLayout, ScriptFragment())
@@ -69,7 +71,7 @@ class MainActivity : BaseActivity() {
 
                 R.id.bottom_menu_sample_script -> {
                     setTitle(R.string.title_sample_script)
-                    setupChildFragment(frameLayout, ExampleScriptFragment())
+                    setupChildFragment(frameLayout, ExampleFragment())
                 }
             }
 

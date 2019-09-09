@@ -54,7 +54,7 @@ object Route {
             navigatorImplicit(context, BASE_PACKAGE, SCRIPT_DETAIL_ACTIVITY, data, option = option)
         }
 
-        fun startExampleScriptActivity(context: Context, data: Bundle) {
+        fun startCategoryScriptActivity(context: Context, data: Bundle) {
             navigatorImplicit(context, BASE_PACKAGE, CATEGORY_SCRIPT_ACTIVITY, data)
         }
 

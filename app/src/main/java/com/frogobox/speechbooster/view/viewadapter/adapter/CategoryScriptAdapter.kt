@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.speechbooster.base.BaseListener
 import com.frogobox.speechbooster.base.BaseViewAdapter
-import com.frogobox.speechbooster.model.CategoryScript
-import com.frogobox.speechbooster.view.viewadapter.holder.CategoryViewHolder
+import com.frogobox.speechbooster.model.ExampleScript
+import com.frogobox.speechbooster.view.viewadapter.holder.CategoryScriptViewHolder
 
 /**
  * Created by Faisal Amir
@@ -26,13 +26,13 @@ import com.frogobox.speechbooster.view.viewadapter.holder.CategoryViewHolder
  * com.frogobox.speechbooster.view.viewadapter.adapter
  *
  */
-class CategoryScriptAdapter : RecyclerView.Adapter<CategoryViewHolder>(),
-    BaseViewAdapter<CategoryScript> {
+class CategoryScriptAdapter : RecyclerView.Adapter<CategoryScriptViewHolder>(),
+    BaseViewAdapter<ExampleScript> {
 
     private lateinit var mContext: Context
-    private lateinit var mListener: BaseListener<CategoryScript>
+    private lateinit var mListener: BaseListener<ExampleScript>
 
-    private val mDataList = mutableListOf<CategoryScript>()
+    private val mDataList = mutableListOf<ExampleScript>()
     private var mLayoutItem: Int = 0
 
     override fun setLayoutItem(context: Context, layoutItem: Int) {
@@ -40,20 +40,20 @@ class CategoryScriptAdapter : RecyclerView.Adapter<CategoryViewHolder>(),
         mLayoutItem = layoutItem
     }
 
-    override fun setListener(listener: BaseListener<CategoryScript>) {
+    override fun setListener(listener: BaseListener<ExampleScript>) {
         mListener = listener
     }
 
-    override fun setRecyclerViewData(dataList: List<CategoryScript>) {
+    override fun setRecyclerViewData(dataList: List<ExampleScript>) {
         mDataList.clear()
         mDataList.addAll(dataList)
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        CategoryViewHolder(LayoutInflater.from(mContext).inflate(mLayoutItem, parent, false))
+        CategoryScriptViewHolder(LayoutInflater.from(mContext).inflate(mLayoutItem, parent, false))
 
-    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CategoryScriptViewHolder, position: Int) {
         holder.bindItem(mDataList[position], mListener)
     }
 

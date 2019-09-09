@@ -3,13 +3,16 @@ package com.frogobox.speechbooster.view.activity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseActivity
+import com.frogobox.speechbooster.helper.ConstHelper.Extra.EXTRA_EXAMPLE_SCRIPT
 import com.frogobox.speechbooster.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.helper.FunHelper.Func.createDialogDefault
 import com.frogobox.speechbooster.helper.FunHelper.Func.showToast
+import com.frogobox.speechbooster.model.ExampleScript
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.view.navigation.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.view.navigation.Navigation.BundleHelper.createOptionBundle
@@ -32,6 +35,16 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback {
         setupRoleView()
     }
 
+    private fun setupViewElement(data: ExampleScript) {
+        tv_title_detail.text = data.title
+        tv_date_detail.text = ""
+        tv_date_detail.visibility = View.GONE
+        tv_description_detail.text = data.description
+        btn_start_record.setOnClickListener {
+            startRecordActivity(this, createBaseBundle(TYPE_OBJECT, EXTRA_SCRIPT, data))
+        }
+    }
+
     private fun setupViewElement(data: Script) {
         tv_title_detail.text = data.title
         tv_date_detail.text = data.dateTime
@@ -41,16 +54,19 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback {
         }
     }
 
+
     private fun setupRoleView() {
         val extraDataResult = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
         val extraDataEdit = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
+        val extraDataExample = getBaseBundle<ExampleScript>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
 
-        if (extraDataResult.table_id != 0) {
+        if (extraDataResult != null) {
             setupViewElement(extraDataResult)
-        } else if (extraDataEdit.table_id != 0) {
+        } else if (extraDataEdit!= null) {
             setupViewElement(extraDataEdit)
+        } else if (extraDataExample != null) {
+            setupViewElement(extraDataExample)
         }
-
     }
 
     private fun setupViewModel() {

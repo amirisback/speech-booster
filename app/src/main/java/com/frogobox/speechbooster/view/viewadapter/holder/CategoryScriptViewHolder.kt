@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.speechbooster.base.BaseListener
 import com.frogobox.speechbooster.base.BaseViewHolder
 import com.frogobox.speechbooster.model.ExampleScript
-import kotlinx.android.synthetic.main.recyclerview_item_category.view.*
 import kotlinx.android.synthetic.main.recyclerview_item_category_script.view.*
 
 /**
@@ -25,7 +24,7 @@ import kotlinx.android.synthetic.main.recyclerview_item_category_script.view.*
  * com.frogobox.speechbooster.view.viewadapter.holder
  *
  */
-class ExampleScriptViewHolder (view: View) : RecyclerView.ViewHolder(view),
+class CategoryScriptViewHolder (view: View) : RecyclerView.ViewHolder(view),
     BaseViewHolder<ExampleScript> {
 
     val tvTitleExample = view.tv_title_example_script
