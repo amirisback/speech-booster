@@ -35,5 +35,9 @@ data class Script(
     var description: String? = "",
 
     @ColumnInfo(name = "dateTime")
-    var dateTime: String? = ""
+    var dateTime: String? = "",
+
+    @ColumnInfo(name = "favorite")
+    var favorite: Boolean? = false
+
 )

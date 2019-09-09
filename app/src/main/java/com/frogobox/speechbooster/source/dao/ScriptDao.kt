@@ -35,6 +35,9 @@ interface ScriptDao {
     @Query("UPDATE script_table SET title = :title, description = :description, dateTime = :dateTime WHERE table_id = :tableid")
     fun updateData(tableid: Int, title: String, description: String, dateTime: String)
 
+    @Query("UPDATE script_table SET favorite = :favorite WHERE table_id = :tableid")
+    fun updateFavorite(tableid: Int, favorite: Boolean)
+
     @Query("DELETE FROM script_table WHERE table_id = :tableid")
     fun deleteData(tableid: Int)
 

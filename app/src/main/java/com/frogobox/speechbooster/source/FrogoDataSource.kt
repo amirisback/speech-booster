@@ -39,6 +39,7 @@ interface FrogoDataSource : BaseDataSource {
 
     // Update
     fun updateRoomScript(tableId: Int, title: String, description: String, dateTime: String) : Boolean
+    fun updateRoomScriptFav(tableId: Int, favorite: Boolean) : Boolean
     fun updateRoomFavoriteScript(tableId: Int, title: String, description: String, dateTime: String) : Boolean
     fun updateRoomVideoScript(tableId: Int, urlVideo: String) : Boolean
 

@@ -14,7 +14,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:elevation="@dimen/dimens_elevation_2dp"
+            android:elevation="@dimen/dimen_elevation_2dp"
             android:hint="@string/hint_title"
             android:padding="@dimen/dimen_big_16dp"
             android:maxLines="1"

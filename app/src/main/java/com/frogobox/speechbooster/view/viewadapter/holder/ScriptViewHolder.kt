@@ -28,13 +28,20 @@ class ScriptViewHolder (view: View): RecyclerView.ViewHolder(view), BaseViewHold
 
     val tvTitle = view.tv_title
     val tvDescription = view.tv_description
-//    val tvDateTime = view
+    val tvDateTime = view.tv_date
+    val ivFavorite = view.iv_favorite
 
     override fun bindItem(data: Script, listener: BaseListener<Script>) {
         onItemViewClicked(data, listener)
         tvTitle.text = data.title
         tvDescription.text = data.description
-//        tvDateTime.text = data.dateTime
+        tvDateTime.text = data.dateTime
+
+        if (data.favorite!!) {
+            ivFavorite.visibility = View.VISIBLE
+        } else {
+            ivFavorite.visibility = View.GONE
+        }
     }
 
     override fun onItemViewClicked(data: Script, listener: BaseListener<Script>) {

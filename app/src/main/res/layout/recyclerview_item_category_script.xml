@@ -27,11 +27,17 @@
         android:layout_marginBottom="@dimen/dimen_big_16dp"
         android:background="@drawable/background_card"
         android:elevation="@dimen/dimen_small_4dp"
-        android:padding="@dimen/dimen_big_16dp">
+        android:paddingStart="@dimen/dimen_big_16dp"
+        android:paddingEnd="@dimen/dimen_big_16dp"
+        android:paddingTop="@dimen/dimen_medium_8dp"
+        android:paddingBottom="@dimen/dimen_medium_8dp">
 
     <TextView
             android:id="@+id/tv_title_example_script"
             android:layout_width="0dp"
+            android:textColor="@color/colorTextBlack"
+            android:maxLines="1"
+            tools:text="@string/dummy"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/tv_description_example_script"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,8 +48,9 @@
             android:id="@+id/tv_description_example_script"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/dimen_small_4dp"
             android:maxLines="2"
+            tools:text="@string/dummyLong"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -26,6 +26,10 @@ import com.frogobox.speechbooster.source.remote.FrogoRemoteDataSource
 open class FrogoDataRepository(val remoteDataSource: FrogoRemoteDataSource,
                                val localDataSource: FrogoLocalDataSource) : FrogoDataSource {
 
+    override fun updateRoomScriptFav(tableId: Int, favorite: Boolean): Boolean {
+        return localDataSource.updateRoomScriptFav(tableId, favorite)
+    }
+
     override fun saveRoomFavoriteScript(data: FavoriteScript): Boolean {
         return localDataSource.saveRoomFavoriteScript(data)
     }

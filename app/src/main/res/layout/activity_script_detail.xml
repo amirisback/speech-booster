@@ -9,6 +9,7 @@
         tools:context=".view.activity.ScriptDetailActivity">
 
     <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_start_record"
@@ -17,20 +18,20 @@
             app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
             <TextView
-                    android:textSize="@dimen/text_size_title_medium_20sp"
-
                     android:id="@+id/tv_title_detail"
+                    android:textColor="@color/colorTextBlack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="TextView" />
+                    android:text="@string/dummy"
+                    android:textSize="@dimen/text_size_title_medium_20sp" />
 
             <TextView
                     android:id="@+id/tv_date_detail"
@@ -38,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="TextView"/>
+                    android:text="@string/dummy" />
 
             <TextView
                     android:id="@+id/tv_description_detail"
@@ -48,11 +49,21 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
-                    android:text="TextView"/>
+                    android:text="@string/dummyLong" />
 
         </LinearLayout>
 
     </ScrollView>
+
+    <ImageView
+            android:id="@+id/iv_btn_favorite"
+            android:layout_width="@dimen/dimen_big_ultra_32dp"
+            android:layout_height="@dimen/dimen_big_ultra_32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_toolbar_unfavorite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/scrollView2" />
 
     <Button
             android:id="@+id/btn_start_record"

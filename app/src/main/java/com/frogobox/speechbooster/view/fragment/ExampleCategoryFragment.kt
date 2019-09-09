@@ -14,12 +14,16 @@ import com.frogobox.speechbooster.helper.ConstHelper.Extra.EXTRA_CATEGORY
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.helper.FunHelper.Func.noAction
 import com.frogobox.speechbooster.model.CategoryScript
+import com.frogobox.speechbooster.view.activity.MainActivity
 import com.frogobox.speechbooster.view.navigation.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.view.navigation.Route.routeImplicit.startCategoryScriptActivity
 import com.frogobox.speechbooster.view.viewadapter.adapter.CategoryAdapter
+import com.frogobox.speechbooster.viewmodel.CategoryViewModel
 import kotlinx.android.synthetic.main.fragment_example_category.*
 
 class ExampleCategoryFragment : BaseFragment(), BaseListener<CategoryScript> {
+
+    lateinit var mViewModel: CategoryViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,16 +35,18 @@ class ExampleCategoryFragment : BaseFragment(), BaseListener<CategoryScript> {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupViewModel()
         setupData()
     }
 
+    fun setupViewModel() {
+        mViewModel = (activity as MainActivity).obtainCategoryViewModel().apply {
+
+        }
+    }
+
     private fun setupData() {
-        val categoryList = mutableListOf<CategoryScript>()
-        categoryList.add(CategoryScript(getString(R.string.title_category_religion), R.drawable.ic_toolbar_favorite))
-        categoryList.add(CategoryScript(getString(R.string.title_category_education), R.drawable.ic_toolbar_favorite))
-        categoryList.add(CategoryScript(getString(R.string.title_category_health), R.drawable.ic_toolbar_favorite))
-        categoryList.add(CategoryScript(getString(R.string.title_category_health), R.drawable.ic_toolbar_favorite))
-        setupRecyclerView(categoryList)
+        context?.let { mViewModel.showExampleData(it) }?.let { setupRecyclerView(it) }
     }
 
     private fun setupRecyclerView(noteList: List<CategoryScript>) {
@@ -54,10 +60,8 @@ class ExampleCategoryFragment : BaseFragment(), BaseListener<CategoryScript> {
     }
 
     override fun onItemClicked(data: CategoryScript) {
-
         val extras = createBaseBundle(TYPE_OBJECT, EXTRA_CATEGORY, data)
         context?.let { startCategoryScriptActivity(it, extras) }
-
     }
 
     override fun onItemLongClicked(data: CategoryScript) {

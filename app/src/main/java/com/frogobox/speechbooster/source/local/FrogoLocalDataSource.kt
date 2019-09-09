@@ -41,6 +41,13 @@ class FrogoLocalDataSource private constructor(
     private val videoScriptDao: VideoScriptDao
 ) : FrogoDataSource {
 
+    override fun updateRoomScriptFav(tableId: Int, favorite: Boolean): Boolean {
+        appExecutors.diskIO.execute {
+            scriptDao.updateFavorite(tableId, favorite)
+        }
+        return true
+    }
+
     override fun saveRoomFavoriteScript(data: FavoriteScript): Boolean {
         appExecutors.diskIO.execute {
             favoriteScriptDao.insertData(data)

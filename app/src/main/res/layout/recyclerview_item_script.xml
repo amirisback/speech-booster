@@ -17,31 +17,59 @@
  * 
  -->
 
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dimen_big_16dp"
         android:layout_marginLeft="@dimen/dimen_big_16dp"
-        android:padding="@dimen/dimen_medium_8dp"
-        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/dimen_big_16dp"
+        android:background="@drawable/background_card"
         android:elevation="@dimen/dimen_small_4dp"
-        android:background="@drawable/background_card">
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_medium_8dp">
 
     <TextView
-            android:text="@string/dummy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/tv_title"
-            tools:layout_editor_absoluteY="8dp" tools:layout_editor_absoluteX="8dp"/>
-    <TextView
-            android:text="@string/dummyLong"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="@string/dummy"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextBlack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
             android:id="@+id/tv_description"
-            android:minLines="3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:maxLines="8"
-            tools:layout_editor_absoluteY="35dp" tools:layout_editor_absoluteX="8dp"/>
-</LinearLayout>
+            android:minLines="3"
+            android:text="@string/dummyLong"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/dummy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+
+    <ImageView
+            android:id="@+id/iv_favorite"
+            android:layout_width="@dimen/dimen_big_super_24dp"
+            android:layout_height="@dimen/dimen_big_super_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_toolbar_favorite"
+            android:contentDescription="@string/text_image_fav" />
+</androidx.constraintlayout.widget.ConstraintLayout>
