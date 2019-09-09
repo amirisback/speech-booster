@@ -25,13 +25,15 @@ import com.frogobox.speechbooster.model.VideoScript
  */
 class VideoScriptViewHolder(view: View) : RecyclerView.ViewHolder(view), BaseViewHolder<VideoScript> {
 
-
     override fun bindItem(data: VideoScript, listener: BaseListener<VideoScript>) {
+        onItemViewClicked(data, listener)
 
     }
 
     override fun onItemViewClicked(data: VideoScript, listener: BaseListener<VideoScript>) {
-
+        itemView.setOnClickListener {
+            listener.onItemClicked(data)
+        }
     }
 
 }

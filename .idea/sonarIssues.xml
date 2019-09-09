@@ -228,6 +228,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/model/CategoryScript.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/model/ExampleScript.kt">
           <value>
             <set />
@@ -548,6 +553,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/viewadapter/adapter/CategoryScriptAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/viewadapter/adapter/ExampleScriptAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/viewadapter/adapter/FavoriteScriptAdapter.kt">
           <value>
             <set />
@@ -559,6 +574,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/viewadapter/adapter/VideoScriptAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/viewadapter/holder/CategoryViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/viewadapter/holder/ExampleScriptViewHolder.kt">
           <value>
             <set />
           </value>
@@ -663,6 +688,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_example_script.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
           <value>
             <set />
@@ -734,6 +764,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/item_notes.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/recyclerview_item_category.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/recyclerview_item_example_script.xml">
           <value>
             <set />
           </value>
@@ -1019,6 +1059,31 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/Starter Kits/gits-mvvm-kotlin-v2.0.0-master/gits-mvvm-kotlin-v2.0.0-master/gitsutils/src/main/java/id/co/gits/gitsutils/extensions/PreferencesExt.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/BaseInheritance/app/src/main/java/com/frogobox/baseinheritance/BaseActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/BaseInheritance/app/src/main/java/com/frogobox/baseinheritance/DetailActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/BaseInheritance/app/src/main/java/com/frogobox/baseinheritance/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/BaseInheritance/app/src/main/res/layout/activity_detail.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/BaseInheritance/app/src/main/res/layout/activity_main.xml">
           <value>
             <set />
           </value>

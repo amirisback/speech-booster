@@ -4,14 +4,16 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.speechbooster.base.BaseListener
 import com.frogobox.speechbooster.base.BaseViewHolder
-import com.frogobox.speechbooster.model.FavoriteScript
+import com.frogobox.speechbooster.model.ExampleScript
+import kotlinx.android.synthetic.main.recyclerview_item_category.view.*
+import kotlinx.android.synthetic.main.recyclerview_item_example_script.view.*
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * SpeechBooster
- * Copyright (C) 04/09/2019.
+ * Copyright (C) 09/09/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -23,18 +25,23 @@ import com.frogobox.speechbooster.model.FavoriteScript
  * com.frogobox.speechbooster.view.viewadapter.holder
  *
  */
+class ExampleScriptViewHolder (view: View) : RecyclerView.ViewHolder(view),
+    BaseViewHolder<ExampleScript> {
 
-class FavoriteScriptViewHolder (view: View) : RecyclerView.ViewHolder(view),
-    BaseViewHolder<FavoriteScript> {
+    val tvTitleExample = view.tv_title_example_script
+    val tvDescExample = view.tv_description_example_script
 
-    override fun bindItem(data: FavoriteScript, listener: BaseListener<FavoriteScript>) {
+    override fun bindItem(data: ExampleScript, listener: BaseListener<ExampleScript>) {
         onItemViewClicked(data, listener)
+        tvTitleExample.text = data.title
+        tvDescExample.text = data.description
     }
 
-    override fun onItemViewClicked(data: FavoriteScript, listener: BaseListener<FavoriteScript>) {
+    override fun onItemViewClicked(data: ExampleScript, listener: BaseListener<ExampleScript>) {
         itemView.setOnClickListener {
             listener.onItemClicked(data)
         }
     }
+
 
 }

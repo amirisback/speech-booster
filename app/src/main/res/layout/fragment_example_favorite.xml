@@ -9,6 +9,11 @@
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/dimen_medium_8dp"
+            android:paddingRight="@dimen/dimen_big_16dp"
+            tools:listitem="@layout/recyclerview_item_script"
+            android:overScrollMode="never"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

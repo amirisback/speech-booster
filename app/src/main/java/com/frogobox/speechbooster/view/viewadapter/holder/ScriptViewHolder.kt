@@ -31,10 +31,10 @@ class ScriptViewHolder(view: View): RecyclerView.ViewHolder(view), BaseViewHolde
 //    val tvDateTime = view
 
     override fun bindItem(data: Script, listener: BaseListener<Script>) {
+        onItemViewClicked(data, listener)
         tvTitle.text = data.title
         tvDescription.text = data.description
 //        tvDateTime.text = data.dateTime
-        onItemViewClicked(data, listener)
     }
 
     override fun onItemViewClicked(data: Script, listener: BaseListener<Script>) {

@@ -12,7 +12,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/recyclerview_item_category">
 
     </androidx.recyclerview.widget.RecyclerView>
 
