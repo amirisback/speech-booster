@@ -45,7 +45,7 @@ class MainActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.toolbar_menu_about -> {
-                startAboutUsActivity(this)
+                baseStartActivity<AboutUsActivity>(this)
                 true
             }
             else -> super.onOptionsItemSelected(item)

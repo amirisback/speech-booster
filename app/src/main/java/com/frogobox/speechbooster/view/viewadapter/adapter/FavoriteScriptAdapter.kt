@@ -1,6 +1,7 @@
 package com.frogobox.speechbooster.view.viewadapter.adapter
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.speechbooster.base.BaseListener
@@ -27,28 +28,35 @@ import com.frogobox.speechbooster.view.viewadapter.holder.FavoriteScriptViewHold
  */
 class FavoriteScriptAdapter : RecyclerView.Adapter<FavoriteScriptViewHolder>(),
     BaseViewAdapter<FavoriteScript> {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteScriptViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
-    override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    private lateinit var mContext: Context
+    private lateinit var mListener: BaseListener<FavoriteScript>
 
-    override fun onBindViewHolder(holder: FavoriteScriptViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    private val mDataList = mutableListOf<FavoriteScript>()
+    private var mLayoutItem: Int = 0
 
     override fun setLayoutItem(context: Context, layoutItem: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        mContext = context
+        mLayoutItem = layoutItem
     }
 
     override fun setListener(listener: BaseListener<FavoriteScript>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        mListener = listener
     }
 
     override fun setRecyclerViewData(dataList: List<FavoriteScript>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        mDataList.clear()
+        mDataList.addAll(dataList)
+        notifyDataSetChanged()
     }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        FavoriteScriptViewHolder(LayoutInflater.from(mContext).inflate(mLayoutItem, parent, false))
+
+    override fun onBindViewHolder(holder: FavoriteScriptViewHolder, position: Int) {
+        holder.bindItem(mDataList[position], mListener)
+    }
+
+    override fun getItemCount(): Int = mDataList.size
 }
     

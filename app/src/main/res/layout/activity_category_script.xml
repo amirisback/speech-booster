@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorBackgroundWhite"
-        tools:listitem="@layout/recyclerview_item_example_script"
-        tools:context=".view.activity.ExampleScriptActivity">
+        tools:listitem="@layout/recyclerview_item_category_script"
+        tools:context=".view.activity.CategoryScriptActivity">
 
 </androidx.recyclerview.widget.RecyclerView>

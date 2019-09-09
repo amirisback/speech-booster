@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import com.frogobox.speechbooster.view.navigation.Navigation.navigatorImplicit
 import com.frogobox.speechbooster.view.navigation.Route.Endpoint.ABOUT_US_ACTIVITY
+import com.frogobox.speechbooster.view.navigation.Route.Endpoint.CATEGORY_SCRIPT_ACTIVITY
 import com.frogobox.speechbooster.view.navigation.Route.Endpoint.RECORD_ACTIVITY
 import com.frogobox.speechbooster.view.navigation.Route.Endpoint.SCRIPT_DETAIL_ACTIVITY
 import com.frogobox.speechbooster.view.navigation.Route.Endpoint.SCRIPT_EDITOR_ACTIVITY
@@ -42,6 +43,7 @@ object Route {
         const val VIDEO_DETAIL_ACTIVITY   = "$BASE_PACKAGE.$BASE_ACTIVITY.VideoDetailActivity"
         const val RECORD_ACTIVITY         = "$BASE_PACKAGE.$BASE_ACTIVITY.RecordActivity"
         const val ABOUT_US_ACTIVITY       = "$BASE_PACKAGE.$BASE_ACTIVITY.AboutUsActivity"
+        const val CATEGORY_SCRIPT_ACTIVITY = "$BASE_PACKAGE.$BASE_ACTIVITY.CategoryScriptActivity"
 
     }
 
@@ -50,6 +52,10 @@ object Route {
         // Detail Activity -------------------------------------------------------------------------
         fun startScriptDetailActivity(context: Context, data: Bundle, option: Bundle) {
             navigatorImplicit(context, BASE_PACKAGE, SCRIPT_DETAIL_ACTIVITY, data, option = option)
+        }
+
+        fun startExampleScriptActivity(context: Context, data: Bundle) {
+            navigatorImplicit(context, BASE_PACKAGE, CATEGORY_SCRIPT_ACTIVITY, data)
         }
 
         fun startVideoDetailActivity(context: Context, data: Bundle) {

@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseFragment
 import com.frogobox.speechbooster.helper.PagerHelper
-import kotlinx.android.synthetic.main.fragment_example_script.*
+import kotlinx.android.synthetic.main.fragment_example.*
 
 class ExampleScriptFragment : BaseFragment() {
 
@@ -18,15 +18,15 @@ class ExampleScriptFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_example_script, container, false)
+        return inflater.inflate(R.layout.fragment_example, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val pagerAdapter = PagerHelper(childFragmentManager)
-        pagerAdapter.setupPagerFragment(ExampleFavoriteFragment(), resources.getString(R.string.title_favorite_category))
-        pagerAdapter.setupPagerFragment(ExampleCategoryFragment(), resources.getString(R.string.title_favorite_script))
+        pagerAdapter.setupPagerFragment(ExampleCategoryFragment(), resources.getString(R.string.title_favorite_category))
+        pagerAdapter.setupPagerFragment(ExampleFavoriteFragment(), resources.getString(R.string.title_favorite_script))
         viewpager.adapter = pagerAdapter
         tablayout.setupWithViewPager(viewpager)
 

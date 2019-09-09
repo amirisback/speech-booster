@@ -1,5 +1,14 @@
 package com.frogobox.speechbooster.view.viewadapter.adapter
 
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.frogobox.speechbooster.base.BaseListener
+import com.frogobox.speechbooster.base.BaseViewAdapter
+import com.frogobox.speechbooster.model.ExampleScript
+import com.frogobox.speechbooster.view.viewadapter.holder.ExampleScriptViewHolder
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -17,4 +26,37 @@ package com.frogobox.speechbooster.view.viewadapter.adapter
  * com.frogobox.speechbooster.view.viewadapter.adapter
  *
  */
-class ExampleScriptAdapter
+class ExampleScriptAdapter : RecyclerView.Adapter<ExampleScriptViewHolder>(),
+    BaseViewAdapter<ExampleScript> {
+
+    private lateinit var mContext: Context
+    private lateinit var mListener: BaseListener<ExampleScript>
+
+    private val mDataList = mutableListOf<ExampleScript>()
+    private var mLayoutItem: Int = 0
+
+    override fun setLayoutItem(context: Context, layoutItem: Int) {
+        mContext = context
+        mLayoutItem = layoutItem
+    }
+
+    override fun setListener(listener: BaseListener<ExampleScript>) {
+        mListener = listener
+    }
+
+    override fun setRecyclerViewData(dataList: List<ExampleScript>) {
+        mDataList.clear()
+        mDataList.addAll(dataList)
+        notifyDataSetChanged()
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ExampleScriptViewHolder(LayoutInflater.from(mContext).inflate(mLayoutItem, parent, false))
+
+    override fun onBindViewHolder(holder: ExampleScriptViewHolder, position: Int) {
+        holder.bindItem(mDataList[position], mListener)
+    }
+
+    override fun getItemCount(): Int = mDataList.size
+
+}

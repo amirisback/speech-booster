@@ -84,6 +84,7 @@ class ConstHelper {
         const val BASE_EXTRA = "com.frogobox.speechbooster."
         const val EXTRA_OPTION = BASE_EXTRA+"EXTRA_OPTION"
         const val EXTRA_SCRIPT = BASE_EXTRA+"EXTRA_SCRIPT"
+        const val EXTRA_CATEGORY = BASE_EXTRA+"EXTRA_CATEGORY"
 
     }
 

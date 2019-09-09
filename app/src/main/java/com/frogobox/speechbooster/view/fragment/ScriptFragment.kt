@@ -15,6 +15,7 @@ import com.frogobox.speechbooster.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.helper.ConstHelper.Tag.TAG_ACTIVITY_CREATE
 import com.frogobox.speechbooster.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_OBJECT
+import com.frogobox.speechbooster.helper.FunHelper.Func.noAction
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.view.navigation.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.view.navigation.Navigation.BundleHelper.createOptionBundle
@@ -96,7 +97,7 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
     }
 
     override fun onItemLongClicked(data: Script) {
-
+        noAction()
     }
 
 

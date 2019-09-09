@@ -6,7 +6,7 @@ import com.frogobox.speechbooster.base.BaseListener
 import com.frogobox.speechbooster.base.BaseViewHolder
 import com.frogobox.speechbooster.model.ExampleScript
 import kotlinx.android.synthetic.main.recyclerview_item_category.view.*
-import kotlinx.android.synthetic.main.recyclerview_item_example_script.view.*
+import kotlinx.android.synthetic.main.recyclerview_item_category_script.view.*
 
 /**
  * Created by Faisal Amir

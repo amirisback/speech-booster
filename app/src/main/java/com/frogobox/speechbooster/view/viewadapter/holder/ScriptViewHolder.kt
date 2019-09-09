@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.recyclerview_item_script.view.*
  * FrogoBox Inc License
  * =========================================
  * SpeechBooster
- * Copyright (C) 21/08/2019.
+ * Copyright (C) 09/09/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -21,10 +21,10 @@ import kotlinx.android.synthetic.main.recyclerview_item_script.view.*
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.speechbooster.view.adapter.holder
+ * com.frogobox.speechbooster.view.viewadapter.holder
  *
  */
-class ScriptViewHolder(view: View): RecyclerView.ViewHolder(view), BaseViewHolder<Script> {
+class ScriptViewHolder (view: View): RecyclerView.ViewHolder(view), BaseViewHolder<Script> {
 
     val tvTitle = view.tv_title
     val tvDescription = view.tv_description

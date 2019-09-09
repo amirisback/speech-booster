@@ -21,11 +21,12 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:background="@drawable/background_card"
         android:padding="@dimen/dimen_big_16dp"
         android:layout_marginTop="@dimen/dimen_big_16dp"
         android:layout_marginLeft="@dimen/dimen_big_16dp"
         android:layout_width="match_parent"
+        android:background="@drawable/background_card"
+        android:elevation="@dimen/dimen_small_4dp"
         android:layout_height="wrap_content">
 
     <ImageView

@@ -26,6 +26,7 @@
         android:layout_marginEnd="@dimen/dimen_big_16dp"
         android:layout_marginBottom="@dimen/dimen_big_16dp"
         android:background="@drawable/background_card"
+        android:elevation="@dimen/dimen_small_4dp"
         android:padding="@dimen/dimen_big_16dp">
 
     <TextView
