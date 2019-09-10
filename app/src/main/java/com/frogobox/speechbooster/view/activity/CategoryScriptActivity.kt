@@ -48,8 +48,8 @@ class CategoryScriptActivity : BaseActivity(), BaseListener<ExampleScript> {
 
     private fun setupRecyclerView(noteList: List<ExampleScript>) {
         val adapter = CategoryScriptAdapter()
-        adapter.setLayoutItem(this, R.layout.recyclerview_item_category_script)
-        adapter.setListener(this)
+        adapter.setRecyclerViewLayout(this, R.layout.recyclerview_item_category_script)
+        adapter.setRecyclerViewListener(this)
         adapter.setRecyclerViewData(noteList)
 
         recyclerView.adapter = adapter

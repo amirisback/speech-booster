@@ -51,8 +51,8 @@ class ExampleCategoryFragment : BaseFragment(), BaseListener<CategoryScript> {
 
     private fun setupRecyclerView(noteList: List<CategoryScript>) {
         val adapter = CategoryAdapter()
-        context?.let { adapter.setLayoutItem(it, R.layout.recyclerview_item_category) }
-        adapter.setListener(this)
+        context?.let { adapter.setRecyclerViewLayout(it, R.layout.recyclerview_item_category) }
+        adapter.setRecyclerViewListener(this)
         adapter.setRecyclerViewData(noteList)
 
         recyclerView.adapter = adapter

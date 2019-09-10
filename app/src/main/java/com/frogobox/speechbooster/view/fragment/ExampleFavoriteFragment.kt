@@ -70,8 +70,8 @@ class ExampleFavoriteFragment : BaseFragment(), BaseListener<FavoriteScript> {
 
     private fun setupRecyclerView(noteList: List<FavoriteScript>) {
         val adapter = FavoriteScriptAdapter()
-        context?.let { adapter.setLayoutItem(it, R.layout.recyclerview_item_script) }
-        adapter.setListener(this)
+        context?.let { adapter.setRecyclerViewLayout(it, R.layout.recyclerview_item_script) }
+        adapter.setRecyclerViewListener(this)
         adapter.setRecyclerViewData(noteList)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)

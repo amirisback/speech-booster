@@ -26,6 +26,6 @@ import com.frogobox.speechbooster.view.viewadapter.holder.CategoryScriptViewHold
 class CategoryScriptAdapter : BaseViewAdapter<ExampleScript, CategoryScriptViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        CategoryScriptViewHolder(LayoutInflater.from(mContext).inflate(mLayoutItem, parent, false))
+        CategoryScriptViewHolder(LayoutInflater.from(mContext).inflate(mRecyclerViewLayout, parent, false))
 
 }

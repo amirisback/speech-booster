@@ -25,28 +25,28 @@ abstract class BaseViewAdapter<T, Holder : BaseViewHolder<T>> : RecyclerView.Ada
     protected lateinit var mContext: Context
     protected lateinit var mListener: BaseListener<T>
 
-    protected val mDataList = mutableListOf<T>()
-    protected var mLayoutItem: Int = 0
+    protected val mRecyclerViewDataList = mutableListOf<T>()
+    protected var mRecyclerViewLayout: Int = 0
 
-    fun setLayoutItem(context: Context, layoutItem: Int) {
+    fun setRecyclerViewLayout(context: Context, layoutItem: Int) {
         mContext = context
-        mLayoutItem = layoutItem
+        mRecyclerViewLayout = layoutItem
     }
 
-    fun setListener(listener: BaseListener<T>) {
+    fun setRecyclerViewListener(listener: BaseListener<T>) {
         mListener = listener
     }
 
     fun setRecyclerViewData(dataList: List<T>) {
-        mDataList.clear()
-        mDataList.addAll(dataList)
+        mRecyclerViewDataList.clear()
+        mRecyclerViewDataList.addAll(dataList)
         notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bindItem(mDataList[position], mListener)
+        holder.bindItem(mRecyclerViewDataList[position], mListener)
     }
 
-    override fun getItemCount(): Int = mDataList.size
+    override fun getItemCount(): Int = mRecyclerViewDataList.size
 
 }

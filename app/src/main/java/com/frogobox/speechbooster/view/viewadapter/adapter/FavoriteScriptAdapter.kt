@@ -26,7 +26,7 @@ import com.frogobox.speechbooster.view.viewadapter.holder.FavoriteScriptViewHold
 class FavoriteScriptAdapter : BaseViewAdapter<FavoriteScript, FavoriteScriptViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        FavoriteScriptViewHolder(LayoutInflater.from(mContext).inflate(mLayoutItem, parent, false))
+        FavoriteScriptViewHolder(LayoutInflater.from(mContext).inflate(mRecyclerViewLayout, parent, false))
 
 }
     
