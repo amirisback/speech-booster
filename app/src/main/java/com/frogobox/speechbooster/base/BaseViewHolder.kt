@@ -1,11 +1,14 @@
 package com.frogobox.speechbooster.base
 
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * SpeechBooster
- * Copyright (C) 21/08/2019.
+ * Copyright (C) 10/09/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -14,10 +17,25 @@ package com.frogobox.speechbooster.base
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.speechbooster.base
+ * com.frogobox.speechbooster.cheery
  *
  */
-interface BaseViewHolder<T> {
-    fun bindItem(data: T, listener: BaseListener<T>)
-    fun onItemViewClicked(data: T, listener: BaseListener<T>)
+
+abstract class BaseViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
+
+    open fun bindItem(data: T, listener: BaseListener<T>){
+        onItemViewClicked(data, listener)
+        initComponent(data)
+    }
+
+    protected fun onItemViewClicked(data: T, listener: BaseListener<T>){
+        itemView.setOnClickListener {
+            listener.onItemClicked(data)
+        }
+    }
+
+    open fun initComponent(data: T){
+        // component view
+    }
+
 }

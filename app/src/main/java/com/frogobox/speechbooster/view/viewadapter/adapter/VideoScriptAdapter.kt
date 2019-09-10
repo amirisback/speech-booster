@@ -25,29 +25,9 @@ import com.frogobox.speechbooster.view.viewadapter.holder.VideoScriptViewHolder
  * com.frogobox.speechbooster.view.viewadapter.adapter
  *
  */
-class VideoScriptAdapter : RecyclerView.Adapter<VideoScriptViewHolder>(),
-    BaseViewAdapter<VideoScript> {
+class VideoScriptAdapter : BaseViewAdapter<VideoScript, VideoScriptViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoScriptViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onBindViewHolder(holder: VideoScriptViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun setLayoutItem(context: Context, layoutItem: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun setListener(listener: BaseListener<VideoScript>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun setRecyclerViewData(dataList: List<VideoScript>) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

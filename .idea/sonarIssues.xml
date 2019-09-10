@@ -133,6 +133,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/base/Adapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/base/BaseActionListener.kt">
           <value>
             <set />
@@ -214,6 +219,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/camera/DialogError.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/cheery/Adapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/cheery/BaseAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/cheery/BaseViewAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/cheery/BaseViewHolder.kt">
           <value>
             <set />
           </value>
@@ -649,6 +674,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/viewadapter/adapter/VideoScriptAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/viewadapter/holder/CategoryScriptViewHolder.kt">
           <value>
             <set />
           </value>

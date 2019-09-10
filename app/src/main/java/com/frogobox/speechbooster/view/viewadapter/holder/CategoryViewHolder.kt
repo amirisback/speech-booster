@@ -25,22 +25,15 @@ import kotlinx.android.synthetic.main.recyclerview_item_category.view.*
  *
  */
 
-class CategoryViewHolder (view: View) : RecyclerView.ViewHolder(view),
-    BaseViewHolder<CategoryScript> {
+class CategoryViewHolder(view: View) : BaseViewHolder<CategoryScript>(view) {
 
     val ivCategory = view.iv_category
     val tvCategory = view.tv_category
 
-    override fun bindItem(data: CategoryScript, listener: BaseListener<CategoryScript>) {
-        onItemViewClicked(data, listener)
+    override fun initComponent(data: CategoryScript) {
+        super.initComponent(data)
         ivCategory.setImageResource(data.imageCategory)
         tvCategory.text = data.category
-    }
-
-    override fun onItemViewClicked(data: CategoryScript, listener: BaseListener<CategoryScript>) {
-        itemView.setOnClickListener {
-            listener.onItemClicked(data)
-        }
     }
 
 }

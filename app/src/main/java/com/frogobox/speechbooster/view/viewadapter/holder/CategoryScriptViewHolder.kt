@@ -24,23 +24,16 @@ import kotlinx.android.synthetic.main.recyclerview_item_category_script.view.*
  * com.frogobox.speechbooster.view.viewadapter.holder
  *
  */
-class CategoryScriptViewHolder (view: View) : RecyclerView.ViewHolder(view),
-    BaseViewHolder<ExampleScript> {
+
+class CategoryScriptViewHolder(view: View) : BaseViewHolder<ExampleScript>(view) {
 
     val tvTitleExample = view.tv_title_example_script
     val tvDescExample = view.tv_description_example_script
 
-    override fun bindItem(data: ExampleScript, listener: BaseListener<ExampleScript>) {
-        onItemViewClicked(data, listener)
+    override fun initComponent(data: ExampleScript) {
+        super.initComponent(data)
         tvTitleExample.text = data.title
         tvDescExample.text = data.description
     }
-
-    override fun onItemViewClicked(data: ExampleScript, listener: BaseListener<ExampleScript>) {
-        itemView.setOnClickListener {
-            listener.onItemClicked(data)
-        }
-    }
-
 
 }

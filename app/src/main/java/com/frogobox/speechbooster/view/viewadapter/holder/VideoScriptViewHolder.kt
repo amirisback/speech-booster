@@ -23,17 +23,10 @@ import com.frogobox.speechbooster.model.VideoScript
  * com.frogobox.speechbooster.view.viewadapter.holder
  *
  */
-class VideoScriptViewHolder(view: View) : RecyclerView.ViewHolder(view), BaseViewHolder<VideoScript> {
+class VideoScriptViewHolder(view: View) : BaseViewHolder<VideoScript>(view) {
 
-    override fun bindItem(data: VideoScript, listener: BaseListener<VideoScript>) {
-        onItemViewClicked(data, listener)
-
-    }
-
-    override fun onItemViewClicked(data: VideoScript, listener: BaseListener<VideoScript>) {
-        itemView.setOnClickListener {
-            listener.onItemClicked(data)
-        }
+    override fun initComponent(data: VideoScript) {
+        super.initComponent(data)
     }
 
 }

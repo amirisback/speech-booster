@@ -25,25 +25,17 @@ import kotlinx.android.synthetic.main.recyclerview_item_script.view.*
  *
  */
 
-class FavoriteScriptViewHolder (view: View) : RecyclerView.ViewHolder(view),
-    BaseViewHolder<FavoriteScript> {
+class FavoriteScriptViewHolder(view: View) : BaseViewHolder<FavoriteScript>(view) {
 
     val tvTitle = view.tv_title
     val tvDescription = view.tv_description
     val tvDateTime = view.tv_date
 
-    override fun bindItem(data: FavoriteScript, listener: BaseListener<FavoriteScript>) {
-        onItemViewClicked(data, listener)
-        onItemViewClicked(data, listener)
+    override fun initComponent(data: FavoriteScript) {
+        super.initComponent(data)
         tvTitle.text = data.title
         tvDescription.text = data.description
         tvDateTime.text = data.dateTime
-    }
-
-    override fun onItemViewClicked(data: FavoriteScript, listener: BaseListener<FavoriteScript>) {
-        itemView.setOnClickListener {
-            listener.onItemClicked(data)
-        }
     }
 
 }

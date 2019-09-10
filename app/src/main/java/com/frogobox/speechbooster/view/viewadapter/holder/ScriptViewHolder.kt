@@ -1,7 +1,6 @@
 package com.frogobox.speechbooster.view.viewadapter.holder
 
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.speechbooster.base.BaseListener
 import com.frogobox.speechbooster.base.BaseViewHolder
 import com.frogobox.speechbooster.model.Script
@@ -24,15 +23,16 @@ import kotlinx.android.synthetic.main.recyclerview_item_script.view.*
  * com.frogobox.speechbooster.view.viewadapter.holder
  *
  */
-class ScriptViewHolder (view: View): RecyclerView.ViewHolder(view), BaseViewHolder<Script> {
+class ScriptViewHolder(view: View) : BaseViewHolder<Script>(view) {
 
     val tvTitle = view.tv_title
     val tvDescription = view.tv_description
     val tvDateTime = view.tv_date
     val ivFavorite = view.iv_favorite
 
-    override fun bindItem(data: Script, listener: BaseListener<Script>) {
-        onItemViewClicked(data, listener)
+    override fun initComponent(data: Script) {
+        super.initComponent(data)
+
         tvTitle.text = data.title
         tvDescription.text = data.description
         tvDateTime.text = data.dateTime
@@ -42,12 +42,7 @@ class ScriptViewHolder (view: View): RecyclerView.ViewHolder(view), BaseViewHold
         } else {
             ivFavorite.visibility = View.GONE
         }
-    }
 
-    override fun onItemViewClicked(data: Script, listener: BaseListener<Script>) {
-        itemView.setOnClickListener {
-            listener.onItemClicked(data)
-        }
     }
 
 }
