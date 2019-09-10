@@ -6,7 +6,6 @@ import android.view.MenuItem
 import android.view.View
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseActivity
-import com.frogobox.speechbooster.helper.ConstHelper.Extra.EXTRA_EXAMPLE_SCRIPT
 import com.frogobox.speechbooster.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
 import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_OBJECT
@@ -87,11 +86,11 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback {
     }
 
     private fun listenerMenuDelete() {
-        val titleDialog = "Hapus data"
-        val messageDialog = "Apakah anda yakin ingin menghapus dialog ?"
+        val titleDialog = getString(R.string.dialog_title_delete)
+        val messageDialog = getString(R.string.dialog_message_delete)
         createDialogDefault(this, titleDialog, messageDialog) {
             val data = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
-            mViewModel.deleteData(data.table_id, this)
+            mViewModel.deleteScriptData(data.table_id, this)
         }
     }
 

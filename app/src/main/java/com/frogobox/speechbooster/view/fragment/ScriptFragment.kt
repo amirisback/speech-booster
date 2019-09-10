@@ -25,6 +25,7 @@ import com.frogobox.speechbooster.view.activity.MainActivity
 import com.frogobox.speechbooster.view.viewadapter.adapter.ScriptAdapter
 import com.frogobox.speechbooster.viewmodel.ScriptMainViewModel
 import kotlinx.android.synthetic.main.fragment_script.*
+import kotlinx.android.synthetic.main.recyclerview_empty.*
 
 class ScriptFragment : BaseFragment(), BaseListener<Script> {
 
@@ -42,7 +43,11 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
     fun setupViewModel() {
         mViewModel = (activity as MainActivity).obtainScriptMainViewModel().apply {
 
-            scriptLive.observe(this@ScriptFragment, Observer {
+            isEmpty.observe(this@ScriptFragment, Observer {
+                setupEmptyView(it)
+            })
+
+            scriptListLive.observe(this@ScriptFragment, Observer {
                 setupRecyclerView(it)
             })
 
@@ -72,7 +77,7 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
     }
 
     private fun setupDataRoomScript(){
-        mViewModel.getData()
+        mViewModel.getScriptData()
     }
 
     private fun setupRecyclerView(noteList: List<Script>) {
@@ -84,6 +89,14 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
         recyclerView.adapter = adapter
         recyclerView.layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+    }
+
+    private fun setupEmptyView(isEmpty: Boolean) {
+        if (isEmpty) {
+            empty_view.visibility = View.VISIBLE
+        } else {
+            empty_view.visibility = View.GONE
+        }
     }
 
     override fun onItemClicked(data: Script) {

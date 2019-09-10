@@ -29,9 +29,10 @@ class ScriptMainViewModel(
     private val frogoDataRepository: FrogoDataRepository
 ) : BaseViewModel(application) {
 
-    val scriptLive = SingleLiveEvent<List<Script>>()
+    val scriptListLive = SingleLiveEvent<List<Script>>()
+    val isEmpty = SingleLiveEvent<Boolean>()
 
-    fun getData() {
+    fun getScriptData() {
         frogoDataRepository.getRoomScript(object :
             FrogoDataSource.GetRoomDataCallBack<List<Script>> {
             override fun onShowProgressDialog() {
@@ -43,13 +44,12 @@ class ScriptMainViewModel(
             }
 
             override fun onSuccess(data: List<Script>) {
-                scriptLive.apply {
-                    postValue(data)
-                }
+                scriptListLive.value = data
+                isEmpty.value = false
             }
 
             override fun onEmpty() {
-
+                isEmpty.value = true
             }
 
             override fun onFinish() {

@@ -41,13 +41,6 @@ class FrogoLocalDataSource private constructor(
     private val videoScriptDao: VideoScriptDao
 ) : FrogoDataSource {
 
-    override fun updateRoomScriptFav(tableId: Int, favorite: Boolean): Boolean {
-        appExecutors.diskIO.execute {
-            scriptDao.updateFavorite(tableId, favorite)
-        }
-        return true
-    }
-
     override fun saveRoomFavoriteScript(data: FavoriteScript): Boolean {
         appExecutors.diskIO.execute {
             favoriteScriptDao.insertData(data)
@@ -62,6 +55,13 @@ class FrogoLocalDataSource private constructor(
         return true
     }
 
+    override fun saveRoomScript(data: Script): Boolean {
+        appExecutors.diskIO.execute {
+            scriptDao.insertData(data)
+        }
+        return true
+    }
+
     override fun getRoomFavoriteScript(callback: FrogoDataSource.GetRoomDataCallBack<List<FavoriteScript>>) {
         appExecutors.diskIO.execute {
             favoriteScriptDao.getAllData()
@@ -71,7 +71,11 @@ class FrogoLocalDataSource private constructor(
                     override fun onCallbackSucces(data: List<FavoriteScript>) {
                         callback.onShowProgressDialog()
                         callback.onSuccess(data)
+                        if (data.size == 0) {
+                            callback.onEmpty()
+                        }
                         callback.onHideProgressDialog()
+
                     }
 
                     override fun onCallbackError(code: Int, errorMessage: String) {
@@ -98,6 +102,39 @@ class FrogoLocalDataSource private constructor(
                     override fun onCallbackSucces(data: List<VideoScript>) {
                         callback.onShowProgressDialog()
                         callback.onSuccess(data)
+                        if (data.size == 0) {
+                            callback.onEmpty()
+                        }
+                        callback.onHideProgressDialog()
+                    }
+
+                    override fun onCallbackError(code: Int, errorMessage: String) {
+                        callback.onFailed(code, errorMessage)
+                    }
+
+                    override fun onAddSubscribe(disposable: Disposable) {
+                        addSubscribe(disposable = disposable)
+                    }
+
+                    override fun onCompleted() {
+                        callback.onHideProgressDialog()
+                    }
+                })
+        }
+    }
+
+    override fun getRoomScript(callback: FrogoDataSource.GetRoomDataCallBack<List<Script>>) {
+        appExecutors.diskIO.execute {
+            scriptDao.getAllData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : BaseCallback<List<Script>>() {
+                    override fun onCallbackSucces(data: List<Script>) {
+                        callback.onShowProgressDialog()
+                        callback.onSuccess(data)
+                        if (data.size == 0) {
+                            callback.onEmpty()
+                        }
                         callback.onHideProgressDialog()
                     }
 
@@ -135,6 +172,25 @@ class FrogoLocalDataSource private constructor(
         return true
     }
 
+    override fun updateRoomScript(
+        tableId: Int,
+        title: String,
+        description: String,
+        dateTime: String
+    ): Boolean {
+        appExecutors.diskIO.execute {
+            scriptDao.updateData(tableId, title, description, dateTime)
+        }
+        return true
+    }
+
+    override fun updateRoomScriptFav(tableId: Int, favorite: Boolean): Boolean {
+        appExecutors.diskIO.execute {
+            scriptDao.updateFavorite(tableId, favorite)
+        }
+        return true
+    }
+
     override fun deleteRoomFavoriteScript(tableId: Int): Boolean {
         appExecutors.diskIO.execute {
             favoriteScriptDao.deleteData(tableId)
@@ -145,6 +201,13 @@ class FrogoLocalDataSource private constructor(
     override fun deleteRoomVideoScript(tableId: Int): Boolean {
         appExecutors.diskIO.execute {
             videoScriptDao.deleteData(tableId)
+        }
+        return true
+    }
+
+    override fun deleteRoomScript(tableId: Int): Boolean {
+        appExecutors.diskIO.execute {
+            scriptDao.deleteData(tableId)
         }
         return true
     }
@@ -163,64 +226,11 @@ class FrogoLocalDataSource private constructor(
         return true
     }
 
-    override fun saveRoomScript(data: Script): Boolean {
-        appExecutors.diskIO.execute {
-            scriptDao.insertData(data)
-        }
-        return true
-    }
-
-    override fun updateRoomScript(
-        tableId: Int,
-        title: String,
-        description: String,
-        dateTime: String
-    ): Boolean {
-        appExecutors.diskIO.execute {
-            scriptDao.updateData(tableId, title, description, dateTime)
-        }
-        return true
-    }
-
-    override fun deleteRoomScript(tableId: Int): Boolean {
-        appExecutors.diskIO.execute {
-            scriptDao.deleteData(tableId)
-        }
-        return true
-    }
-
     override fun nukeRoomScript(): Boolean {
         appExecutors.diskIO.execute {
             scriptDao.nukeData()
         }
         return true
-    }
-
-    override fun getRoomScript(callback: FrogoDataSource.GetRoomDataCallBack<List<Script>>) {
-        appExecutors.diskIO.execute {
-            scriptDao.getAllData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : BaseCallback<List<Script>>() {
-                    override fun onCallbackSucces(data: List<Script>) {
-                        callback.onShowProgressDialog()
-                        callback.onSuccess(data)
-                        callback.onHideProgressDialog()
-                    }
-
-                    override fun onCallbackError(code: Int, errorMessage: String) {
-                        callback.onFailed(code, errorMessage)
-                    }
-
-                    override fun onAddSubscribe(disposable: Disposable) {
-                        addSubscribe(disposable = disposable)
-                    }
-
-                    override fun onCompleted() {
-                        callback.onHideProgressDialog()
-                    }
-                })
-        }
     }
 
 
