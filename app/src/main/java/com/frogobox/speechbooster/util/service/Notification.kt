@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.service
+package com.frogobox.speechbooster.util.service
 
 /**
  * Created by Faisal Amir
@@ -14,7 +14,7 @@ package com.frogobox.speechbooster.service
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.speechbooster.service
+ * com.frogobox.speechbooster.util.service
  *
  */
 class Notification {}

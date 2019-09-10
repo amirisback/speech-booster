@@ -983,7 +983,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/frogobase/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/frogobase/src/androidTest/java/com/frogobox/frogobase/ExampleInstrumentedTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/settings.gradle">
           <value>
             <set />
           </value>

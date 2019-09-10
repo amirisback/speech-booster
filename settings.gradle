@@ -1,1 +1,1 @@
-include ':app', ':frogobase'
+include ':app'
