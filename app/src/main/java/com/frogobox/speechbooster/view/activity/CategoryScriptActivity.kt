@@ -5,16 +5,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseActivity
 import com.frogobox.speechbooster.base.BaseListener
-import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_CATEGORY
-import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
-import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_DETAIL
-import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
-import com.frogobox.speechbooster.util.helper.FunHelper.Func.noAction
 import com.frogobox.speechbooster.model.CategoryScript
 import com.frogobox.speechbooster.model.ExampleScript
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
+import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_CATEGORY
+import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
+import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_DETAIL
+import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
+import com.frogobox.speechbooster.util.helper.FunHelper.Func.noAction
 import com.frogobox.speechbooster.view.Route.routeImplicit.startScriptDetailActivity
 import com.frogobox.speechbooster.view.viewadapter.adapter.CategoryScriptAdapter
 import com.frogobox.speechbooster.viewmodel.CategoryScriptViewModel
@@ -46,12 +46,11 @@ class CategoryScriptActivity : BaseActivity(), BaseListener<ExampleScript> {
         setupRecyclerView(mViewModel.showExampleData(this, extraDataResult.category))
     }
 
-    private fun setupRecyclerView(noteList: List<ExampleScript>) {
+    private fun setupRecyclerView(data: List<ExampleScript>) {
         val adapter = CategoryScriptAdapter()
         adapter.setRecyclerViewLayout(this, R.layout.recyclerview_item_category_script)
         adapter.setRecyclerViewListener(this)
-        adapter.setRecyclerViewData(noteList)
-
+        adapter.setRecyclerViewData(data)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }

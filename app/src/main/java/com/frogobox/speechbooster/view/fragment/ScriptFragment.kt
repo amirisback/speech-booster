@@ -80,11 +80,11 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
         }
     }
 
-    private fun setupRecyclerView(noteList: List<Script>) {
+    private fun setupRecyclerView(data: List<Script>) {
         val adapter = ScriptAdapter()
         context?.let { adapter.setRecyclerViewLayout(it, R.layout.recyclerview_item_script) }
         adapter.setRecyclerViewListener(this)
-        adapter.setRecyclerViewData(noteList)
+        adapter.setRecyclerViewData(data)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
     }

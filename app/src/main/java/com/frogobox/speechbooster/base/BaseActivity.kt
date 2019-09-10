@@ -2,20 +2,20 @@ package com.frogobox.speechbooster.base
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.frogobox.speechbooster.util.helper.FunHelper
-import android.graphics.drawable.ColorDrawable
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ViewModelFactory
+import com.frogobox.speechbooster.util.helper.FunHelper
 
 
 /**
@@ -64,20 +64,24 @@ abstract class BaseActivity : AppCompatActivity() {
         context.startActivity(Intent(context, ClassActivity::class.java))
     }
 
-    protected inline fun <reified ClassActivity, Model> baseStartActivity(context: Context, extraKey: String, data: Model) {
+    protected inline fun <reified ClassActivity, Model> baseStartActivity(
+        context: Context,
+        extraKey: String,
+        data: Model
+    ) {
         val intent = Intent(context, ClassActivity::class.java)
         val extraData = FunHelper.ConverterJson.toJson(data)
         intent.putExtra(extraKey, extraData)
         context.startActivity(intent)
     }
 
-    protected inline fun <reified Model> baseGetExtraData(extraKey: String) : Model {
+    protected inline fun <reified Model> baseGetExtraData(extraKey: String): Model {
         val extraIntent = intent.getStringExtra(extraKey)
         val extraData = FunHelper.ConverterJson.fromJson<Model>(extraIntent)
         return extraData
     }
 
-    protected fun tagOption() : Int {
+    protected fun tagOption(): Int {
         return getOptionBundle(this)
     }
 
@@ -86,7 +90,14 @@ abstract class BaseActivity : AppCompatActivity() {
         val upArrow = ContextCompat.getDrawable(this, R.drawable.ic_toolbar_back_home)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(upArrow)
-        supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.colorBaseWhite)))
+        supportActionBar?.setBackgroundDrawable(
+            ColorDrawable(
+                ContextCompat.getColor(
+                    this,
+                    R.color.colorBaseWhite
+                )
+            )
+        )
     }
 
     fun <T : ViewModel> obtainViewModel(viewModelClass: Class<T>) =

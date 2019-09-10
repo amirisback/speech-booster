@@ -49,11 +49,11 @@ class ExampleCategoryFragment : BaseFragment(), BaseListener<CategoryScript> {
         context?.let { mViewModel.showExampleData(it) }?.let { setupRecyclerView(it) }
     }
 
-    private fun setupRecyclerView(noteList: List<CategoryScript>) {
+    private fun setupRecyclerView(data: List<CategoryScript>) {
         val adapter = CategoryAdapter()
         context?.let { adapter.setRecyclerViewLayout(it, R.layout.recyclerview_item_category) }
         adapter.setRecyclerViewListener(this)
-        adapter.setRecyclerViewData(noteList)
+        adapter.setRecyclerViewData(data)
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(context, 2)
