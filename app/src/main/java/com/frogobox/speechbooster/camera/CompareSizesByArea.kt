@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.util
+package com.frogobox.speechbooster.camera
 
 import android.util.Size
 import java.lang.Long

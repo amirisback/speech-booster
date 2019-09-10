@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.view.navigation
+package com.frogobox.speechbooster.util
 
 import android.app.Activity
 import android.content.Context
@@ -6,13 +6,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.frogobox.speechbooster.helper.ConstHelper.Extra.EXTRA_OPTION
-import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_BOOLEAN
-import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_FLOAT
-import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_INT
-import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_OBJECT
-import com.frogobox.speechbooster.helper.ConstHelper.TypeData.TYPE_STRING
-import com.frogobox.speechbooster.helper.FunHelper
+import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_OPTION
+import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_BOOLEAN
+import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_FLOAT
+import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_INT
+import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
+import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_STRING
+import com.frogobox.speechbooster.util.helper.FunHelper
 
 /**
  * Created by Faisal Amir

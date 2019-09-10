@@ -1,8 +1,11 @@
 package com.frogobox.speechbooster.base
 
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
-import com.frogobox.speechbooster.helper.FunHelper
+import com.frogobox.speechbooster.util.helper.FunHelper
+import kotlinx.android.synthetic.main.recyclerview_event_empty.*
+import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 
 /**
  * Created by Faisal Amir
@@ -54,6 +57,22 @@ abstract class BaseFragment : Fragment() {
         val argsData = this.arguments?.getString(argsKey)
         val instaceData = FunHelper.ConverterJson.fromJson<Model>(argsData)
         return instaceData
+    }
+
+    protected fun setupEventEmptyView(isEmpty: Boolean) {
+        if (isEmpty) {
+            empty_view.visibility = View.VISIBLE
+        } else {
+            empty_view.visibility = View.GONE
+        }
+    }
+
+    protected fun setupEventProgressView(progress: Boolean) {
+        if (progress) {
+            progress_view.visibility = View.VISIBLE
+        } else {
+            progress_view.visibility = View.GONE
+        }
     }
 
 }

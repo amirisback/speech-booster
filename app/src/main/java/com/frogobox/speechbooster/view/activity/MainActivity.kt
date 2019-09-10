@@ -9,6 +9,7 @@ import com.frogobox.speechbooster.view.fragment.ExampleFragment
 import com.frogobox.speechbooster.view.fragment.ScriptFragment
 import com.frogobox.speechbooster.view.fragment.VideoFragment
 import com.frogobox.speechbooster.viewmodel.CategoryViewModel
+import com.frogobox.speechbooster.viewmodel.FavoriteScriptMainViewModel
 import com.frogobox.speechbooster.viewmodel.ScriptMainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar_main.*
@@ -34,6 +35,9 @@ class MainActivity : BaseActivity() {
 
     fun obtainCategoryViewModel(): CategoryViewModel =
         obtainViewModel(CategoryViewModel::class.java)
+
+    fun obtainFavoriteViewModel(): FavoriteScriptMainViewModel =
+        obtainViewModel(FavoriteScriptMainViewModel::class.java)
 
     private fun setupToolbar() {
         setSupportActionBar(toolbar_main)

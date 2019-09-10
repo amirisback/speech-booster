@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.helper
+package com.frogobox.speechbooster.util.helper
 
 import android.Manifest
 

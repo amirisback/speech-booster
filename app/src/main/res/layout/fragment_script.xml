@@ -31,7 +31,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@drawable/ic_fab_add"/>
 
-    <include
-            layout="@layout/recyclerview_empty" />
+    <include layout="@layout/recyclerview_event_empty" />
+    <include layout="@layout/recyclerview_event_progress" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

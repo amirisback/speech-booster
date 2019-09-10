@@ -198,6 +198,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/camera/AutoFitTextureView.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/camera/CompareSizesByArea.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/camera/DialogConfirmation.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/camera/DialogError.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/helper/ConstHelper.kt">
           <value>
             <set />
@@ -403,12 +423,42 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/util/Navigation.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/util/SingleLiveEvent.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/util/ViewModelFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/util/helper/ConstHelper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/util/helper/DateHelper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/util/helper/FunHelper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/util/helper/PagerHelper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/Route.kt">
           <value>
             <set />
           </value>
@@ -828,6 +878,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/recyclerview_event_empty.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/recyclerview_event_progress.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/recyclerview_item_category.xml">
           <value>
             <set />
@@ -923,12 +983,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/frogobase/src/androidTest/java/com/frogobox/frogobase/ExampleInstrumentedTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/FOOTSTEPMILL/android-footstep-mill/apputils/src/main/java/id/co/gits/gitsutils/GitsRouteNavigation.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/FOOTSTEPMILL/android-footstep-mill/apputils/src/main/java/id/co/gits/gitsutils/helper/extensions/ActivityExt.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/build/generated/source/buildConfig/production/debug/ssc/surfacing/gits/BuildConfig.java">
           <value>
             <set />
           </value>
@@ -1018,7 +1088,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/source/remote/GitsApiService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/source/remote/GitsRemoteDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/data/source/remote/OkHttpClientHelper.java">
           <value>
             <set />
           </value>
@@ -1124,6 +1204,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/app/src/main/java/ssc/surfacing/gits/util/GitsHelper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../GITS/SINARMAS/linux/android-surfaicing/deps.gradle">
           <value>
             <set />
           </value>

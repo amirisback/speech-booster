@@ -1,9 +1,9 @@
-package com.frogobox.speechbooster.helper
+package com.frogobox.speechbooster.util.helper
 
 import android.os.Build
 import android.text.format.DateFormat
-import com.frogobox.speechbooster.helper.ConstHelper.Date.HOUR_MILLIS
-import com.frogobox.speechbooster.helper.ConstHelper.Date.MINUTE_MILLIS
+import com.frogobox.speechbooster.util.helper.ConstHelper.Date.HOUR_MILLIS
+import com.frogobox.speechbooster.util.helper.ConstHelper.Date.MINUTE_MILLIS
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.speechbooster.helper
+ * com.frogobox.speechbooster.util.helper
  *
  */
 class DateHelper {

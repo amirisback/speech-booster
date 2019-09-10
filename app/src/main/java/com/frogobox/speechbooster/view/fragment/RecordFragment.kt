@@ -25,11 +25,11 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseFragment
-import com.frogobox.speechbooster.helper.ConstHelper
-import com.frogobox.speechbooster.util.AutoFitTextureView
-import com.frogobox.speechbooster.util.CompareSizesByArea
-import com.frogobox.speechbooster.util.DialogConfirmation
-import com.frogobox.speechbooster.util.DialogError
+import com.frogobox.speechbooster.util.helper.ConstHelper
+import com.frogobox.speechbooster.camera.AutoFitTextureView
+import com.frogobox.speechbooster.camera.CompareSizesByArea
+import com.frogobox.speechbooster.camera.DialogConfirmation
+import com.frogobox.speechbooster.camera.DialogError
 import java.io.IOException
 import java.util.*
 import java.util.concurrent.Semaphore
@@ -179,7 +179,8 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
 
     private fun requestVideoPermissions() {
         if (shouldShowRequestPermissionRationale(ConstHelper.Code.CODE_VIDEO_PERMISSIONS)) {
-            DialogConfirmation().show(childFragmentManager, ConstHelper.Const.FRAGMENT_DIALOG)
+            DialogConfirmation()
+                .show(childFragmentManager, ConstHelper.Const.FRAGMENT_DIALOG)
         } else {
             requestPermissions(
                 ConstHelper.Code.CODE_VIDEO_PERMISSIONS,

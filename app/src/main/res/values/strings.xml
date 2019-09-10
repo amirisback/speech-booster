@@ -21,7 +21,9 @@
     <string name="text_delete">Delete</string>
     <string name="text_accept">Accept</string>
     <string name="text_image_fav">Star</string>
-    <string name="text_empty_data">Tidak ada catatan</string>
+
+    <string name="event_empty_data">No Data</string>
+    <string name="event_show_progress">Please Wait</string>
 
     <string name="button_start_record">Start</string>
 

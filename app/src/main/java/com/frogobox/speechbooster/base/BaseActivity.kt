@@ -7,14 +7,14 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.frogobox.speechbooster.helper.FunHelper
+import com.frogobox.speechbooster.util.helper.FunHelper
 import android.graphics.drawable.ColorDrawable
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.view.navigation.Navigation.BundleHelper.getOptionBundle
+import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ViewModelFactory
 
 

@@ -1,16 +1,16 @@
-package com.frogobox.speechbooster.view.navigation
+package com.frogobox.speechbooster.view
 
 import android.content.Context
 import android.os.Bundle
-import com.frogobox.speechbooster.view.navigation.Navigation.navigatorImplicit
-import com.frogobox.speechbooster.view.navigation.Route.Endpoint.ABOUT_US_ACTIVITY
-import com.frogobox.speechbooster.view.navigation.Route.Endpoint.CATEGORY_SCRIPT_ACTIVITY
-import com.frogobox.speechbooster.view.navigation.Route.Endpoint.RECORD_ACTIVITY
-import com.frogobox.speechbooster.view.navigation.Route.Endpoint.SCRIPT_DETAIL_ACTIVITY
-import com.frogobox.speechbooster.view.navigation.Route.Endpoint.SCRIPT_EDITOR_ACTIVITY
-import com.frogobox.speechbooster.view.navigation.Route.Endpoint.VIDEO_DETAIL_ACTIVITY
-import com.frogobox.speechbooster.view.navigation.Route.Module.BASE_PACKAGE
-import com.frogobox.speechbooster.view.navigation.Route.Module.BASE_ACTIVITY
+import com.frogobox.speechbooster.util.Navigation.navigatorImplicit
+import com.frogobox.speechbooster.view.Route.Endpoint.ABOUT_US_ACTIVITY
+import com.frogobox.speechbooster.view.Route.Endpoint.CATEGORY_SCRIPT_ACTIVITY
+import com.frogobox.speechbooster.view.Route.Endpoint.RECORD_ACTIVITY
+import com.frogobox.speechbooster.view.Route.Endpoint.SCRIPT_DETAIL_ACTIVITY
+import com.frogobox.speechbooster.view.Route.Endpoint.SCRIPT_EDITOR_ACTIVITY
+import com.frogobox.speechbooster.view.Route.Endpoint.VIDEO_DETAIL_ACTIVITY
+import com.frogobox.speechbooster.view.Route.Module.BASE_PACKAGE
+import com.frogobox.speechbooster.view.Route.Module.BASE_ACTIVITY
 
 /**
  * Created by Faisal Amir

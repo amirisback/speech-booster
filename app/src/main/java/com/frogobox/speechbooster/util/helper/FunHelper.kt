@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.helper
+package com.frogobox.speechbooster.util.helper
 
 import android.app.AlertDialog
 import android.content.Context
@@ -9,10 +9,8 @@ import android.net.NetworkInfo
 import android.widget.Toast
 import com.frogobox.speechbooster.BuildConfig
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.helper.ConstHelper.Pref.PREF_NAME
+import com.frogobox.speechbooster.util.helper.ConstHelper.Pref.PREF_NAME
 import com.google.gson.Gson
-import java.text.SimpleDateFormat
-import java.util.*
 
 /**
  * Created by Faisal Amir

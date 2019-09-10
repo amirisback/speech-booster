@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.helper
+package com.frogobox.speechbooster.util.helper
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -18,7 +18,7 @@ import androidx.fragment.app.FragmentPagerAdapter
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.speechbooster.helper
+ * com.frogobox.speechbooster.util.helper
  *
  */
 @Suppress("DEPRECATION")

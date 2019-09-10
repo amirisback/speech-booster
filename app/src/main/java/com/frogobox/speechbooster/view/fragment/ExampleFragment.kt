@@ -8,7 +8,7 @@ import android.view.ViewGroup
 
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseFragment
-import com.frogobox.speechbooster.helper.PagerHelper
+import com.frogobox.speechbooster.util.helper.PagerHelper
 import kotlinx.android.synthetic.main.fragment_example.*
 
 class ExampleFragment : BaseFragment() {
@@ -23,12 +23,14 @@ class ExampleFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupViewPager()
+    }
 
+    private fun setupViewPager(){
         val pagerAdapter = PagerHelper(childFragmentManager)
         pagerAdapter.setupPagerFragment(ExampleCategoryFragment(), resources.getString(R.string.title_favorite_category))
         pagerAdapter.setupPagerFragment(ExampleFavoriteFragment(), resources.getString(R.string.title_favorite_script))
         viewpager.adapter = pagerAdapter
         tablayout.setupWithViewPager(viewpager)
-
     }
 }

@@ -2,9 +2,8 @@ package com.frogobox.speechbooster.viewmodel
 
 import android.app.Application
 import com.frogobox.speechbooster.base.BaseViewModel
-import com.frogobox.speechbooster.helper.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
+import com.frogobox.speechbooster.util.helper.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
 import com.frogobox.speechbooster.model.FavoriteScript
-import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.FrogoDataSource
 import com.frogobox.speechbooster.util.SingleLiveEvent

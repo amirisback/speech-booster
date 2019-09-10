@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.speechbooster.base.BaseListener
 import com.frogobox.speechbooster.base.BaseViewHolder
 import com.frogobox.speechbooster.model.FavoriteScript
+import kotlinx.android.synthetic.main.recyclerview_item_script.view.*
 
 /**
  * Created by Faisal Amir
@@ -27,8 +28,16 @@ import com.frogobox.speechbooster.model.FavoriteScript
 class FavoriteScriptViewHolder (view: View) : RecyclerView.ViewHolder(view),
     BaseViewHolder<FavoriteScript> {
 
+    val tvTitle = view.tv_title
+    val tvDescription = view.tv_description
+    val tvDateTime = view.tv_date
+
     override fun bindItem(data: FavoriteScript, listener: BaseListener<FavoriteScript>) {
         onItemViewClicked(data, listener)
+        onItemViewClicked(data, listener)
+        tvTitle.text = data.title
+        tvDescription.text = data.description
+        tvDateTime.text = data.dateTime
     }
 
     override fun onItemViewClicked(data: FavoriteScript, listener: BaseListener<FavoriteScript>) {

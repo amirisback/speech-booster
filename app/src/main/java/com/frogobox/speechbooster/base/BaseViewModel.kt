@@ -23,4 +23,5 @@ import com.frogobox.speechbooster.util.SingleLiveEvent
  */
 open class BaseViewModel(application: Application) : AndroidViewModel(application) {
     var eventShowProgress = SingleLiveEvent<Boolean>()
+    var eventIsEmpty = SingleLiveEvent<Boolean>()
 }

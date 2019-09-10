@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.frogobox.speechbooster.BuildConfig
-import com.frogobox.speechbooster.helper.ConstHelper.RoomDatabase.DATABASE_NAME
+import com.frogobox.speechbooster.util.helper.ConstHelper.RoomDatabase.DATABASE_NAME
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.model.VideoScript
