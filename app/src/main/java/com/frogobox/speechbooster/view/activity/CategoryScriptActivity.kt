@@ -15,7 +15,7 @@ import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_DETAIL
 import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.util.helper.FunHelper.Func.noAction
-import com.frogobox.speechbooster.view.Route.routeImplicit.startScriptDetailActivity
+import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptDetailActivity
 import com.frogobox.speechbooster.view.viewadapter.CategoryScriptAdapter
 import com.frogobox.speechbooster.viewmodel.CategoryScriptViewModel
 import kotlinx.android.synthetic.main.activity_category_script.*

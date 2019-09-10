@@ -17,8 +17,8 @@ import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
-import com.frogobox.speechbooster.view.Route.routeImplicit.startRecordActivity
-import com.frogobox.speechbooster.view.Route.routeImplicit.startScriptEditorActivity
+import com.frogobox.speechbooster.view.route.Implicit.Activity.startRecordActivity
+import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptEditorActivity
 import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
 import com.frogobox.speechbooster.viewmodel.ScriptDetailViewModel
 import kotlinx.android.synthetic.main.activity_script_detail.*
