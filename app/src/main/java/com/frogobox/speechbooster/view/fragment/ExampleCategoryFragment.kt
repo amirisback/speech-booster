@@ -17,7 +17,7 @@ import com.frogobox.speechbooster.model.CategoryScript
 import com.frogobox.speechbooster.view.activity.MainActivity
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.view.Route.routeImplicit.startCategoryScriptActivity
-import com.frogobox.speechbooster.view.viewadapter.adapter.CategoryAdapter
+import com.frogobox.speechbooster.view.viewadapter.CategoryAdapter
 import com.frogobox.speechbooster.viewmodel.CategoryViewModel
 import kotlinx.android.synthetic.main.fragment_example_category.*
 

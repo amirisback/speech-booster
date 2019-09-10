@@ -21,7 +21,7 @@ import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
 import com.frogobox.speechbooster.view.Route.routeImplicit.startScriptDetailActivity
 import com.frogobox.speechbooster.view.Route.routeImplicit.startScriptEditorActivity
-import com.frogobox.speechbooster.view.viewadapter.adapter.ScriptAdapter
+import com.frogobox.speechbooster.view.viewadapter.ScriptAdapter
 import com.frogobox.speechbooster.viewmodel.ScriptMainViewModel
 import kotlinx.android.synthetic.main.fragment_script.*
 

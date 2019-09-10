@@ -19,7 +19,7 @@ import com.frogobox.speechbooster.view.activity.MainActivity
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
 import com.frogobox.speechbooster.view.Route.routeImplicit.startScriptDetailActivity
-import com.frogobox.speechbooster.view.viewadapter.adapter.FavoriteScriptAdapter
+import com.frogobox.speechbooster.view.viewadapter.FavoriteScriptAdapter
 import com.frogobox.speechbooster.viewmodel.FavoriteScriptMainViewModel
 import kotlinx.android.synthetic.main.fragment_example_favorite.*
 
