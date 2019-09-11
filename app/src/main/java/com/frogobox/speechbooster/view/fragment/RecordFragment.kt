@@ -2,7 +2,6 @@ package com.frogobox.speechbooster.view.fragment
 
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Configuration
@@ -18,7 +17,6 @@ import android.util.Log
 import android.util.Size
 import android.util.SparseIntArray
 import android.view.*
-import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -30,6 +28,8 @@ import com.frogobox.speechbooster.camera.AutoFitTextureView
 import com.frogobox.speechbooster.camera.CompareSizesByArea
 import com.frogobox.speechbooster.camera.DialogConfirmation
 import com.frogobox.speechbooster.camera.DialogError
+import com.frogobox.speechbooster.model.Script
+import kotlinx.android.synthetic.main.fragment_record.*
 import java.io.IOException
 import java.util.*
 import java.util.concurrent.Semaphore
@@ -41,7 +41,6 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     ActivityCompat.OnRequestPermissionsResultCallback {
 
     private lateinit var textureView: AutoFitTextureView
-    private lateinit var videoButton: Button
     private lateinit var previewSize: Size
     private lateinit var videoSize: Size
     private lateinit var previewRequestBuilder: CaptureRequest.Builder
@@ -116,11 +115,16 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         textureView = view.findViewById(R.id.texture)
-        videoButton = view.findViewById<Button>(R.id.video).also {
-            it.setOnClickListener(this)
-        }
-        view.findViewById<View>(R.id.info).setOnClickListener(this)
+        img_record_menu.setOnClickListener(this)
+        setupViewElement()
     }
+
+    private fun setupViewElement(){
+        val argumentScript = baseGetInstance<Script>(ConstHelper.Arg.ARGUMENTS_SCRIPT)
+        tv_description.text = argumentScript.description
+        tv_title.text = argumentScript.title
+    }
+
 
     override fun onResume() {
         super.onResume()
@@ -145,15 +149,7 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
 
     override fun onClick(view: View) {
         when (view.id) {
-            R.id.video -> if (isRecordingVideo) stopRecordingVideo() else startRecordingVideo()
-            R.id.info -> {
-                if (activity != null) {
-                    AlertDialog.Builder(activity)
-                        .setMessage(R.string.intro_message)
-                        .setPositiveButton(android.R.string.ok, null)
-                        .show()
-                }
-            }
+            R.id.img_record_menu -> if (isRecordingVideo) stopRecordingVideo() else startRecordingVideo()
         }
     }
 
@@ -432,7 +428,7 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
                         captureSession = cameraCaptureSession
                         updatePreview()
                         activity?.runOnUiThread {
-                            videoButton.setText(R.string.stop)
+                            img_record_menu.setImageResource(R.drawable.ic_toolbar_record_stop)
                             isRecordingVideo = true
                             mediaRecorder?.start()
                         }
@@ -458,7 +454,7 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
 
     private fun stopRecordingVideo() {
         isRecordingVideo = false
-        videoButton.setText(R.string.record)
+        img_record_menu.setImageResource(R.drawable.ic_toolbar_record)
         mediaRecorder?.apply {
             stop()
             reset()
@@ -500,9 +496,9 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
         }
     }
 
-    companion object {
-        fun newInstance(): RecordFragment = RecordFragment()
-    }
+//    companion object {
+//        fun newInstance(): RecordFragment = RecordFragment()
+//    }
 
 }
 

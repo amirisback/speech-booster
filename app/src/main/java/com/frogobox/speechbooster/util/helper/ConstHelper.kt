@@ -73,7 +73,8 @@ class ConstHelper {
     }
 
     object Arg {
-        const val ARGUMENTS_NAME = "FRAGMENT"
+        const val BASE_ARGUMENTS = "com.frogobox.speechbooster"
+        const val ARGUMENTS_SCRIPT = "$BASE_ARGUMENTS.ARGUMENTS_SCRIPT"
     }
 
     object Pref {
@@ -81,11 +82,11 @@ class ConstHelper {
     }
 
     object Extra {
-        const val BASE_EXTRA = "com.frogobox.speechbooster."
-        const val EXTRA_OPTION = BASE_EXTRA+"EXTRA_OPTION"
-        const val EXTRA_SCRIPT = BASE_EXTRA+"EXTRA_SCRIPT"
-        const val EXTRA_EXAMPLE_SCRIPT = BASE_EXTRA+"EXTRA_EXAMPLE_SCRIPT"
-        const val EXTRA_CATEGORY = BASE_EXTRA+"EXTRA_CATEGORY"
+        const val BASE_EXTRA = "com.frogobox.speechbooster"
+        const val EXTRA_OPTION = "$BASE_EXTRA.EXTRA_OPTION"
+        const val EXTRA_SCRIPT = "$BASE_EXTRA.EXTRA_SCRIPT"
+        const val EXTRA_EXAMPLE_SCRIPT = "$BASE_EXTRA.EXTRA_EXAMPLE_SCRIPT"
+        const val EXTRA_CATEGORY = "$BASE_EXTRA.EXTRA_CATEGORY"
 
     }
 

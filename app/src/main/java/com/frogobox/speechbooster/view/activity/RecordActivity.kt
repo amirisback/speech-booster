@@ -4,6 +4,11 @@ package com.frogobox.speechbooster.view.activity
 import android.os.Bundle
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseActivity
+import com.frogobox.speechbooster.model.Script
+import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
+import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_SCRIPT
+import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
+import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.view.fragment.RecordFragment
 
 
@@ -14,18 +19,13 @@ class RecordActivity : BaseActivity()  {
         setContentView(R.layout.activity_record_new)
         setupNoLimitStatBar()
         setupChildFragment(R.id.container, RecordFragment())
+        setupViewElement()
     }
 
-//    fun setupViewElement(){
-//        val extraDataResult = Navigation.BundleHelper.getBaseBundle<Script>(
-//            mActivity,
-//            ConstHelper.TypeData.TYPE_OBJECT,
-//            ConstHelper.Extra.EXTRA_SCRIPT
-//        )
-//
-//        tv_description.text = extraDataResult.description
-//        tv_title.text = extraDataResult.title
-//    }
+    fun setupViewElement(){
+        val extraDataResult = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
+        RecordFragment().baseNewInstance(ARGUMENTS_SCRIPT, extraDataResult)
+    }
 
 
 }

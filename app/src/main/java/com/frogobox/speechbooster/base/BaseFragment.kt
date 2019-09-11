@@ -40,20 +40,16 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    protected fun <Fragment : androidx.fragment.app.Fragment> putArgs(argsBuilder: Bundle.() -> Unit) {
-        this.apply {
-            arguments = Bundle().apply(argsBuilder)
-        }
-    }
 
-    protected fun <Fragment : androidx.fragment.app.Fragment, Model> baseNewInstance(argsKey: String, data: Model) {
+    fun <Model> baseNewInstance(argsKey: String, data: Model) {
         val argsData = FunHelper.ConverterJson.toJson(data)
-        this.putArgs<Fragment> {
-            putString(argsKey, argsData)
-        }
+        val bundleArgs = Bundle()
+        bundleArgs.putString(argsKey, argsData)
+        this.arguments = bundleArgs
+
     }
 
-    protected inline fun <Fragment : androidx.fragment.app.Fragment, reified Model> baseGetInstance(argsKey: String) : Model {
+    inline fun <reified Model> baseGetInstance(argsKey: String) : Model {
         val argsData = this.arguments?.getString(argsKey)
         val instaceData = FunHelper.ConverterJson.fromJson<Model>(argsData)
         return instaceData
