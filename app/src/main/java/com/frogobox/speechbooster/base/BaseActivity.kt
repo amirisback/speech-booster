@@ -83,6 +83,10 @@ abstract class BaseActivity : AppCompatActivity() {
         return extraData
     }
 
+    protected fun checkExtra(extraKey: String) : Boolean {
+        return intent?.hasExtra(extraKey)!!
+    }
+
     protected fun <Model>baseFragmentNewInstance(fragment: BaseFragment, argumentKey: String, extraDataResult: Model){
         fragment.baseNewInstance(argumentKey, extraDataResult)
     }

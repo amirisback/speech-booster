@@ -76,7 +76,9 @@ class ConstHelper {
 
     object Arg {
         const val BASE_ARGUMENTS = "com.frogobox.speechbooster"
-        const val ARGUMENTS_SCRIPT = "aa"
+        const val ARGUMENTS_SCRIPT = "$BASE_ARGUMENTS.ARGUMENTS_SCRIPT"
+        const val ARGUMENTS_EXAMPLE_SCRIPT = "$BASE_ARGUMENTS.ARGUMENTS_EXAMPLE_SCRIPT"
+        const val ARGUMENTS_FAVORITE_SCRIPT = "$BASE_ARGUMENTS.ARGUMENTS_FAVORITE_SCRIPT"
     }
 
     object Pref {
@@ -87,6 +89,7 @@ class ConstHelper {
         const val BASE_EXTRA = "com.frogobox.speechbooster"
         const val EXTRA_OPTION = "$BASE_EXTRA.EXTRA_OPTION"
         const val EXTRA_SCRIPT = "$BASE_EXTRA.EXTRA_SCRIPT"
+        const val EXTRA_FAVORITE_SCRIPT = "$BASE_EXTRA.EXTRA_FAVORITE_SCRIPT"
         const val EXTRA_EXAMPLE_SCRIPT = "$BASE_EXTRA.EXTRA_EXAMPLE_SCRIPT"
         const val EXTRA_CATEGORY = "$BASE_EXTRA.EXTRA_CATEGORY"
 
@@ -111,6 +114,7 @@ class ConstHelper {
     }
 
     object Const {
+        const val DEFAULT_NULL = "null"
         const val DEFAULT_ERROR_MESSAGE = "Failed"
         const val FRAGMENT_DIALOG = "dialog"
 

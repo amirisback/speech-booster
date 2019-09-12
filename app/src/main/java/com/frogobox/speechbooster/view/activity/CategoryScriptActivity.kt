@@ -11,7 +11,7 @@ import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_CATEGORY
-import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
+import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_EXAMPLE_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_DETAIL
 import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.util.helper.FunHelper.Func.noAction
@@ -56,7 +56,7 @@ class CategoryScriptActivity : BaseActivity(), BaseListener<ExampleScript> {
     }
 
     override fun onItemClicked(data: ExampleScript) {
-        val extras = createBaseBundle(TYPE_OBJECT, EXTRA_SCRIPT, data)
+        val extras = createBaseBundle(TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT, data)
         val option = createOptionBundle(TAG_ACTIVITY_DETAIL)
         startScriptDetailActivity(this, extras, option)
     }

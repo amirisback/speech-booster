@@ -24,4 +24,6 @@ import com.frogobox.speechbooster.source.FrogoDataRepository
 class FavoriteScriptDetailViewModel (
     application: Application,
     private val frogoDataRepository: FrogoDataRepository
-) : BaseViewModel(application)
+) : BaseViewModel(application) {
+
+}

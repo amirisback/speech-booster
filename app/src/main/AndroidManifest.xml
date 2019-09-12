@@ -14,8 +14,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.CategoryScriptActivity"></activity>
-        <activity android:name=".view.activity.AboutUsActivity"></activity>
+        <activity android:name=".view.activity.CategoryScriptActivity" />
+        <activity android:name=".view.activity.AboutUsActivity" />
         <activity
                 android:name=".view.activity.RecordActivity"
                 android:theme="@style/AppThemeNoToolbar" />

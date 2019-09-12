@@ -53,6 +53,10 @@ abstract class BaseFragment : Fragment() {
         return instaceData
     }
 
+    protected fun checkArgument(argsKey: String) : Boolean{
+        return arguments!!.containsKey(argsKey)
+    }
+
     protected fun setupEventEmptyView(view: View, isEmpty: Boolean) {
         if (isEmpty) {
             view.visibility = View.VISIBLE

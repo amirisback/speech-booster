@@ -9,8 +9,8 @@ import com.frogobox.speechbooster.view.route.Implicit.Endpoint.RECORD_ACTIVITY
 import com.frogobox.speechbooster.view.route.Implicit.Endpoint.SCRIPT_DETAIL_ACTIVITY
 import com.frogobox.speechbooster.view.route.Implicit.Endpoint.SCRIPT_EDITOR_ACTIVITY
 import com.frogobox.speechbooster.view.route.Implicit.Endpoint.VIDEO_DETAIL_ACTIVITY
-import com.frogobox.speechbooster.view.route.Implicit.Module.BASE_PACKAGE
 import com.frogobox.speechbooster.view.route.Implicit.Module.BASE_ACTIVITY
+import com.frogobox.speechbooster.view.route.Implicit.Module.BASE_PACKAGE
 
 /**
  * Created by Faisal Amir
@@ -38,11 +38,11 @@ object Implicit {
     }
 
     object Endpoint {
-        const val SCRIPT_DETAIL_ACTIVITY  = "$BASE_PACKAGE.$BASE_ACTIVITY.ScriptDetailActivity"
-        const val SCRIPT_EDITOR_ACTIVITY  = "$BASE_PACKAGE.$BASE_ACTIVITY.ScriptEditorActivity"
-        const val VIDEO_DETAIL_ACTIVITY   = "$BASE_PACKAGE.$BASE_ACTIVITY.VideoDetailActivity"
-        const val RECORD_ACTIVITY         = "$BASE_PACKAGE.$BASE_ACTIVITY.RecordActivity"
-        const val ABOUT_US_ACTIVITY       = "$BASE_PACKAGE.$BASE_ACTIVITY.AboutUsActivity"
+        const val SCRIPT_DETAIL_ACTIVITY = "$BASE_PACKAGE.$BASE_ACTIVITY.ScriptDetailActivity"
+        const val SCRIPT_EDITOR_ACTIVITY = "$BASE_PACKAGE.$BASE_ACTIVITY.ScriptEditorActivity"
+        const val VIDEO_DETAIL_ACTIVITY = "$BASE_PACKAGE.$BASE_ACTIVITY.VideoDetailActivity"
+        const val RECORD_ACTIVITY = "$BASE_PACKAGE.$BASE_ACTIVITY.RecordActivity"
+        const val ABOUT_US_ACTIVITY = "$BASE_PACKAGE.$BASE_ACTIVITY.AboutUsActivity"
         const val CATEGORY_SCRIPT_ACTIVITY = "$BASE_PACKAGE.$BASE_ACTIVITY.CategoryScriptActivity"
 
     }

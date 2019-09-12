@@ -8,7 +8,11 @@ import com.frogobox.speechbooster.model.ExampleScript
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
+import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_EXAMPLE_SCRIPT
+import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_FAVORITE_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_SCRIPT
+import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_EXAMPLE_SCRIPT
+import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_FAVORITE_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.view.fragment.RecordFragment
@@ -28,34 +32,29 @@ class RecordActivity : BaseActivity()  {
         obtainViewModel(VideoScriptRecordViewModel::class.java)
 
     private fun setupRoleFragmentInstance() {
-        val extraDataResultScript = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
-        val extraDataResultExampleScript = getBaseBundle<ExampleScript>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
-        val extraDataResultFavoriteScript = getBaseBundle<FavoriteScript>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
+
         val recordFragment = RecordFragment()
 
-        if (extraDataResultScript != null) {
-            setupNewInstance(recordFragment, extraDataResultScript)
-        } else if (extraDataResultExampleScript != null) {
-            setupNewInstance(recordFragment, extraDataResultExampleScript)
-        } else if (extraDataResultFavoriteScript != null) {
-            setupNewInstance(recordFragment, extraDataResultFavoriteScript)
+        if (checkExtra(EXTRA_SCRIPT)) {
+
+            val extraDataResultScript = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
+            recordFragment.baseNewInstance(ARGUMENTS_SCRIPT, extraDataResultScript)
+            setupChildFragment(R.id.container, recordFragment)
+
+        } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)) {
+
+            val extraDataResultExampleScript = getBaseBundle<ExampleScript>(mActivity, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
+            recordFragment.baseNewInstance(ARGUMENTS_EXAMPLE_SCRIPT, extraDataResultExampleScript)
+            setupChildFragment(R.id.container, recordFragment)
+
+        } else if (checkExtra(EXTRA_FAVORITE_SCRIPT)) {
+
+            val extraDataResultFavoriteScript = getBaseBundle<FavoriteScript>(mActivity, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
+            recordFragment.baseNewInstance(ARGUMENTS_FAVORITE_SCRIPT, extraDataResultFavoriteScript)
+            setupChildFragment(R.id.container, recordFragment)
+
         }
 
-    }
-
-    private fun setupNewInstance(fragment: RecordFragment, data: Script){
-        fragment.baseNewInstance(ARGUMENTS_SCRIPT, data)
-        setupChildFragment(R.id.container, fragment)
-    }
-
-    private fun setupNewInstance(fragment: RecordFragment, data: ExampleScript){
-        fragment.baseNewInstance(ARGUMENTS_SCRIPT, data)
-        setupChildFragment(R.id.container, fragment)
-    }
-
-    private fun setupNewInstance(fragment: RecordFragment, data: FavoriteScript){
-        fragment.baseNewInstance(ARGUMENTS_SCRIPT, data)
-        setupChildFragment(R.id.container, fragment)
     }
 
 }

@@ -28,6 +28,8 @@ import com.frogobox.speechbooster.util.camera.DialogError
 import com.frogobox.speechbooster.model.ExampleScript
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.Script
+import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_EXAMPLE_SCRIPT
+import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_FAVORITE_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_SCRIPT
 import com.frogobox.speechbooster.view.activity.RecordActivity
 import com.frogobox.speechbooster.viewmodel.VideoScriptRecordViewModel
@@ -172,33 +174,27 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     }
 
     private fun setupRoleView(){
-        val argumentsScript = baseGetInstance<Script>(ARGUMENTS_SCRIPT)
-        val argumentsExampleScript = baseGetInstance<ExampleScript>(ARGUMENTS_SCRIPT)
-        val argumentsFavoriteScript = baseGetInstance<FavoriteScript>(ARGUMENTS_SCRIPT)
 
-        if (argumentsScript != null) {
-            setupViewElement(argumentsScript)
-        } else if (argumentsExampleScript != null) {
-            setupViewElement(argumentsExampleScript)
-        } else if (argumentsFavoriteScript != null) {
-            setupViewElement(argumentsFavoriteScript)
+        if (arguments != null) {
+
+            if (checkArgument(ARGUMENTS_SCRIPT)) {
+                val argumentsScript = baseGetInstance<Script>(ARGUMENTS_SCRIPT)
+                setupViewElement(argumentsScript.title!!, argumentsScript.description!!)
+            } else if (checkArgument(ARGUMENTS_EXAMPLE_SCRIPT)) {
+                val argumentsExampleScript = baseGetInstance<ExampleScript>(ARGUMENTS_EXAMPLE_SCRIPT)
+                setupViewElement(argumentsExampleScript.title!!, argumentsExampleScript.description!!)
+            } else if (checkArgument(ARGUMENTS_FAVORITE_SCRIPT)) {
+                val argumentsFavoriteScript = baseGetInstance<FavoriteScript>(ARGUMENTS_FAVORITE_SCRIPT)
+                setupViewElement(argumentsFavoriteScript.title!!, argumentsFavoriteScript.description!!)
+            }
+
         }
 
     }
 
-    private fun setupViewElement(data: Script){
-        tv_description.text = data.description
-        tv_title.text = data.title
-    }
-
-    private fun setupViewElement(data: ExampleScript){
-        tv_description.text = data.description
-        tv_title.text = data.title
-    }
-
-    private fun setupViewElement(data: FavoriteScript){
-        tv_description.text = data.description
-        tv_title.text = data.title
+    private fun setupViewElement(title: String, desc: String){
+        tv_title.text = title
+        tv_description.text = desc
     }
 
     private fun startBackgroundThread() {
