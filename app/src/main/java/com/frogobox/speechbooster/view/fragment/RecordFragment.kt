@@ -521,16 +521,5 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
         }
     }
 
-    companion object {
-        fun <Model>newInstance(argsKey: String, data: Model): RecordFragment {
-            val fragment = RecordFragment()
-            val argsData = toJson(data)
-            val bundleArgs = Bundle().apply {
-                putString(argsKey, argsData)
-            }
-            fragment.arguments = bundleArgs
-            return fragment
-        }
-    }
 }
 

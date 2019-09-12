@@ -10,7 +10,6 @@ import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
 import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.util.helper.FunHelper.Func.createDialogDefault
-import com.frogobox.speechbooster.util.helper.FunHelper.Func.showToast
 import com.frogobox.speechbooster.model.ExampleScript
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.Script
@@ -145,6 +144,6 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback {
 
     override fun onFailed(message: String) {
         super.onFailed(message)
-        showToast(this@ScriptDetailActivity, message)
+        showToast(message)
     }
 }

@@ -2,6 +2,7 @@ package com.frogobox.speechbooster.base
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.frogobox.speechbooster.util.helper.FunHelper
 import kotlinx.android.synthetic.main.recyclerview_event_empty.*
@@ -68,6 +69,10 @@ abstract class BaseFragment : Fragment() {
         } else {
             progress_view.visibility = View.GONE
         }
+    }
+
+    protected fun showToast(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
 

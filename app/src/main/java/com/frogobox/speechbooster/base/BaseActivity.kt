@@ -7,13 +7,13 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ViewModelFactory
 import com.frogobox.speechbooster.util.helper.FunHelper
@@ -88,6 +88,10 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected fun tagOption(): Int {
         return getOptionBundle(this)
+    }
+
+    protected fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     protected fun setupDetailActivity(title: String) {

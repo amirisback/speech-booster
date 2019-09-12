@@ -84,10 +84,6 @@ class FunHelper {
             return "Version " + BuildConfig.VERSION_NAME
         }
 
-        fun showToast(context: Context, message: String) {
-            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-        }
-
     }
 
     object Preference {

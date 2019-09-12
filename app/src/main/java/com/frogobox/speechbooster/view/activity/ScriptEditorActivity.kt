@@ -12,7 +12,6 @@ import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_CREAT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
 import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.util.helper.DateHelper.Companion.getCurrentDate
-import com.frogobox.speechbooster.util.helper.FunHelper.Func.showToast
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
 import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
@@ -88,7 +87,7 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
 
     override fun onFailed(message: String) {
         super.onFailed(message)
-        showToast(this@ScriptEditorActivity, message)
+        showToast(message)
     }
 
     private fun obtainScriptViewModel(): ScriptEditorViewModel = obtainViewModel(ScriptEditorViewModel::class.java)
