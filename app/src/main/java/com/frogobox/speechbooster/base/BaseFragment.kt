@@ -5,8 +5,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.frogobox.speechbooster.util.helper.FunHelper
-import kotlinx.android.synthetic.main.recyclerview_event_empty.*
-import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 
 /**
  * Created by Faisal Amir
@@ -55,19 +53,19 @@ abstract class BaseFragment : Fragment() {
         return instaceData
     }
 
-    protected fun setupEventEmptyView(isEmpty: Boolean) {
+    protected fun setupEventEmptyView(view: View, isEmpty: Boolean) {
         if (isEmpty) {
-            empty_view.visibility = View.VISIBLE
+            view.visibility = View.VISIBLE
         } else {
-            empty_view.visibility = View.GONE
+            view.visibility = View.GONE
         }
     }
 
-    protected fun setupEventProgressView(progress: Boolean) {
+    protected fun setupEventProgressView(view: View, progress: Boolean) {
         if (progress) {
-            progress_view.visibility = View.VISIBLE
+            view.visibility = View.VISIBLE
         } else {
-            progress_view.visibility = View.GONE
+            view.visibility = View.GONE
         }
     }
 

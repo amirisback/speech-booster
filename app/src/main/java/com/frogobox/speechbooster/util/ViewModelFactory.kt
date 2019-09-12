@@ -55,6 +55,8 @@ class ViewModelFactory private constructor(
                     VideoScriptDetailViewModel(mApplication, frogoDataRepository)
                 isAssignableFrom(VideoScriptMainViewModel::class.java) ->
                     VideoScriptMainViewModel(mApplication, frogoDataRepository)
+                isAssignableFrom(VideoScriptRecordViewModel::class.java) ->
+                    VideoScriptRecordViewModel(mApplication, frogoDataRepository)
 
                 else ->
                     throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

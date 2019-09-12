@@ -13,6 +13,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:listitem="@layout/recyclerview_item_video"/>
+
+    <include layout="@layout/recyclerview_event_empty" />
+    <include layout="@layout/recyclerview_event_progress" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@ import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.view.fragment.RecordFragment
+import com.frogobox.speechbooster.viewmodel.VideoScriptRecordViewModel
 
 
 class RecordActivity : BaseActivity()  {
@@ -22,6 +23,9 @@ class RecordActivity : BaseActivity()  {
         setupNoLimitStatBar()
         setupRoleFragmentInstance()
     }
+
+    fun obtainVideoRecordViewModel(): VideoScriptRecordViewModel =
+        obtainViewModel(VideoScriptRecordViewModel::class.java)
 
     private fun setupRoleFragmentInstance() {
         val extraDataResultScript = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)

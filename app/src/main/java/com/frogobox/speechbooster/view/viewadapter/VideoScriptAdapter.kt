@@ -1,5 +1,6 @@
 package com.frogobox.speechbooster.view.viewadapter
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.frogobox.speechbooster.base.BaseViewAdapter
@@ -26,7 +27,7 @@ import com.frogobox.speechbooster.model.VideoScript
 class VideoScriptAdapter : BaseViewAdapter<VideoScript, VideoScriptAdapter.VideoScriptViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoScriptViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return VideoScriptViewHolder(LayoutInflater.from(mContext).inflate(mRecyclerViewLayout, parent, false))
     }
 
     inner class VideoScriptViewHolder(view: View) : BaseViewHolder<VideoScript>(view) {

@@ -22,6 +22,8 @@ import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptDetail
 import com.frogobox.speechbooster.view.viewadapter.FavoriteScriptAdapter
 import com.frogobox.speechbooster.viewmodel.FavoriteScriptMainViewModel
 import kotlinx.android.synthetic.main.fragment_example_favorite.*
+import kotlinx.android.synthetic.main.recyclerview_event_empty.*
+import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 
 class ExampleFavoriteFragment : BaseFragment(), BaseListener<FavoriteScript> {
 
@@ -50,11 +52,11 @@ class ExampleFavoriteFragment : BaseFragment(), BaseListener<FavoriteScript> {
         mViewModel = (activity as MainActivity).obtainFavoriteViewModel().apply {
 
             eventIsEmpty.observe(this@ExampleFavoriteFragment, Observer {
-                setupEventEmptyView(it)
+                setupEventEmptyView(empty_view, it)
             })
 
             eventShowProgress.observe(this@ExampleFavoriteFragment, Observer {
-                setupEventProgressView(it)
+                setupEventProgressView(progress_view, it)
             })
 
             favoriteListLive.observe(this@ExampleFavoriteFragment, Observer {

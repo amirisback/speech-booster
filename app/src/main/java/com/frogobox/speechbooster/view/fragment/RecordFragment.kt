@@ -1,6 +1,5 @@
 package com.frogobox.speechbooster.view.fragment
 
-
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
@@ -17,23 +16,21 @@ import android.util.Log
 import android.util.Size
 import android.util.SparseIntArray
 import android.view.*
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseFragment
 import com.frogobox.speechbooster.util.helper.ConstHelper
-import com.frogobox.speechbooster.camera.CompareSizesByArea
-import com.frogobox.speechbooster.camera.DialogConfirmation
-import com.frogobox.speechbooster.camera.DialogError
+import com.frogobox.speechbooster.util.camera.CompareSizesByArea
+import com.frogobox.speechbooster.util.camera.DialogConfirmation
+import com.frogobox.speechbooster.util.camera.DialogError
 import com.frogobox.speechbooster.model.ExampleScript
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_SCRIPT
-import com.frogobox.speechbooster.util.helper.FunHelper
-import com.frogobox.speechbooster.util.helper.FunHelper.ConverterJson.fromJson
-import com.frogobox.speechbooster.util.helper.FunHelper.ConverterJson.toJson
+import com.frogobox.speechbooster.view.activity.RecordActivity
+import com.frogobox.speechbooster.viewmodel.VideoScriptRecordViewModel
 import kotlinx.android.synthetic.main.fragment_record.*
 import java.io.IOException
 import java.util.*
@@ -45,6 +42,7 @@ import kotlin.collections.ArrayList
 class RecordFragment : BaseFragment(), View.OnClickListener,
     ActivityCompat.OnRequestPermissionsResultCallback {
 
+    private lateinit var mViewModel: VideoScriptRecordViewModel
     private lateinit var previewSize: Size
     private lateinit var videoSize: Size
     private lateinit var previewRequestBuilder: CaptureRequest.Builder
@@ -60,6 +58,18 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     private var mediaRecorder: MediaRecorder? = null
     private val cameraOpenCloseLock = Semaphore(1)
 
+    private val DEFAULT_ORIENTATIONS = SparseIntArray().apply {
+        append(Surface.ROTATION_0, 90)
+        append(Surface.ROTATION_90, 0)
+        append(Surface.ROTATION_180, 270)
+        append(Surface.ROTATION_270, 180)
+    }
+    private val INVERSE_ORIENTATIONS = SparseIntArray().apply {
+        append(Surface.ROTATION_0, 270)
+        append(Surface.ROTATION_90, 180)
+        append(Surface.ROTATION_180, 90)
+        append(Surface.ROTATION_270, 0)
+    }
     private val stateCallback = object : CameraDevice.StateCallback() {
 
         override fun onOpened(cameraDevice: CameraDevice) {
@@ -83,18 +93,6 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
         }
 
     }
-    private val DEFAULT_ORIENTATIONS = SparseIntArray().apply {
-        append(Surface.ROTATION_0, 90)
-        append(Surface.ROTATION_90, 0)
-        append(Surface.ROTATION_180, 270)
-        append(Surface.ROTATION_270, 180)
-    }
-    private val INVERSE_ORIENTATIONS = SparseIntArray().apply {
-        append(Surface.ROTATION_0, 270)
-        append(Surface.ROTATION_90, 180)
-        append(Surface.ROTATION_180, 90)
-        append(Surface.ROTATION_270, 0)
-    }
     private val surfaceTextureListener = object : TextureView.SurfaceTextureListener {
 
         override fun onSurfaceTextureAvailable(texture: SurfaceTexture, width: Int, height: Int) {
@@ -112,12 +110,65 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        setupViewModel()
         return inflater.inflate(R.layout.fragment_record, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         img_record_menu.setOnClickListener(this)
         setupRoleView()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startBackgroundThread()
+
+        // When the screen is turned off and turned back on, the SurfaceTexture is already
+        // available, and "onSurfaceTextureAvailable" will not be called. In that case, we can open
+        // a camera and start preview from here (otherwise, we wait until the surface is ready in
+        // the SurfaceTextureListener).
+        if (texture_view.isAvailable) {
+            openCamera(texture_view.width, texture_view.height)
+        } else {
+            texture_view.surfaceTextureListener = surfaceTextureListener
+        }
+    }
+
+    override fun onPause() {
+        closeCamera()
+        stopBackgroundThread()
+        super.onPause()
+    }
+
+    override fun onClick(view: View) {
+        when (view.id) {
+            R.id.img_record_menu -> if (isRecordingVideo) stopRecordingVideo() else startRecordingVideo()
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        if (requestCode == ConstHelper.Code.CODE_REQUEST_VIDEO_PERMISSIONS) {
+            if (grantResults.size == ConstHelper.Code.CODE_VIDEO_PERMISSIONS.size) {
+                for (result in grantResults) {
+                    if (result != PackageManager.PERMISSION_GRANTED) {
+                        DialogError.newInstance(getString(R.string.permission_request))
+                            .show(childFragmentManager, ConstHelper.Const.FRAGMENT_DIALOG)
+                        break
+                    }
+                }
+            } else {
+                DialogError.newInstance(getString(R.string.permission_request))
+                    .show(childFragmentManager, ConstHelper.Const.FRAGMENT_DIALOG)
+            }
+        } else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        }
+    }
+
+    private fun setupViewModel() {
+        mViewModel = (activity as RecordActivity).obtainVideoRecordViewModel().apply {
+
+        }
     }
 
     private fun setupRoleView(){
@@ -148,34 +199,6 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     private fun setupViewElement(data: FavoriteScript){
         tv_description.text = data.description
         tv_title.text = data.title
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-        startBackgroundThread()
-
-        // When the screen is turned off and turned back on, the SurfaceTexture is already
-        // available, and "onSurfaceTextureAvailable" will not be called. In that case, we can open
-        // a camera and start preview from here (otherwise, we wait until the surface is ready in
-        // the SurfaceTextureListener).
-        if (texture_view.isAvailable) {
-            openCamera(texture_view.width, texture_view.height)
-        } else {
-            texture_view.surfaceTextureListener = surfaceTextureListener
-        }
-    }
-
-    override fun onPause() {
-        closeCamera()
-        stopBackgroundThread()
-        super.onPause()
-    }
-
-    override fun onClick(view: View) {
-        when (view.id) {
-            R.id.img_record_menu -> if (isRecordingVideo) stopRecordingVideo() else startRecordingVideo()
-        }
     }
 
     private fun startBackgroundThread() {
@@ -210,28 +233,6 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
         }
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        if (requestCode == ConstHelper.Code.CODE_REQUEST_VIDEO_PERMISSIONS) {
-            if (grantResults.size == ConstHelper.Code.CODE_VIDEO_PERMISSIONS.size) {
-                for (result in grantResults) {
-                    if (result != PackageManager.PERMISSION_GRANTED) {
-                        DialogError.newInstance(getString(R.string.permission_request))
-                            .show(childFragmentManager, ConstHelper.Const.FRAGMENT_DIALOG)
-                        break
-                    }
-                }
-            } else {
-                DialogError.newInstance(getString(R.string.permission_request))
-                    .show(childFragmentManager, ConstHelper.Const.FRAGMENT_DIALOG)
-            }
-        } else {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        }
-    }
 
     private fun hasPermissionsGranted(permissions: Array<String>) =
         permissions.none {
@@ -257,7 +258,11 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
                 throw RuntimeException("Time out waiting to lock camera opening.")
             }
 
-            val cameraId = manager.cameraIdList[0]
+            // Camera Rear
+            // val cameraId = manager.cameraIdList[0]
+
+            // Camera Front
+            val cameraId = manager.cameraIdList[1]
 
             // Choose the sizes for camera preview and video recording
             val characteristics = manager.getCameraCharacteristics(cameraId)
@@ -485,26 +490,19 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
             reset()
         }
 
-        if (activity != null) showToast("Video saved: $nextVideoAbsolutePath")
+        if (activity != null) {
+            showToast("Video saved: $nextVideoAbsolutePath")
+            Log.d("TAG PATH VIDEO", nextVideoAbsolutePath)
+        }
         nextVideoAbsolutePath = null
         startPreview()
     }
-
-    private fun showToast(message: String) =
-        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
-
 
     private fun chooseVideoSize(choices: Array<Size>) = choices.firstOrNull {
         it.width == it.height * 4 / 3 && it.width <= 1080
     } ?: choices[choices.size - 1]
 
-
-    private fun chooseOptimalSize(
-        choices: Array<Size>,
-        width: Int,
-        height: Int,
-        aspectRatio: Size
-    ): Size {
+    private fun chooseOptimalSize(choices: Array<Size>, width: Int, height: Int, aspectRatio: Size): Size {
 
         // Collect the supported resolutions that are at least as big as the preview Surface
         val w = aspectRatio.width

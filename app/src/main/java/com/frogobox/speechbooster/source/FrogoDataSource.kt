@@ -4,7 +4,6 @@ import com.frogobox.speechbooster.base.BaseDataSource
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.model.VideoScript
-import com.frogobox.speechbooster.util.SingleLiveEvent
 
 /**
  * Created by Faisal Amir
@@ -24,7 +23,6 @@ import com.frogobox.speechbooster.util.SingleLiveEvent
  *
  */
 interface FrogoDataSource : BaseDataSource {
-
 
     // Room Database -------------------------------------------------------------------------------
     // Save

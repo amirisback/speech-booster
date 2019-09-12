@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.camera
+package com.frogobox.speechbooster.util.camera
 
 import android.app.AlertDialog
 import android.os.Bundle

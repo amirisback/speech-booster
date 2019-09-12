@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -123,6 +124,22 @@ abstract class BaseActivity : AppCompatActivity() {
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    protected fun setupEventEmptyView(view: View, isEmpty: Boolean) {
+        if (isEmpty) {
+            view.visibility = View.VISIBLE
+        } else {
+            view.visibility = View.GONE
+        }
+    }
+
+    protected fun setupEventProgressView(view: View, progress: Boolean) {
+        if (progress) {
+            view.visibility = View.VISIBLE
+        } else {
+            view.visibility = View.GONE
         }
     }
 

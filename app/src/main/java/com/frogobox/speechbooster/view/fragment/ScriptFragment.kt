@@ -24,10 +24,12 @@ import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptEditor
 import com.frogobox.speechbooster.view.viewadapter.ScriptAdapter
 import com.frogobox.speechbooster.viewmodel.ScriptMainViewModel
 import kotlinx.android.synthetic.main.fragment_script.*
+import kotlinx.android.synthetic.main.recyclerview_event_empty.*
+import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 
 class ScriptFragment : BaseFragment(), BaseListener<Script> {
 
-    lateinit var mViewModel: ScriptMainViewModel
+    private lateinit var mViewModel: ScriptMainViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,7 +55,7 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
         mViewModel = (activity as MainActivity).obtainScriptMainViewModel().apply {
 
             eventIsEmpty.observe(this@ScriptFragment, Observer {
-                setupEventEmptyView(it)
+                setupEventEmptyView(empty_view, it)
             })
 
             scriptListLive.observe(this@ScriptFragment, Observer {
@@ -61,7 +63,7 @@ class ScriptFragment : BaseFragment(), BaseListener<Script> {
             })
 
             eventShowProgress.observe(this@ScriptFragment, Observer {
-                setupEventProgressView(it)
+                setupEventProgressView(progress_view, it)
             })
 
         }

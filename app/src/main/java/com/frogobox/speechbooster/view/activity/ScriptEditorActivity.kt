@@ -53,7 +53,7 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
         val textTitle = et_script_title.text.toString()
         val textDescription = et_script_description.text.toString()
         val dataScript = Script(title = textTitle, description = textDescription, dateTime = getCurrentDate(DATE_DD_MM_YYYY))
-        mViewModel.saveData(dataScript, this)
+        mViewModel.saveScriptData(dataScript, this)
     }
 
     private fun updateToRoom() {
@@ -61,7 +61,7 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
         val textTitle = et_script_title.text.toString()
         val textDescription = et_script_description.text.toString()
         val dataScript = Script(title = textTitle, description = textDescription, dateTime = getCurrentDate(DATE_DD_MM_YYYY))
-        mViewModel.updateData(extraData.table_id, dataScript, this)
+        mViewModel.updateScriptData(extraData.table_id, dataScript, this)
     }
 
     private fun setupExtraData() {

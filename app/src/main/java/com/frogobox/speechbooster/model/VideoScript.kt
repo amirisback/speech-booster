@@ -29,6 +29,9 @@ data class VideoScript(
     var table_id: Int = 0,
 
     @ColumnInfo(name = "urlVideo")
-    var urlVideo: String? = ""
+    var urlVideo: String? = "",
+
+    @ColumnInfo(name = "dateTime")
+    var dateTime: String? = ""
 
 )

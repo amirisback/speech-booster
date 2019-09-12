@@ -2,7 +2,10 @@ package com.frogobox.speechbooster.viewmodel
 
 import android.app.Application
 import com.frogobox.speechbooster.base.BaseViewModel
+import com.frogobox.speechbooster.model.VideoScript
 import com.frogobox.speechbooster.source.FrogoDataRepository
+import com.frogobox.speechbooster.source.FrogoDataSource
+import com.frogobox.speechbooster.util.SingleLiveEvent
 
 /**
  * Created by Faisal Amir
@@ -24,4 +27,39 @@ import com.frogobox.speechbooster.source.FrogoDataRepository
 class VideoScriptMainViewModel (
     application: Application,
     private val frogoDataRepository: FrogoDataRepository
-) : BaseViewModel(application)
+) : BaseViewModel(application) {
+
+    val videoListLive = SingleLiveEvent<List<VideoScript>>()
+
+    fun getVideoData() {
+        frogoDataRepository.getRoomVideoScript(object :
+            FrogoDataSource.GetRoomDataCallBack<List<VideoScript>> {
+            override fun onShowProgressDialog() {
+                eventShowProgress.value = true
+            }
+
+            override fun onHideProgressDialog() {
+                eventShowProgress.value = false
+            }
+
+            override fun onSuccess(data: List<VideoScript>) {
+                videoListLive.value = data
+                eventIsEmpty.value = false
+            }
+
+            override fun onEmpty() {
+                eventIsEmpty.value = true
+            }
+
+            override fun onFinish() {
+
+            }
+
+            override fun onFailed(statusCode: Int, errorMessage: String?) {
+
+            }
+        })
+    }
+
+
+}
