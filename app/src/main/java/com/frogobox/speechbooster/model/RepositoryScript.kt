@@ -19,7 +19,7 @@ import androidx.room.ColumnInfo
  * com.frogobox.speechbooster.model
  *
  */
-data class ExampleScript(
+data class RepositoryScript(
 
     @ColumnInfo(name = "title")
     var title: String? = "",

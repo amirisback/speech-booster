@@ -25,7 +25,7 @@ import com.frogobox.speechbooster.util.helper.ConstHelper
 import com.frogobox.speechbooster.util.camera.CompareSizesByArea
 import com.frogobox.speechbooster.util.camera.DialogConfirmation
 import com.frogobox.speechbooster.util.camera.DialogError
-import com.frogobox.speechbooster.model.ExampleScript
+import com.frogobox.speechbooster.model.RepositoryScript
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_EXAMPLE_SCRIPT
@@ -181,7 +181,7 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
                 val argumentsScript = baseGetInstance<Script>(ARGUMENTS_SCRIPT)
                 setupViewElement(argumentsScript.title!!, argumentsScript.description!!)
             } else if (checkArgument(ARGUMENTS_EXAMPLE_SCRIPT)) {
-                val argumentsExampleScript = baseGetInstance<ExampleScript>(ARGUMENTS_EXAMPLE_SCRIPT)
+                val argumentsExampleScript = baseGetInstance<RepositoryScript>(ARGUMENTS_EXAMPLE_SCRIPT)
                 setupViewElement(argumentsExampleScript.title!!, argumentsExampleScript.description!!)
             } else if (checkArgument(ARGUMENTS_FAVORITE_SCRIPT)) {
                 val argumentsFavoriteScript = baseGetInstance<FavoriteScript>(ARGUMENTS_FAVORITE_SCRIPT)

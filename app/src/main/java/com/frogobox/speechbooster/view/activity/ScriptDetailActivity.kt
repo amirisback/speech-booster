@@ -11,7 +11,7 @@ import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
 import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.util.helper.FunHelper.Func.createDialogDefault
-import com.frogobox.speechbooster.model.ExampleScript
+import com.frogobox.speechbooster.model.RepositoryScript
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
@@ -67,7 +67,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
 
         } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)){
 
-            val extraExampleScript = getBaseBundle<ExampleScript>(mActivity, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
+            val extraExampleScript = getBaseBundle<RepositoryScript>(mActivity, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
             val bundleExampleScript = createBaseBundle(TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT, extraExampleScript)
             setupViewElement(extraExampleScript.title!!, DEFAULT_NULL, extraExampleScript.description!!, bundleExampleScript)
 
@@ -121,7 +121,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
         setupAddToFavorite(favoriteScript)
     }
 
-    private fun addToFavorite(data: ExampleScript){
+    private fun addToFavorite(data: RepositoryScript){
         val dateNow = DateHelper.getCurrentDate(ConstHelper.Date.DATE_EEEE_DD_MM_YYYY)
         val favoriteScript = FavoriteScript(title = data.title, dateTime = dateNow, description = data.description)
         setupAddToFavorite(favoriteScript)

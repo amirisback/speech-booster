@@ -4,7 +4,7 @@ package com.frogobox.speechbooster.view.activity
 import android.os.Bundle
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseActivity
-import com.frogobox.speechbooster.model.ExampleScript
+import com.frogobox.speechbooster.model.RepositoryScript
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
@@ -23,7 +23,7 @@ class RecordActivity : BaseActivity()  {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_record_new)
+        setContentView(R.layout.activity_record)
         setupNoLimitStatBar()
         setupRoleFragmentInstance()
     }
@@ -43,7 +43,7 @@ class RecordActivity : BaseActivity()  {
 
         } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)) {
 
-            val extraDataResultExampleScript = getBaseBundle<ExampleScript>(mActivity, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
+            val extraDataResultExampleScript = getBaseBundle<RepositoryScript>(mActivity, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
             recordFragment.baseNewInstance(ARGUMENTS_EXAMPLE_SCRIPT, extraDataResultExampleScript)
             setupChildFragment(R.id.container, recordFragment)
 

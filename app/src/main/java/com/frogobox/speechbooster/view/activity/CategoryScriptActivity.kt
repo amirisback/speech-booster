@@ -6,7 +6,7 @@ import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseActivity
 import com.frogobox.speechbooster.base.BaseListener
 import com.frogobox.speechbooster.model.CategoryScript
-import com.frogobox.speechbooster.model.ExampleScript
+import com.frogobox.speechbooster.model.RepositoryScript
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
@@ -20,7 +20,7 @@ import com.frogobox.speechbooster.view.viewadapter.CategoryScriptAdapter
 import com.frogobox.speechbooster.viewmodel.CategoryScriptViewModel
 import kotlinx.android.synthetic.main.activity_category_script.*
 
-class CategoryScriptActivity : BaseActivity(), BaseListener<ExampleScript> {
+class CategoryScriptActivity : BaseActivity(), BaseListener<RepositoryScript> {
 
     private lateinit var mViewModel: CategoryScriptViewModel
 
@@ -46,7 +46,7 @@ class CategoryScriptActivity : BaseActivity(), BaseListener<ExampleScript> {
         setupRecyclerView(mViewModel.showExampleData(this, extraDataResult.category))
     }
 
-    private fun setupRecyclerView(data: List<ExampleScript>) {
+    private fun setupRecyclerView(data: List<RepositoryScript>) {
         val adapter = CategoryScriptAdapter()
         adapter.setRecyclerViewLayout(this, R.layout.recyclerview_item_category_script)
         adapter.setRecyclerViewListener(this)
@@ -55,13 +55,13 @@ class CategoryScriptActivity : BaseActivity(), BaseListener<ExampleScript> {
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
 
-    override fun onItemClicked(data: ExampleScript) {
+    override fun onItemClicked(data: RepositoryScript) {
         val extras = createBaseBundle(TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT, data)
         val option = createOptionBundle(TAG_ACTIVITY_DETAIL)
         startScriptDetailActivity(this, extras, option)
     }
 
-    override fun onItemLongClicked(data: ExampleScript) {
+    override fun onItemLongClicked(data: RepositoryScript) {
         noAction()
     }
 

@@ -21,11 +21,11 @@ import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundl
 import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptDetailActivity
 import com.frogobox.speechbooster.view.viewadapter.FavoriteScriptAdapter
 import com.frogobox.speechbooster.viewmodel.FavoriteScriptMainViewModel
-import kotlinx.android.synthetic.main.fragment_example_favorite.*
+import kotlinx.android.synthetic.main.fragment_repository_favorite.*
 import kotlinx.android.synthetic.main.recyclerview_event_empty.*
 import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 
-class ExampleFavoriteFragment : BaseFragment(), BaseListener<FavoriteScript> {
+class RepositoryFavoriteFragment : BaseFragment(), BaseListener<FavoriteScript> {
 
     private lateinit var mViewModel: FavoriteScriptMainViewModel
 
@@ -35,7 +35,7 @@ class ExampleFavoriteFragment : BaseFragment(), BaseListener<FavoriteScript> {
     ): View? {
         // Inflate the layout for this fragment
         setupViewModel()
-        return inflater.inflate(R.layout.fragment_example_favorite, container, false)
+        return inflater.inflate(R.layout.fragment_repository_favorite, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,15 +51,15 @@ class ExampleFavoriteFragment : BaseFragment(), BaseListener<FavoriteScript> {
     private fun setupViewModel() {
         mViewModel = (activity as MainActivity).obtainFavoriteViewModel().apply {
 
-            eventIsEmpty.observe(this@ExampleFavoriteFragment, Observer {
+            eventIsEmpty.observe(this@RepositoryFavoriteFragment, Observer {
                 setupEventEmptyView(empty_view, it)
             })
 
-            eventShowProgress.observe(this@ExampleFavoriteFragment, Observer {
+            eventShowProgress.observe(this@RepositoryFavoriteFragment, Observer {
                 setupEventProgressView(progress_view, it)
             })
 
-            favoriteListLive.observe(this@ExampleFavoriteFragment, Observer {
+            favoriteListLive.observe(this@RepositoryFavoriteFragment, Observer {
                 setupRecyclerView(it)
             })
 

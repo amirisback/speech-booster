@@ -4,21 +4,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".view.fragment.ExampleCategoryFragment">
+        tools:context=".view.fragment.RepositoryFavoriteFragment">
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingTop="@dimen/dimen_medium_8dp"
             android:paddingRight="@dimen/dimen_big_16dp"
-            android:paddingBottom="@dimen/dimen_big_16dp"
+            tools:listitem="@layout/recyclerview_item_script"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:listitem="@layout/recyclerview_item_category">
+            app:layout_constraintStart_toStartOf="parent">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <include layout="@layout/recyclerview_event_empty" />
+    <include layout="@layout/recyclerview_event_progress" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

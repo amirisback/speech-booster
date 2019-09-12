@@ -19,9 +19,9 @@ import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.view.route.Implicit.Activity.startCategoryScriptActivity
 import com.frogobox.speechbooster.view.viewadapter.CategoryAdapter
 import com.frogobox.speechbooster.viewmodel.CategoryViewModel
-import kotlinx.android.synthetic.main.fragment_example_category.*
+import kotlinx.android.synthetic.main.fragment_repository_category.*
 
-class ExampleCategoryFragment : BaseFragment(), BaseListener<CategoryScript> {
+class RepositoryCategoryFragment : BaseFragment(), BaseListener<CategoryScript> {
 
     private lateinit var mViewModel: CategoryViewModel
 
@@ -30,7 +30,7 @@ class ExampleCategoryFragment : BaseFragment(), BaseListener<CategoryScript> {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_example_category, container, false)
+        return inflater.inflate(R.layout.fragment_repository_category, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

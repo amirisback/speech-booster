@@ -1,84 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * LinkedIn : linkedin.com/in/faisalamircs
+ * 
+ * FrogoBox Software Industries
+ * 
+ -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-    <SurfaceView
-            android:id="@+id/surfaceView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-            android:id="@+id/img_record_menu"
-            android:layout_width="@dimen/dimen_big_super_24dp"
-            android:layout_height="@dimen/dimen_big_super_24dp"
-            android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginTop="@dimen/dimen_big_ultra_32dp"
-            android:layout_marginRight="@dimen/dimen_big_16dp"
-            android:src="@drawable/ic_toolbar_record"
-            android:text="@string/take_photo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-            android:id="@+id/img_toolbar_home"
-            android:layout_width="@dimen/dimen_big_super_24dp"
-            android:layout_height="@dimen/dimen_big_super_24dp"
-            android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginLeft="@dimen/dimen_big_16dp"
-            android:layout_marginTop="@dimen/dimen_big_ultra_32dp"
-            android:src="@drawable/ic_toolbar_back_home"
-            android:text="@string/take_photo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    <ScrollView
-            android:background="@color/colorBackgroundSemiBlack"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline">
-
-        <LinearLayout
-                android:padding="@dimen/dimen_big_16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
-
-            <TextView
-                    android:textSize="@dimen/text_size_title_medium_20sp"
-                    android:id="@+id/tv_title"
-                    tools:text="@string/dummy"
-                    android:textColor="@color/colorTextWhite"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            <TextView
-                    android:textSize="@dimen/text_size_title_medium_20sp"
-                    android:id="@+id/tv_description"
-                    tools:text="@string/dummyLong"
-                    android:textColor="@color/colorTextWhite"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-    </ScrollView>
-
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_end="250dp" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:background="@color/activity_background" />

@@ -5,7 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseActivity
-import com.frogobox.speechbooster.view.fragment.ExampleFragment
+import com.frogobox.speechbooster.view.fragment.RepositoryFragment
 import com.frogobox.speechbooster.view.fragment.ScriptFragment
 import com.frogobox.speechbooster.view.fragment.VideoFragment
 import com.frogobox.speechbooster.viewmodel.CategoryViewModel
@@ -78,8 +78,8 @@ class MainActivity : BaseActivity() {
                 }
 
                 R.id.bottom_menu_sample_script -> {
-                    setTitle(R.string.title_sample_script)
-                    setupChildFragment(frameLayout, ExampleFragment())
+                    setTitle(R.string.title_repository_script)
+                    setupChildFragment(frameLayout, RepositoryFragment())
                 }
             }
 
