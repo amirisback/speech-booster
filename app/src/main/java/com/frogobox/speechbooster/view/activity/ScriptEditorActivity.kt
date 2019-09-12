@@ -18,6 +18,7 @@ import com.frogobox.speechbooster.util.helper.ConstHelper.Date.DATE_EEEE_DD_MM_Y
 import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
 import com.frogobox.speechbooster.viewmodel.ScriptEditorViewModel
 import kotlinx.android.synthetic.main.activity_script_editor.*
+import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 
 class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
 
@@ -72,11 +73,11 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
     }
 
     override fun onShowProgress() {
-        progressBar.visibility = View.VISIBLE
+        progress_view.visibility = View.VISIBLE
     }
 
     override fun onHideProgress() {
-        progressBar.visibility = View.GONE
+        progress_view.visibility = View.GONE
     }
 
     override fun onSucces() {

@@ -75,4 +75,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+    <include layout="@layout/recyclerview_event_progress" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

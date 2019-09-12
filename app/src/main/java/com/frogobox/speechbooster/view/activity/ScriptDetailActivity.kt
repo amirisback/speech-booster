@@ -22,6 +22,7 @@ import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptEditor
 import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
 import com.frogobox.speechbooster.viewmodel.ScriptDetailViewModel
 import kotlinx.android.synthetic.main.activity_script_detail.*
+import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 
 class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteEditorViewCallback {
 
@@ -155,9 +156,11 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
     }
 
     override fun onShowProgress() {
+        progress_view.visibility = View.VISIBLE
     }
 
     override fun onHideProgress() {
+        progress_view.visibility = View.GONE
     }
 
     override fun onSucces() {
