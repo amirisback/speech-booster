@@ -32,7 +32,7 @@ import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 
 class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteEditorViewCallback {
 
-    lateinit var mViewModel: ScriptDetailViewModel
+    private lateinit var mViewModel: ScriptDetailViewModel
     var isFav = true
 
     override fun onCreate(savedInstanceState: Bundle?) {

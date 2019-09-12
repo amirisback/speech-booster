@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.activity_category_script.*
 
 class CategoryScriptActivity : BaseActivity(), BaseListener<ExampleScript> {
 
-    lateinit var mViewModel: CategoryScriptViewModel
+    private lateinit var mViewModel: CategoryScriptViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

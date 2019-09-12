@@ -6,7 +6,6 @@ import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
-import android.widget.Toast
 import com.frogobox.speechbooster.BuildConfig
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.util.helper.ConstHelper.Pref.PREF_NAME

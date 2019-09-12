@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_example_category.*
 
 class ExampleCategoryFragment : BaseFragment(), BaseListener<CategoryScript> {
 
-    lateinit var mViewModel: CategoryViewModel
+    private lateinit var mViewModel: CategoryViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

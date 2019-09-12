@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 
 class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
 
-    lateinit var mViewModel: ScriptEditorViewModel
+    private lateinit var mViewModel: ScriptEditorViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

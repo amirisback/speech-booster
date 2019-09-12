@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 
 class ExampleFavoriteFragment : BaseFragment(), BaseListener<FavoriteScript> {
 
-    lateinit var mViewModel: FavoriteScriptMainViewModel
+    private lateinit var mViewModel: FavoriteScriptMainViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
