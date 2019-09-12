@@ -40,16 +40,15 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-
-    fun <Model> baseNewInstance(argsKey: String, data: Model) {
+    fun <Model> baseNewInstance(argsKey: String, data: Model){
         val argsData = FunHelper.ConverterJson.toJson(data)
-        val bundleArgs = Bundle()
-        bundleArgs.putString(argsKey, argsData)
+        val bundleArgs = Bundle().apply {
+            putString(argsKey, argsData)
+        }
         this.arguments = bundleArgs
-
     }
 
-    inline fun <reified Model> baseGetInstance(argsKey: String) : Model {
+    protected inline fun <reified Model> baseGetInstance(argsKey: String) : Model {
         val argsData = this.arguments?.getString(argsKey)
         val instaceData = FunHelper.ConverterJson.fromJson<Model>(argsData)
         return instaceData
@@ -70,5 +69,6 @@ abstract class BaseFragment : Fragment() {
             progress_view.visibility = View.GONE
         }
     }
+
 
 }

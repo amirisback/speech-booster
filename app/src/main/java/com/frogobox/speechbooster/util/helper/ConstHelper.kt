@@ -74,7 +74,7 @@ class ConstHelper {
 
     object Arg {
         const val BASE_ARGUMENTS = "com.frogobox.speechbooster"
-        const val ARGUMENTS_SCRIPT = "$BASE_ARGUMENTS.ARGUMENTS_SCRIPT"
+        const val ARGUMENTS_SCRIPT = "aa"
     }
 
     object Pref {

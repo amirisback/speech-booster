@@ -6,7 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <com.frogobox.speechbooster.camera.AutoFitTextureView
-            android:id="@+id/texture"
+            android:id="@+id/texture_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"

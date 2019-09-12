@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.frogobox.speechbooster.R
+import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ViewModelFactory
 import com.frogobox.speechbooster.util.helper.FunHelper
@@ -79,6 +80,10 @@ abstract class BaseActivity : AppCompatActivity() {
         val extraIntent = intent.getStringExtra(extraKey)
         val extraData = FunHelper.ConverterJson.fromJson<Model>(extraIntent)
         return extraData
+    }
+
+    protected fun <Model>baseFragmentNewInstance(fragment: BaseFragment, argumentKey: String, extraDataResult: Model){
+        fragment.baseNewInstance(argumentKey, extraDataResult)
     }
 
     protected fun tagOption(): Int {

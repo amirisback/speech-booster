@@ -24,11 +24,16 @@ import androidx.fragment.app.FragmentActivity
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.BaseFragment
 import com.frogobox.speechbooster.util.helper.ConstHelper
-import com.frogobox.speechbooster.camera.AutoFitTextureView
 import com.frogobox.speechbooster.camera.CompareSizesByArea
 import com.frogobox.speechbooster.camera.DialogConfirmation
 import com.frogobox.speechbooster.camera.DialogError
+import com.frogobox.speechbooster.model.ExampleScript
+import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.Script
+import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_SCRIPT
+import com.frogobox.speechbooster.util.helper.FunHelper
+import com.frogobox.speechbooster.util.helper.FunHelper.ConverterJson.fromJson
+import com.frogobox.speechbooster.util.helper.FunHelper.ConverterJson.toJson
 import kotlinx.android.synthetic.main.fragment_record.*
 import java.io.IOException
 import java.util.*
@@ -40,7 +45,6 @@ import kotlin.collections.ArrayList
 class RecordFragment : BaseFragment(), View.OnClickListener,
     ActivityCompat.OnRequestPermissionsResultCallback {
 
-    private lateinit var textureView: AutoFitTextureView
     private lateinit var previewSize: Size
     private lateinit var videoSize: Size
     private lateinit var previewRequestBuilder: CaptureRequest.Builder
@@ -62,7 +66,7 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
             cameraOpenCloseLock.release()
             this@RecordFragment.cameraDevice = cameraDevice
             startPreview()
-            configureTransform(textureView.width, textureView.height)
+            configureTransform(texture_view.width, texture_view.height)
         }
 
         override fun onDisconnected(cameraDevice: CameraDevice) {
@@ -107,22 +111,43 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
 
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_record, container, false)
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        textureView = view.findViewById(R.id.texture)
-        img_record_menu.setOnClickListener(this)
-        setupViewElement()
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_record, container, false)
     }
 
-    private fun setupViewElement(){
-        val argumentScript = baseGetInstance<Script>(ConstHelper.Arg.ARGUMENTS_SCRIPT)
-        tv_description.text = argumentScript.description
-        tv_title.text = argumentScript.title
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        img_record_menu.setOnClickListener(this)
+        setupRoleView()
+    }
+
+    private fun setupRoleView(){
+        val argumentsScript = baseGetInstance<Script>(ARGUMENTS_SCRIPT)
+        val argumentsExampleScript = baseGetInstance<ExampleScript>(ARGUMENTS_SCRIPT)
+        val argumentsFavoriteScript = baseGetInstance<FavoriteScript>(ARGUMENTS_SCRIPT)
+
+        if (argumentsScript != null) {
+            setupViewElement(argumentsScript)
+        } else if (argumentsExampleScript != null) {
+            setupViewElement(argumentsExampleScript)
+        } else if (argumentsFavoriteScript != null) {
+            setupViewElement(argumentsFavoriteScript)
+        }
+
+    }
+
+    private fun setupViewElement(data: Script){
+        tv_description.text = data.description
+        tv_title.text = data.title
+    }
+
+    private fun setupViewElement(data: ExampleScript){
+        tv_description.text = data.description
+        tv_title.text = data.title
+    }
+
+    private fun setupViewElement(data: FavoriteScript){
+        tv_description.text = data.description
+        tv_title.text = data.title
     }
 
 
@@ -134,10 +159,10 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
         // available, and "onSurfaceTextureAvailable" will not be called. In that case, we can open
         // a camera and start preview from here (otherwise, we wait until the surface is ready in
         // the SurfaceTextureListener).
-        if (textureView.isAvailable) {
-            openCamera(textureView.width, textureView.height)
+        if (texture_view.isAvailable) {
+            openCamera(texture_view.width, texture_view.height)
         } else {
-            textureView.surfaceTextureListener = surfaceTextureListener
+            texture_view.surfaceTextureListener = surfaceTextureListener
         }
     }
 
@@ -246,9 +271,9 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
             )
 
             if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                textureView.setAspectRatio(previewSize.width, previewSize.height)
+                texture_view.setAspectRatio(previewSize.width, previewSize.height)
             } else {
-                textureView.setAspectRatio(previewSize.height, previewSize.width)
+                texture_view.setAspectRatio(previewSize.height, previewSize.width)
             }
             configureTransform(width, height)
             mediaRecorder = MediaRecorder()
@@ -282,11 +307,11 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     }
 
     private fun startPreview() {
-        if (cameraDevice == null || !textureView.isAvailable) return
+        if (cameraDevice == null || !texture_view.isAvailable) return
 
         try {
             closePreviewSession()
-            val texture = textureView.surfaceTexture
+            val texture = texture_view.surfaceTexture
             texture.setDefaultBufferSize(previewSize.width, previewSize.height)
             previewRequestBuilder =
                 cameraDevice!!.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW)
@@ -355,7 +380,7 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
                 postRotate((90 * (rotation - 2)).toFloat(), centerX, centerY)
             }
         }
-        textureView.setTransform(matrix)
+        texture_view.setTransform(matrix)
     }
 
     @Throws(IOException::class)
@@ -400,12 +425,12 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     }
 
     private fun startRecordingVideo() {
-        if (cameraDevice == null || !textureView.isAvailable) return
+        if (cameraDevice == null || !texture_view.isAvailable) return
 
         try {
             closePreviewSession()
             setUpMediaRecorder()
-            val texture = textureView.surfaceTexture.apply {
+            val texture = texture_view.surfaceTexture.apply {
                 setDefaultBufferSize(previewSize.width, previewSize.height)
             }
 
@@ -496,9 +521,16 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
         }
     }
 
-//    companion object {
-//        fun newInstance(): RecordFragment = RecordFragment()
-//    }
-
+    companion object {
+        fun <Model>newInstance(argsKey: String, data: Model): RecordFragment {
+            val fragment = RecordFragment()
+            val argsData = toJson(data)
+            val bundleArgs = Bundle().apply {
+                putString(argsKey, argsData)
+            }
+            fragment.arguments = bundleArgs
+            return fragment
+        }
+    }
 }
 
