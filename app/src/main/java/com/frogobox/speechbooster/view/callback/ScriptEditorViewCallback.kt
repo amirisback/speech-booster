@@ -19,12 +19,4 @@ import com.frogobox.speechbooster.base.BaseViewCallback
  * com.frogobox.speechbooster.view.callback
  *
  */
-interface ScriptEditorViewCallback : BaseViewCallback {
-    override fun onShowProgress() {}
-
-    override fun onHideProgress() {}
-
-    override fun onSucces() {}
-
-    override fun onFailed(message: String) {}
-}
+interface ScriptEditorViewCallback : BaseViewCallback

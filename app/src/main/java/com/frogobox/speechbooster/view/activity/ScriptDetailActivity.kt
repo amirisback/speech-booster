@@ -16,13 +16,14 @@ import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
+import com.frogobox.speechbooster.view.callback.FavoriteEditorViewCallback
 import com.frogobox.speechbooster.view.route.Implicit.Activity.startRecordActivity
 import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptEditorActivity
 import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
 import com.frogobox.speechbooster.viewmodel.ScriptDetailViewModel
 import kotlinx.android.synthetic.main.activity_script_detail.*
 
-class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback {
+class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteEditorViewCallback {
 
     lateinit var mViewModel: ScriptDetailViewModel
 
@@ -61,7 +62,6 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback {
         }
     }
 
-
     private fun setupRoleView() {
         val extraDataResult = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
         val extraDataEdit = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
@@ -79,14 +79,39 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback {
         }
     }
 
+    fun obtainScriptDetailViewModel(): ScriptDetailViewModel =
+        obtainViewModel(ScriptDetailViewModel::class.java)
+
     private fun setupViewModel() {
         mViewModel = obtainScriptDetailViewModel().apply {
 
         }
     }
 
-    fun obtainScriptDetailViewModel(): ScriptDetailViewModel =
-        obtainViewModel(ScriptDetailViewModel::class.java)
+    private fun setupAddToFavorite(data: FavoriteScript){
+        mViewModel.addFavoriteData(data, this)
+    }
+
+    private fun setupDeleteFromFavorite(tableid: Int) {
+        mViewModel.deleteFavoriteData(tableid,this)
+    }
+
+    private fun setupGetFromFavorite(title: String){
+        mViewModel.getFavoriteData(title)
+    }
+
+    private fun setupFavoriteView(favorite: Boolean){
+        if (favorite) {
+            iv_btn_favorite.setImageResource(R.drawable.ic_toolbar_favorite)
+        } else {
+            iv_btn_favorite.setImageResource(R.drawable.ic_toolbar_unfavorite)
+        }
+    }
+
+
+
+
+
 
     private fun listenerMenuEdit() {
         val data = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
@@ -130,20 +155,16 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback {
     }
 
     override fun onShowProgress() {
-        super.onShowProgress()
     }
 
     override fun onHideProgress() {
-        super.onHideProgress()
     }
 
     override fun onSucces() {
-        super.onSucces()
         finish()
     }
 
     override fun onFailed(message: String) {
-        super.onFailed(message)
         showToast(message)
     }
 }

@@ -14,6 +14,7 @@ import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.util.helper.DateHelper.Companion.getCurrentDate
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
+import com.frogobox.speechbooster.util.helper.ConstHelper.Date.DATE_EEEE_DD_MM_YYYY
 import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
 import com.frogobox.speechbooster.viewmodel.ScriptEditorViewModel
 import kotlinx.android.synthetic.main.activity_script_editor.*
@@ -46,7 +47,7 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
     }
 
     private fun setupCreateView(){
-        tv_script_date.text = getCurrentDate(DATE_DD_MM_YYYY)
+        tv_script_date.text = getCurrentDate(DATE_EEEE_DD_MM_YYYY)
     }
 
     private fun saveToRoom() {
@@ -71,22 +72,18 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
     }
 
     override fun onShowProgress() {
-        super.onShowProgress()
         progressBar.visibility = View.VISIBLE
     }
 
     override fun onHideProgress() {
-        super.onHideProgress()
         progressBar.visibility = View.GONE
     }
 
     override fun onSucces() {
-        super.onSucces()
         finish()
     }
 
     override fun onFailed(message: String) {
-        super.onFailed(message)
         showToast(message)
     }
 

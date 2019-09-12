@@ -39,7 +39,9 @@ class ConstHelper {
         const val DATE_ENGLISH_YYYY_MM_DD = "yyyy-MM-dd" // 2018-10-02
         const val DATE_ENGLISH_YYYY_MM_DD_CLEAR = "yyyy MM dd" // 2018 10 02
         const val DATE_DD_MM_YYYY = "dd-MM-yyyy" // 02-10-2018
+        const val DATE_EEEE_DD_MM_YYYY = "EEEE, dd MMMM yyyy" // 02-10-2018
         const val DATE_DD_MM_YYYY_CLEAR = "dd MM yyyy" // 02-10-2018
+
 
         // Format Time
         const val TIME_GENERAL_HH_MM_SS = "HH:mm:ss" // 12:12:12

@@ -20,14 +20,4 @@ import com.frogobox.speechbooster.base.BaseViewCallback
  *
  */
 
-interface VideoRecordViewCallback : BaseViewCallback {
-
-    override fun onShowProgress() {}
-
-    override fun onHideProgress() {}
-
-    override fun onSucces() {}
-
-    override fun onFailed(message: String) {}
-
-}
+interface VideoRecordViewCallback : BaseViewCallback {}
