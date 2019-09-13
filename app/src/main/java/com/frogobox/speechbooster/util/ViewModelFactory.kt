@@ -71,7 +71,7 @@ class ViewModelFactory private constructor(
         fun getInstance(mApplication: Application) =
             INSTANCE ?: synchronized(ViewModelFactory::class.java) {
                 INSTANCE ?: ViewModelFactory(mApplication,
-                    Injection.provideGitsRepository(mApplication.applicationContext))
+                    Injection.provideFrogoRepository(mApplication.applicationContext))
                     .also { INSTANCE = it }
             }
     }

@@ -1,7 +1,7 @@
 package com.frogobox.speechbooster.util
 
 import android.content.Context
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.dao.FavoriteScriptDao
 import com.frogobox.speechbooster.source.dao.ScriptDao
@@ -29,7 +29,7 @@ import com.frogobox.speechbooster.source.remote.FrogoRemoteDataSource
  */
 object Injection {
 
-    fun provideGitsRepository(context: Context): FrogoDataRepository {
+    fun provideFrogoRepository(context: Context): FrogoDataRepository {
         val scriptDao: ScriptDao by lazy {
             FrogoAppDatabase.getInstance(context).scriptDao()
         }

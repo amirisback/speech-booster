@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ViewModelFactory
@@ -115,7 +115,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun <T : ViewModel> obtainViewModel(viewModelClass: Class<T>) =
-        ViewModelProviders.of(this, ViewModelFactory.getInstance(application)).get(viewModelClass)
+        ViewModelProvider(this, ViewModelFactory.getInstance(application)).get(viewModelClass)
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         return true
