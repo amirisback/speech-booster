@@ -96,6 +96,100 @@ class CategoryScriptViewModel(
             )
         } else if (param.equals(context.getString(R.string.title_category_education))) {
 
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_0),
+                    context.getString(R.string.content_education_desc_0)
+                )
+            )
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_1),
+                    context.getString(R.string.content_education_desc_1)
+                )
+            )
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_2),
+                    context.getString(R.string.content_education_desc_2)
+                )
+            )
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_3),
+                    context.getString(R.string.content_education_desc_3)
+                )
+            )
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_4),
+                    context.getString(R.string.content_education_desc_4)
+                )
+            )
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_5),
+                    context.getString(R.string.content_education_desc_5)
+                )
+            )
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_6),
+                    context.getString(R.string.content_education_desc_6)
+                )
+            )
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_7),
+                    context.getString(R.string.content_education_desc_7)
+                )
+            )
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_8),
+                    context.getString(R.string.content_education_desc_8)
+                )
+            )
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_9),
+                    context.getString(R.string.content_education_desc_9)
+                )
+            )
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_10),
+                    context.getString(R.string.content_education_desc_10)
+                )
+            )
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_11),
+                    context.getString(R.string.content_education_desc_11)
+                )
+            )
+
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_12),
+                    context.getString(R.string.content_education_desc_12)
+                )
+            )
+
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_13),
+                    context.getString(R.string.content_education_desc_13)
+                )
+            )
+
+            exampleScriptList.add(
+                RepositoryScript(
+                    context.getString(R.string.content_education_title_14),
+                    context.getString(R.string.content_education_desc_14)
+                )
+            )
+
         } else if (param.equals(context.getString(R.string.title_category_health))) {
 
             exampleScriptList.add(
