@@ -1,7 +1,7 @@
 package com.frogobox.speechbooster.viewmodel
 
 import android.app.Application
-import com.frogobox.speechbooster.base.BaseViewModel
+import com.frogobox.speechbooster.base.util.BaseViewModel
 import com.frogobox.speechbooster.model.VideoScript
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.FrogoDataSource

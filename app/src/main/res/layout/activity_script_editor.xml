@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         android:background="@color/colorBackgroundWhite"
         android:minHeight="@dimen/dimen_large_64dp"
-        tools:context=".view.activity.ScriptEditorActivity">
+        tools:context=".view.ui.activity.ScriptEditorActivity">
 
 
     <EditText

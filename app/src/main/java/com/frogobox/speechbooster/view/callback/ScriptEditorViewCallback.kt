@@ -1,6 +1,6 @@
 package com.frogobox.speechbooster.view.callback
 
-import com.frogobox.speechbooster.base.BaseViewCallback
+import com.frogobox.speechbooster.base.view.BaseViewCallback
 
 /**
  * Created by Faisal Amir

@@ -33,7 +33,7 @@ object Implicit {
 
     object Module {
         const val BASE_PACKAGE = "com.frogobox.speechbooster"
-        const val BASE_ACTIVITY = "view.activity"
+        const val BASE_ACTIVITY = "view.ui.activity"
 
     }
 

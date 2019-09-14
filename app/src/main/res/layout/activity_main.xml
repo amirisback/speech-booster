@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         android:paddingTop="@dimen/dimen_small_4dp"
         android:background="@color/colorBackgroundWhite"
-        tools:context=".view.activity.MainActivity">
+        tools:context=".view.ui.activity.MainActivity">
 
     <include layout="@layout/toolbar_main"/>
 

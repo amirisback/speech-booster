@@ -8,6 +8,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import com.frogobox.speechbooster.BuildConfig
 import com.frogobox.speechbooster.R
+import com.frogobox.speechbooster.base.util.BaseHelper
 import com.frogobox.speechbooster.util.helper.ConstHelper.Pref.PREF_NAME
 import com.google.gson.Gson
 
@@ -28,16 +29,16 @@ import com.google.gson.Gson
  * com.frogobox.publicspeakingbooster.helper
  *
  */
-class FunHelper {
+class FunHelper{
 
-    object ConverterJson {
+    object ConverterJson : BaseHelper() {
 
         fun <T> toJson(model: T) : String? {
-            return Gson().toJson(model)
+            return baseToJson(model)
         }
 
         inline fun <reified T> fromJson(word: String?) : T {
-            return Gson().fromJson<T>(word, T::class.java)
+            return baseFromJson(word)
         }
 
     }
