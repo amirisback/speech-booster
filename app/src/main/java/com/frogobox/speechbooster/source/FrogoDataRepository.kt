@@ -23,8 +23,16 @@ import com.frogobox.speechbooster.source.remote.FrogoRemoteDataSource
  * com.frogobox.speechbooster.source
  *
  */
-open class FrogoDataRepository(val remoteDataSource: FrogoRemoteDataSource,
-                               val localDataSource: FrogoLocalDataSource) : FrogoDataSource {
+open class FrogoDataRepository(private val remoteDataSource: FrogoRemoteDataSource,
+                               private val localDataSource: FrogoLocalDataSource) : FrogoDataSource {
+
+
+    override fun searchRoomFavorite(
+        scriptId: String,
+        callback: FrogoDataSource.GetRoomDataCallBack<List<FavoriteScript>>
+    ) {
+        localDataSource.searchRoomFavorite(scriptId, callback)
+    }
 
     override fun updateRoomScriptFav(tableId: Int, favorite: Boolean): Boolean {
         return localDataSource.updateRoomScriptFav(tableId, favorite)
@@ -61,6 +69,10 @@ open class FrogoDataRepository(val remoteDataSource: FrogoRemoteDataSource,
 
     override fun deleteRoomFavoriteScript(tableId: Int): Boolean {
         return localDataSource.deleteRoomFavoriteScript(tableId)
+    }
+
+    override fun deleteRoomFavoriteScriptId(scriptId: String): Boolean {
+        return localDataSource.deleteRoomFavoriteScriptId(scriptId)
     }
 
     override fun deleteRoomVideoScript(tableId: Int): Boolean {

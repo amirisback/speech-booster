@@ -26,6 +26,14 @@ import com.frogobox.speechbooster.source.FrogoDataSource
  */
 class FrogoRemoteDataSource(private val context: Context) : FrogoDataSource {
 
+
+    override fun searchRoomFavorite(
+        scriptId: String,
+        callback: FrogoDataSource.GetRoomDataCallBack<List<FavoriteScript>>
+    ) {
+        noAction()
+    }
+
     override fun updateRoomScriptFav(tableId: Int, favorite: Boolean): Boolean {
         return noAction()
     }
@@ -60,6 +68,10 @@ class FrogoRemoteDataSource(private val context: Context) : FrogoDataSource {
     }
 
     override fun deleteRoomFavoriteScript(tableId: Int): Boolean {
+        return noAction()
+    }
+
+    override fun deleteRoomFavoriteScriptId(scriptId: String): Boolean {
         return noAction()
     }
 

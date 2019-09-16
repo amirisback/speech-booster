@@ -41,9 +41,13 @@ interface FrogoDataSource : BaseDataSource {
     fun updateRoomFavoriteScript(tableId: Int, title: String, description: String, dateTime: String) : Boolean
     fun updateRoomVideoScript(tableId: Int, urlVideo: String) : Boolean
 
+    // Search
+    fun searchRoomFavorite(scriptId: String, callback: GetRoomDataCallBack<List<FavoriteScript>>)
+
     // Delete
     fun deleteRoomScript(tableId: Int) : Boolean
     fun deleteRoomFavoriteScript(tableId: Int) : Boolean
+    fun deleteRoomFavoriteScriptId(scriptId: String) : Boolean
     fun deleteRoomVideoScript(tableId: Int) : Boolean
 
     // Nuke

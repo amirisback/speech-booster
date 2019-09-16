@@ -35,8 +35,14 @@ interface FavoriteScriptDao {
     @Query("UPDATE favorite_script_table SET title = :title, description = :description, dateTime = :dateTime WHERE table_id = :tableid")
     fun updateData(tableid: Int, title: String, description: String, dateTime: String)
 
-    @Query("DELETE FROM favorite_script_table WHERE table_id = :tableid")
-    fun deleteData(tableid: Int)
+    @Query("DELETE FROM favorite_script_table WHERE table_id = :tableId")
+    fun deleteDataFromTableId(tableId: Int)
+
+    @Query("DELETE FROM favorite_script_table WHERE script_id = :scriptId")
+    fun deleteDataFromScriptId(scriptId: String)
+
+    @Query("SELECT * FROM favorite_script_table WHERE script_id = :scriptId")
+    fun searchData(scriptId: String): Single<List<FavoriteScript>>
 
     @Query("DELETE FROM favorite_script_table")
     fun nukeData()

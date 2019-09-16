@@ -41,6 +41,40 @@ class FrogoLocalDataSource private constructor(
     private val videoScriptDao: VideoScriptDao
 ) : FrogoDataSource {
 
+    override fun searchRoomFavorite(
+        scriptId: String,
+        callback: FrogoDataSource.GetRoomDataCallBack<List<FavoriteScript>>
+    ) {
+        appExecutors.diskIO.execute {
+            favoriteScriptDao.searchData(scriptId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : BaseCallback<List<FavoriteScript>>() {
+                    override fun onCallbackSucces(data: List<FavoriteScript>) {
+                        callback.onShowProgressDialog()
+                        callback.onSuccess(data)
+                        if (data.size == 0) {
+                            callback.onEmpty()
+                        }
+                        callback.onHideProgressDialog()
+
+                    }
+
+                    override fun onCallbackError(code: Int, errorMessage: String) {
+                        callback.onFailed(code, errorMessage)
+                    }
+
+                    override fun onAddSubscribe(disposable: Disposable) {
+                        addSubscribe(disposable = disposable)
+                    }
+
+                    override fun onCompleted() {
+                        callback.onHideProgressDialog()
+                    }
+                })
+        }
+    }
+
     override fun saveRoomFavoriteScript(data: FavoriteScript): Boolean {
         appExecutors.diskIO.execute {
             favoriteScriptDao.insertData(data)
@@ -193,7 +227,14 @@ class FrogoLocalDataSource private constructor(
 
     override fun deleteRoomFavoriteScript(tableId: Int): Boolean {
         appExecutors.diskIO.execute {
-            favoriteScriptDao.deleteData(tableId)
+            favoriteScriptDao.deleteDataFromTableId(tableId)
+        }
+        return true
+    }
+
+    override fun deleteRoomFavoriteScriptId(scriptId: String): Boolean {
+        appExecutors.diskIO.execute {
+            favoriteScriptDao.deleteDataFromScriptId(scriptId)
         }
         return true
     }

@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.view.ui.BaseFragment
 import com.frogobox.speechbooster.base.view.BaseListener
-import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_DETAIL
 import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.util.helper.FunHelper.Func.noAction
@@ -18,6 +17,7 @@ import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.view.ui.activity.MainActivity
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
+import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_FAVORITE_SCRIPT
 import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptDetailActivity
 import com.frogobox.speechbooster.view.adapter.FavoriteScriptAdapter
 import com.frogobox.speechbooster.viewmodel.FavoriteScriptMainViewModel
@@ -81,7 +81,7 @@ class RepositoryFavoriteFragment : BaseFragment(),
     }
 
     override fun onItemClicked(data: FavoriteScript) {
-        val extras = createBaseBundle(TYPE_OBJECT, EXTRA_SCRIPT, data)
+        val extras = createBaseBundle(TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT, data)
         val option = createOptionBundle(TAG_ACTIVITY_DETAIL)
         context?.let { startScriptDetailActivity(it, extras, option) }
     }

@@ -33,7 +33,7 @@ class VideoScriptRecordViewModel  (
         callback.onShowProgress()
         if (frogoDataRepository.saveRoomVideoScript(data)) {
             callback.onHideProgress()
-            callback.onSucces()
+            callback.onSuccesInsert()
         } else {
             callback.onHideProgress()
             callback.onFailed(DEFAULT_ERROR_MESSAGE)

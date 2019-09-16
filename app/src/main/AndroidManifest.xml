@@ -14,16 +14,16 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name="com.frogobox.speechbooster.view.ui.activity.CategoryScriptActivity" />
-        <activity android:name="com.frogobox.speechbooster.view.ui.activity.AboutUsActivity" />
+        <activity android:name=".view.ui.activity.CategoryScriptActivity" />
+        <activity android:name=".view.ui.activity.AboutUsActivity" />
         <activity
-                android:name="com.frogobox.speechbooster.view.ui.activity.RecordActivity"
+                android:name=".view.ui.activity.RecordActivity"
                 android:theme="@style/AppThemeNoToolbar" />
-        <activity android:name="com.frogobox.speechbooster.view.ui.activity.ScriptEditorActivity" />
-        <activity android:name="com.frogobox.speechbooster.view.ui.activity.VideoDetailActivity" />
-        <activity android:name="com.frogobox.speechbooster.view.ui.activity.ScriptDetailActivity" />
+        <activity android:name=".view.ui.activity.ScriptEditorActivity" />
+        <activity android:name=".view.ui.activity.VideoDetailActivity" />
+        <activity android:name=".view.ui.activity.ScriptDetailActivity" />
         <activity
-                android:name="com.frogobox.speechbooster.view.ui.activity.MainActivity"
+                android:name=".view.ui.activity.MainActivity"
                 android:theme="@style/AppThemeNoToolbar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

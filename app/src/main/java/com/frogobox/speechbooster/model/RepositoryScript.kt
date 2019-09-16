@@ -21,6 +21,9 @@ import androidx.room.ColumnInfo
  */
 data class RepositoryScript(
 
+    @ColumnInfo(name = "id")
+    var id: String? = "",
+
     @ColumnInfo(name = "title")
     var title: String? = "",
 

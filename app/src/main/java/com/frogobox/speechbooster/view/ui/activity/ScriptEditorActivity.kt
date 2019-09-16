@@ -6,7 +6,6 @@ import android.view.MenuItem
 import android.view.View
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.view.ui.BaseActivity
-import com.frogobox.speechbooster.util.helper.ConstHelper.Date.DATE_DD_MM_YYYY
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_CREATE
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
@@ -21,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_script_editor.*
 import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 
 class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
+
 
     private lateinit var mViewModel: ScriptEditorViewModel
 
@@ -54,7 +54,7 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
     private fun saveToRoom() {
         val textTitle = et_script_title.text.toString()
         val textDescription = et_script_description.text.toString()
-        val dataScript = Script(title = textTitle, description = textDescription, dateTime = getCurrentDate(DATE_DD_MM_YYYY))
+        val dataScript = Script(title = textTitle, description = textDescription, dateTime = getCurrentDate(DATE_EEEE_DD_MM_YYYY))
         mViewModel.saveScriptData(dataScript, this)
     }
 
@@ -62,7 +62,7 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
         val extraData = getBaseBundle<Script>(mActivity, TYPE_OBJECT,  EXTRA_SCRIPT)
         val textTitle = et_script_title.text.toString()
         val textDescription = et_script_description.text.toString()
-        val dataScript = Script(title = textTitle, description = textDescription, dateTime = getCurrentDate(DATE_DD_MM_YYYY))
+        val dataScript = Script(title = textTitle, description = textDescription, dateTime = getCurrentDate(DATE_EEEE_DD_MM_YYYY))
         mViewModel.updateScriptData(extraData.table_id, dataScript, this)
     }
 
@@ -80,7 +80,11 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
         progress_view.visibility = View.GONE
     }
 
-    override fun onSucces() {
+    override fun onSuccesInsert() {
+        finish()
+    }
+
+    override fun onSuccesDelete() {
         finish()
     }
 

@@ -114,6 +114,10 @@ class ConstHelper {
     }
 
     object Const {
+
+        const val OPTION_GET = "OPTION_GET"
+        const val OPTION_DELETE = "OPTION_DELETE"
+
         const val DEFAULT_NULL = "null"
         const val DEFAULT_ERROR_MESSAGE = "Failed"
         const val FRAGMENT_DIALOG = "dialog"

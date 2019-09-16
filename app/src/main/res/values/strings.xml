@@ -51,6 +51,59 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="intro_message">Intro</string>
 
+    <string name="content_religion_id_0">religion_0</string>
+    <string name="content_religion_id_1">religion_1</string>
+    <string name="content_religion_id_2">religion_2</string>
+    <string name="content_religion_id_3">religion_3</string>
+    <string name="content_religion_id_4">religion_4</string>
+    <string name="content_religion_id_5">religion_5</string>
+    <string name="content_religion_id_6">religion_6</string>
+    <string name="content_religion_id_7">religion_7</string>
+    <string name="content_religion_id_8">religion_8</string>
+    <string name="content_religion_id_9">religion_9</string>
+
+    <string name="content_health_id_0">health_0</string>
+    <string name="content_health_id_1">health_1</string>
+    <string name="content_health_id_2">health_2</string>
+    <string name="content_health_id_3">health_3</string>
+    <string name="content_health_id_4">health_4</string>
+    <string name="content_health_id_5">health_5</string>
+    <string name="content_health_id_6">health_6</string>
+    <string name="content_health_id_7">health_7</string>
+    <string name="content_health_id_8">health_8</string>
+    <string name="content_health_id_9">health_9</string>
+    <string name="content_health_id_10">health_10</string>
+    <string name="content_health_id_11">health_11</string>
+
+    <string name="content_education_id_0">education_0</string>
+    <string name="content_education_id_1">education_1</string>
+    <string name="content_education_id_2">education_2</string>
+    <string name="content_education_id_3">education_3</string>
+    <string name="content_education_id_4">education_4</string>
+    <string name="content_education_id_5">education_5</string>
+    <string name="content_education_id_6">education_6</string>
+    <string name="content_education_id_7">education_7</string>
+    <string name="content_education_id_8">education_8</string>
+    <string name="content_education_id_9">education_9</string>
+    <string name="content_education_id_10">education_10</string>
+    <string name="content_education_id_11">education_11</string>
+    <string name="content_education_id_12">education_12</string>
+    <string name="content_education_id_13">education_13</string>
+    <string name="content_education_id_14">education_14</string>
+
+    <string name="content_general_id_0">general_0</string>
+    <string name="content_general_id_1">general_1</string>
+    <string name="content_general_id_2">general_2</string>
+    <string name="content_general_id_3">general_3</string>
+    <string name="content_general_id_4">general_4</string>
+    <string name="content_general_id_5">general_5</string>
+    <string name="content_general_id_6">general_6</string>
+    <string name="content_general_id_7">general_7</string>
+    <string name="content_general_id_8">general_8</string>
+    <string name="content_general_id_9">general_9</string>
+    <string name="content_general_id_10">general_10</string>
+    <string name="content_general_id_11">general_11</string>
+
     <string name="content_religion_title_0">Peringatan Tahun Baru Islam</string>
     <string name="content_religion_title_1">Keutamaan Lailatul Qadar</string>
     <string name="content_religion_title_2">Peringatan Hari Isra Mi’raj</string>

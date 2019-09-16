@@ -20,6 +20,7 @@ package com.frogobox.speechbooster.base.view
 interface BaseViewCallback {
     fun onShowProgress()
     fun onHideProgress()
-    fun onSucces()
+    fun onSuccesInsert()
+    fun onSuccesDelete()
     fun onFailed(message: String)
 }

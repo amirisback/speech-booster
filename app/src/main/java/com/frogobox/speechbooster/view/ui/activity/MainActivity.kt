@@ -21,14 +21,15 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setupFragment(R.id.framelayout_main_container)
         setupBottomNav(R.id.framelayout_main_container)
+        setupFragment(savedInstanceState)
         setupToolbar()
     }
 
-    private fun setupFragment(frameLayout: Int) {
-        setTitle(R.string.title_myscript)
-        setupChildFragment(frameLayout, ScriptFragment())
+    private fun setupFragment(savedInstanceState: Bundle?) {
+        if (savedInstanceState == null) {
+            bottom_nav_main_menu.selectedItemId = R.id.bottom_menu_myscript
+        }
     }
 
     fun obtainScriptMainViewModel(): ScriptMainViewModel =

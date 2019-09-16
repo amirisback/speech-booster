@@ -28,6 +28,9 @@ data class FavoriteScript(
     @ColumnInfo(name = "table_id")
     var table_id: Int = 0,
 
+    @ColumnInfo(name = "script_id")
+    var script_id: String? = "",
+
     @ColumnInfo(name = "title")
     var title: String? = "",
 

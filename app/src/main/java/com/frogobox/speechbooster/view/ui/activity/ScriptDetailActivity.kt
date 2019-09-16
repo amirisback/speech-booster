@@ -1,6 +1,7 @@
 package com.frogobox.speechbooster.view.ui.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -17,11 +18,11 @@ import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
-import com.frogobox.speechbooster.util.helper.ConstHelper
 import com.frogobox.speechbooster.util.helper.ConstHelper.Const.DEFAULT_NULL
+import com.frogobox.speechbooster.util.helper.ConstHelper.Const.OPTION_GET
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_EXAMPLE_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_FAVORITE_SCRIPT
-import com.frogobox.speechbooster.util.helper.DateHelper
+import com.frogobox.speechbooster.util.helper.FunHelper.Func.noAction
 import com.frogobox.speechbooster.view.callback.FavoriteEditorViewCallback
 import com.frogobox.speechbooster.view.route.Implicit.Activity.startRecordActivity
 import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptEditorActivity
@@ -33,15 +34,19 @@ import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteEditorViewCallback {
 
     private lateinit var mViewModel: ScriptDetailViewModel
-    var isFav = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_script_detail)
         setupDetailActivity("")
         setupViewModel()
+        setupLiveObserve()
         setupRoleView()
+
     }
+
+    fun obtainScriptDetailViewModel(): ScriptDetailViewModel =
+        obtainViewModel(ScriptDetailViewModel::class.java)
 
     private fun setupViewElement(title: String, date: String, desc: String, bundle: Bundle) {
         tv_title_detail.text = title
@@ -55,82 +60,101 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
         btn_start_record.setOnClickListener {
             startRecordActivity(this, bundle)
         }
+
     }
 
     private fun setupRoleView() {
-
         if (checkExtra(EXTRA_SCRIPT)) {
-
             val extraScript = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
             val bundleScript = createBaseBundle(TYPE_OBJECT, EXTRA_SCRIPT, extraScript)
+            mViewModel.getFavoriteData(extraScript.table_id.toString(), OPTION_GET)
             setupViewElement(extraScript.title!!, extraScript.dateTime!!, extraScript.description!!, bundleScript)
-
         } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)){
-
             val extraExampleScript = getBaseBundle<RepositoryScript>(mActivity, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
             val bundleExampleScript = createBaseBundle(TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT, extraExampleScript)
             setupViewElement(extraExampleScript.title!!, DEFAULT_NULL, extraExampleScript.description!!, bundleExampleScript)
-
+            extraExampleScript.id?.let { mViewModel.getFavoriteData(it, OPTION_GET) }
         } else if (checkExtra(EXTRA_FAVORITE_SCRIPT)) {
-
-            val extraFavoriteScript = getBaseBundle<FavoriteScript>(mActivity, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
-            val bundleFavoriteScript = createBaseBundle(TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT, extraFavoriteScript)
-            setupViewElement(extraFavoriteScript.title!!, extraFavoriteScript.dateTime!!, extraFavoriteScript.description!!, bundleFavoriteScript)
-
-        }
-
-    }
-
-    fun obtainScriptDetailViewModel(): ScriptDetailViewModel =
-        obtainViewModel(ScriptDetailViewModel::class.java)
-
-    private fun setupViewModel() {
-        mViewModel = obtainScriptDetailViewModel().apply {
-
-            isFavorite.observe(this@ScriptDetailActivity, Observer {
-                setupFavoriteView(it)
-            })
+            val extraFavoreiteScript = getBaseBundle<FavoriteScript>(mActivity, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
+            val bundleFavoreiteScript = createBaseBundle(TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT, extraFavoreiteScript)
+            setupViewElement(extraFavoreiteScript.title!!, DEFAULT_NULL, extraFavoreiteScript.description!!, bundleFavoreiteScript)
+            extraFavoreiteScript.script_id?.let { mViewModel.getFavoriteData(it, OPTION_GET) }
         }
     }
 
-    private fun setupFavoriteView(favorite: Boolean){
-        if (favorite) {
+    private fun setupFavoriteView(isFavorite: Boolean){
+        if (isFavorite) {
             iv_btn_favorite.setImageResource(R.drawable.ic_toolbar_favorite)
         } else {
             iv_btn_favorite.setImageResource(R.drawable.ic_toolbar_unfavorite)
         }
     }
 
-    private fun setupAddToFavorite(data: FavoriteScript){
-        mViewModel.addFavoriteData(data, this)
+    private fun setupViewModel() {
+        mViewModel = obtainScriptDetailViewModel()
     }
 
-    private fun setupDeleteFromFavorite(tableid: Int) {
-        mViewModel.deleteFavoriteData(tableid,this)
+    private fun setupLiveObserve(){
+        mViewModel.apply {
+            isFavoriteLive.observe(this@ScriptDetailActivity, Observer {
+                setupFavoriteView(it)
+                setupButtonFav(it)
+            })
+        }
     }
 
-    private fun setupGetFromFavorite(title: String){
-        mViewModel.getFavoriteData(title)
+    private fun setupDeleteFromFavorite(script_id: String) {
+        mViewModel.deleteFromFavorite(script_id)
     }
 
-
-
-    private fun addToFavorite(data: Script){
-        val dateNow = DateHelper.getCurrentDate(ConstHelper.Date.DATE_EEEE_DD_MM_YYYY)
-        val favoriteScript = FavoriteScript(title = data.title, dateTime = dateNow, description = data.description)
-        setupAddToFavorite(favoriteScript)
+    private fun setupButtonFav(isFavorite: Boolean){
+        iv_btn_favorite.setOnClickListener {
+            if (isFavorite) {
+                listenerDeleteFromFavorite()
+            } else {
+                listenerAddToFavorite()
+            }
+        }
     }
 
-    private fun addToFavorite(data: RepositoryScript){
-        val dateNow = DateHelper.getCurrentDate(ConstHelper.Date.DATE_EEEE_DD_MM_YYYY)
-        val favoriteScript = FavoriteScript(title = data.title, dateTime = dateNow, description = data.description)
-        setupAddToFavorite(favoriteScript)
+    private fun listenerDeleteFromFavorite() {
+        if (checkExtra(EXTRA_SCRIPT)) {
+            val extraScript = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
+            setupDeleteFromFavorite(extraScript.table_id.toString())
+        } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)){
+            val extraExampleScript = getBaseBundle<RepositoryScript>(mActivity, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
+            extraExampleScript.id?.let { setupDeleteFromFavorite(it) }
+        } else if (checkExtra(EXTRA_FAVORITE_SCRIPT)){
+            val extraFavoriteScript = getBaseBundle<FavoriteScript>(mActivity, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
+            extraFavoriteScript.script_id?.let { setupDeleteFromFavorite(it) }
+        }
+        showToast("Berhasil Menghapus Favorite")
     }
 
-    private fun addToFavorite(data: FavoriteScript){
-        val dateNow = DateHelper.getCurrentDate(ConstHelper.Date.DATE_EEEE_DD_MM_YYYY)
-        val favoriteScript = FavoriteScript(title = data.title, dateTime = dateNow, description = data.description)
-        setupAddToFavorite(favoriteScript)
+    private fun listenerAddToFavorite(){
+
+        var title = ""
+        var script_id = ""
+        var description = ""
+
+        if (checkExtra(EXTRA_SCRIPT)) {
+            val extraScript = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
+            title = extraScript.title!!
+            script_id = extraScript.table_id.toString()
+            description = extraScript.description!!
+        } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)){
+            val extraExampleScript = getBaseBundle<RepositoryScript>(mActivity, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
+            title = extraExampleScript.title!!
+            script_id = extraExampleScript.id!!
+            description = extraExampleScript.description!!
+        } else if (checkExtra(EXTRA_FAVORITE_SCRIPT)) {
+            val extraScript = getBaseBundle<FavoriteScript>(mActivity, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
+            title = extraScript.title!!
+            script_id = extraScript.script_id!!
+            description = extraScript.description!!
+        }
+        mViewModel.addToFavorite(title, script_id, description, this)
+        showToast("Berhasil Menambah Favorite")
     }
 
     private fun listenerMenuEdit() {
@@ -182,7 +206,11 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
         progress_view.visibility = View.GONE
     }
 
-    override fun onSucces() {
+    override fun onSuccesInsert() {
+        setupLiveObserve()
+    }
+
+    override fun onSuccesDelete() {
         finish()
     }
 

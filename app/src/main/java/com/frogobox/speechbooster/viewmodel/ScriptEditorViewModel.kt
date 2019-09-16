@@ -33,7 +33,7 @@ class ScriptEditorViewModel(
         callback.onShowProgress()
         if (frogoDataRepository.saveRoomScript(data)) {
             callback.onHideProgress()
-            callback.onSucces()
+            callback.onSuccesInsert()
         } else {
             callback.onHideProgress()
             callback.onFailed(DEFAULT_ERROR_MESSAGE)
@@ -47,7 +47,7 @@ class ScriptEditorViewModel(
         val newDateTime = data.dateTime!!
         if (frogoDataRepository.updateRoomScript(tableId, newTitle, newDescription, newDateTime)) {
             callback.onHideProgress()
-            callback.onSucces()
+            callback.onSuccesInsert()
         } else {
             callback.onHideProgress()
             callback.onFailed(DEFAULT_ERROR_MESSAGE)
