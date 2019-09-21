@@ -56,15 +56,16 @@
                 android:orientation="vertical" >
 
             <TextView
-                    android:textSize="@dimen/text_size_title_medium_20sp"
+                    android:textSize="@dimen/text_size_title_small_18sp"
                     android:id="@+id/tv_title"
                     tools:text="@string/dummy"
+                    android:textStyle="bold"
                     android:textColor="@color/colorTextWhite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
             <TextView
-                    android:textSize="@dimen/text_size_title_medium_20sp"
+                    android:textSize="@dimen/text_size_medium_16sp"
                     android:id="@+id/tv_description"
                     tools:text="@string/dummyLong"
                     android:textColor="@color/colorTextWhite"

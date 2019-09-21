@@ -113,6 +113,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../DICODING_MADE/Submission/KamusApps/gradle/wrapper/gradle-wrapper.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build.gradle">
           <value>
             <set />
@@ -1068,6 +1073,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/fragment_repository_favorite.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/fragment_script.xml">
           <value>
             <set />
@@ -1784,6 +1794,441 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission2/Submission/app/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/base/BaseActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/base/BaseApiModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/base/BaseApplication.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/base/BaseDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/base/BaseViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/data/ApiCallback.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/data/ApiService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/data/DataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/data/RemoteData.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/data/RemoteDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/data/Repository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/data/model/Movie.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/data/model/TvShow.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/data/remote/ApiCallback.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/data/remote/ApiService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/data/remote/RemoteDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/model/Movie.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/util/Helper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/util/Injection.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/util/NullAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/util/SingleLiveEvent.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/util/ViewModelFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/view/CallbackActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/view/adapter/MovieAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/view/adapter/TvShowAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/view/ui/activity/DetailActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/view/ui/activity/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/view/ui/fragment/MovieFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/view/ui/fragment/TvShowFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/java/com/fero/submission/viewmodel/MainViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/res/layout/fragment_tv_movie.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/res/values-en-rUS/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/res/values-in-rID/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission3/Submission/app/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/base/BaseCallback.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/base/BaseDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/data/DataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/data/local/LocalDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/data/model/Favorite.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/data/model/FavoriteMovie.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/data/model/FavoriteTvShow.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/data/model/Movie.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/data/model/TvShow.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/data/source/DataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/data/source/Repository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/data/source/local/AppDatabase.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/data/source/local/LocalDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/data/source/local/dao/FavoriteMovieDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/data/source/local/dao/FavoriteTvShowDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/data/source/remote/RemoteDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/util/AppExecutors.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/util/Constant.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/util/DiskIOThreadExecutor.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/util/Helper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/util/Injection.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/util/PagerHerlper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/util/ViewModelFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/view/adapter/FavoriteMovieAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/view/adapter/FavoriteTvShowAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/view/callback/DeleteViewCallback.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/view/callback/SaveViewCallback.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/view/callback/ViewCallback.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/view/ui/activity/DetailMovieActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/view/ui/activity/DetailTvShowActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/view/ui/activity/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/view/ui/fragment/FavoriteFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/view/ui/fragment/FavoriteMovieFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/view/ui/fragment/FavoriteTvShowFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/view/ui/fragment/MovieFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/view/ui/fragment/TvShowFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/viewmodel/DetailMovieViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/viewmodel/DetailTvShowViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/viewmodel/FavoriteMovieViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/viewmodel/FavoriteTvShowViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/viewmodel/FavoriteViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/java/com/fero/submission/viewmodel/MainViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/res/drawable/ic_favorite.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/res/drawable/ic_un_favorite.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/res/layout/empty_view.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/res/layout/fragment_favorite.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/res/layout/fragment_tv_movie.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/res/menu/bottom_nav.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/res/menu/toolbar_favorite.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/res/values/colors.xml">
           <value>
             <set />
           </value>

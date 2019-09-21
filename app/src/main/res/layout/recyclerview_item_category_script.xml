@@ -38,6 +38,7 @@
             android:textColor="@color/colorTextBlack"
             android:maxLines="1"
             tools:text="@string/dummy"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/tv_description_example_script"
             app:layout_constraintEnd_toEndOf="parent"

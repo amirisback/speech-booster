@@ -128,7 +128,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
             val extraFavoriteScript = getBaseBundle<FavoriteScript>(mActivity, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
             extraFavoriteScript.script_id?.let { setupDeleteFromFavorite(it) }
         }
-        showToast("Berhasil Menghapus Favorite")
+        showToast(getString(R.string.toast_fav_delete))
     }
 
     private fun listenerAddToFavorite(){
@@ -154,7 +154,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
             description = extraScript.description!!
         }
         mViewModel.addToFavorite(title, script_id, description, this)
-        showToast("Berhasil Menambah Favorite")
+        showToast(getString(R.string.toast_fav_save))
     }
 
     private fun listenerMenuEdit() {
