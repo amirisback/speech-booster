@@ -31,6 +31,8 @@ import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_EXAMPLE_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_FAVORITE_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_SCRIPT
+import com.frogobox.speechbooster.util.helper.FunHelper.Func.createFolderPictureVideo
+import com.frogobox.speechbooster.util.helper.FunHelper.Func.getVideoFilePath
 import com.frogobox.speechbooster.view.ui.activity.RecordActivity
 import com.frogobox.speechbooster.viewmodel.VideoScriptRecordViewModel
 import kotlinx.android.synthetic.main.fragment_record.*
@@ -176,7 +178,6 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     private fun setupRoleView(){
 
         if (arguments != null) {
-
             if (checkArgument(ARGUMENTS_SCRIPT)) {
                 val argumentsScript = baseGetInstance<Script>(ARGUMENTS_SCRIPT)
                 setupViewElement(argumentsScript.title!!, argumentsScript.description!!)
@@ -362,7 +363,7 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     private fun configureTransform(viewWidth: Int, viewHeight: Int) {
         activity ?: return
         val rotation =
-            (activity as androidx.fragment.app.FragmentActivity).windowManager.defaultDisplay.rotation
+            (activity as FragmentActivity).windowManager.defaultDisplay.rotation
         val matrix = Matrix()
         val viewRect = RectF(0f, 0f, viewWidth.toFloat(), viewHeight.toFloat())
         val bufferRect = RectF(0f, 0f, previewSize.height.toFloat(), previewSize.width.toFloat())
@@ -387,9 +388,10 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     @Throws(IOException::class)
     private fun setUpMediaRecorder() {
         val cameraActivity = activity ?: return
+        createFolderPictureVideo()
 
         if (nextVideoAbsolutePath.isNullOrEmpty()) {
-            nextVideoAbsolutePath = getVideoFilePath(cameraActivity)
+            nextVideoAbsolutePath = getVideoFilePath()
         }
 
         val rotation = cameraActivity.windowManager.defaultDisplay.rotation
@@ -411,17 +413,6 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
             setVideoEncoder(MediaRecorder.VideoEncoder.H264)
             setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
             prepare()
-        }
-    }
-
-    private fun getVideoFilePath(context: Context?): String {
-        val filename = "${System.currentTimeMillis()}.mp4"
-        val dir = context?.getExternalFilesDir(null)
-
-        return if (dir == null) {
-            filename
-        } else {
-            "${dir.absolutePath}/$filename"
         }
     }
 

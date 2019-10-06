@@ -6,11 +6,14 @@ import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import android.os.Environment
 import com.frogobox.speechbooster.BuildConfig
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.util.BaseHelper
+import com.frogobox.speechbooster.util.helper.ConstHelper.Dir.DIR_NAME
+import com.frogobox.speechbooster.util.helper.ConstHelper.Dir.VIDEO_FILE_NAME
 import com.frogobox.speechbooster.util.helper.ConstHelper.Pref.PREF_NAME
-import com.google.gson.Gson
+
 
 /**
  * Created by Faisal Amir
@@ -44,6 +47,22 @@ class FunHelper{
     }
 
     object Func {
+
+        fun createFolderPictureVideo(){
+            val videoFolder = Environment.getExternalStoragePublicDirectory(DIR_NAME)
+            if (!videoFolder.exists()) {
+                videoFolder.mkdirs()
+            }
+        }
+
+        fun getVideoFilePath(): String {
+            val dir = Environment.getExternalStoragePublicDirectory(DIR_NAME)
+            return if (dir == null) {
+                VIDEO_FILE_NAME
+            } else {
+                "${dir.absoluteFile}/$VIDEO_FILE_NAME"
+            }
+        }
 
         fun createDialogDefault(context: Context, title: String, message: String, listener: ()-> Unit) {
             val dialogBuilder = AlertDialog.Builder(context)

@@ -1,6 +1,7 @@
 package com.frogobox.speechbooster.util.helper
 
 import android.Manifest
+import android.os.Environment
 
 /**
  * Created by Faisal Amir
@@ -110,6 +111,20 @@ class ConstHelper {
         const val TAG_FROM_FRAGMENT = 800
 
         const val TAG_CAMERA_VIDEO = "Camera2VideoFragment"
+
+    }
+
+    object Ext {
+        const val MP4 = ".mp4"
+        const val PNG = ".png"
+    }
+
+    object Dir {
+        const val BASE_FILE_NAME = "SPEECH_"
+        const val BASE_DIR_NAME = "SpeechBooster"
+        val DIR_NAME = "${Environment.DIRECTORY_PICTURES}/$BASE_DIR_NAME"
+
+        val VIDEO_FILE_NAME = "$BASE_FILE_NAME${System.currentTimeMillis()}${Ext.MP4}"
 
     }
 

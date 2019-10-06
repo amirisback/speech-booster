@@ -68,6 +68,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../ADMOB/Fast Cleaner &amp; Battery Saver/Fast Cleaner &amp; Battery Saver/app/src/main/res/layout/cpu_scanner.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../CODELABS-GOOGLE/RecordingVideo/app/build.gradle">
           <value>
             <set />
@@ -114,6 +119,176 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../DICODING_MADE/Submission/KamusApps/gradle/wrapper/gradle-wrapper.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/base/BaseActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/base/BaseFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/base/BaseHelper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/utils/PagerAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/activity/ApplyingUltraActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/activity/BatterySaverBlackActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/activity/CpuScannerActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/activity/MainActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/activity/NormalModeActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/activity/PickAppsActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/activity/PowerSavingComplitionActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/activity/PowerSavingPopupActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/activity/RevertPowerSavingActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/activity/ScanningJunkActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/activity/UltraPopUpActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/callback/CallbackMainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/fragment/BatterySaverFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/fragment/CPUCoolerFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/fragment/ChargeBoosterFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/java/com/frogobox/cleaner/view/fragment/JunkCleanerFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/res/drawable/background_button_optimize_pressed.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/res/drawable/background_card_toolbar.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/res/layout/activity_cpu_scanner.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/res/layout/activity_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/res/layout/activity_powersaving_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/res/layout/activity_powersaving_maintextclock.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/res/layout/toolbar_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/res/values-w820dp/dimens.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/res/values/colors.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/res/values/dimens.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/app/src/main/res/values/styles.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Cleaner/build.gradle">
           <value>
             <set />
           </value>
@@ -773,12 +948,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/ui/activity/RecordActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/ui/activity/ScriptDetailActivity.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/ui/activity/ScriptEditorActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frogobox/speechbooster/view/ui/fragment/RecordFragment.kt">
           <value>
             <set />
           </value>
@@ -1459,6 +1644,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../GITS/Starter Kits/gits-mvvm-kotlin-v2.0.0-master/gits-mvvm-kotlin-v2.0.0-master/gitsutils/src/main/java/id/co/gits/gitsutils/extensions/PreferencesExt.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../JAVA/DICODING_MADE/Submission/CatalogueMovie/app/src/main/java/id/frogobox/cataloguemovie/views/adapter/ViewPagerAdapter.java">
           <value>
             <set />
           </value>
@@ -2228,7 +2418,112 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/res/values-en-rUS/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/res/values-in-rID/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/res/values/colors.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission4/Submission/app/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/java/com/fero/submission/data/source/DataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/java/com/fero/submission/data/source/Repository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/java/com/fero/submission/data/source/local/LocalDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/java/com/fero/submission/data/source/remote/RemoteDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/java/com/fero/submission/ui/activity/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/java/com/fero/submission/util/Constant.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/java/com/fero/submission/view/ui/fragment/MovieFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/java/com/fero/submission/view/ui/fragment/TvShowFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/res/layout/activity_search.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/res/layout/fragment_tv_movie_grid.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/res/layout/fragment_tv_movie_list.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/res/layout/item_grid_tv_movie.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/res/layout/item_tv_movie.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/res/layout/toolbar_search.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/app/src/main/res/values/styles.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/base/src/main/java/com/fero/base/modular/util/Constant.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../KOTLIN/Submission5/Submission/base/src/main/java/com/fero/base/modular/util/Helper.kt">
           <value>
             <set />
           </value>
@@ -2319,6 +2614,41 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../android-surfaicing/app/src/main/java/ssc/surfacing/gits/mvvm/main/MainFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../media-thumbnail-viewer/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../media-thumbnail-viewer/app/src/main/java/com/mobapptut/mediathumbviewer/MediaStoreAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../media-thumbnail-viewer/app/src/main/java/com/mobapptut/mediathumbviewer/MediaThumbMainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../media-thumbnail-viewer/app/src/main/java/com/mobapptut/mediathumbviewer/VideoPlayActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../media-thumbnail-viewer/app/src/main/java/com/mobapptut/mediathumbviewer/VideoPlayActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../media-thumbnail-viewer/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../media-thumbnail-viewer/gradle/wrapper/gradle-wrapper.properties">
           <value>
             <set />
           </value>
