@@ -47,6 +47,10 @@ abstract class BaseActivity : AppCompatActivity() {
 
     }
 
+    protected fun setupCustomTitleToolbar(title: Int){
+        supportActionBar?.setTitle(title)
+    }
+
     protected fun setupNoLimitStatBar() {
         val windows = window // in Activity's onCreate() for instance
         windows.setFlags(

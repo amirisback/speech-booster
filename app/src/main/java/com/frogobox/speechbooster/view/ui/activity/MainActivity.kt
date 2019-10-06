@@ -21,9 +21,9 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setupToolbar()
         setupBottomNav(R.id.framelayout_main_container)
         setupFragment(savedInstanceState)
-        setupToolbar()
     }
 
     private fun setupFragment(savedInstanceState: Bundle?) {
@@ -69,17 +69,17 @@ class MainActivity : BaseActivity() {
 
             when (it.itemId) {
                 R.id.bottom_menu_myscript -> {
-                    setTitle(R.string.title_myscript)
+                    setupCustomTitleToolbar(R.string.title_myscript)
                     setupChildFragment(frameLayout, ScriptFragment())
                 }
 
                 R.id.bottom_menu_video -> {
-                    setTitle(R.string.title_video)
+                    setupCustomTitleToolbar(R.string.title_video)
                     setupChildFragment(frameLayout, VideoFragment())
                 }
 
                 R.id.bottom_menu_sample_script -> {
-                    setTitle(R.string.title_repository_script)
+                    setupCustomTitleToolbar(R.string.title_repository_script)
                     setupChildFragment(frameLayout, RepositoryFragment())
                 }
             }

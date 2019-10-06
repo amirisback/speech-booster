@@ -32,10 +32,10 @@ class CategoryViewModel (
     fun showExampleData(context: Context) : MutableList<CategoryScript> {
         val categoryList = mutableListOf<CategoryScript>()
         categoryList.clear()
-        categoryList.add(CategoryScript(context.getString(R.string.title_category_religion), R.drawable.ic_toolbar_favorite))
-        categoryList.add(CategoryScript(context.getString(R.string.title_category_education), R.drawable.ic_toolbar_favorite))
-        categoryList.add(CategoryScript(context.getString(R.string.title_category_health), R.drawable.ic_toolbar_favorite))
-        categoryList.add(CategoryScript(context.getString(R.string.title_category_general), R.drawable.ic_toolbar_favorite))
+        categoryList.add(CategoryScript(context.getString(R.string.title_category_religion), R.drawable.ic_repo_religion))
+        categoryList.add(CategoryScript(context.getString(R.string.title_category_education), R.drawable.ic_repo_education))
+        categoryList.add(CategoryScript(context.getString(R.string.title_category_health), R.drawable.ic_repo_healthy))
+        categoryList.add(CategoryScript(context.getString(R.string.title_category_general), R.drawable.ic_repo_general))
         return categoryList
     }
 

@@ -33,6 +33,7 @@
             android:id="@+id/imageView"
             android:layout_width="@dimen/dimen_menu_category_100dp"
             android:layout_height="@dimen/dimen_menu_category_100dp"
+            android:paddingStart="@dimen/dimen_big_16dp"
             android:src="@drawable/ic_empty_view_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
