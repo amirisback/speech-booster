@@ -4,10 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.WindowManager
+import android.os.Handler
+import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -18,6 +16,8 @@ import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.util.BaseHelper
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ViewModelFactory
+import com.frogobox.speechbooster.util.helper.ConstHelper
+import com.frogobox.speechbooster.view.ui.activity.MainActivity
 
 
 /**
@@ -56,6 +56,24 @@ abstract class BaseActivity : AppCompatActivity() {
         windows.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
+    }
+
+    protected inline fun <reified ClassActivity> setupSplashScreen(context: Context){
+        Handler().postDelayed(object : Runnable {
+            override fun run() {
+                baseStartActivity<ClassActivity>(context)
+                mActivity.finish()
+            }
+
+        }, ConstHelper.Const.SPLASH_INTERVAL.toLong())
+    }
+
+    protected fun setupFullScreen(){
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
     }
 

@@ -15,6 +15,14 @@
             android:roundIcon="@drawable/ic_launcher_apps"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".view.ui.activity.SplashScreenActivity"
+                android:theme="@style/AppThemeNoToolbar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".view.ui.activity.CategoryScriptActivity" />
         <activity android:name=".view.ui.activity.AboutUsActivity" />
         <activity
@@ -25,13 +33,7 @@
         <activity android:name=".view.ui.activity.ScriptDetailActivity" />
         <activity
                 android:name=".view.ui.activity.MainActivity"
-                android:theme="@style/AppThemeNoToolbar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+                android:theme="@style/AppThemeNoToolbar"/>
     </application>
 
 </manifest>
