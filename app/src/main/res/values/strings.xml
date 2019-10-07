@@ -2,11 +2,18 @@
     <string name="app_name">Speech Booster</string>
 
     <!--=========================================================================================-->
-    <!--Admob Id-->
+    <!--Admob Id TEST -->
     <string name="admob_publisher_id">ca-app-pub-3940256099942544~3347511713</string>
     <string name="admob_interstitial">ca-app-pub-3940256099942544/1033173712</string>
     <string name="admob_video">ca-app-pub-3940256099942544/5224354917</string>
     <!--=========================================================================================-->
+
+    <!--Admob Id-->
+<!--    <string name="admob_publisher_id">ca-app-pub-5472340099809711~2848116892</string>-->
+<!--    <string name="admob_interstitial">ca-app-pub-5472340099809711/9030381868</string>-->
+<!--    <string name="admob_video">ca-app-pub-5472340099809711/8340116722</string>-->
+    <!--=========================================================================================-->
+
 
     <string name="about_frogobox">Frogobox Software Industry</string>
 
