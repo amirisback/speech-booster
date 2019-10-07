@@ -17,9 +17,10 @@ import com.frogobox.speechbooster.base.util.BaseHelper
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ViewModelFactory
 import com.frogobox.speechbooster.util.helper.AdmobHelper
+import com.frogobox.speechbooster.util.helper.AdmobHelper.Publisher.setupPublisher
 import com.frogobox.speechbooster.util.helper.ConstHelper
-import com.frogobox.speechbooster.view.ui.activity.MainActivity
 import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.reward.RewardedVideoAd
 
 
 /**
@@ -43,6 +44,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     lateinit var mActivity: AppCompatActivity
     lateinit var mInterstitialAd: InterstitialAd
+    lateinit var mRewardedVideoAd: RewardedVideoAd
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,11 +52,21 @@ abstract class BaseActivity : AppCompatActivity() {
         setupAdmob(this)
     }
 
-    private fun setupAdmob(context: Context) {
-        AdmobHelper.General.setupAds(context)
+    private fun setupAdmob(context: Context){
+        setupPublisher(context)
+        setupAdmobInterstitial(context)
+//        setupAdmobVideo(context)
+    }
+
+    private fun setupAdmobInterstitial(context: Context) {
         mInterstitialAd = InterstitialAd(context)
         AdmobHelper.Interstitial.setupInterstitial(context, mInterstitialAd)
     }
+
+//    private fun setupAdmobVideo(context: Context){
+//        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this)
+//        AdmobHelper.Video.setupVideo(context,this, mRewardedVideoAd)
+//    }
 
     protected fun setupCustomTitleToolbar(title: Int){
         supportActionBar?.setTitle(title)

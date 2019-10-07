@@ -56,8 +56,8 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
             tv_date_detail.visibility = View.GONE
         }
         btn_start_record.setOnClickListener {
-            
             startRecordActivity(this, bundle)
+            showInterstitial(mInterstitialAd)
         }
 
     }
@@ -132,6 +132,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
             } else {
                 listenerAddToFavorite()
             }
+            showInterstitial(mInterstitialAd)
         }
     }
 

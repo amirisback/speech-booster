@@ -5,6 +5,7 @@
     <!--Admob Id-->
     <string name="admob_publisher_id">ca-app-pub-3940256099942544~3347511713</string>
     <string name="admob_interstitial">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_video">ca-app-pub-3940256099942544/5224354917</string>
     <!--=========================================================================================-->
 
     <string name="about_frogobox">Frogobox Software Industry</string>

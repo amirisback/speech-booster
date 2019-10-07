@@ -6,7 +6,8 @@ import com.frogobox.speechbooster.R
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.MobileAds
-
+import com.google.android.gms.ads.reward.RewardedVideoAd
+import com.google.android.gms.ads.reward.RewardedVideoAdListener
 
 
 /**
@@ -28,9 +29,9 @@ import com.google.android.gms.ads.MobileAds
  */
 class AdmobHelper {
 
-    object General {
+    object Publisher {
 
-        fun setupAds(context: Context) {
+        fun setupPublisher(context: Context) {
             MobileAds.initialize(context, context.getString(R.string.admob_publisher_id))
         }
 
@@ -50,6 +51,23 @@ class AdmobHelper {
                 Log.d("TAG", "The interstitial wasn't loaded yet.")
             }
         }
+
+    }
+
+    object Video {
+
+        fun setupVideo(context: Context, rewardedVideoAdListener: RewardedVideoAdListener, mRewardedVideoAd: RewardedVideoAd){
+            mRewardedVideoAd.rewardedVideoAdListener = rewardedVideoAdListener
+            mRewardedVideoAd.loadAd(context.getString(R.string.admob_video), AdRequest.Builder().build())
+        }
+
+        fun showVideo(mRewardedVideoAd: RewardedVideoAd){
+            if (mRewardedVideoAd.isLoaded) {
+                mRewardedVideoAd.show()
+            }
+        }
+
+
 
     }
 
