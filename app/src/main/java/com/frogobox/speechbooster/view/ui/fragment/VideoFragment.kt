@@ -20,7 +20,7 @@ class VideoFragment : BaseFragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         setupViewModel()
-        return inflater.inflate(R.layout.fragment_video, container, false)
+        return inflater.inflate(R.layout.feature_coming_soon, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -121,6 +121,13 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         img_record_menu.setOnClickListener(this)
         setupRoleView()
+        finishRecord()
+    }
+
+    private fun finishRecord(){
+        img_toolbar_home.setOnClickListener {
+            mActivity.finish()
+        }
     }
 
     override fun onResume() {

@@ -27,7 +27,7 @@
         <activity android:name=".view.ui.activity.AboutUsActivity" />
         <activity
                 android:name=".view.ui.activity.RecordActivity"
-                android:theme="@style/AppThemeNoToolbar" />
+                android:theme="@style/AppThemeNoToolbarDark" />
         <activity android:name=".view.ui.activity.ScriptEditorActivity" />
         <activity android:name=".view.ui.activity.VideoDetailActivity" />
         <activity android:name=".view.ui.activity.ScriptDetailActivity" />
