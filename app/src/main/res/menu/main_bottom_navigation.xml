@@ -26,11 +26,11 @@
             android:title="@string/title_myscript"
             app:showAsAction="ifRoom"/>
 
-    <item
-            android:id="@+id/bottom_menu_video"
-            android:icon="@drawable/ic_bottom_nav_video"
-            android:title="@string/title_video"
-            app:showAsAction="ifRoom"/>
+<!--    <item-->
+<!--            android:id="@+id/bottom_menu_video"-->
+<!--            android:icon="@drawable/ic_bottom_nav_video"-->
+<!--            android:title="@string/title_video"-->
+<!--            app:showAsAction="ifRoom"/>-->
 
     <item
             android:id="@+id/bottom_menu_sample_script"

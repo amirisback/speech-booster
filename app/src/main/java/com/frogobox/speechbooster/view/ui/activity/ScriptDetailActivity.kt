@@ -1,32 +1,31 @@
 package com.frogobox.speechbooster.view.ui.activity
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.lifecycle.Observer
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.view.ui.BaseActivity
-import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
-import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
-import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
-import com.frogobox.speechbooster.util.helper.FunHelper.Func.createDialogDefault
-import com.frogobox.speechbooster.model.RepositoryScript
 import com.frogobox.speechbooster.model.FavoriteScript
+import com.frogobox.speechbooster.model.RepositoryScript
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
+import com.frogobox.speechbooster.util.helper.AdmobHelper.Interstitial.showInterstitial
 import com.frogobox.speechbooster.util.helper.ConstHelper.Const.DEFAULT_NULL
 import com.frogobox.speechbooster.util.helper.ConstHelper.Const.OPTION_GET
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_EXAMPLE_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_FAVORITE_SCRIPT
-import com.frogobox.speechbooster.util.helper.FunHelper.Func.noAction
+import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
+import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
+import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
+import com.frogobox.speechbooster.util.helper.FunHelper.Func.createDialogDefault
 import com.frogobox.speechbooster.view.callback.FavoriteEditorViewCallback
+import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
 import com.frogobox.speechbooster.view.route.Implicit.Activity.startRecordActivity
 import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptEditorActivity
-import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
 import com.frogobox.speechbooster.viewmodel.ScriptDetailViewModel
 import kotlinx.android.synthetic.main.activity_script_detail.*
 import kotlinx.android.synthetic.main.recyclerview_event_progress.*
@@ -42,7 +41,6 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
         setupViewModel()
         setupLiveObserve()
         setupRoleView()
-
     }
 
     fun obtainScriptDetailViewModel(): ScriptDetailViewModel =
@@ -58,6 +56,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
             tv_date_detail.visibility = View.GONE
         }
         btn_start_record.setOnClickListener {
+            
             startRecordActivity(this, bundle)
         }
 
@@ -68,21 +67,40 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
             val extraScript = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
             val bundleScript = createBaseBundle(TYPE_OBJECT, EXTRA_SCRIPT, extraScript)
             mViewModel.getFavoriteData(extraScript.table_id.toString(), OPTION_GET)
-            setupViewElement(extraScript.title!!, extraScript.dateTime!!, extraScript.description!!, bundleScript)
-        } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)){
-            val extraExampleScript = getBaseBundle<RepositoryScript>(mActivity, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
-            val bundleExampleScript = createBaseBundle(TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT, extraExampleScript)
-            setupViewElement(extraExampleScript.title!!, DEFAULT_NULL, extraExampleScript.description!!, bundleExampleScript)
+            setupViewElement(
+                extraScript.title!!,
+                extraScript.dateTime!!,
+                extraScript.description!!,
+                bundleScript
+            )
+        } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)) {
+            val extraExampleScript =
+                getBaseBundle<RepositoryScript>(mActivity, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
+            val bundleExampleScript =
+                createBaseBundle(TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT, extraExampleScript)
+            setupViewElement(
+                extraExampleScript.title!!,
+                DEFAULT_NULL,
+                extraExampleScript.description!!,
+                bundleExampleScript
+            )
             extraExampleScript.id?.let { mViewModel.getFavoriteData(it, OPTION_GET) }
         } else if (checkExtra(EXTRA_FAVORITE_SCRIPT)) {
-            val extraFavoreiteScript = getBaseBundle<FavoriteScript>(mActivity, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
-            val bundleFavoreiteScript = createBaseBundle(TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT, extraFavoreiteScript)
-            setupViewElement(extraFavoreiteScript.title!!, DEFAULT_NULL, extraFavoreiteScript.description!!, bundleFavoreiteScript)
+            val extraFavoreiteScript =
+                getBaseBundle<FavoriteScript>(mActivity, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
+            val bundleFavoreiteScript =
+                createBaseBundle(TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT, extraFavoreiteScript)
+            setupViewElement(
+                extraFavoreiteScript.title!!,
+                DEFAULT_NULL,
+                extraFavoreiteScript.description!!,
+                bundleFavoreiteScript
+            )
             extraFavoreiteScript.script_id?.let { mViewModel.getFavoriteData(it, OPTION_GET) }
         }
     }
 
-    private fun setupFavoriteView(isFavorite: Boolean){
+    private fun setupFavoriteView(isFavorite: Boolean) {
         if (isFavorite) {
             iv_btn_favorite.setImageResource(R.drawable.ic_toolbar_favorite)
         } else {
@@ -94,7 +112,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
         mViewModel = obtainScriptDetailViewModel()
     }
 
-    private fun setupLiveObserve(){
+    private fun setupLiveObserve() {
         mViewModel.apply {
             isFavoriteLive.observe(this@ScriptDetailActivity, Observer {
                 setupFavoriteView(it)
@@ -107,7 +125,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
         mViewModel.deleteFromFavorite(script_id)
     }
 
-    private fun setupButtonFav(isFavorite: Boolean){
+    private fun setupButtonFav(isFavorite: Boolean) {
         iv_btn_favorite.setOnClickListener {
             if (isFavorite) {
                 listenerDeleteFromFavorite()
@@ -121,17 +139,19 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
         if (checkExtra(EXTRA_SCRIPT)) {
             val extraScript = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
             setupDeleteFromFavorite(extraScript.table_id.toString())
-        } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)){
-            val extraExampleScript = getBaseBundle<RepositoryScript>(mActivity, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
+        } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)) {
+            val extraExampleScript =
+                getBaseBundle<RepositoryScript>(mActivity, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
             extraExampleScript.id?.let { setupDeleteFromFavorite(it) }
-        } else if (checkExtra(EXTRA_FAVORITE_SCRIPT)){
-            val extraFavoriteScript = getBaseBundle<FavoriteScript>(mActivity, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
+        } else if (checkExtra(EXTRA_FAVORITE_SCRIPT)) {
+            val extraFavoriteScript =
+                getBaseBundle<FavoriteScript>(mActivity, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
             extraFavoriteScript.script_id?.let { setupDeleteFromFavorite(it) }
         }
         showToast(getString(R.string.toast_fav_delete))
     }
 
-    private fun listenerAddToFavorite(){
+    private fun listenerAddToFavorite() {
 
         var title = ""
         var script_id = ""
@@ -142,13 +162,15 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
             title = extraScript.title!!
             script_id = extraScript.table_id.toString()
             description = extraScript.description!!
-        } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)){
-            val extraExampleScript = getBaseBundle<RepositoryScript>(mActivity, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
+        } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)) {
+            val extraExampleScript =
+                getBaseBundle<RepositoryScript>(mActivity, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
             title = extraExampleScript.title!!
             script_id = extraExampleScript.id!!
             description = extraExampleScript.description!!
         } else if (checkExtra(EXTRA_FAVORITE_SCRIPT)) {
-            val extraScript = getBaseBundle<FavoriteScript>(mActivity, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
+            val extraScript =
+                getBaseBundle<FavoriteScript>(mActivity, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
             title = extraScript.title!!
             script_id = extraScript.script_id!!
             description = extraScript.description!!

@@ -73,10 +73,10 @@ class MainActivity : BaseActivity() {
                     setupChildFragment(frameLayout, ScriptFragment())
                 }
 
-                R.id.bottom_menu_video -> {
-                    setupCustomTitleToolbar(R.string.title_video)
-                    setupChildFragment(frameLayout, VideoFragment())
-                }
+//                R.id.bottom_menu_video -> {
+//                    setupCustomTitleToolbar(R.string.title_video)
+//                    setupChildFragment(frameLayout, VideoFragment())
+//                }
 
                 R.id.bottom_menu_sample_script -> {
                     setupCustomTitleToolbar(R.string.title_repository_script)
