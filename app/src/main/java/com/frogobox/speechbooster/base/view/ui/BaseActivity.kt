@@ -16,8 +16,10 @@ import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.util.BaseHelper
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ViewModelFactory
+import com.frogobox.speechbooster.util.helper.AdmobHelper
 import com.frogobox.speechbooster.util.helper.ConstHelper
 import com.frogobox.speechbooster.view.ui.activity.MainActivity
+import com.google.android.gms.ads.InterstitialAd
 
 
 /**
@@ -40,11 +42,18 @@ import com.frogobox.speechbooster.view.ui.activity.MainActivity
 abstract class BaseActivity : AppCompatActivity() {
 
     lateinit var mActivity: AppCompatActivity
+    lateinit var mInterstitialAd: InterstitialAd
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mActivity = this
+        setupAdmob(this)
+    }
 
+    private fun setupAdmob(context: Context) {
+        AdmobHelper.General.setupAds(context)
+        mInterstitialAd = InterstitialAd(context)
+        AdmobHelper.Interstitial.setupInterstitial(context, mInterstitialAd)
     }
 
     protected fun setupCustomTitleToolbar(title: Int){
