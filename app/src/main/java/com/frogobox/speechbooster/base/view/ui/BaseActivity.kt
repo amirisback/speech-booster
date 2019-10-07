@@ -63,7 +63,7 @@ abstract class BaseActivity : AppCompatActivity() {
         Handler().postDelayed(object : Runnable {
             override fun run() {
                 baseStartActivity<ClassActivity>(context)
-                mActivity.finish()
+                this@BaseActivity.finish()
             }
 
         }, ConstHelper.Const.SPLASH_INTERVAL.toLong())

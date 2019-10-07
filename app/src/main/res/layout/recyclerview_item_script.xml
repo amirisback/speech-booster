@@ -36,7 +36,7 @@
             android:maxLines="1"
             android:text="@string/dummy"
             android:textStyle="bold"
-            android:textColor="@color/colorTextBlack"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -59,6 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/dummy"
+            android:textSize="@dimen/text_size_small_10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
