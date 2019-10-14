@@ -1,9 +1,6 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -33,8 +30,8 @@ android {
         applicationId "com.frogobox.speechbooster"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         setProperty("archivesBaseName", "speech-booster" + versionName + "#" + code + "-"
@@ -59,7 +56,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'com.google.android.material:material:1.1.0-alpha10'
+    implementation 'com.google.android.material:material:1.1.0-beta01'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation 'com.google.android.gms:play-services-ads:18.2.0'
@@ -83,19 +80,19 @@ dependencies {
     implementation "com.facebook.stetho:stetho:1.5.1"
 
     // Room components
-    implementation "androidx.room:room-runtime:2.2.0-rc01"
-    implementation "androidx.room:room-ktx:2.2.0-rc01"
-    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-alpha04"
+    implementation "androidx.room:room-runtime:2.2.0"
+    implementation "androidx.room:room-ktx:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-alpha05"
     // ViewModel Kotlin support
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha04"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha05"
     //noinspection LifecycleAnnotationProcessorWithJava8
-    kapt "androidx.lifecycle:lifecycle-compiler:2.2.0-alpha04"
+    kapt "androidx.lifecycle:lifecycle-compiler:2.2.0-alpha05"
 
-    kapt "androidx.room:room-compiler:2.2.0-rc01"
-    implementation "androidx.room:room-ktx:2.2.0-rc01"
-    implementation "androidx.room:room-rxjava2:2.2.0-rc01"
-    implementation "androidx.room:room-guava:2.2.0-rc01"
-    testImplementation "androidx.room:room-testing:2.2.0-rc01"
+    kapt "androidx.room:room-compiler:2.2.0"
+    implementation "androidx.room:room-ktx:2.2.0"
+    implementation "androidx.room:room-rxjava2:2.2.0"
+    implementation "androidx.room:room-guava:2.2.0"
+    testImplementation "androidx.room:room-testing:2.2.0"
 
     // Coroutines
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0"
@@ -107,7 +104,7 @@ dependencies {
 
 
     implementation "androidx.preference:preference-ktx:1.1.0"
-    androidTestImplementation "androidx.room:room-testing:2.2.0-rc01"
+    androidTestImplementation "androidx.room:room-testing:2.2.0"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
 }
