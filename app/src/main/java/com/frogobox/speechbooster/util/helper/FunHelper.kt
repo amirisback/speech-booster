@@ -64,7 +64,7 @@ class FunHelper{
             }
         }
 
-        fun createDialogDefault(context: Context, title: String, message: String, listener: ()-> Unit) {
+        fun createDialogDefault(context: Context, title: String, message: String, listenerYes: ()-> Unit, listenerNo: ()-> Unit) {
             val dialogBuilder = AlertDialog.Builder(context)
             // set message of alert dialog
             dialogBuilder.setMessage(message)
@@ -72,11 +72,12 @@ class FunHelper{
                 .setCancelable(false)
                 // positive button text and action
                 .setPositiveButton(context.getText(R.string.dialog_button_yes), DialogInterface.OnClickListener {
-                        dialog, id -> listener()
+                        dialog, id -> listenerYes()
                 })
                 // negative button text and action
                 .setNegativeButton(context.getText(R.string.dialog_button_no), DialogInterface.OnClickListener {
                         dialog, id -> dialog.cancel()
+                        listenerNo()
                 })
 
             // create dialog box

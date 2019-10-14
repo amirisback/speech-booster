@@ -24,12 +24,7 @@ class MainActivity : BaseActivity() {
         setupToolbar()
         setupBottomNav(R.id.framelayout_main_container)
         setupFragment(savedInstanceState)
-    }
-
-    private fun setupFragment(savedInstanceState: Bundle?) {
-        if (savedInstanceState == null) {
-            bottom_nav_main_menu.selectedItemId = R.id.bottom_menu_myscript
-        }
+        setupShowAdsInterstitial()
     }
 
     fun obtainScriptMainViewModel(): ScriptMainViewModel =
@@ -44,6 +39,12 @@ class MainActivity : BaseActivity() {
     fun obtainVideoViewModel(): VideoScriptMainViewModel =
         obtainViewModel(VideoScriptMainViewModel::class.java)
 
+    private fun setupFragment(savedInstanceState: Bundle?) {
+        if (savedInstanceState == null) {
+            bottom_nav_main_menu.selectedItemId = R.id.bottom_menu_myscript
+        }
+    }
+
     private fun setupToolbar() {
         setSupportActionBar(toolbar_main)
     }
@@ -56,7 +57,7 @@ class MainActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.toolbar_menu_about -> {
-                baseStartActivity<AboutUsActivity>(this)
+                baseStartActivity<AboutUsActivity>()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -71,16 +72,19 @@ class MainActivity : BaseActivity() {
                 R.id.bottom_menu_myscript -> {
                     setupCustomTitleToolbar(R.string.title_myscript)
                     setupChildFragment(frameLayout, ScriptFragment())
+                    setupShowAdsInterstitial()
                 }
 
                 R.id.bottom_menu_video -> {
                     setupCustomTitleToolbar(R.string.title_video)
                     setupChildFragment(frameLayout, VideoFragment())
+                    setupShowAdsInterstitial()
                 }
 
                 R.id.bottom_menu_sample_script -> {
                     setupCustomTitleToolbar(R.string.title_repository_script)
                     setupChildFragment(frameLayout, RepositoryFragment())
+                    setupShowAdsInterstitial()
                 }
             }
 

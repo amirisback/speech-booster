@@ -10,5 +10,7 @@ class AboutUsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about_us)
         setupDetailActivity("")
+        setupShowAdsInterstitial()
     }
+
 }

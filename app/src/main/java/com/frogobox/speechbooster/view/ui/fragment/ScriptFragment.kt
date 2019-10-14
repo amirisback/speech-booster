@@ -80,6 +80,7 @@ class ScriptFragment : BaseFragment(),
             context?.let {
                 startScriptEditorActivity(it, null, option)
             }
+            setupShowAdsInterstitial()
         }
     }
 
@@ -96,6 +97,7 @@ class ScriptFragment : BaseFragment(),
         val extras = createBaseBundle(TYPE_OBJECT, EXTRA_SCRIPT, data)
         val option = createOptionBundle(TAG_ACTIVITY_EDIT)
         context?.let { startScriptDetailActivity(it, extras, option) }
+        setupShowAdsInterstitial()
     }
 
     override fun onItemLongClicked(data: Script) {

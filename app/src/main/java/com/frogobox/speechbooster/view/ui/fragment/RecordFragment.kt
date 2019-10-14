@@ -125,6 +125,7 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     }
 
     private fun finishRecord(){
+        setupShowAdsInterstitial()
         img_toolbar_home.setOnClickListener {
             mActivity.finish()
         }

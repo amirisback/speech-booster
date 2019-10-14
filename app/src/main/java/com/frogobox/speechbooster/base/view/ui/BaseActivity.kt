@@ -17,6 +17,7 @@ import com.frogobox.speechbooster.base.util.BaseHelper
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ViewModelFactory
 import com.frogobox.speechbooster.util.helper.AdmobHelper
+import com.frogobox.speechbooster.util.helper.AdmobHelper.Interstitial.showInterstitial
 import com.frogobox.speechbooster.util.helper.AdmobHelper.Publisher.setupPublisher
 import com.frogobox.speechbooster.util.helper.ConstHelper
 import com.google.android.gms.ads.InterstitialAd
@@ -63,6 +64,10 @@ abstract class BaseActivity : AppCompatActivity() {
         AdmobHelper.Interstitial.setupInterstitial(context, mInterstitialAd)
     }
 
+    protected fun setupShowAdsInterstitial(){
+        showInterstitial(mInterstitialAd)
+    }
+
 //    private fun setupAdmobVideo(context: Context){
 //        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this)
 //        AdmobHelper.Video.setupVideo(context,this, mRewardedVideoAd)
@@ -83,7 +88,7 @@ abstract class BaseActivity : AppCompatActivity() {
     protected inline fun <reified ClassActivity> setupSplashScreen(context: Context){
         Handler().postDelayed(object : Runnable {
             override fun run() {
-                baseStartActivity<ClassActivity>(context)
+                baseStartActivity<ClassActivity>()
                 this@BaseActivity.finish()
             }
 
@@ -105,19 +110,18 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    protected inline fun <reified ClassActivity> baseStartActivity(context: Context) {
-        context.startActivity(Intent(context, ClassActivity::class.java))
+    protected inline fun <reified ClassActivity> baseStartActivity() {
+        this.startActivity(Intent(this, ClassActivity::class.java))
     }
 
     protected inline fun <reified ClassActivity, Model> baseStartActivity(
-        context: Context,
         extraKey: String,
         data: Model
     ) {
-        val intent = Intent(context, ClassActivity::class.java)
+        val intent = Intent(this, ClassActivity::class.java)
         val extraData = BaseHelper().baseToJson(data)
         intent.putExtra(extraKey, extraData)
-        context.startActivity(intent)
+        this.startActivity(intent)
     }
 
     protected inline fun <reified Model> baseGetExtraData(extraKey: String): Model {
@@ -168,6 +172,7 @@ abstract class BaseActivity : AppCompatActivity() {
         return when (item.itemId) {
             android.R.id.home -> {
                 finish()
+                setupShowAdsInterstitial()
                 true
             }
             else -> super.onOptionsItemSelected(item)

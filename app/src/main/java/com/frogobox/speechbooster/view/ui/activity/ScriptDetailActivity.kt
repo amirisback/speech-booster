@@ -41,6 +41,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
         setupViewModel()
         setupLiveObserve()
         setupRoleView()
+        setupShowAdsInterstitial()
     }
 
     fun obtainScriptDetailViewModel(): ScriptDetailViewModel =
@@ -57,7 +58,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
         }
         btn_start_record.setOnClickListener {
             startRecordActivity(this, bundle)
-            showInterstitial(mInterstitialAd)
+            setupShowAdsInterstitial()
         }
 
     }
@@ -132,7 +133,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
             } else {
                 listenerAddToFavorite()
             }
-            showInterstitial(mInterstitialAd)
+
         }
     }
 
@@ -149,6 +150,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
                 getBaseBundle<FavoriteScript>(mActivity, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
             extraFavoriteScript.script_id?.let { setupDeleteFromFavorite(it) }
         }
+        setupShowAdsInterstitial()
         showToast(getString(R.string.toast_fav_delete))
     }
 
@@ -177,6 +179,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
             description = extraScript.description!!
         }
         mViewModel.addToFavorite(title, script_id, description, this)
+        setupShowAdsInterstitial()
         showToast(getString(R.string.toast_fav_save))
     }
 
@@ -191,9 +194,12 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
     private fun listenerMenuDelete() {
         val titleDialog = getString(R.string.dialog_title_delete)
         val messageDialog = getString(R.string.dialog_message_delete)
-        createDialogDefault(this, titleDialog, messageDialog) {
+        createDialogDefault(this, titleDialog, messageDialog, {
             val data = getBaseBundle<Script>(mActivity, TYPE_OBJECT, EXTRA_SCRIPT)
             mViewModel.deleteScriptData(data.table_id, this)
+            setupShowAdsInterstitial()
+        }){
+            setupShowAdsInterstitial()
         }
     }
 
@@ -209,6 +215,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
 
             R.id.toolbar_menu_edit -> {
                 listenerMenuEdit()
+                setupShowAdsInterstitial()
                 true
             }
 
@@ -231,6 +238,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
 
     override fun onSuccesInsert() {
         setupLiveObserve()
+        setupShowAdsInterstitial()
     }
 
     override fun onSuccesDelete() {

@@ -10,6 +10,8 @@ import com.frogobox.speechbooster.model.RepositoryScript
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
+import com.frogobox.speechbooster.util.helper.AdmobHelper
+import com.frogobox.speechbooster.util.helper.AdmobHelper.Interstitial.showInterstitial
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_CATEGORY
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_EXAMPLE_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_DETAIL
@@ -31,6 +33,7 @@ class CategoryScriptActivity : BaseActivity(),
         setupDetailActivity("")
         setupViewModel()
         setupData()
+        setupShowAdsInterstitial()
     }
 
     fun obtainCategoryScriptViewModel(): CategoryScriptViewModel =
@@ -60,6 +63,7 @@ class CategoryScriptActivity : BaseActivity(),
         val extras = createBaseBundle(TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT, data)
         val option = createOptionBundle(TAG_ACTIVITY_DETAIL)
         startScriptDetailActivity(this, extras, option)
+        setupShowAdsInterstitial()
     }
 
     override fun onItemLongClicked(data: RepositoryScript) {

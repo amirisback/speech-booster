@@ -83,6 +83,7 @@ class RepositoryFavoriteFragment : BaseFragment(),
     override fun onItemClicked(data: FavoriteScript) {
         val extras = createBaseBundle(TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT, data)
         val option = createOptionBundle(TAG_ACTIVITY_DETAIL)
+        setupShowAdsInterstitial()
         context?.let { startScriptDetailActivity(it, extras, option) }
     }
 
