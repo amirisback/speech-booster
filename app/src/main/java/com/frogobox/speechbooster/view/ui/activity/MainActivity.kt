@@ -72,13 +72,11 @@ class MainActivity : BaseActivity() {
                 R.id.bottom_menu_myscript -> {
                     setupCustomTitleToolbar(R.string.title_myscript)
                     setupChildFragment(frameLayout, ScriptFragment())
-                    setupShowAdsInterstitial()
                 }
 
                 R.id.bottom_menu_video -> {
                     setupCustomTitleToolbar(R.string.title_video)
                     setupChildFragment(frameLayout, VideoFragment())
-                    setupShowAdsInterstitial()
                 }
 
                 R.id.bottom_menu_sample_script -> {

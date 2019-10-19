@@ -1,6 +1,5 @@
 package com.frogobox.speechbooster.base.view.ui
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -16,7 +15,7 @@ import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.util.BaseHelper
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ViewModelFactory
-import com.frogobox.speechbooster.util.helper.AdmobHelper
+import com.frogobox.speechbooster.util.helper.AdmobHelper.Interstitial.setupInterstitial
 import com.frogobox.speechbooster.util.helper.AdmobHelper.Interstitial.showInterstitial
 import com.frogobox.speechbooster.util.helper.AdmobHelper.Publisher.setupPublisher
 import com.frogobox.speechbooster.util.helper.ConstHelper
@@ -50,30 +49,30 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mActivity = this
-        setupAdmob(this)
+        setupAdmob()
     }
 
-    private fun setupAdmob(context: Context){
-        setupPublisher(context)
-        setupAdmobInterstitial(context)
+    private fun setupAdmob() {
+        setupPublisher(this)
+        setupAdmobInterstitial()
 //        setupAdmobVideo(context)
     }
 
-    private fun setupAdmobInterstitial(context: Context) {
-        mInterstitialAd = InterstitialAd(context)
-        AdmobHelper.Interstitial.setupInterstitial(context, mInterstitialAd)
+    private fun setupAdmobInterstitial() {
+        mInterstitialAd = InterstitialAd(this)
+        setupInterstitial(this, mInterstitialAd)
     }
 
-    protected fun setupShowAdsInterstitial(){
+    protected fun setupShowAdsInterstitial() {
         showInterstitial(mInterstitialAd)
     }
 
-//    private fun setupAdmobVideo(context: Context){
+//    private fun setupAdmobVideo(){
 //        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this)
-//        AdmobHelper.Video.setupVideo(context,this, mRewardedVideoAd)
+//        setupVideo(this,this, mRewardedVideoAd)
 //    }
 
-    protected fun setupCustomTitleToolbar(title: Int){
+    protected fun setupCustomTitleToolbar(title: Int) {
         supportActionBar?.setTitle(title)
     }
 
@@ -85,7 +84,7 @@ abstract class BaseActivity : AppCompatActivity() {
         )
     }
 
-    protected inline fun <reified ClassActivity> setupSplashScreen(context: Context){
+    protected inline fun <reified ClassActivity> setupSplashScreen() {
         Handler().postDelayed(object : Runnable {
             override fun run() {
                 baseStartActivity<ClassActivity>()
@@ -95,7 +94,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }, ConstHelper.Const.SPLASH_INTERVAL.toLong())
     }
 
-    protected fun setupFullScreen(){
+    protected fun setupFullScreen() {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -130,11 +129,15 @@ abstract class BaseActivity : AppCompatActivity() {
         return extraData
     }
 
-    protected fun checkExtra(extraKey: String) : Boolean {
+    protected fun checkExtra(extraKey: String): Boolean {
         return intent?.hasExtra(extraKey)!!
     }
 
-    protected fun <Model>baseFragmentNewInstance(fragment: BaseFragment, argumentKey: String, extraDataResult: Model){
+    protected fun <Model> baseFragmentNewInstance(
+        fragment: BaseFragment,
+        argumentKey: String,
+        extraDataResult: Model
+    ) {
         fragment.baseNewInstance(argumentKey, extraDataResult)
     }
 

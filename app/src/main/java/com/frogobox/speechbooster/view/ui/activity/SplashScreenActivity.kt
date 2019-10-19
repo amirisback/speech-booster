@@ -10,7 +10,7 @@ class SplashScreenActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setupFullScreen()
         setContentView(R.layout.activity_splash_screen)
-        setupSplashScreen<MainActivity>(this)
+        setupSplashScreen<MainActivity>()
     }
 
 }
