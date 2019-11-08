@@ -5,6 +5,9 @@ apply plugin: 'kotlin-kapt'
 
 android {
 
+    // Declaration app name
+    def nameApp = "Speech Booster"
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -36,10 +39,7 @@ android {
 
         // Declaration apk / aab name
         def nameAPK = "speech-booster"
-
-        // Declaration app name
-        def nameApp = "Speech Booster"
-
+        
         // Declaration apps name debug mode
         def debugAttribute = " Development"
         def nameAppDebug = nameApp + debugAttribute
@@ -91,9 +91,6 @@ android {
             def releaseAdmobPublisherId  = "ca-app-pub-5472340099809711~2848116892"
             def releaseAdmobInterstitial = "ca-app-pub-5472340099809711/9030381868"
             def releaseAdmobVideo        = "ca-app-pub-5472340099809711/8340116722"
-
-            // Declaration app name release
-            def nameApp = "Inteligent Cleaner"
 
             // Inject app name for release
             resValue "string", "app_name", nameApp
