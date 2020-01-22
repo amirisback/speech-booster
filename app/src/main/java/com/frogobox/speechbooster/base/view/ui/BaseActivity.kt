@@ -177,7 +177,6 @@ abstract class BaseActivity : AppCompatActivity() {
         return when (item.itemId) {
             android.R.id.home -> {
                 finish()
-                setupShowAdsInterstitial()
                 true
             }
             else -> super.onOptionsItemSelected(item)

@@ -62,7 +62,6 @@ class RepositoryCategoryFragment : BaseFragment(),
 
     override fun onItemClicked(data: CategoryScript) {
         val extras = createBaseBundle(TYPE_OBJECT, EXTRA_CATEGORY, data)
-        setupShowAdsInterstitial()
         context?.let { startCategoryScriptActivity(it, extras) }
     }
 

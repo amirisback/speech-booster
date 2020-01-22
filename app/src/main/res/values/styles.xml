@@ -9,6 +9,8 @@
 
         <item name="android:statusBarColor">@color/colorBaseWhite</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+
+        <item name="android:fontFamily">@font/montserrat_regular</item>
     </style>
 
     <!-- Base application theme No Action Bar. -->
@@ -20,7 +22,23 @@
 
         <item name="android:statusBarColor">@color/colorBaseWhite</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+
+        <item name="android:fontFamily">@font/montserrat_regular</item>
     </style>
+
+    <style name="AppThemeNoToolbarSplash" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorBaseWhite</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:statusBarColor">@color/colorBaseWhite</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:windowBackground">@drawable/background_splash_screen</item>
+    </style>
+
 
     <!-- Base application theme No Action Bar. -->
     <style name="AppThemeNoToolbarDark" parent="Theme.AppCompat.Light.NoActionBar">

@@ -24,7 +24,6 @@ class MainActivity : BaseActivity() {
         setupToolbar()
         setupBottomNav(R.id.framelayout_main_container)
         setupFragment(savedInstanceState)
-        setupShowAdsInterstitial()
     }
 
     fun obtainScriptMainViewModel(): ScriptMainViewModel =

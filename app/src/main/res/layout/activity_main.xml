@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="@dimen/dimen_small_4dp"
-        android:background="@color/colorBackgroundWhite"
-        tools:context=".view.ui.activity.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundWhite"
+    android:paddingTop="@dimen/dimen_small_4dp"
+    tools:context=".view.ui.activity.MainActivity">
 
-    <include layout="@layout/toolbar_main"/>
+    <include layout="@layout/toolbar_main" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_nav_main_menu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorBaseWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:animateLayoutChanges="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/framelayout_main_container"
-            app:menu="@menu/main_bottom_navigation" />
+        android:id="@+id/bottom_nav_main_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@color/colorBaseWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/framelayout_main_container"
+        app:menu="@menu/main_bottom_navigation" />
 
     <FrameLayout
-            android:paddingTop="@dimen/dimen_medium_8dp"
-            android:id="@+id/framelayout_main_container"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_nav_main_menu"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_main">
+        android:id="@+id/framelayout_main_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="@dimen/dimen_medium_8dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_main_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_main">
 
     </FrameLayout>
 

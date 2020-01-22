@@ -137,7 +137,7 @@ class ConstHelper {
         const val DEFAULT_ERROR_MESSAGE = "Failed"
         const val FRAGMENT_DIALOG = "dialog"
 
-        const val SPLASH_INTERVAL = 1000
+        const val SPLASH_INTERVAL = 500
 
     }
 
