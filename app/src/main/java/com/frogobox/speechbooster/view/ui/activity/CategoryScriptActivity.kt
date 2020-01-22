@@ -33,7 +33,6 @@ class CategoryScriptActivity : BaseActivity(),
         setupDetailActivity("")
         setupViewModel()
         setupData()
-        setupShowAdsInterstitial()
     }
 
     fun obtainCategoryScriptViewModel(): CategoryScriptViewModel =
@@ -63,7 +62,6 @@ class CategoryScriptActivity : BaseActivity(),
         val extras = createBaseBundle(TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT, data)
         val option = createOptionBundle(TAG_ACTIVITY_DETAIL)
         startScriptDetailActivity(this, extras, option)
-        setupShowAdsInterstitial()
     }
 
     override fun onItemLongClicked(data: RepositoryScript) {

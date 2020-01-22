@@ -81,12 +81,10 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
 
     override fun onSuccesInsert() {
         finish()
-        setupShowAdsInterstitial()
     }
 
     override fun onSuccesDelete() {
         finish()
-        setupShowAdsInterstitial()
     }
 
     override fun onFailed(message: String) {
@@ -109,7 +107,6 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
                 }){
                     saveToRoom()
                 }
-                setupShowAdsInterstitial()
                 true
             }
 

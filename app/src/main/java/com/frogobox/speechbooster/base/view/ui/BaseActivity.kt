@@ -141,6 +141,8 @@ abstract class BaseActivity : AppCompatActivity() {
         fragment.baseNewInstance(argumentKey, extraDataResult)
     }
 
+
+
     protected fun tagOption(): Int {
         return getOptionBundle(this)
     }

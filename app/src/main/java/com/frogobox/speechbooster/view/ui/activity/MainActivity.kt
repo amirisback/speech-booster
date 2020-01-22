@@ -82,7 +82,6 @@ class MainActivity : BaseActivity() {
                 R.id.bottom_menu_sample_script -> {
                     setupCustomTitleToolbar(R.string.title_repository_script)
                     setupChildFragment(frameLayout, RepositoryFragment())
-                    setupShowAdsInterstitial()
                 }
             }
 
