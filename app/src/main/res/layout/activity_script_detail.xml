@@ -1,81 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorBackgroundWhite"
-        tools:context=".view.ui.activity.ScriptDetailActivity">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundWhite"
+    tools:context=".view.ui.activity.ScriptDetailActivity">
 
     <ScrollView
-            android:id="@+id/scrollView2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_start_record"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_start_record"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/dummy"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_title_medium_20sp"
+                android:textStyle="bold" />
 
             <TextView
-                    android:id="@+id/tv_title_detail"
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:textStyle="bold"
-                    android:text="@string/dummy"
-                    android:textSize="@dimen/text_size_title_medium_20sp" />
+                android:id="@+id/tv_date_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/dummy"
+                android:textColor="@color/colorTextBlack" />
 
             <TextView
-                    android:id="@+id/tv_date_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/dummy" />
-
-            <TextView
-                    android:id="@+id/tv_description_detail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@string/dummyLong" />
+                android:id="@+id/tv_description_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/dummyLong"
+                android:textColor="@color/colorTextBlack" />
 
         </LinearLayout>
 
     </ScrollView>
 
     <ImageView
-            android:id="@+id/iv_btn_favorite"
-            android:layout_width="@dimen/dimen_big_ultra_32dp"
-            android:layout_height="@dimen/dimen_big_ultra_32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_toolbar_unfavorite"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/scrollView2" />
+        android:id="@+id/iv_btn_favorite"
+        android:layout_width="@dimen/dimen_big_ultra_32dp"
+        android:layout_height="@dimen/dimen_big_ultra_32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_toolbar_unfavorite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/scrollView2" />
 
     <Button
-            android:id="@+id/btn_start_record"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/button_start_record"
-            android:textColor="@color/colorTextWhite"
-            android:background="@drawable/background_button_primary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/btn_start_record"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_button_primary"
+        android:text="@string/button_start_record"
+        android:textColor="@color/colorTextWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <include layout="@layout/recyclerview_event_progress" />
 

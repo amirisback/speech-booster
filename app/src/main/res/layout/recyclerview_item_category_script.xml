@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_small_4dp"
             android:maxLines="2"
+            android:textColor="@color/colorTextBlack"
             tools:text="@string/dummyLong"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
