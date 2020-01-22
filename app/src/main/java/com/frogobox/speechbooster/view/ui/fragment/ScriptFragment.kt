@@ -80,6 +80,7 @@ class ScriptFragment : BaseFragment(),
             context?.let {
                 startScriptEditorActivity(it, null, option)
             }
+            setupShowAdsInterstitial()
         }
     }
 

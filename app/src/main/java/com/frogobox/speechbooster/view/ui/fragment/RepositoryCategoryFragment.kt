@@ -20,6 +20,7 @@ import com.frogobox.speechbooster.view.route.Implicit.Activity.startCategoryScri
 import com.frogobox.speechbooster.view.adapter.CategoryAdapter
 import com.frogobox.speechbooster.viewmodel.CategoryViewModel
 import kotlinx.android.synthetic.main.fragment_repository_category.*
+import kotlinx.android.synthetic.main.view_ads_banner.*
 
 class RepositoryCategoryFragment : BaseFragment(),
     BaseListener<CategoryScript> {
@@ -38,6 +39,7 @@ class RepositoryCategoryFragment : BaseFragment(),
         super.onViewCreated(view, savedInstanceState)
         setupViewModel()
         setupData()
+        setupShowAdsBanner(ads_banner)
     }
 
     fun setupViewModel() {

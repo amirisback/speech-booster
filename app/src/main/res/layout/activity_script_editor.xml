@@ -64,4 +64,14 @@
 
     <include layout="@layout/recyclerview_event_progress" />
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/ads_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:adSize="@string/ads_size_smart_banner"
+        app:adUnitId="@string/admob_banner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

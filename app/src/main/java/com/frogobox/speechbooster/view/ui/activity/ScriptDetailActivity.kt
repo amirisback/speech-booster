@@ -41,7 +41,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
         setupViewModel()
         setupLiveObserve()
         setupRoleView()
-
+        setupShowAdsBanner(ads_banner)
     }
 
     fun obtainScriptDetailViewModel(): ScriptDetailViewModel =
@@ -58,7 +58,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
         }
         btn_start_record.setOnClickListener {
             startRecordActivity(this, bundle)
-
+            setupShowAdsInterstitial()
         }
 
     }
@@ -133,7 +133,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
             } else {
                 listenerAddToFavorite()
             }
-
+            setupShowAdsInterstitial()
         }
     }
 

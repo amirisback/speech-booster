@@ -24,6 +24,7 @@ import com.frogobox.speechbooster.viewmodel.FavoriteScriptMainViewModel
 import kotlinx.android.synthetic.main.fragment_repository_favorite.*
 import kotlinx.android.synthetic.main.recyclerview_event_empty.*
 import kotlinx.android.synthetic.main.recyclerview_event_progress.*
+import kotlinx.android.synthetic.main.view_ads_banner.*
 
 class RepositoryFavoriteFragment : BaseFragment(),
     BaseListener<FavoriteScript> {
@@ -42,6 +43,7 @@ class RepositoryFavoriteFragment : BaseFragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupDataRoomFavorite()
+        setupShowAdsBanner(ads_banner)
     }
 
     override fun onResume() {

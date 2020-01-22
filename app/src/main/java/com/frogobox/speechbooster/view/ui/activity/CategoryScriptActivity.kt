@@ -21,6 +21,7 @@ import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptDetail
 import com.frogobox.speechbooster.view.adapter.CategoryScriptAdapter
 import com.frogobox.speechbooster.viewmodel.CategoryScriptViewModel
 import kotlinx.android.synthetic.main.activity_category_script.*
+import kotlinx.android.synthetic.main.view_ads_banner.*
 
 class CategoryScriptActivity : BaseActivity(),
     BaseListener<RepositoryScript> {
@@ -33,6 +34,7 @@ class CategoryScriptActivity : BaseActivity(),
         setupDetailActivity("")
         setupViewModel()
         setupData()
+        setupShowAdsBanner(ads_banner)
     }
 
     fun obtainCategoryScriptViewModel(): CategoryScriptViewModel =

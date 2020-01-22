@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.frogobox.speechbooster.base.util.BaseHelper
 import com.frogobox.speechbooster.util.helper.AdmobHelper.Interstitial.showInterstitial
+import com.google.android.gms.ads.AdView
 
 /**
  * Created by Faisal Amir
@@ -43,6 +44,10 @@ abstract class BaseFragment : Fragment() {
 
     protected fun setupShowAdsInterstitial() {
         mActivity.setupShowAdsInterstitial()
+    }
+
+    protected fun setupShowAdsBanner(mAdView: AdView) {
+        mActivity.setupShowAdsBanner(mAdView)
     }
 
     fun <Model> baseNewInstance(argsKey: String, data: Model) {

@@ -30,6 +30,7 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
         setupCreateView()
         setupViewModel()
         setupRole({setupExtraData()}){}
+        setupShowAdsBanner(ads_banner)
     }
 
     private fun setupViewModel() {
