@@ -33,8 +33,8 @@ android {
         applicationId "com.frogobox.speechbooster"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 4
-        versionName "1.0.3"
+        versionCode 5
+        versionName "1.0.4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         // Declaration apk / aab name
@@ -94,9 +94,9 @@ android {
             signingConfig signingConfigs.release
 
             // Declaration admob id for release
-            def releaseAdmobPublisherId = "ca-app-pub-5472340099809711~2848116892"
-            def releaseAdmobBanner = "ca-app-pub-5472340099809711/2458150292"
-            def releaseAdmobInterstitial = "ca-app-pub-5472340099809711/9030381868"
+            def releaseAdmobPublisherId = "ca-app-pub-2963185309167575~9856786836"
+            def releaseAdmobBanner = "ca-app-pub-2963185309167575/8629080044"
+            def releaseAdmobInterstitial = "ca-app-pub-2963185309167575/6086677182"
             def releaseAdmobInterstitialVideo = ""
             def releaseAdmobRewardedVideo = ""
             def releaseAdmobNativeAdvanced = ""
