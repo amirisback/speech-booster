@@ -208,7 +208,7 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     private fun startBackgroundThread() {
         backgroundThread = HandlerThread("CameraBackground")
         backgroundThread?.start()
-        backgroundHandler = Handler(backgroundThread?.looper)
+        backgroundHandler = backgroundThread?.looper?.let { Handler(it) }
     }
 
     private fun stopBackgroundThread() {
@@ -321,7 +321,7 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
         try {
             closePreviewSession()
             val texture = texture_view.surfaceTexture
-            texture.setDefaultBufferSize(previewSize.width, previewSize.height)
+            texture?.setDefaultBufferSize(previewSize.width, previewSize.height)
             previewRequestBuilder =
                 cameraDevice!!.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW)
 
@@ -429,7 +429,7 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
         try {
             closePreviewSession()
             setUpMediaRecorder()
-            val texture = texture_view.surfaceTexture.apply {
+            val texture = texture_view.surfaceTexture?.apply {
                 setDefaultBufferSize(previewSize.width, previewSize.height)
             }
 
@@ -486,7 +486,7 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
 
         if (activity != null) {
             showToast("Video saved: $nextVideoAbsolutePath")
-            Log.d("TAG PATH VIDEO", nextVideoAbsolutePath)
+            nextVideoAbsolutePath?.let { Log.d("TAG PATH VIDEO", it) }
         }
         nextVideoAbsolutePath = null
         startPreview()
