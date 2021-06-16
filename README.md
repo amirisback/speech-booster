@@ -11,7 +11,7 @@ Speech Booster, Aplikasi Belajar Pidato
 ## Version Release
 This Is Latest Release
 
-    $version_release = 1.0.0
+    $version_release = 2.0.0
 
 ## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
