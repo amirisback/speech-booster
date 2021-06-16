@@ -1,14 +1,13 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
 
     // Version Project
-    def versionMajor = 1
+    def versionMajor = 2
     def versionMinor = 0
-    def versionPatch = 4
+    def versionPatch = 0
 
     // Application ID
     def packageDomain = "com"
@@ -49,6 +48,10 @@ android {
 
     versionProps['VERSION_CODE'] = code.toString()
     versionProps.store(versionPropsFile.newWriter(), null)
+
+    buildFeatures {
+        viewBinding = true
+    }
 
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -155,8 +158,8 @@ dependencies {
     kapt "androidx.room:room-compiler:2.3.0"
 
     // Coroutines
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3"
 
     // Room components
     implementation "androidx.room:room-runtime:2.3.0"
@@ -164,9 +167,18 @@ dependencies {
     implementation "androidx.room:room-rxjava2:2.3.0"
     implementation "androidx.room:room-guava:2.3.0"
 
+    // library frogo-admob-helper
+    implementation 'com.github.amirisback:frogo-admob:2.0.1'
+    // library frogo-recycler-view
+    implementation 'com.github.amirisback:frogo-recycler-view:3.7.0'
+    // library frogo-ui-kit
+    implementation 'com.github.amirisback:frogo-ui-kit:2.0.0'
+    // library frogo-log
+    implementation 'com.github.amirisback:frogo-log:2.0.0'
+
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.google.android.material:material:1.4.0-beta01'
-    implementation 'com.google.android.gms:play-services-ads:19.1.0'
+    implementation 'com.google.android.material:material:1.4.0-rc01'
+    implementation 'com.google.android.gms:play-services-ads:20.2.0'
 
     implementation "com.squareup.okhttp3:okhttp:4.8.1"
     implementation "com.squareup.okhttp3:logging-interceptor:4.8.1"
