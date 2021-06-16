@@ -3,10 +3,11 @@ package com.frogobox.speechbooster.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.view.BaseViewAdapter
 import com.frogobox.speechbooster.base.view.BaseViewHolder
 import com.frogobox.speechbooster.model.FavoriteScript
-import kotlinx.android.synthetic.main.recyclerview_item_script.view.*
 
 /**
  * Created by Faisal Amir
@@ -39,9 +40,9 @@ class FavoriteScriptAdapter :
 
     inner class FavoriteScriptViewHolder(view: View) : BaseViewHolder<FavoriteScript>(view) {
 
-        val tvTitle = view.tv_title
-        val tvDescription = view.tv_description
-        val tvDateTime = view.tv_date
+        val tvTitle = view.findViewById<TextView>(R.id.tv_title)
+        val tvDescription = view.findViewById<TextView>(R.id.tv_description)
+        val tvDateTime = view.findViewById<TextView>(R.id.tv_date)
 
         override fun initComponent(data: FavoriteScript) {
             super.initComponent(data)

@@ -5,10 +5,12 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.view.ui.BaseActivity
+import com.frogobox.speechbooster.databinding.ActivityRecordBinding
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.RepositoryScript
 import com.frogobox.speechbooster.model.Script
@@ -24,11 +26,12 @@ import com.frogobox.speechbooster.view.ui.fragment.RecordFragment
 import com.frogobox.speechbooster.viewmodel.VideoScriptRecordViewModel
 
 
-class RecordActivity : BaseActivity() {
+class RecordActivity : BaseActivity<ActivityRecordBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_record)
+        binding = ActivityRecordBinding.inflate(LayoutInflater.from(this))
+        setContentView(binding.root)
         setupNoLimitStatBar()
         setupRoleFragmentInstance()
         setupReadExternalStoragePermission()

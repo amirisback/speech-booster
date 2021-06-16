@@ -27,8 +27,12 @@
         android:clickable="true"
         android:src="@drawable/ic_fab_add" />
 
-    <include layout="@layout/recyclerview_event_empty" />
+    <include
+        android:id="@+id/empty"
+        layout="@layout/recyclerview_event_empty" />
 
-    <include layout="@layout/recyclerview_event_progress" />
+    <include
+        android:id="@+id/progress"
+        layout="@layout/recyclerview_event_progress" />
 
 </RelativeLayout>

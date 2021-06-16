@@ -1,14 +1,16 @@
 package com.frogobox.speechbooster.view.ui.activity
 
 import android.os.Bundle
-import com.frogobox.speechbooster.R
+import android.view.LayoutInflater
 import com.frogobox.speechbooster.base.view.ui.BaseActivity
+import com.frogobox.speechbooster.databinding.ActivityAboutUsBinding
 
-class AboutUsActivity : BaseActivity() {
+class AboutUsActivity : BaseActivity<ActivityAboutUsBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_about_us)
+        binding = ActivityAboutUsBinding.inflate(LayoutInflater.from(this))
+        setContentView(binding.root)
         setupDetailActivity("")
     }
 

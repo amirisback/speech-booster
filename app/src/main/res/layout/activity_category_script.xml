@@ -10,12 +10,13 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/ads_banner"
+        android:layout_above="@+id/ads"
         android:clipToPadding="false"
         android:paddingTop="@dimen/dimen_big_16dp"
         tools:context=".view.ui.activity.CategoryScriptActivity"
         tools:listitem="@layout/recyclerview_item_category_script" />
 
-    <include layout="@layout/view_ads_banner" />
+    <include android:id="@+id/ads"
+        layout="@layout/view_ads_banner" />
 
 </RelativeLayout>

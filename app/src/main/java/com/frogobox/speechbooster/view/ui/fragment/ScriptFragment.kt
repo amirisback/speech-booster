@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.view.ui.BaseFragment
 import com.frogobox.speechbooster.base.view.BaseListener
+import com.frogobox.speechbooster.databinding.FragmentScriptBinding
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_CREATE
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
@@ -23,11 +24,8 @@ import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptDetail
 import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptEditorActivity
 import com.frogobox.speechbooster.view.adapter.ScriptAdapter
 import com.frogobox.speechbooster.viewmodel.ScriptMainViewModel
-import kotlinx.android.synthetic.main.fragment_script.*
-import kotlinx.android.synthetic.main.recyclerview_event_empty.*
-import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 
-class ScriptFragment : BaseFragment(),
+class ScriptFragment : BaseFragment<FragmentScriptBinding>(),
     BaseListener<Script> {
 
     private lateinit var mViewModel: ScriptMainViewModel
@@ -38,7 +36,8 @@ class ScriptFragment : BaseFragment(),
     ): View? {
         // Inflate the layout for this fragment
         setupViewModel()
-        return inflater.inflate(R.layout.fragment_script, container, false)
+        binding = FragmentScriptBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,7 +55,7 @@ class ScriptFragment : BaseFragment(),
         mViewModel = (activity as MainActivity).obtainScriptMainViewModel().apply {
 
             eventIsEmpty.observe(this@ScriptFragment, Observer {
-                setupEventEmptyView(empty_view, it)
+                binding?.empty?.let { it1 -> setupEventEmptyView(it1.emptyView, it) }
             })
 
             scriptListLive.observe(this@ScriptFragment, Observer {
@@ -64,7 +63,7 @@ class ScriptFragment : BaseFragment(),
             })
 
             eventShowProgress.observe(this@ScriptFragment, Observer {
-                setupEventProgressView(progress_view, it)
+                binding?.progress?.let { it1 -> setupEventProgressView(it1.progressView, it) }
             })
 
         }
@@ -76,7 +75,7 @@ class ScriptFragment : BaseFragment(),
 
     private fun setupFabButton() {
         val option = createOptionBundle(TAG_ACTIVITY_CREATE)
-        fab_script_editor.setOnClickListener {
+        binding?.fabScriptEditor?.setOnClickListener {
             context?.let {
                 startScriptEditorActivity(it, null, option)
             }
@@ -89,8 +88,11 @@ class ScriptFragment : BaseFragment(),
         context?.let { adapter.setRecyclerViewLayout(it, R.layout.recyclerview_item_script) }
         adapter.setRecyclerViewListener(this)
         adapter.setRecyclerViewData(data)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        binding?.apply {
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager =
+                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        }
     }
 
     override fun onItemClicked(data: Script) {

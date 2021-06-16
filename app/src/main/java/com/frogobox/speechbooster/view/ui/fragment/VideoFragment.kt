@@ -7,12 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 
-import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.view.ui.BaseFragment
+import com.frogobox.speechbooster.databinding.FragmentScriptBinding
+import com.frogobox.speechbooster.databinding.FragmentVideoBinding
 import com.frogobox.speechbooster.view.ui.activity.MainActivity
 import com.frogobox.speechbooster.viewmodel.VideoScriptMainViewModel
 
-class VideoFragment : BaseFragment() {
+class VideoFragment : BaseFragment<FragmentVideoBinding>() {
 
     private lateinit var mViewModel: VideoScriptMainViewModel
     
@@ -20,7 +21,8 @@ class VideoFragment : BaseFragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         setupViewModel()
-        return inflater.inflate(R.layout.feature_coming_soon, container, false)
+        binding = FragmentVideoBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

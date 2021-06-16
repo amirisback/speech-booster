@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.view.ui.BaseFragment
 import com.frogobox.speechbooster.base.view.BaseListener
+import com.frogobox.speechbooster.databinding.FragmentRepositoryCategoryBinding
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_CATEGORY
 import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.util.helper.FunHelper.Func.noAction
@@ -19,10 +20,8 @@ import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.view.route.Implicit.Activity.startCategoryScriptActivity
 import com.frogobox.speechbooster.view.adapter.CategoryAdapter
 import com.frogobox.speechbooster.viewmodel.CategoryViewModel
-import kotlinx.android.synthetic.main.fragment_repository_category.*
-import kotlinx.android.synthetic.main.view_ads_banner.*
 
-class RepositoryCategoryFragment : BaseFragment(),
+class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBinding>(),
     BaseListener<CategoryScript> {
 
     private lateinit var mViewModel: CategoryViewModel
@@ -32,14 +31,15 @@ class RepositoryCategoryFragment : BaseFragment(),
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_repository_category, container, false)
+        binding = FragmentRepositoryCategoryBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViewModel()
         setupData()
-        setupShowAdsBanner(ads_banner)
+        binding?.ads?.let { setupShowAdsBanner(it.adsBanner) }
     }
 
     fun setupViewModel() {
@@ -57,9 +57,10 @@ class RepositoryCategoryFragment : BaseFragment(),
         context?.let { adapter.setRecyclerViewLayout(it, R.layout.recyclerview_item_category) }
         adapter.setRecyclerViewListener(this)
         adapter.setRecyclerViewData(data)
-
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = GridLayoutManager(context, 2)
+        binding?.apply {
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager = GridLayoutManager(context, 2)
+        }
     }
 
     override fun onItemClicked(data: CategoryScript) {

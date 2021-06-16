@@ -21,6 +21,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.view.ui.BaseFragment
+import com.frogobox.speechbooster.databinding.FragmentRecordBinding
+import com.frogobox.speechbooster.databinding.FragmentScriptBinding
 import com.frogobox.speechbooster.util.helper.ConstHelper
 import com.frogobox.speechbooster.util.camera.CompareSizesByArea
 import com.frogobox.speechbooster.util.camera.DialogConfirmation
@@ -35,7 +37,6 @@ import com.frogobox.speechbooster.util.helper.FunHelper.Func.createFolderPicture
 import com.frogobox.speechbooster.util.helper.FunHelper.Func.getVideoFilePath
 import com.frogobox.speechbooster.view.ui.activity.RecordActivity
 import com.frogobox.speechbooster.viewmodel.VideoScriptRecordViewModel
-import kotlinx.android.synthetic.main.fragment_record.*
 import java.io.IOException
 import java.util.*
 import java.util.concurrent.Semaphore
@@ -43,7 +44,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
 
-class RecordFragment : BaseFragment(), View.OnClickListener,
+class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListener,
     ActivityCompat.OnRequestPermissionsResultCallback {
 
     private lateinit var mViewModel: VideoScriptRecordViewModel
@@ -80,7 +81,9 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
             cameraOpenCloseLock.release()
             this@RecordFragment.cameraDevice = cameraDevice
             startPreview()
-            configureTransform(texture_view.width, texture_view.height)
+            binding?.textureView?.apply {
+                configureTransform(width, height)
+            }
         }
 
         override fun onDisconnected(cameraDevice: CameraDevice) {
@@ -115,17 +118,18 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         setupViewModel()
-        return inflater.inflate(R.layout.fragment_record, container, false)
+        binding = FragmentRecordBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        img_record_menu.setOnClickListener(this)
+        binding?.imgRecordMenu?.setOnClickListener(this)
         setupRoleView()
         finishRecord()
     }
 
     private fun finishRecord(){
-        img_toolbar_home.setOnClickListener {
+        binding?.imgToolbarHome?.setOnClickListener {
             mActivity.finish()
         }
     }
@@ -138,10 +142,12 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
         // available, and "onSurfaceTextureAvailable" will not be called. In that case, we can open
         // a camera and start preview from here (otherwise, we wait until the surface is ready in
         // the SurfaceTextureListener).
-        if (texture_view.isAvailable) {
-            openCamera(texture_view.width, texture_view.height)
-        } else {
-            texture_view.surfaceTextureListener = surfaceTextureListener
+        binding?.textureView?.apply {
+            if (isAvailable) {
+                openCamera(width, height)
+            } else {
+                surfaceTextureListener = surfaceTextureListener
+            }
         }
     }
 
@@ -201,8 +207,10 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     }
 
     private fun setupViewElement(title: String, desc: String){
-        tv_title.text = title
-        tv_description.text = desc
+        binding?.apply {
+            tvTitle.text = title
+            tvDescription.text = desc
+        }
     }
 
     private fun startBackgroundThread() {
@@ -279,10 +287,12 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
                 width, height, videoSize
             )
 
-            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                texture_view.setAspectRatio(previewSize.width, previewSize.height)
-            } else {
-                texture_view.setAspectRatio(previewSize.height, previewSize.width)
+            binding?.textureView?.apply {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    setAspectRatio(previewSize.width, previewSize.height)
+                } else {
+                    setAspectRatio(previewSize.height, previewSize.width)
+                }
             }
             configureTransform(width, height)
             mediaRecorder = MediaRecorder()
@@ -316,35 +326,38 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     }
 
     private fun startPreview() {
-        if (cameraDevice == null || !texture_view.isAvailable) return
+        binding?.textureView?.apply {
+            if (cameraDevice == null || !isAvailable) return
 
-        try {
-            closePreviewSession()
-            val texture = texture_view.surfaceTexture
-            texture?.setDefaultBufferSize(previewSize.width, previewSize.height)
-            previewRequestBuilder =
-                cameraDevice!!.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW)
+            try {
+                closePreviewSession()
+                val texture = surfaceTexture
+                texture?.setDefaultBufferSize(previewSize.width, previewSize.height)
+                previewRequestBuilder =
+                    cameraDevice!!.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW)
 
-            val previewSurface = Surface(texture)
-            previewRequestBuilder.addTarget(previewSurface)
+                val previewSurface = Surface(texture)
+                previewRequestBuilder.addTarget(previewSurface)
 
-            cameraDevice?.createCaptureSession(listOf(previewSurface),
-                object : CameraCaptureSession.StateCallback() {
+                cameraDevice?.createCaptureSession(
+                    listOf(previewSurface),
+                    object : CameraCaptureSession.StateCallback() {
 
-                    override fun onConfigured(session: CameraCaptureSession) {
-                        captureSession = session
-                        updatePreview()
-                    }
+                        override fun onConfigured(session: CameraCaptureSession) {
+                            captureSession = session
+                            updatePreview()
+                        }
 
-                    override fun onConfigureFailed(session: CameraCaptureSession) {
-                        if (activity != null) showToast("Failed")
-                    }
-                }, backgroundHandler
-            )
-        } catch (e: CameraAccessException) {
-            Log.e(ConstHelper.Tag.TAG_CAMERA_VIDEO, e.toString())
+                        override fun onConfigureFailed(session: CameraCaptureSession) {
+                            if (activity != null) showToast("Failed")
+                        }
+                    }, backgroundHandler
+                )
+            } catch (e: CameraAccessException) {
+                Log.e(ConstHelper.Tag.TAG_CAMERA_VIDEO, e.toString())
+            }
+
         }
-
     }
 
     private fun updatePreview() {
@@ -389,7 +402,7 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
                 postRotate((90 * (rotation - 2)).toFloat(), centerX, centerY)
             }
         }
-        texture_view.setTransform(matrix)
+        binding?.textureView?.setTransform(matrix)
     }
 
     @Throws(IOException::class)
@@ -424,49 +437,52 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
     }
 
     private fun startRecordingVideo() {
-        if (cameraDevice == null || !texture_view.isAvailable) return
+        binding?.apply {
+            if (cameraDevice == null || !textureView.isAvailable) return
 
-        try {
-            closePreviewSession()
-            setUpMediaRecorder()
-            val texture = texture_view.surfaceTexture?.apply {
-                setDefaultBufferSize(previewSize.width, previewSize.height)
-            }
-
-            val previewSurface = Surface(texture)
-            val recorderSurface = mediaRecorder!!.surface
-            val surfaces = ArrayList<Surface>().apply {
-                add(previewSurface)
-                add(recorderSurface)
-            }
-            previewRequestBuilder =
-                cameraDevice!!.createCaptureRequest(CameraDevice.TEMPLATE_RECORD).apply {
-                    addTarget(previewSurface)
-                    addTarget(recorderSurface)
+            try {
+                closePreviewSession()
+                setUpMediaRecorder()
+                val texture = textureView.surfaceTexture?.apply {
+                    setDefaultBufferSize(previewSize.width, previewSize.height)
                 }
 
-            cameraDevice?.createCaptureSession(surfaces,
-                object : CameraCaptureSession.StateCallback() {
+                val previewSurface = Surface(texture)
+                val recorderSurface = mediaRecorder!!.surface
+                val surfaces = ArrayList<Surface>().apply {
+                    add(previewSurface)
+                    add(recorderSurface)
+                }
+                previewRequestBuilder =
+                    cameraDevice!!.createCaptureRequest(CameraDevice.TEMPLATE_RECORD).apply {
+                        addTarget(previewSurface)
+                        addTarget(recorderSurface)
+                    }
 
-                    override fun onConfigured(cameraCaptureSession: CameraCaptureSession) {
-                        captureSession = cameraCaptureSession
-                        updatePreview()
-                        activity?.runOnUiThread {
-                            img_record_menu.setImageResource(R.drawable.ic_toolbar_record_stop)
-                            isRecordingVideo = true
-                            mediaRecorder?.start()
+                cameraDevice?.createCaptureSession(
+                    surfaces,
+                    object : CameraCaptureSession.StateCallback() {
+
+                        override fun onConfigured(cameraCaptureSession: CameraCaptureSession) {
+                            captureSession = cameraCaptureSession
+                            updatePreview()
+                            activity?.runOnUiThread {
+                                imgRecordMenu.setImageResource(R.drawable.ic_toolbar_record_stop)
+                                isRecordingVideo = true
+                                mediaRecorder?.start()
+                            }
                         }
-                    }
 
-                    override fun onConfigureFailed(cameraCaptureSession: CameraCaptureSession) {
-                        if (activity != null) showToast("Failed")
-                    }
-                }, backgroundHandler
-            )
-        } catch (e: CameraAccessException) {
-            Log.e(ConstHelper.Tag.TAG_CAMERA_VIDEO, e.toString())
-        } catch (e: IOException) {
-            Log.e(ConstHelper.Tag.TAG_CAMERA_VIDEO, e.toString())
+                        override fun onConfigureFailed(cameraCaptureSession: CameraCaptureSession) {
+                            if (activity != null) showToast("Failed")
+                        }
+                    }, backgroundHandler
+                )
+            } catch (e: CameraAccessException) {
+                Log.e(ConstHelper.Tag.TAG_CAMERA_VIDEO, e.toString())
+            } catch (e: IOException) {
+                Log.e(ConstHelper.Tag.TAG_CAMERA_VIDEO, e.toString())
+            }
         }
 
     }
@@ -478,7 +494,7 @@ class RecordFragment : BaseFragment(), View.OnClickListener,
 
     private fun stopRecordingVideo() {
         isRecordingVideo = false
-        img_record_menu.setImageResource(R.drawable.ic_toolbar_record)
+        binding?.imgRecordMenu?.setImageResource(R.drawable.ic_toolbar_record)
         mediaRecorder?.apply {
             stop()
             reset()

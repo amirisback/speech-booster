@@ -9,17 +9,23 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/ads_banner"
+        android:layout_above="@+id/ads"
         android:clipToPadding="false"
         android:overScrollMode="never"
         android:paddingTop="@dimen/dimen_big_16dp"
         android:paddingRight="@dimen/dimen_big_16dp"
         tools:listitem="@layout/recyclerview_item_script" />
 
-    <include layout="@layout/recyclerview_event_empty" />
+    <include
+        android:id="@+id/empty"
+        layout="@layout/recyclerview_event_empty" />
 
-    <include layout="@layout/recyclerview_event_progress" />
+    <include
+        android:id="@+id/progress"
+        layout="@layout/recyclerview_event_progress" />
 
-    <include layout="@layout/view_ads_banner" />
+    <include
+        android:id="@+id/ads"
+        layout="@layout/view_ads_banner" />
 
 </RelativeLayout>

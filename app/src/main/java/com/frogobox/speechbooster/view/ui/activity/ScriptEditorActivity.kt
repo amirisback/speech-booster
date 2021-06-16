@@ -1,11 +1,13 @@
 package com.frogobox.speechbooster.view.ui.activity
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.view.ui.BaseActivity
+import com.frogobox.speechbooster.databinding.ActivityScriptEditorBinding
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_CREATE
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
@@ -16,21 +18,20 @@ import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
 import com.frogobox.speechbooster.util.helper.ConstHelper.Date.DATE_EEEE_DD_MM_YYYY
 import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
 import com.frogobox.speechbooster.viewmodel.ScriptEditorViewModel
-import kotlinx.android.synthetic.main.activity_script_editor.*
-import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 
-class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
+class ScriptEditorActivity : BaseActivity<ActivityScriptEditorBinding>(), ScriptEditorViewCallback {
 
     private lateinit var mViewModel: ScriptEditorViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_script_editor)
+        binding = ActivityScriptEditorBinding.inflate(LayoutInflater.from(this))
+        setContentView(binding.root)
         setupDetailActivity("")
         setupCreateView()
         setupViewModel()
         setupRole({setupExtraData()}){}
-        setupShowAdsBanner(ads_banner)
+        setupShowAdsBanner(binding.adsBanner)
     }
 
     private fun setupViewModel() {
@@ -48,36 +49,36 @@ class ScriptEditorActivity : BaseActivity(), ScriptEditorViewCallback {
     }
 
     private fun setupCreateView(){
-        tv_script_date.text = getCurrentDate(DATE_EEEE_DD_MM_YYYY)
+        binding.tvScriptDate.text = getCurrentDate(DATE_EEEE_DD_MM_YYYY)
     }
 
     private fun saveToRoom() {
-        val textTitle = et_script_title.text.toString()
-        val textDescription = et_script_description.text.toString()
+        val textTitle = binding.etScriptTitle.text.toString()
+        val textDescription = binding.etScriptDescription.text.toString()
         val dataScript = Script(title = textTitle, description = textDescription, dateTime = getCurrentDate(DATE_EEEE_DD_MM_YYYY))
         mViewModel.saveScriptData(dataScript, this)
     }
 
     private fun updateToRoom() {
         val extraData = getBaseBundle<Script>(mActivity, TYPE_OBJECT,  EXTRA_SCRIPT)
-        val textTitle = et_script_title.text.toString()
-        val textDescription = et_script_description.text.toString()
+        val textTitle = binding.etScriptTitle.text.toString()
+        val textDescription = binding.etScriptDescription.text.toString()
         val dataScript = Script(title = textTitle, description = textDescription, dateTime = getCurrentDate(DATE_EEEE_DD_MM_YYYY))
         mViewModel.updateScriptData(extraData.table_id, dataScript, this)
     }
 
     private fun setupExtraData() {
         val extraData = getBaseBundle<Script>(mActivity, TYPE_OBJECT,  EXTRA_SCRIPT)
-        et_script_title.setText(extraData.title)
-        et_script_description.setText(extraData.description)
+        binding.etScriptTitle.setText(extraData.title)
+        binding.etScriptDescription.setText(extraData.description)
     }
 
     override fun onShowProgress() {
-        progress_view.visibility = View.VISIBLE
+        binding.progress.progressView.visibility = View.VISIBLE
     }
 
     override fun onHideProgress() {
-        progress_view.visibility = View.GONE
+        binding.progress.progressView.visibility = View.GONE
     }
 
     override fun onSuccesInsert() {

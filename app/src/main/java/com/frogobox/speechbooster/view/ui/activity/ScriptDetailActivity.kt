@@ -1,19 +1,20 @@
 package com.frogobox.speechbooster.view.ui.activity
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.lifecycle.Observer
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.view.ui.BaseActivity
+import com.frogobox.speechbooster.databinding.ActivityScriptDetailBinding
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.RepositoryScript
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
-import com.frogobox.speechbooster.util.helper.AdmobHelper.Interstitial.showInterstitial
 import com.frogobox.speechbooster.util.helper.ConstHelper.Const.DEFAULT_NULL
 import com.frogobox.speechbooster.util.helper.ConstHelper.Const.OPTION_GET
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_EXAMPLE_SCRIPT
@@ -27,38 +28,40 @@ import com.frogobox.speechbooster.view.callback.ScriptEditorViewCallback
 import com.frogobox.speechbooster.view.route.Implicit.Activity.startRecordActivity
 import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptEditorActivity
 import com.frogobox.speechbooster.viewmodel.ScriptDetailViewModel
-import kotlinx.android.synthetic.main.activity_script_detail.*
-import kotlinx.android.synthetic.main.recyclerview_event_progress.*
 
-class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteEditorViewCallback {
+class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>(), ScriptEditorViewCallback, FavoriteEditorViewCallback {
 
     private lateinit var mViewModel: ScriptDetailViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_script_detail)
+        binding = ActivityScriptDetailBinding.inflate(LayoutInflater.from(this))
+        setContentView(binding.root)
         setupDetailActivity("")
         setupViewModel()
         setupLiveObserve()
         setupRoleView()
-        setupShowAdsBanner(ads_banner)
+        setupShowAdsBanner(binding.adsBanner)
     }
 
     fun obtainScriptDetailViewModel(): ScriptDetailViewModel =
         obtainViewModel(ScriptDetailViewModel::class.java)
 
     private fun setupViewElement(title: String, date: String, desc: String, bundle: Bundle) {
-        tv_title_detail.text = title
-        tv_description_detail.text = desc
-        if (!date.equals(DEFAULT_NULL)) {
-            tv_date_detail.visibility = View.VISIBLE
-            tv_date_detail.text = date
-        } else {
-            tv_date_detail.visibility = View.GONE
-        }
-        btn_start_record.setOnClickListener {
-            startRecordActivity(this, bundle)
-            setupShowAdsInterstitial()
+        binding.apply {
+
+            tvTitleDetail.text = title
+            tvDescriptionDetail.text = desc
+            if (!date.equals(DEFAULT_NULL)) {
+                tvDateDetail.visibility = View.VISIBLE
+                tvDateDetail.text = date
+            } else {
+                tvDateDetail.visibility = View.GONE
+            }
+            btnStartRecord.setOnClickListener {
+                startRecordActivity(this@ScriptDetailActivity, bundle)
+                setupShowAdsInterstitial()
+            }
         }
 
     }
@@ -103,9 +106,9 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
 
     private fun setupFavoriteView(isFavorite: Boolean) {
         if (isFavorite) {
-            iv_btn_favorite.setImageResource(R.drawable.ic_toolbar_favorite)
+            binding.ivBtnFavorite.setImageResource(R.drawable.ic_toolbar_favorite)
         } else {
-            iv_btn_favorite.setImageResource(R.drawable.ic_toolbar_unfavorite)
+            binding.ivBtnFavorite.setImageResource(R.drawable.ic_toolbar_unfavorite)
         }
     }
 
@@ -127,7 +130,7 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
     }
 
     private fun setupButtonFav(isFavorite: Boolean) {
-        iv_btn_favorite.setOnClickListener {
+        binding.ivBtnFavorite.setOnClickListener {
             if (isFavorite) {
                 listenerDeleteFromFavorite()
             } else {
@@ -229,11 +232,11 @@ class ScriptDetailActivity : BaseActivity(), ScriptEditorViewCallback, FavoriteE
     }
 
     override fun onShowProgress() {
-        progress_view.visibility = View.VISIBLE
+        binding.progress.progressView.visibility = View.VISIBLE
     }
 
     override fun onHideProgress() {
-        progress_view.visibility = View.GONE
+        binding.progress.progressView.visibility = View.GONE
     }
 
     override fun onSuccesInsert() {

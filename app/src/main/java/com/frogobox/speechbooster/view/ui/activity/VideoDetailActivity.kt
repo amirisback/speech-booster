@@ -1,13 +1,15 @@
 package com.frogobox.speechbooster.view.ui.activity
 
 import android.os.Bundle
-import com.frogobox.speechbooster.R
+import android.view.LayoutInflater
 import com.frogobox.speechbooster.base.view.ui.BaseActivity
+import com.frogobox.speechbooster.databinding.ActivityVideoDetailBinding
 
-class VideoDetailActivity : BaseActivity() {
+class VideoDetailActivity : BaseActivity<ActivityVideoDetailBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_video_detail)
+        binding = ActivityVideoDetailBinding.inflate(LayoutInflater.from(this))
+        setContentView(binding.root)
     }
 }

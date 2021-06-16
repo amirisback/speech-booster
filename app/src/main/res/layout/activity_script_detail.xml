@@ -79,6 +79,8 @@
         android:text="@string/button_start_record"
         android:textColor="@color/colorTextWhite" />
 
-    <include layout="@layout/recyclerview_event_progress" />
+    <include
+        android:id="@+id/progress"
+        layout="@layout/recyclerview_event_progress" />
 
 </RelativeLayout>

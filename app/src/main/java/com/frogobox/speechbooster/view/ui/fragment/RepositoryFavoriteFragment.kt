@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.view.ui.BaseFragment
 import com.frogobox.speechbooster.base.view.BaseListener
+import com.frogobox.speechbooster.databinding.FragmentRepositoryFavoriteBinding
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_DETAIL
 import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.util.helper.FunHelper.Func.noAction
@@ -21,12 +22,8 @@ import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_FAVORITE_S
 import com.frogobox.speechbooster.view.route.Implicit.Activity.startScriptDetailActivity
 import com.frogobox.speechbooster.view.adapter.FavoriteScriptAdapter
 import com.frogobox.speechbooster.viewmodel.FavoriteScriptMainViewModel
-import kotlinx.android.synthetic.main.fragment_repository_favorite.*
-import kotlinx.android.synthetic.main.recyclerview_event_empty.*
-import kotlinx.android.synthetic.main.recyclerview_event_progress.*
-import kotlinx.android.synthetic.main.view_ads_banner.*
 
-class RepositoryFavoriteFragment : BaseFragment(),
+class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBinding>(),
     BaseListener<FavoriteScript> {
 
     private lateinit var mViewModel: FavoriteScriptMainViewModel
@@ -37,13 +34,14 @@ class RepositoryFavoriteFragment : BaseFragment(),
     ): View? {
         // Inflate the layout for this fragment
         setupViewModel()
-        return inflater.inflate(R.layout.fragment_repository_favorite, container, false)
+        binding = FragmentRepositoryFavoriteBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupDataRoomFavorite()
-        setupShowAdsBanner(ads_banner)
+        binding?.ads?.let { setupShowAdsBanner(it.adsBanner) }
     }
 
     override fun onResume() {
@@ -55,11 +53,11 @@ class RepositoryFavoriteFragment : BaseFragment(),
         mViewModel = (activity as MainActivity).obtainFavoriteViewModel().apply {
 
             eventIsEmpty.observe(this@RepositoryFavoriteFragment, Observer {
-                setupEventEmptyView(empty_view, it)
+                binding?.empty?.let { it1 -> setupEventEmptyView(it1.emptyView, it) }
             })
 
             eventShowProgress.observe(this@RepositoryFavoriteFragment, Observer {
-                setupEventProgressView(progress_view, it)
+                binding?.progress?.let { it1 -> setupEventProgressView(it1.progressView, it) }
             })
 
             favoriteListLive.observe(this@RepositoryFavoriteFragment, Observer {
@@ -78,8 +76,11 @@ class RepositoryFavoriteFragment : BaseFragment(),
         context?.let { adapter.setRecyclerViewLayout(it, R.layout.recyclerview_item_script) }
         adapter.setRecyclerViewListener(this)
         adapter.setRecyclerViewData(data)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        binding?.apply {
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager =
+                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        }
     }
 
     override fun onItemClicked(data: FavoriteScript) {

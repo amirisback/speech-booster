@@ -8,17 +8,18 @@ import android.view.ViewGroup
 
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.view.ui.BaseFragment
+import com.frogobox.speechbooster.databinding.FragmentRepositoryBinding
 import com.frogobox.speechbooster.util.helper.PagerHelper
-import kotlinx.android.synthetic.main.fragment_repository.*
 
-class RepositoryFragment : BaseFragment() {
+class RepositoryFragment : BaseFragment<FragmentRepositoryBinding>() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_repository, container, false)
+        binding = FragmentRepositoryBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -30,7 +31,9 @@ class RepositoryFragment : BaseFragment() {
         val pagerAdapter = PagerHelper(childFragmentManager)
         pagerAdapter.setupPagerFragment(RepositoryCategoryFragment(), resources.getString(R.string.title_favorite_category))
         pagerAdapter.setupPagerFragment(RepositoryFavoriteFragment(), resources.getString(R.string.title_favorite_script))
-        viewpager.adapter = pagerAdapter
-        tablayout.setupWithViewPager(viewpager)
+        binding?.apply {
+            viewpager.adapter = pagerAdapter
+            tablayout.setupWithViewPager(viewpager)
+        }
     }
 }

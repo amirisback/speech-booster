@@ -3,10 +3,12 @@ package com.frogobox.speechbooster.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.view.BaseViewAdapter
 import com.frogobox.speechbooster.base.view.BaseViewHolder
 import com.frogobox.speechbooster.model.CategoryScript
-import kotlinx.android.synthetic.main.recyclerview_item_category.view.*
 
 /**
  * Created by Faisal Amir
@@ -38,8 +40,8 @@ class CategoryAdapter : BaseViewAdapter<CategoryScript, CategoryAdapter.Category
 
     inner class CategoryViewHolder(view: View) : BaseViewHolder<CategoryScript>(view) {
 
-        val ivCategory = view.iv_category
-        val tvCategory = view.tv_category
+        val ivCategory = view.findViewById<ImageView>(R.id.iv_category)
+        val tvCategory = view.findViewById<TextView>(R.id.tv_category)
 
         override fun initComponent(data: CategoryScript) {
             super.initComponent(data)
