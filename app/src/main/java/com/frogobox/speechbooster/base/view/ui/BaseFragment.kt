@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
+import com.frogobox.admob.core.admob.FrogoAdmobActivity
 import com.frogobox.speechbooster.base.util.BaseHelper
-import com.frogobox.speechbooster.util.helper.AdmobHelper.Interstitial.showInterstitial
 import com.google.android.gms.ads.AdView
 
 /**
@@ -26,13 +27,19 @@ import com.google.android.gms.ads.AdView
  * com.frogobox.publicspeakingbooster.base
  *
  */
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment<T : ViewBinding> : Fragment() {
 
-    lateinit var mActivity: BaseActivity
+    protected lateinit var mActivity: FrogoAdmobActivity
+    protected var binding : T? = null
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mActivity = (activity as BaseActivity)
+        mActivity = (activity as FrogoAdmobActivity)
     }
 
     protected fun setupChildFragment(frameId: Int, fragment: Fragment) {
@@ -65,7 +72,7 @@ abstract class BaseFragment : Fragment() {
     }
 
     protected fun checkArgument(argsKey: String): Boolean {
-        return arguments!!.containsKey(argsKey)
+        return requireArguments().containsKey(argsKey)
     }
 
     protected fun setupEventEmptyView(view: View, isEmpty: Boolean) {

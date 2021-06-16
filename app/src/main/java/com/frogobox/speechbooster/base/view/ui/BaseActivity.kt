@@ -6,22 +6,17 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.*
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewbinding.ViewBinding
+import com.frogobox.admob.core.admob.FrogoAdmobActivity
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.base.util.BaseHelper
-import com.frogobox.speechbooster.base.admob.BaseAdmobActivity
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ViewModelFactory
-import com.frogobox.speechbooster.util.helper.AdmobHelper.Interstitial.setupInterstitial
-import com.frogobox.speechbooster.util.helper.AdmobHelper.Interstitial.showInterstitial
-import com.frogobox.speechbooster.util.helper.AdmobHelper.Publisher.setupPublisher
 import com.frogobox.speechbooster.util.helper.ConstHelper
-import com.google.android.gms.ads.InterstitialAd
-import com.google.android.gms.ads.reward.RewardedVideoAd
 
 
 /**
@@ -41,7 +36,9 @@ import com.google.android.gms.ads.reward.RewardedVideoAd
  * com.frogobox.publicspeakingbooster.base
  *
  */
-abstract class BaseActivity : BaseAdmobActivity() {
+abstract class BaseActivity<T : ViewBinding> : FrogoAdmobActivity() {
+
+    protected lateinit var binding: T
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +74,7 @@ abstract class BaseActivity : BaseAdmobActivity() {
         )
     }
 
-    protected fun setupChildFragment(frameId: Int, fragment: Fragment) {
+    protected fun <VB : ViewBinding> setupChildFragment(frameId: Int, fragment: BaseFragment<VB>) {
         supportFragmentManager.beginTransaction().apply {
             replace(frameId, fragment)
             commit()
@@ -108,15 +105,13 @@ abstract class BaseActivity : BaseAdmobActivity() {
         return intent?.hasExtra(extraKey)!!
     }
 
-    protected fun <Model> baseFragmentNewInstance(
-        fragment: BaseFragment,
+    protected fun <Model, VB : ViewBinding> baseFragmentNewInstance(
+        fragment: BaseFragment<VB>,
         argumentKey: String,
         extraDataResult: Model
     ) {
         fragment.baseNewInstance(argumentKey, extraDataResult)
     }
-
-
 
     protected fun tagOption(): Int {
         return getOptionBundle(this)
