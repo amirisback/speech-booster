@@ -1,6 +1,4 @@
-package com.frogobox.speechbooster.base.util
-
-import com.google.gson.Gson
+package com.frogobox.speechbooster.core
 
 /**
  * Created by Faisal Amir
@@ -19,14 +17,4 @@ import com.google.gson.Gson
  * com.frogobox.speechbooster.base
  *
  */
-open class BaseHelper {
-
-    fun <T> baseToJson(model: T) : String? {
-        return Gson().toJson(model)
-    }
-
-    inline fun <reified T> baseFromJson(word: String?) : T {
-        return Gson().fromJson<T>(word, T::class.java)
-    }
-
-}
+abstract class BaseRemoteDataSource

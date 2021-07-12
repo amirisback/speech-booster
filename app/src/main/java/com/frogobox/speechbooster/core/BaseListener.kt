@@ -1,11 +1,11 @@
-package com.frogobox.speechbooster.base.data
+package com.frogobox.speechbooster.core
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * SpeechBooster
- * Copyright (C) 14/09/2019.
+ * Copyright (C) 18/08/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -17,4 +17,7 @@ package com.frogobox.speechbooster.base.data
  * com.frogobox.speechbooster.base
  *
  */
-abstract class BaseLocalDataSource
+interface BaseListener<T> {
+    fun onItemClicked(data: T)
+    fun onItemLongClicked(data: T)
+}

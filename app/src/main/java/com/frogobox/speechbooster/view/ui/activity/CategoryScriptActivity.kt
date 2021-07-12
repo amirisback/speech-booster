@@ -1,11 +1,10 @@
 package com.frogobox.speechbooster.view.ui.activity
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.base.view.ui.BaseActivity
-import com.frogobox.speechbooster.base.view.BaseListener
+import com.frogobox.speechbooster.core.BaseActivity
+import com.frogobox.speechbooster.core.BaseListener
 import com.frogobox.speechbooster.databinding.ActivityCategoryScriptBinding
 import com.frogobox.speechbooster.model.CategoryScript
 import com.frogobox.speechbooster.model.RepositoryScript
@@ -26,24 +25,24 @@ class CategoryScriptActivity : BaseActivity<ActivityCategoryScriptBinding>(),
 
     private lateinit var mViewModel: CategoryScriptViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityCategoryScriptBinding.inflate(LayoutInflater.from(this))
-        setContentView(binding.root)
+    override fun setupViewBinding(): ActivityCategoryScriptBinding {
+        return ActivityCategoryScriptBinding.inflate(layoutInflater)
+    }
+
+    override fun setupUI(savedInstanceState: Bundle?) {
         setupDetailActivity("")
-        setupViewModel()
         setupData()
         setupShowAdsBanner(binding.ads.adsBanner)
     }
 
-    fun obtainCategoryScriptViewModel(): CategoryScriptViewModel =
-        obtainViewModel(CategoryScriptViewModel::class.java)
-
-    private fun setupViewModel() {
+    override fun setupViewModel() {
         mViewModel = obtainCategoryScriptViewModel().apply {
 
         }
     }
+
+    fun obtainCategoryScriptViewModel(): CategoryScriptViewModel =
+        obtainViewModel(CategoryScriptViewModel::class.java)
 
     private fun setupData() {
         val extraDataResult = getBaseBundle<CategoryScript>(mActivity, TYPE_OBJECT, EXTRA_CATEGORY)

@@ -1,11 +1,11 @@
-package com.frogobox.speechbooster.base.view
+package com.frogobox.speechbooster.core
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * SpeechBooster
- * Copyright (C) 02/09/2019.
+ * Copyright (C) 14/09/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -17,10 +17,4 @@ package com.frogobox.speechbooster.base.view
  * com.frogobox.speechbooster.base
  *
  */
-interface BaseViewCallback {
-    fun onShowProgress()
-    fun onHideProgress()
-    fun onSuccesInsert()
-    fun onSuccesDelete()
-    fun onFailed(message: String)
-}
+abstract class BaseDataRepository

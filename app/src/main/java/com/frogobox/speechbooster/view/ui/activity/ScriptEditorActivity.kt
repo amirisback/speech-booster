@@ -1,12 +1,11 @@
 package com.frogobox.speechbooster.view.ui.activity
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.base.view.ui.BaseActivity
+import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityScriptEditorBinding
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_CREATE
@@ -23,18 +22,18 @@ class ScriptEditorActivity : BaseActivity<ActivityScriptEditorBinding>(), Script
 
     private lateinit var mViewModel: ScriptEditorViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityScriptEditorBinding.inflate(LayoutInflater.from(this))
-        setContentView(binding.root)
+    override fun setupViewBinding(): ActivityScriptEditorBinding {
+        return ActivityScriptEditorBinding.inflate(layoutInflater)
+    }
+
+    override fun setupUI(savedInstanceState: Bundle?) {
         setupDetailActivity("")
-        setupCreateView()
-        setupViewModel()
+        binding.tvScriptDate.text = getCurrentDate(DATE_EEEE_DD_MM_YYYY)
         setupRole({setupExtraData()}){}
         setupShowAdsBanner(binding.adsBanner)
     }
 
-    private fun setupViewModel() {
+    override fun setupViewModel() {
         mViewModel = obtainScriptViewModel().apply {
 
         }
@@ -46,10 +45,6 @@ class ScriptEditorActivity : BaseActivity<ActivityScriptEditorBinding>(), Script
         } else if (tagOption() == TAG_ACTIVITY_CREATE) {
             listenerCreate()
         }
-    }
-
-    private fun setupCreateView(){
-        binding.tvScriptDate.text = getCurrentDate(DATE_EEEE_DD_MM_YYYY)
     }
 
     private fun saveToRoom() {
@@ -115,6 +110,5 @@ class ScriptEditorActivity : BaseActivity<ActivityScriptEditorBinding>(), Script
             else -> super.onOptionsItemSelected(item)
         }
     }
-
 
 }

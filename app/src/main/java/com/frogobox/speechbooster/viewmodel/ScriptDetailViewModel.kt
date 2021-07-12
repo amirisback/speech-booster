@@ -2,13 +2,12 @@ package com.frogobox.speechbooster.viewmodel
 
 import android.app.Application
 import android.util.Log
-import com.frogobox.speechbooster.base.util.BaseViewModel
+import com.frogobox.speechbooster.core.BaseViewModel
 import com.frogobox.speechbooster.util.helper.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.FrogoDataSource
 import com.frogobox.speechbooster.util.SingleLiveEvent
-import com.frogobox.speechbooster.util.helper.ConstHelper
 import com.frogobox.speechbooster.util.helper.ConstHelper.Const.OPTION_DELETE
 import com.frogobox.speechbooster.util.helper.ConstHelper.Const.OPTION_GET
 import com.frogobox.speechbooster.util.helper.ConstHelper.Date.DATE_EEEE_DD_MM_YYYY

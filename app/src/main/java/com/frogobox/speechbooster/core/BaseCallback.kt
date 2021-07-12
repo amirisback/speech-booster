@@ -1,6 +1,5 @@
-package com.frogobox.speechbooster.base.view
+package com.frogobox.speechbooster.core
 
-import com.frogobox.speechbooster.base.data.BaseApiModel
 import com.google.gson.Gson
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable

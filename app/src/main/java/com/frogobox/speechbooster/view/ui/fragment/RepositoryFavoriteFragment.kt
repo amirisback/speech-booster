@@ -3,13 +3,12 @@ package com.frogobox.speechbooster.view.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.base.view.ui.BaseFragment
-import com.frogobox.speechbooster.base.view.BaseListener
+import com.frogobox.speechbooster.core.BaseFragment
+import com.frogobox.speechbooster.core.BaseListener
 import com.frogobox.speechbooster.databinding.FragmentRepositoryFavoriteBinding
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_DETAIL
 import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
@@ -28,18 +27,15 @@ class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBindin
 
     private lateinit var mViewModel: FavoriteScriptMainViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        setupViewModel()
-        binding = FragmentRepositoryFavoriteBinding.inflate(inflater, container, false)
-        return binding?.root
+
+    override fun setupViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup
+    ): FragmentRepositoryFavoriteBinding {
+        return FragmentRepositoryFavoriteBinding.inflate(inflater, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun setupUI(savedInstanceState: Bundle?) {
         setupDataRoomFavorite()
         binding?.ads?.let { setupShowAdsBanner(it.adsBanner) }
     }
@@ -49,7 +45,7 @@ class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBindin
         setupDataRoomFavorite()
     }
 
-    private fun setupViewModel() {
+    override fun setupViewModel() {
         mViewModel = (activity as MainActivity).obtainFavoriteViewModel().apply {
 
             eventIsEmpty.observe(this@RepositoryFavoriteFragment, Observer {
@@ -92,5 +88,6 @@ class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBindin
     override fun onItemLongClicked(data: FavoriteScript) {
         noAction()
     }
+
 
 }

@@ -1,13 +1,11 @@
 package com.frogobox.speechbooster.view.ui.activity
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.base.view.ui.BaseActivity
+import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityMainBinding
-import com.frogobox.speechbooster.databinding.FragmentScriptBinding
 import com.frogobox.speechbooster.view.ui.fragment.RepositoryFragment
 import com.frogobox.speechbooster.view.ui.fragment.ScriptFragment
 import com.frogobox.speechbooster.view.ui.fragment.VideoFragment
@@ -19,10 +17,13 @@ import com.frogobox.speechbooster.viewmodel.VideoScriptMainViewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
-        setContentView(binding.root)
+    override fun setupViewBinding(): ActivityMainBinding {
+        return ActivityMainBinding.inflate(layoutInflater)
+    }
+
+    override fun setupViewModel() {}
+
+    override fun setupUI(savedInstanceState: Bundle?) {
         setupToolbar()
         setupBottomNav(R.id.framelayout_main_container)
         setupFragment(savedInstanceState)
@@ -93,4 +94,5 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         }
     }
+
 }

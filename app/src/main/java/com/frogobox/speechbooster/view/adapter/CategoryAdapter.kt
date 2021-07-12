@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.base.view.BaseViewAdapter
-import com.frogobox.speechbooster.base.view.BaseViewHolder
+import com.frogobox.speechbooster.core.BaseViewAdapter
+import com.frogobox.speechbooster.core.BaseViewHolder
 import com.frogobox.speechbooster.model.CategoryScript
 
 /**

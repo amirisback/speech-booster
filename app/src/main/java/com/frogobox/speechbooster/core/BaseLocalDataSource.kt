@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.base.data
+package com.frogobox.speechbooster.core
 
 /**
  * Created by Faisal Amir
@@ -17,4 +17,4 @@ package com.frogobox.speechbooster.base.data
  * com.frogobox.speechbooster.base
  *
  */
-abstract class BaseRemoteDataSource
+abstract class BaseLocalDataSource

@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.base.view.ui.BaseFragment
-import com.frogobox.speechbooster.base.view.BaseListener
+import com.frogobox.speechbooster.core.BaseFragment
+import com.frogobox.speechbooster.core.BaseListener
 import com.frogobox.speechbooster.databinding.FragmentRepositoryCategoryBinding
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_CATEGORY
 import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
@@ -26,23 +26,20 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
 
     private lateinit var mViewModel: CategoryViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentRepositoryCategoryBinding.inflate(inflater, container, false)
-        return binding?.root
+
+    override fun setupViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup
+    ): FragmentRepositoryCategoryBinding {
+        return FragmentRepositoryCategoryBinding.inflate(inflater, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setupViewModel()
+    override fun setupUI(savedInstanceState: Bundle?) {
         setupData()
         binding?.ads?.let { setupShowAdsBanner(it.adsBanner) }
     }
 
-    fun setupViewModel() {
+    override fun setupViewModel() {
         mViewModel = (activity as MainActivity).obtainCategoryViewModel().apply {
 
         }
@@ -71,5 +68,6 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
     override fun onItemLongClicked(data: CategoryScript) {
         noAction()
     }
+
 
 }

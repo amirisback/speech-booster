@@ -3,13 +3,12 @@ package com.frogobox.speechbooster.view.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.base.view.ui.BaseFragment
-import com.frogobox.speechbooster.base.view.BaseListener
+import com.frogobox.speechbooster.core.BaseFragment
+import com.frogobox.speechbooster.core.BaseListener
 import com.frogobox.speechbooster.databinding.FragmentScriptBinding
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_CREATE
@@ -30,18 +29,14 @@ class ScriptFragment : BaseFragment<FragmentScriptBinding>(),
 
     private lateinit var mViewModel: ScriptMainViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        setupViewModel()
-        binding = FragmentScriptBinding.inflate(inflater, container, false)
-        return binding?.root
+    override fun setupViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup
+    ): FragmentScriptBinding {
+        return FragmentScriptBinding.inflate(inflater, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun setupUI(savedInstanceState: Bundle?) {
         setupFabButton()
         setupDataRoomScript()
     }
@@ -51,7 +46,7 @@ class ScriptFragment : BaseFragment<FragmentScriptBinding>(),
         setupDataRoomScript()
     }
 
-    private fun setupViewModel() {
+    override fun setupViewModel() {
         mViewModel = (activity as MainActivity).obtainScriptMainViewModel().apply {
 
             eventIsEmpty.observe(this@ScriptFragment, Observer {

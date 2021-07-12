@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.base.data
+package com.frogobox.speechbooster.core
 
 /**
  * Created by Faisal Amir

@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.base.view
+package com.frogobox.speechbooster.core
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

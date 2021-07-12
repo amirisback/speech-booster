@@ -2,7 +2,7 @@ package com.frogobox.speechbooster.source.local
 
 import android.content.SharedPreferences
 import androidx.annotation.VisibleForTesting
-import com.frogobox.speechbooster.base.view.BaseCallback
+import com.frogobox.speechbooster.core.BaseCallback
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.model.VideoScript

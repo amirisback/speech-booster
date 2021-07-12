@@ -1,6 +1,6 @@
 package com.frogobox.speechbooster.source
 
-import com.frogobox.speechbooster.base.data.BaseDataSource
+import com.frogobox.speechbooster.core.BaseDataSource
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.Script
 import com.frogobox.speechbooster.model.VideoScript

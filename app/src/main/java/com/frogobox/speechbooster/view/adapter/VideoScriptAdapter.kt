@@ -3,8 +3,8 @@ package com.frogobox.speechbooster.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.frogobox.speechbooster.base.view.BaseViewAdapter
-import com.frogobox.speechbooster.base.view.BaseViewHolder
+import com.frogobox.speechbooster.core.BaseViewAdapter
+import com.frogobox.speechbooster.core.BaseViewHolder
 import com.frogobox.speechbooster.model.VideoScript
 
 /**

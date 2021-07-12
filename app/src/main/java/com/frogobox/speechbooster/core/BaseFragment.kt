@@ -1,14 +1,16 @@
-package com.frogobox.speechbooster.base.view.ui
+package com.frogobox.speechbooster.core
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.frogobox.admob.core.admob.FrogoAdmobActivity
-import com.frogobox.speechbooster.base.util.BaseHelper
+import com.frogobox.admob.ui.FrogoAdmobActivity
 import com.google.android.gms.ads.AdView
+import com.google.gson.Gson
 
 /**
  * Created by Faisal Amir
@@ -27,19 +29,41 @@ import com.google.android.gms.ads.AdView
  * com.frogobox.publicspeakingbooster.base
  *
  */
-abstract class BaseFragment<T : ViewBinding> : Fragment() {
+abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     protected lateinit var mActivity: FrogoAdmobActivity
-    protected var binding : T? = null
 
-    override fun onDestroy() {
-        super.onDestroy()
-        binding = null
-    }
+    protected var binding : VB? = null
+
+    abstract fun setupViewBinding(inflater: LayoutInflater, container: ViewGroup): VB
+
+    abstract fun setupViewModel()
+
+    abstract fun setupUI(savedInstanceState: Bundle?)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mActivity = (activity as FrogoAdmobActivity)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = container?.let { setupViewBinding(inflater, it) }
+        setupViewModel()
+        return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupUI(savedInstanceState)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 
     protected fun setupChildFragment(frameId: Int, fragment: Fragment) {
@@ -58,7 +82,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     }
 
     fun <Model> baseNewInstance(argsKey: String, data: Model) {
-        val argsData = BaseHelper().baseToJson(data)
+        val argsData = Gson().toJson(data)
         val bundleArgs = Bundle().apply {
             putString(argsKey, argsData)
         }
@@ -67,7 +91,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
 
     protected inline fun <reified Model> baseGetInstance(argsKey: String): Model {
         val argsData = this.arguments?.getString(argsKey)
-        val instaceData = BaseHelper().baseFromJson<Model>(argsData)
+        val instaceData = Gson().fromJson(argsData, Model::class.java)
         return instaceData
     }
 
@@ -104,7 +128,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
         data: Model
     ) {
         val intent = Intent(context, ClassActivity::class.java)
-        val extraData = BaseHelper().baseToJson(data)
+        val extraData = Gson().toJson(data)
         intent.putExtra(extraKey, extraData)
         this.startActivity(intent)
     }

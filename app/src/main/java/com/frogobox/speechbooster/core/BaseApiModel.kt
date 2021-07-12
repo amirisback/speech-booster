@@ -1,11 +1,13 @@
-package com.frogobox.speechbooster.base.view
+package com.frogobox.speechbooster.core
+
+import com.google.gson.annotations.SerializedName
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * SpeechBooster
- * Copyright (C) 18/08/2019.
+ * Copyright (C) 21/08/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -17,7 +19,9 @@ package com.frogobox.speechbooster.base.view
  * com.frogobox.speechbooster.base
  *
  */
-interface BaseListener<T> {
-    fun onItemClicked(data: T)
-    fun onItemLongClicked(data: T)
-}
+data class BaseApiModel<T>(
+    @SerializedName("code") val code: Int,
+    @SerializedName("message") val message: String,
+    @SerializedName("status") val status: String,
+    @SerializedName("data") val data: T? = null
+)

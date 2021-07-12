@@ -1,13 +1,12 @@
 package com.frogobox.speechbooster.view.ui.activity
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.lifecycle.Observer
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.base.view.ui.BaseActivity
+import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityScriptDetailBinding
 import com.frogobox.speechbooster.model.FavoriteScript
 import com.frogobox.speechbooster.model.RepositoryScript
@@ -33,15 +32,23 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>(), Script
 
     private lateinit var mViewModel: ScriptDetailViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityScriptDetailBinding.inflate(LayoutInflater.from(this))
-        setContentView(binding.root)
+    override fun setupViewBinding(): ActivityScriptDetailBinding {
+        return ActivityScriptDetailBinding.inflate(layoutInflater)
+    }
+
+    override fun setupUI(savedInstanceState: Bundle?) {
         setupDetailActivity("")
-        setupViewModel()
-        setupLiveObserve()
         setupRoleView()
         setupShowAdsBanner(binding.adsBanner)
+    }
+
+    override fun setupViewModel() {
+        mViewModel = obtainScriptDetailViewModel().apply {
+            isFavoriteLive.observe(this@ScriptDetailActivity, Observer {
+                setupFavoriteView(it)
+                setupButtonFav(it)
+            })
+        }
     }
 
     fun obtainScriptDetailViewModel(): ScriptDetailViewModel =
@@ -109,19 +116,6 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>(), Script
             binding.ivBtnFavorite.setImageResource(R.drawable.ic_toolbar_favorite)
         } else {
             binding.ivBtnFavorite.setImageResource(R.drawable.ic_toolbar_unfavorite)
-        }
-    }
-
-    private fun setupViewModel() {
-        mViewModel = obtainScriptDetailViewModel()
-    }
-
-    private fun setupLiveObserve() {
-        mViewModel.apply {
-            isFavoriteLive.observe(this@ScriptDetailActivity, Observer {
-                setupFavoriteView(it)
-                setupButtonFav(it)
-            })
         }
     }
 
@@ -240,8 +234,6 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>(), Script
     }
 
     override fun onSuccesInsert() {
-        setupLiveObserve()
-
     }
 
     override fun onSuccesDelete() {
@@ -251,4 +243,5 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>(), Script
     override fun onFailed(message: String) {
         showToast(message)
     }
+
 }

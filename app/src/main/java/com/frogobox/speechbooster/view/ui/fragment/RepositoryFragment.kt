@@ -7,23 +7,22 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.base.view.ui.BaseFragment
+import com.frogobox.speechbooster.core.BaseFragment
 import com.frogobox.speechbooster.databinding.FragmentRepositoryBinding
 import com.frogobox.speechbooster.util.helper.PagerHelper
 
 class RepositoryFragment : BaseFragment<FragmentRepositoryBinding>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentRepositoryBinding.inflate(inflater, container, false)
-        return binding?.root
+    override fun setupViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup
+    ): FragmentRepositoryBinding {
+        return FragmentRepositoryBinding.inflate(inflater, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun setupViewModel() {}
+
+    override fun setupUI(savedInstanceState: Bundle?) {
         setupViewPager()
     }
 
@@ -36,4 +35,5 @@ class RepositoryFragment : BaseFragment<FragmentRepositoryBinding>() {
             tablayout.setupWithViewPager(viewpager)
         }
     }
+
 }

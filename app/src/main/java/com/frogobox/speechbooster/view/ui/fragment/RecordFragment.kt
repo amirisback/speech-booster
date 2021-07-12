@@ -20,9 +20,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.base.view.ui.BaseFragment
+import com.frogobox.speechbooster.core.BaseFragment
 import com.frogobox.speechbooster.databinding.FragmentRecordBinding
-import com.frogobox.speechbooster.databinding.FragmentScriptBinding
 import com.frogobox.speechbooster.util.helper.ConstHelper
 import com.frogobox.speechbooster.util.camera.CompareSizesByArea
 import com.frogobox.speechbooster.util.camera.DialogConfirmation
@@ -116,13 +115,14 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        setupViewModel()
-        binding = FragmentRecordBinding.inflate(inflater, container, false)
-        return binding?.root
+    override fun setupViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup
+    ): FragmentRecordBinding {
+        return FragmentRecordBinding.inflate(inflater, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun setupUI(savedInstanceState: Bundle?) {
         binding?.imgRecordMenu?.setOnClickListener(this)
         setupRoleView()
         finishRecord()
@@ -182,7 +182,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
         }
     }
 
-    private fun setupViewModel() {
+    override fun setupViewModel() {
         mViewModel = (activity as RecordActivity).obtainVideoRecordViewModel().apply {
 
         }

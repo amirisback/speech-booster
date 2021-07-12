@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.base.view.ui
+package com.frogobox.speechbooster.core
 
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
@@ -7,16 +7,15 @@ import android.os.Handler
 import android.view.*
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.frogobox.admob.core.admob.FrogoAdmobActivity
+import com.frogobox.admob.ui.FrogoAdmobActivity
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.base.util.BaseHelper
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ViewModelFactory
 import com.frogobox.speechbooster.util.helper.ConstHelper
+import com.google.gson.Gson
 
 
 /**
@@ -36,12 +35,29 @@ import com.frogobox.speechbooster.util.helper.ConstHelper
  * com.frogobox.publicspeakingbooster.base
  *
  */
-abstract class BaseActivity<T : ViewBinding> : FrogoAdmobActivity() {
+abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
 
-    protected lateinit var binding: T
+    protected lateinit var binding: VB
+
+    abstract fun setupViewBinding(): VB
+
+    abstract fun setupViewModel()
+
+    abstract fun setupUI(savedInstanceState: Bundle?)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = setupViewBinding()
+        setContentView(binding.root)
+        setupViewModel()
+        setupUI(savedInstanceState)
+        setupAdmob()
+    }
+
+    private fun setupAdmob() {
+        setupAdsPublisher(getString(R.string.admob_publisher_id))
+        setupAdsBanner(getString(R.string.admob_banner))
+        setupAdsInterstitial(getString(R.string.admob_interstitial))
     }
 
     protected fun setupCustomTitleToolbar(title: Int) {
@@ -90,14 +106,14 @@ abstract class BaseActivity<T : ViewBinding> : FrogoAdmobActivity() {
         data: Model
     ) {
         val intent = Intent(this, ClassActivity::class.java)
-        val extraData = BaseHelper().baseToJson(data)
+        val extraData = Gson().toJson(data)
         intent.putExtra(extraKey, extraData)
         this.startActivity(intent)
     }
 
     protected inline fun <reified Model> baseGetExtraData(extraKey: String): Model {
         val extraIntent = intent.getStringExtra(extraKey)
-        val extraData = BaseHelper().baseFromJson<Model>(extraIntent)
+        val extraData = Gson().fromJson(extraIntent, Model::class.java)
         return extraData
     }
 
