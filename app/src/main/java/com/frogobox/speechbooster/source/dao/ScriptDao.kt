@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.frogobox.speechbooster.model.Script
+import com.frogobox.speechbooster.source.model.Script
 import io.reactivex.Single
 /**
  * Created by Faisal Amir

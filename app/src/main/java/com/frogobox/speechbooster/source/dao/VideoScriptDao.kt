@@ -3,9 +3,9 @@ package com.frogobox.speechbooster.source.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.frogobox.speechbooster.model.FavoriteScript
-import com.frogobox.speechbooster.model.Script
-import com.frogobox.speechbooster.model.VideoScript
+import com.frogobox.speechbooster.source.model.FavoriteScript
+import com.frogobox.speechbooster.source.model.Script
+import com.frogobox.speechbooster.source.model.VideoScript
 import io.reactivex.Single
 
 /**

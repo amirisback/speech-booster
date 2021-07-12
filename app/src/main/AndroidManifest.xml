@@ -18,20 +18,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.ui.activity.SplashScreenActivity"
+            android:name=".mvvm.main.SplashScreenActivity"
             android:theme="@style/AppThemeNoToolbar">
 
         </activity>
-        <activity android:name=".view.ui.activity.CategoryScriptActivity" />
-        <activity android:name=".view.ui.activity.AboutUsActivity" />
+        <activity android:name=".mvvm.category.CategoryScriptActivity" />
+        <activity android:name=".mvvm.main.AboutUsActivity" />
         <activity
-            android:name=".view.ui.activity.RecordActivity"
+            android:name=".mvvm.record.RecordActivity"
             android:theme="@style/AppThemeNoToolbarDark" />
-        <activity android:name=".view.ui.activity.ScriptEditorActivity" />
-        <activity android:name=".view.ui.activity.VideoDetailActivity" />
-        <activity android:name=".view.ui.activity.ScriptDetailActivity" />
+        <activity android:name=".mvvm.script.ScriptEditorActivity" />
+        <activity android:name=".mvvm.video.VideoDetailActivity" />
+        <activity android:name=".mvvm.script.ScriptDetailActivity" />
         <activity
-            android:name=".view.ui.activity.MainActivity"
+            android:name=".mvvm.main.MainActivity"
             android:theme="@style/AppThemeNoToolbarSplash">
 
             <intent-filter>

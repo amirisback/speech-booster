@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackgroundWhite"
-    tools:context=".view.ui.fragment.ScriptFragment">
+    tools:context=".mvvm.script.ScriptFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

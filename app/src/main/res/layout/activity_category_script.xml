@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackgroundWhite"
-    tools:context=".view.ui.activity.CategoryScriptActivity">
+    tools:context=".mvvm.category.CategoryScriptActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -13,7 +13,7 @@
         android:layout_above="@+id/ads"
         android:clipToPadding="false"
         android:paddingTop="@dimen/dimen_big_16dp"
-        tools:context=".view.ui.activity.CategoryScriptActivity"
+        tools:context=".mvvm.category.CategoryScriptActivity"
         tools:listitem="@layout/recyclerview_item_category_script" />
 
     <include android:id="@+id/ads"

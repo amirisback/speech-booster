@@ -4,8 +4,17 @@ import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.frogobox.speechbooster.mvvm.category.CategoryScriptViewModel
+import com.frogobox.speechbooster.mvvm.category.CategoryViewModel
+import com.frogobox.speechbooster.mvvm.favorite.FavoriteScriptDetailViewModel
+import com.frogobox.speechbooster.mvvm.favorite.FavoriteScriptMainViewModel
+import com.frogobox.speechbooster.mvvm.script.ScriptDetailViewModel
+import com.frogobox.speechbooster.mvvm.script.ScriptEditorViewModel
+import com.frogobox.speechbooster.mvvm.script.ScriptMainViewModel
+import com.frogobox.speechbooster.mvvm.video.VideoScriptDetailViewModel
+import com.frogobox.speechbooster.mvvm.video.VideoScriptMainViewModel
+import com.frogobox.speechbooster.mvvm.video.VideoScriptRecordViewModel
 import com.frogobox.speechbooster.source.FrogoDataRepository
-import com.frogobox.speechbooster.viewmodel.*
 
 /**
  * Created by Faisal Amir

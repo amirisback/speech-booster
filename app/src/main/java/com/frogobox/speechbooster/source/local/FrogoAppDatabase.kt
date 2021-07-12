@@ -8,9 +8,9 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.frogobox.speechbooster.BuildConfig
 import com.frogobox.speechbooster.util.helper.ConstHelper.RoomDatabase.DATABASE_NAME
-import com.frogobox.speechbooster.model.FavoriteScript
-import com.frogobox.speechbooster.model.Script
-import com.frogobox.speechbooster.model.VideoScript
+import com.frogobox.speechbooster.source.model.FavoriteScript
+import com.frogobox.speechbooster.source.model.Script
+import com.frogobox.speechbooster.source.model.VideoScript
 import com.frogobox.speechbooster.source.dao.FavoriteScriptDao
 import com.frogobox.speechbooster.source.dao.ScriptDao
 import com.frogobox.speechbooster.source.dao.VideoScriptDao

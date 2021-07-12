@@ -1,9 +1,9 @@
 package com.frogobox.speechbooster.source
 
 import com.frogobox.speechbooster.core.BaseDataSource
-import com.frogobox.speechbooster.model.FavoriteScript
-import com.frogobox.speechbooster.model.Script
-import com.frogobox.speechbooster.model.VideoScript
+import com.frogobox.speechbooster.source.model.FavoriteScript
+import com.frogobox.speechbooster.source.model.Script
+import com.frogobox.speechbooster.source.model.VideoScript
 
 /**
  * Created by Faisal Amir

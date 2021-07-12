@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackgroundWhite"
-    tools:context=".view.ui.fragment.RepositoryFragment">
+    tools:context=".mvvm.main.RepositoryFragment">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tablayout"

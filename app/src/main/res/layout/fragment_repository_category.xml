@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ui.fragment.RepositoryCategoryFragment">
+    tools:context=".mvvm.main.RepositoryCategoryFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/ads_banner"
+        android:layout_above="@+id/ads"
         android:clipToPadding="false"
         android:paddingRight="@dimen/dimen_big_16dp"
         android:paddingBottom="@dimen/dimen_big_16dp"
