@@ -9,7 +9,6 @@ import com.frogobox.speechbooster.route.Implicit.Endpoint.RECORD_ACTIVITY
 import com.frogobox.speechbooster.route.Implicit.Endpoint.SCRIPT_DETAIL_ACTIVITY
 import com.frogobox.speechbooster.route.Implicit.Endpoint.SCRIPT_EDITOR_ACTIVITY
 import com.frogobox.speechbooster.route.Implicit.Endpoint.VIDEO_DETAIL_ACTIVITY
-import com.frogobox.speechbooster.route.Implicit.Module.BASE_ACTIVITY
 import com.frogobox.speechbooster.route.Implicit.Module.BASE_PACKAGE
 
 /**
@@ -33,17 +32,15 @@ object Implicit {
 
     object Module {
         const val BASE_PACKAGE = "com.frogobox.speechbooster"
-        const val BASE_ACTIVITY = "view.ui.activity"
-
     }
 
     object Endpoint {
-        const val SCRIPT_DETAIL_ACTIVITY = "$BASE_PACKAGE.$BASE_ACTIVITY.ScriptDetailActivity"
-        const val SCRIPT_EDITOR_ACTIVITY = "$BASE_PACKAGE.$BASE_ACTIVITY.ScriptEditorActivity"
-        const val VIDEO_DETAIL_ACTIVITY = "$BASE_PACKAGE.$BASE_ACTIVITY.VideoDetailActivity"
-        const val RECORD_ACTIVITY = "$BASE_PACKAGE.$BASE_ACTIVITY.RecordActivity"
-        const val ABOUT_US_ACTIVITY = "$BASE_PACKAGE.$BASE_ACTIVITY.AboutUsActivity"
-        const val CATEGORY_SCRIPT_ACTIVITY = "$BASE_PACKAGE.$BASE_ACTIVITY.CategoryScriptActivity"
+        const val SCRIPT_DETAIL_ACTIVITY = "$BASE_PACKAGE.mvvm.script.ScriptDetailActivity"
+        const val SCRIPT_EDITOR_ACTIVITY = "$BASE_PACKAGE.mvvm.script.ScriptEditorActivity"
+        const val VIDEO_DETAIL_ACTIVITY = "$BASE_PACKAGE.mvvm.video.VideoDetailActivity"
+        const val RECORD_ACTIVITY = "$BASE_PACKAGE.mvvm.record.RecordActivity"
+        const val ABOUT_US_ACTIVITY = "$BASE_PACKAGE.mvvm.main.AboutUsActivity"
+        const val CATEGORY_SCRIPT_ACTIVITY = "$BASE_PACKAGE.mvvm.category.CategoryScriptActivity"
 
     }
 
