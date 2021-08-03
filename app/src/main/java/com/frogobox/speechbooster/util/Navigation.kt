@@ -6,13 +6,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_OPTION
-import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_BOOLEAN
-import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_FLOAT
-import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_INT
-import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
-import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_STRING
-import com.frogobox.speechbooster.util.helper.FunHelper
+import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_OPTION
+import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_BOOLEAN
+import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_FLOAT
+import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_INT
+import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_OBJECT
+import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_STRING
 import com.google.gson.Gson
 
 /**

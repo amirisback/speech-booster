@@ -4,8 +4,7 @@ import android.app.Application
 import com.frogobox.speechbooster.core.BaseViewModel
 import com.frogobox.speechbooster.source.model.VideoScript
 import com.frogobox.speechbooster.source.FrogoDataRepository
-import com.frogobox.speechbooster.util.helper.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
-import com.frogobox.speechbooster.mvvm.video.VideoRecordViewCallback
+import com.frogobox.speechbooster.util.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
 
 /**
  * Created by Faisal Amir

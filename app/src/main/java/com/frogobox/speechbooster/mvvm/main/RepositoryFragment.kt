@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.core.BaseFragment
 import com.frogobox.speechbooster.databinding.FragmentRepositoryBinding
-import com.frogobox.speechbooster.util.helper.PagerHelper
+import com.frogobox.speechbooster.util.PagerHelper
 
 class RepositoryFragment : BaseFragment<FragmentRepositoryBinding>() {
 

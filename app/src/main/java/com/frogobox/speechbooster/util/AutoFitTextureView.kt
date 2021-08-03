@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.util.camera
+package com.frogobox.speechbooster.util
 
 import android.content.Context
 import android.util.AttributeSet

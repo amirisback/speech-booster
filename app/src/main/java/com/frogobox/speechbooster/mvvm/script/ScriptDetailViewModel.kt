@@ -2,16 +2,16 @@ package com.frogobox.speechbooster.mvvm.script
 
 import android.app.Application
 import android.util.Log
+import com.frogobox.frogosdk.core.FrogoDate.DATE_EEEE_DD_MM_YYYY
+import com.frogobox.frogosdk.core.FrogoDate.getCurrentDate
 import com.frogobox.frogosdk.core.FrogoLiveEvent
 import com.frogobox.speechbooster.core.BaseViewModel
-import com.frogobox.speechbooster.util.helper.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
+import com.frogobox.speechbooster.util.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
 import com.frogobox.speechbooster.source.model.FavoriteScript
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.FrogoDataSource
-import com.frogobox.speechbooster.util.helper.ConstHelper.Const.OPTION_DELETE
-import com.frogobox.speechbooster.util.helper.ConstHelper.Const.OPTION_GET
-import com.frogobox.speechbooster.util.helper.ConstHelper.Date.DATE_EEEE_DD_MM_YYYY
-import com.frogobox.speechbooster.util.helper.DateHelper
+import com.frogobox.speechbooster.util.ConstHelper.Const.OPTION_DELETE
+import com.frogobox.speechbooster.util.ConstHelper.Const.OPTION_GET
 import com.frogobox.speechbooster.mvvm.favorite.FavoriteEditorViewCallback
 
 /**
@@ -134,7 +134,7 @@ class ScriptDetailViewModel(
     }
 
     fun addToFavorite(title: String, script_id: String, description: String, callback: FavoriteEditorViewCallback){
-        val dateNow = DateHelper.getCurrentDate(DATE_EEEE_DD_MM_YYYY)
+        val dateNow = getCurrentDate(DATE_EEEE_DD_MM_YYYY)
         val favoriteScript = FavoriteScript(
             title = title,
             script_id = script_id,

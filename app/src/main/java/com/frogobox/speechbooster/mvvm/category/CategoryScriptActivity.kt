@@ -3,6 +3,7 @@ package com.frogobox.speechbooster.mvvm.category
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.frogobox.frogosdk.core.FrogoFunc.noAction
 import com.frogobox.recycler.core.IFrogoBindingAdapter
 import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityCategoryScriptBinding
@@ -12,11 +13,10 @@ import com.frogobox.speechbooster.source.model.RepositoryScript
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
-import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_CATEGORY
-import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_EXAMPLE_SCRIPT
-import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_DETAIL
-import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
-import com.frogobox.speechbooster.util.helper.FunHelper.Func.noAction
+import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_CATEGORY
+import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_EXAMPLE_SCRIPT
+import com.frogobox.speechbooster.util.ConstHelper.Tag.TAG_ACTIVITY_DETAIL
+import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.route.Implicit.Activity.startScriptDetailActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

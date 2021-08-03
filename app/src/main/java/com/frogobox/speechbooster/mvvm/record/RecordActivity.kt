@@ -14,14 +14,13 @@ import com.frogobox.speechbooster.source.model.FavoriteScript
 import com.frogobox.speechbooster.source.model.RepositoryScript
 import com.frogobox.speechbooster.source.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
-import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_EXAMPLE_SCRIPT
-import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_FAVORITE_SCRIPT
-import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_SCRIPT
-import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_EXAMPLE_SCRIPT
-import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_FAVORITE_SCRIPT
-import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
-import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
-import com.frogobox.speechbooster.mvvm.video.VideoScriptRecordViewModel
+import com.frogobox.speechbooster.util.ConstHelper.Arg.ARGUMENTS_EXAMPLE_SCRIPT
+import com.frogobox.speechbooster.util.ConstHelper.Arg.ARGUMENTS_FAVORITE_SCRIPT
+import com.frogobox.speechbooster.util.ConstHelper.Arg.ARGUMENTS_SCRIPT
+import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_EXAMPLE_SCRIPT
+import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_FAVORITE_SCRIPT
+import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_SCRIPT
+import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_OBJECT
 
 
 class RecordActivity : BaseActivity<ActivityRecordBinding>() {

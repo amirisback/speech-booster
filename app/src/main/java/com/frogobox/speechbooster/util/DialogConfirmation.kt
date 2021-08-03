@@ -1,9 +1,9 @@
-package com.frogobox.speechbooster.util.camera
+package com.frogobox.speechbooster.util
 
 import android.app.AlertDialog
 import android.os.Bundle
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.util.helper.ConstHelper
+import com.frogobox.speechbooster.util.ConstHelper
 
 /**
  * Created by Faisal Amir

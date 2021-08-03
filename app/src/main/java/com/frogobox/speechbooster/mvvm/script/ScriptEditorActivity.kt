@@ -4,17 +4,17 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.frogobox.frogosdk.core.FrogoDate.DATE_EEEE_DD_MM_YYYY
+import com.frogobox.frogosdk.core.FrogoDate.getCurrentDate
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityScriptEditorBinding
-import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
-import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_CREATE
-import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
-import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
-import com.frogobox.speechbooster.util.helper.DateHelper.Companion.getCurrentDate
+import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_SCRIPT
+import com.frogobox.speechbooster.util.ConstHelper.Tag.TAG_ACTIVITY_CREATE
+import com.frogobox.speechbooster.util.ConstHelper.Tag.TAG_ACTIVITY_EDIT
+import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.source.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
-import com.frogobox.speechbooster.util.helper.ConstHelper.Date.DATE_EEEE_DD_MM_YYYY
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ScriptEditorActivity : BaseActivity<ActivityScriptEditorBinding>(), ScriptEditorViewCallback {

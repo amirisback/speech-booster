@@ -7,13 +7,11 @@ import android.os.Handler
 import android.view.*
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.frogobox.admob.ui.FrogoAdmobActivity
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
-import com.frogobox.speechbooster.util.helper.ConstHelper
+import com.frogobox.speechbooster.util.ConstHelper
 import com.google.gson.Gson
 
 

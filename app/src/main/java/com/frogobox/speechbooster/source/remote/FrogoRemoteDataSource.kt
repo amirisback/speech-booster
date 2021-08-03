@@ -1,7 +1,7 @@
 package com.frogobox.speechbooster.source.remote
 
 import android.content.Context
-import com.frogobox.speechbooster.util.helper.FunHelper.Func.noAction
+import com.frogobox.frogosdk.core.FrogoFunc.noAction
 import com.frogobox.speechbooster.source.model.FavoriteScript
 import com.frogobox.speechbooster.source.model.Script
 import com.frogobox.speechbooster.source.model.VideoScript
@@ -25,7 +25,6 @@ import com.frogobox.speechbooster.source.FrogoDataSource
  *
  */
 class FrogoRemoteDataSource(private val context: Context) : FrogoDataSource {
-
 
     override fun searchRoomFavorite(
         scriptId: String,
