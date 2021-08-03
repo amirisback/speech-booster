@@ -22,13 +22,12 @@ import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_FAVORITE_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.Tag.TAG_ACTIVITY_EDIT
 import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_OBJECT
-import com.frogobox.speechbooster.mvvm.favorite.FavoriteEditorViewCallback
 import com.frogobox.speechbooster.route.Implicit.Activity.startRecordActivity
 import com.frogobox.speechbooster.route.Implicit.Activity.startScriptEditorActivity
+import com.frogobox.speechbooster.source.local.LocalDataCallback
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>(), ScriptEditorViewCallback,
-    FavoriteEditorViewCallback {
+class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
 
     private val mViewModel: ScriptDetailViewModel by viewModel()
 
@@ -172,7 +171,28 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>(), Script
             script_id = extraScript.script_id!!
             description = extraScript.description!!
         }
-        mViewModel.addToFavorite(title, script_id, description, this)
+        mViewModel.addToFavorite(title, script_id, description, object : LocalDataCallback{
+
+            override fun onShowProgress() {
+                binding.progress.progressView.visibility = View.VISIBLE
+            }
+
+            override fun onHideProgress() {
+                binding.progress.progressView.visibility = View.GONE
+            }
+
+            override fun onSuccesInsert() {
+            }
+
+            override fun onSuccesDelete() {
+                finish()
+            }
+
+            override fun onFailed(message: String) {
+                showToast(message)
+            }
+
+        })
 
         showToast(getString(R.string.toast_fav_save))
     }
@@ -190,7 +210,26 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>(), Script
         val messageDialog = getString(R.string.dialog_message_delete)
         createDialogDefault(this, titleDialog, messageDialog, {
             val data = getBaseBundle<Script>(this, TYPE_OBJECT, EXTRA_SCRIPT)
-            mViewModel.deleteScriptData(data.table_id, this)
+            mViewModel.deleteScriptData(data.table_id, object : LocalDataCallback{
+                override fun onShowProgress() {
+                    binding.progress.progressView.visibility = View.VISIBLE
+                }
+
+                override fun onHideProgress() {
+                    binding.progress.progressView.visibility = View.GONE
+                }
+
+                override fun onSuccesInsert() {
+                }
+
+                override fun onSuccesDelete() {
+                    finish()
+                }
+
+                override fun onFailed(message: String) {
+                    showToast(message)
+                }
+            })
 
         }){
 
@@ -220,25 +259,6 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>(), Script
 
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    override fun onShowProgress() {
-        binding.progress.progressView.visibility = View.VISIBLE
-    }
-
-    override fun onHideProgress() {
-        binding.progress.progressView.visibility = View.GONE
-    }
-
-    override fun onSuccesInsert() {
-    }
-
-    override fun onSuccesDelete() {
-        finish()
-    }
-
-    override fun onFailed(message: String) {
-        showToast(message)
     }
 
 }

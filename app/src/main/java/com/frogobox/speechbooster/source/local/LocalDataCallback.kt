@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.core
+package com.frogobox.speechbooster.source.local
 
 /**
  * Created by Faisal Amir
@@ -17,7 +17,7 @@ package com.frogobox.speechbooster.core
  * com.frogobox.speechbooster.base
  *
  */
-interface BaseViewCallback {
+interface LocalDataCallback {
     fun onShowProgress()
     fun onHideProgress()
     fun onSuccesInsert()

@@ -10,9 +10,9 @@ import com.frogobox.speechbooster.util.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
 import com.frogobox.speechbooster.source.model.FavoriteScript
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.FrogoDataSource
+import com.frogobox.speechbooster.source.local.LocalDataCallback
 import com.frogobox.speechbooster.util.ConstHelper.Const.OPTION_DELETE
 import com.frogobox.speechbooster.util.ConstHelper.Const.OPTION_GET
-import com.frogobox.speechbooster.mvvm.favorite.FavoriteEditorViewCallback
 
 /**
  * Created by Faisal Amir
@@ -38,19 +38,18 @@ class ScriptDetailViewModel(
 
     val isFavoriteLive = FrogoLiveEvent<Boolean>()
 
-    fun deleteScriptData(tableId: Int, callback: ScriptEditorViewCallback){
+    fun deleteScriptData(tableId: Int, callback: LocalDataCallback){
         callback.onShowProgress()
         if (frogoDataRepository.deleteRoomScript(tableId)) {
             callback.onHideProgress()
             callback.onSuccesDelete()
-
         } else {
             callback.onHideProgress()
             callback.onFailed(DEFAULT_ERROR_MESSAGE)
         }
     }
 
-    fun addFavoriteData(data: FavoriteScript, callback: FavoriteEditorViewCallback) {
+    private fun addFavoriteData(data: FavoriteScript, callback: LocalDataCallback) {
         callback.onShowProgress()
         if (frogoDataRepository.saveRoomFavoriteScript(data)) {
             callback.onHideProgress()
@@ -62,7 +61,7 @@ class ScriptDetailViewModel(
         }
     }
 
-    fun deleteFavoriteData(script_id: String, callback: FavoriteEditorViewCallback) {
+    private fun deleteFavoriteData(script_id: String, callback: LocalDataCallback) {
         callback.onShowProgress()
         if (frogoDataRepository.deleteRoomFavoriteScriptId(script_id)) {
             callback.onHideProgress()
@@ -78,10 +77,10 @@ class ScriptDetailViewModel(
         Log.d("Data Ini", "Sesusai dengan extra")
         Log.d("Favorite Room ScriptId", favoriteScript.script_id!!)
         Log.d("Favorite Room TableId", favoriteScript.table_id.toString())
-        if (option.equals(OPTION_GET)){
+        if (option == OPTION_GET){
             isFavoriteLive.value = true
-        } else if (option.equals(OPTION_DELETE)){
-            deleteFavoriteData(favoriteScript.script_id!!, object : FavoriteEditorViewCallback {
+        } else if (option == OPTION_DELETE){
+            deleteFavoriteData(favoriteScript.script_id!!, object : LocalDataCallback {
                 override fun onShowProgress() {}
                 override fun onHideProgress() {}
                 override fun onSuccesInsert() {}
@@ -133,7 +132,7 @@ class ScriptDetailViewModel(
         getFavoriteData(script_id, OPTION_DELETE)
     }
 
-    fun addToFavorite(title: String, script_id: String, description: String, callback: FavoriteEditorViewCallback){
+    fun addToFavorite(title: String, script_id: String, description: String, callback: LocalDataCallback){
         val dateNow = getCurrentDate(DATE_EEEE_DD_MM_YYYY)
         val favoriteScript = FavoriteScript(
             title = title,

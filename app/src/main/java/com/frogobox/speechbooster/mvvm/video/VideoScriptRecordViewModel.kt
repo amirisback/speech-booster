@@ -4,6 +4,7 @@ import android.app.Application
 import com.frogobox.speechbooster.core.BaseViewModel
 import com.frogobox.speechbooster.source.model.VideoScript
 import com.frogobox.speechbooster.source.FrogoDataRepository
+import com.frogobox.speechbooster.source.local.LocalDataCallback
 import com.frogobox.speechbooster.util.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
 
 /**
@@ -28,7 +29,7 @@ class VideoScriptRecordViewModel  (
     private val frogoDataRepository: FrogoDataRepository
 ) : BaseViewModel(application) {
 
-    fun saveVideoData(data: VideoScript, callback: VideoRecordViewCallback) {
+    fun saveVideoData(data: VideoScript, callback: LocalDataCallback) {
         callback.onShowProgress()
         if (frogoDataRepository.saveRoomVideoScript(data)) {
             callback.onHideProgress()

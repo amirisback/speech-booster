@@ -5,6 +5,7 @@ import com.frogobox.speechbooster.core.BaseViewModel
 import com.frogobox.speechbooster.util.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
 import com.frogobox.speechbooster.source.model.Script
 import com.frogobox.speechbooster.source.FrogoDataRepository
+import com.frogobox.speechbooster.source.local.LocalDataCallback
 
 /**
  * Created by Faisal Amir
@@ -28,7 +29,7 @@ class ScriptEditorViewModel(
     private val frogoDataRepository: FrogoDataRepository
 ) : BaseViewModel(application) {
 
-    fun saveScriptData(data: Script, callback: ScriptEditorViewCallback) {
+    fun saveScriptData(data: Script, callback: LocalDataCallback) {
         callback.onShowProgress()
         if (frogoDataRepository.saveRoomScript(data)) {
             callback.onHideProgress()
@@ -39,7 +40,7 @@ class ScriptEditorViewModel(
         }
     }
 
-    fun updateScriptData(tableId: Int, data: Script, callback: ScriptEditorViewCallback) {
+    fun updateScriptData(tableId: Int, data: Script, callback: LocalDataCallback) {
         callback.onShowProgress()
         val newTitle = data.title!!
         val newDescription = data.description!!

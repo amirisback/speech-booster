@@ -70,12 +70,9 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
     }
 
     protected inline fun <reified ClassActivity> setupSplashScreen() {
-        Handler().postDelayed(object : Runnable {
-            override fun run() {
-                baseStartActivity<ClassActivity>()
-                this@BaseActivity.finish()
-            }
-
+        Handler().postDelayed({
+            baseStartActivity<ClassActivity>()
+            this@BaseActivity.finish()
         }, ConstHelper.Const.SPLASH_INTERVAL.toLong())
     }
 
