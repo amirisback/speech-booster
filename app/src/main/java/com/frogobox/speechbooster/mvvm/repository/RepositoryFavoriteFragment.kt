@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.mvvm.main
+package com.frogobox.speechbooster.mvvm.repository
 
 
 import android.os.Bundle
@@ -32,7 +32,7 @@ class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBindin
 
     override fun setupUI(savedInstanceState: Bundle?) {
         setupDataRoomFavorite()
-        binding?.ads?.let { setupShowAdsBanner(it.adsBanner) }
+        setupShowAdsBanner(binding.ads.adsBanner)
     }
 
     override fun onResume() {
@@ -43,12 +43,12 @@ class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBindin
     override fun setupViewModel() {
         mViewModel.apply {
 
-            eventIsEmpty.observe(viewLifecycleOwner, {
-                binding?.empty?.let { it1 -> setupEventEmptyView(it1.emptyView, it) }
+            eventEmptyData.observe(viewLifecycleOwner, {
+                setupEventEmptyView(binding.empty.emptyView, it)
             })
 
             eventShowProgress.observe(viewLifecycleOwner, {
-                binding?.progress?.let { it1 -> setupEventProgressView(it1.progressView, it) }
+                setupEventProgressView(binding.progress.progressView, it)
             })
 
             favoriteListLive.observe(viewLifecycleOwner, {
@@ -97,7 +97,7 @@ class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBindin
                 }
             }
 
-        binding?.recyclerView!!.injectorBinding<FavoriteScript, RecyclerviewItemScriptBinding>()
+        binding.recyclerView.injectorBinding<FavoriteScript, RecyclerviewItemScriptBinding>()
             .addData(data)
             .addCallback(adapterCallback)
             .createLayoutStaggeredGrid(2)

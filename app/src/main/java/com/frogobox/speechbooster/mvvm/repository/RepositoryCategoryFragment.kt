@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.mvvm.main
+package com.frogobox.speechbooster.mvvm.repository
 
 
 import android.os.Bundle
@@ -31,7 +31,7 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
 
     override fun setupUI(savedInstanceState: Bundle?) {
         setupData()
-        binding?.ads?.let { setupShowAdsBanner(it.adsBanner) }
+        setupShowAdsBanner(binding.ads.adsBanner)
     }
 
     override fun setupViewModel() {
@@ -72,7 +72,7 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
                 }
             }
 
-        binding?.recyclerView!!.injectorBinding<CategoryScript, RecyclerviewItemCategoryBinding>()
+        binding.recyclerView.injectorBinding<CategoryScript, RecyclerviewItemCategoryBinding>()
             .addData(data)
             .addCallback(adapterCallback)
             .createLayoutGrid(2)

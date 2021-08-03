@@ -80,7 +80,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
             cameraOpenCloseLock.release()
             this@RecordFragment.cameraDevice = cameraDevice
             startPreview()
-            binding?.textureView?.apply {
+            binding.textureView.apply {
                 configureTransform(width, height)
             }
         }
@@ -123,14 +123,14 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
     }
 
     override fun setupUI(savedInstanceState: Bundle?) {
-        binding?.imgRecordMenu?.setOnClickListener(this)
+        binding.imgRecordMenu.setOnClickListener(this)
         setupRoleView()
         finishRecord()
     }
 
     private fun finishRecord(){
-        binding?.imgToolbarHome?.setOnClickListener {
-            mActivity.finish()
+        binding.imgToolbarHome.setOnClickListener {
+            frogoActivity.finish()
         }
     }
 
@@ -142,7 +142,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
         // available, and "onSurfaceTextureAvailable" will not be called. In that case, we can open
         // a camera and start preview from here (otherwise, we wait until the surface is ready in
         // the SurfaceTextureListener).
-        binding?.textureView?.apply {
+        binding.textureView.apply {
             if (isAvailable) {
                 openCamera(width, height)
             } else {
@@ -207,7 +207,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
     }
 
     private fun setupViewElement(title: String, desc: String){
-        binding?.apply {
+        binding.apply {
             tvTitle.text = title
             tvDescription.text = desc
         }
@@ -287,7 +287,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
                 width, height, videoSize
             )
 
-            binding?.textureView?.apply {
+            binding.textureView.apply {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     setAspectRatio(previewSize.width, previewSize.height)
                 } else {
@@ -326,7 +326,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
     }
 
     private fun startPreview() {
-        binding?.textureView?.apply {
+        binding.textureView.apply {
             if (cameraDevice == null || !isAvailable) return
 
             try {
@@ -402,7 +402,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
                 postRotate((90 * (rotation - 2)).toFloat(), centerX, centerY)
             }
         }
-        binding?.textureView?.setTransform(matrix)
+        binding.textureView.setTransform(matrix)
     }
 
     @Throws(IOException::class)
@@ -437,7 +437,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
     }
 
     private fun startRecordingVideo() {
-        binding?.apply {
+        binding.apply {
             if (cameraDevice == null || !textureView.isAvailable) return
 
             try {
@@ -494,7 +494,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
 
     private fun stopRecordingVideo() {
         isRecordingVideo = false
-        binding?.imgRecordMenu?.setImageResource(R.drawable.ic_toolbar_record)
+        binding.imgRecordMenu.setImageResource(R.drawable.ic_toolbar_record)
         mediaRecorder?.apply {
             stop()
             reset()

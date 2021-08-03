@@ -5,7 +5,7 @@ import android.util.Log
 import com.frogobox.frogosdk.core.FrogoDate.DATE_EEEE_DD_MM_YYYY
 import com.frogobox.frogosdk.core.FrogoDate.getCurrentDate
 import com.frogobox.frogosdk.core.FrogoLiveEvent
-import com.frogobox.speechbooster.core.BaseViewModel
+import com.frogobox.frogosdk.core.FrogoViewModel
 import com.frogobox.speechbooster.util.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
 import com.frogobox.speechbooster.source.model.FavoriteScript
 import com.frogobox.speechbooster.source.FrogoDataRepository
@@ -34,7 +34,7 @@ import com.frogobox.speechbooster.util.ConstHelper.Const.OPTION_GET
 class ScriptDetailViewModel(
     application: Application,
     private val frogoDataRepository: FrogoDataRepository
-) : BaseViewModel(application) {
+) : FrogoViewModel(application) {
 
     val isFavoriteLive = FrogoLiveEvent<Boolean>()
 

@@ -25,7 +25,7 @@ class VideoFragment : BaseFragment<FragmentVideoBinding>() {
     override fun setupViewModel() {
         mViewModel.apply {
 
-            eventIsEmpty.observe(this@VideoFragment, Observer {
+            eventEmptyData.observe(this@VideoFragment, Observer {
 
             })
 

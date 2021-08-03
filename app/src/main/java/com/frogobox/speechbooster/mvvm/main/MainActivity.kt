@@ -6,6 +6,7 @@ import android.view.MenuItem
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityMainBinding
+import com.frogobox.speechbooster.mvvm.repository.RepositoryFragment
 import com.frogobox.speechbooster.mvvm.script.ScriptFragment
 import com.frogobox.speechbooster.mvvm.video.VideoFragment
 

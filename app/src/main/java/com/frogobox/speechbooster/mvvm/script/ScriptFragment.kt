@@ -46,8 +46,8 @@ class ScriptFragment : BaseFragment<FragmentScriptBinding>() {
     override fun setupViewModel() {
         mViewModel.apply {
 
-            eventIsEmpty.observe(this@ScriptFragment, Observer {
-                binding?.empty?.let { it1 -> setupEventEmptyView(it1.emptyView, it) }
+            eventEmptyData.observe(this@ScriptFragment, Observer {
+                setupEventEmptyView(binding.empty.emptyView, it)
             })
 
             scriptListLive.observe(this@ScriptFragment, Observer {
@@ -55,7 +55,7 @@ class ScriptFragment : BaseFragment<FragmentScriptBinding>() {
             })
 
             eventShowProgress.observe(this@ScriptFragment, Observer {
-                binding?.progress?.let { it1 -> setupEventProgressView(it1.progressView, it) }
+                setupEventProgressView(binding.progress.progressView, it)
             })
 
         }
@@ -67,7 +67,7 @@ class ScriptFragment : BaseFragment<FragmentScriptBinding>() {
 
     private fun setupFabButton() {
         val option = createOptionBundle(TAG_ACTIVITY_CREATE)
-        binding?.fabScriptEditor?.setOnClickListener {
+        binding.fabScriptEditor.setOnClickListener {
             context?.let {
                 startScriptEditorActivity(it, null, option)
             }
@@ -107,7 +107,7 @@ class ScriptFragment : BaseFragment<FragmentScriptBinding>() {
             }
         }
 
-        binding?.recyclerView!!.injectorBinding<Script, RecyclerviewItemScriptBinding>()
+        binding.recyclerView.injectorBinding<Script, RecyclerviewItemScriptBinding>()
             .addData(data)
             .addCallback(adapterCallback)
             .createLayoutStaggeredGrid(2)

@@ -1,7 +1,7 @@
 package com.frogobox.speechbooster.mvvm.video
 
 import android.app.Application
-import com.frogobox.speechbooster.core.BaseViewModel
+import com.frogobox.frogosdk.core.FrogoViewModel
 import com.frogobox.speechbooster.source.FrogoDataRepository
 
 /**
@@ -24,4 +24,4 @@ import com.frogobox.speechbooster.source.FrogoDataRepository
 class VideoScriptDetailViewModel (
     application: Application,
     private val frogoDataRepository: FrogoDataRepository
-) : BaseViewModel(application)
+) : FrogoViewModel(application)

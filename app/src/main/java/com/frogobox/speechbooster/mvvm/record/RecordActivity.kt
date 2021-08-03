@@ -41,26 +41,26 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>() {
 
         val recordFragment = RecordFragment()
 
-        if (checkExtra(EXTRA_SCRIPT)) {
+        when {
+            checkExtra(EXTRA_SCRIPT) -> {
+                val extraDataResultScript = getBaseBundle<Script>(this, TYPE_OBJECT, EXTRA_SCRIPT)
+                recordFragment.baseNewInstance(ARGUMENTS_SCRIPT, extraDataResultScript)
+                setupChildFragment(R.id.container, recordFragment)
+            }
 
-            val extraDataResultScript = getBaseBundle<Script>(this, TYPE_OBJECT, EXTRA_SCRIPT)
-            recordFragment.baseNewInstance(ARGUMENTS_SCRIPT, extraDataResultScript)
-            setupChildFragment(R.id.container, recordFragment)
+            checkExtra(EXTRA_EXAMPLE_SCRIPT) -> {
+                val extraDataResultExampleScript =
+                    getBaseBundle<RepositoryScript>(this, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
+                recordFragment.baseNewInstance(ARGUMENTS_EXAMPLE_SCRIPT, extraDataResultExampleScript)
+                setupChildFragment(R.id.container, recordFragment)
+            }
 
-        } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)) {
-
-            val extraDataResultExampleScript =
-                getBaseBundle<RepositoryScript>(this, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
-            recordFragment.baseNewInstance(ARGUMENTS_EXAMPLE_SCRIPT, extraDataResultExampleScript)
-            setupChildFragment(R.id.container, recordFragment)
-
-        } else if (checkExtra(EXTRA_FAVORITE_SCRIPT)) {
-
-            val extraDataResultFavoriteScript =
-                getBaseBundle<FavoriteScript>(this, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
-            recordFragment.baseNewInstance(ARGUMENTS_FAVORITE_SCRIPT, extraDataResultFavoriteScript)
-            setupChildFragment(R.id.container, recordFragment)
-
+            checkExtra(EXTRA_FAVORITE_SCRIPT) -> {
+                val extraDataResultFavoriteScript =
+                    getBaseBundle<FavoriteScript>(this, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
+                recordFragment.baseNewInstance(ARGUMENTS_FAVORITE_SCRIPT, extraDataResultFavoriteScript)
+                setupChildFragment(R.id.container, recordFragment)
+            }
         }
 
     }

@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.mvvm.main
+package com.frogobox.speechbooster.mvvm.repository
 
 
 import android.os.Bundle
@@ -29,7 +29,7 @@ class RepositoryFragment : BaseFragment<FragmentRepositoryBinding>() {
         val pagerAdapter = PagerHelper(childFragmentManager)
         pagerAdapter.setupPagerFragment(RepositoryCategoryFragment(), resources.getString(R.string.title_favorite_category))
         pagerAdapter.setupPagerFragment(RepositoryFavoriteFragment(), resources.getString(R.string.title_favorite_script))
-        binding?.apply {
+        binding.apply {
             viewpager.adapter = pagerAdapter
             tablayout.setupWithViewPager(viewpager)
         }

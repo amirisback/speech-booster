@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.viewbinding.ViewBinding
 import com.frogobox.admob.ui.FrogoAdmobActivity
+import com.frogobox.frogosdk.core.FrogoActivity
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ConstHelper
@@ -32,22 +33,10 @@ import com.google.gson.Gson
  * com.frogobox.publicspeakingbooster.base
  *
  */
-abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
-
-    protected lateinit var binding: VB
-
-    abstract fun setupViewBinding(): VB
-
-    abstract fun setupViewModel()
-
-    abstract fun setupUI(savedInstanceState: Bundle?)
+abstract class BaseActivity<VB : ViewBinding> : FrogoActivity<VB>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = setupViewBinding()
-        setContentView(binding.root)
-        setupViewModel()
-        setupUI(savedInstanceState)
         setupAdmob()
     }
 
@@ -55,10 +44,6 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
         setupAdsPublisher(getString(R.string.admob_publisher_id))
         setupAdsBanner(getString(R.string.admob_banner))
         setupAdsInterstitial(getString(R.string.admob_interstitial))
-    }
-
-    protected fun setupCustomTitleToolbar(title: Int) {
-        supportActionBar?.setTitle(title)
     }
 
     protected fun setupNoLimitStatBar() {
@@ -84,35 +69,11 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
         )
     }
 
-    protected fun <VB : ViewBinding> setupChildFragment(frameId: Int, fragment: BaseFragment<VB>) {
+    protected fun setupChildFragment(frameId: Int, fragment: BaseFragment<*>) {
         supportFragmentManager.beginTransaction().apply {
             replace(frameId, fragment)
             commit()
         }
-    }
-
-    protected inline fun <reified ClassActivity> baseStartActivity() {
-        this.startActivity(Intent(this, ClassActivity::class.java))
-    }
-
-    protected inline fun <reified ClassActivity, Model> baseStartActivity(
-        extraKey: String,
-        data: Model
-    ) {
-        val intent = Intent(this, ClassActivity::class.java)
-        val extraData = Gson().toJson(data)
-        intent.putExtra(extraKey, extraData)
-        this.startActivity(intent)
-    }
-
-    protected inline fun <reified Model> baseGetExtraData(extraKey: String): Model {
-        val extraIntent = intent.getStringExtra(extraKey)
-        val extraData = Gson().fromJson(extraIntent, Model::class.java)
-        return extraData
-    }
-
-    protected fun checkExtra(extraKey: String): Boolean {
-        return intent?.hasExtra(extraKey)!!
     }
 
     protected fun <Model, VB : ViewBinding> baseFragmentNewInstance(
@@ -127,11 +88,7 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
         return getOptionBundle(this)
     }
 
-    protected fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    protected fun setupDetailActivity(title: String) {
+    override fun setupDetailActivity(title: String) {
         setTitle(title)
         val upArrow = ContextCompat.getDrawable(this, R.drawable.ic_toolbar_back_home)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -160,20 +117,5 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
         }
     }
 
-    protected fun setupEventEmptyView(view: View, isEmpty: Boolean) {
-        if (isEmpty) {
-            view.visibility = View.VISIBLE
-        } else {
-            view.visibility = View.GONE
-        }
-    }
-
-    protected fun setupEventProgressView(view: View, progress: Boolean) {
-        if (progress) {
-            view.visibility = View.VISIBLE
-        } else {
-            view.visibility = View.GONE
-        }
-    }
 
 }
