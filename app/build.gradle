@@ -9,7 +9,7 @@ android {
     // Version Project
     def versionMajor = 2
     def versionMinor = 0
-    def versionPatch = 1
+    def versionPatch = 2
 
     // Application ID
     def packageDomain = "com"
