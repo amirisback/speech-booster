@@ -13,7 +13,6 @@ import androidx.viewbinding.ViewBinding
 import com.frogobox.admob.ui.FrogoAdmobActivity
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
-import com.frogobox.speechbooster.util.ViewModelFactory
 import com.frogobox.speechbooster.util.helper.ConstHelper
 import com.google.gson.Gson
 
@@ -151,9 +150,6 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
             )
         )
     }
-
-    fun <T : ViewModel> obtainViewModel(viewModelClass: Class<T>) =
-        ViewModelProvider(this, ViewModelFactory.getInstance(application)).get(viewModelClass)
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         return true

@@ -2,7 +2,7 @@ package com.frogobox.speechbooster.core
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import com.frogobox.speechbooster.util.SingleLiveEvent
+import com.frogobox.frogosdk.core.FrogoLiveEvent
 
 /**
  * Created by Faisal Amir
@@ -22,6 +22,6 @@ import com.frogobox.speechbooster.util.SingleLiveEvent
  *
  */
 open class BaseViewModel(application: Application) : AndroidViewModel(application) {
-    var eventShowProgress = SingleLiveEvent<Boolean>()
-    var eventIsEmpty = SingleLiveEvent<Boolean>()
+    var eventShowProgress = FrogoLiveEvent<Boolean>()
+    var eventIsEmpty = FrogoLiveEvent<Boolean>()
 }

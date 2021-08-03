@@ -15,10 +15,11 @@ import com.frogobox.speechbooster.util.helper.DateHelper.Companion.getCurrentDat
 import com.frogobox.speechbooster.source.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
 import com.frogobox.speechbooster.util.helper.ConstHelper.Date.DATE_EEEE_DD_MM_YYYY
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ScriptEditorActivity : BaseActivity<ActivityScriptEditorBinding>(), ScriptEditorViewCallback {
 
-    private lateinit var mViewModel: ScriptEditorViewModel
+    private val mViewModel: ScriptEditorViewModel by viewModel()
 
     override fun setupViewBinding(): ActivityScriptEditorBinding {
         return ActivityScriptEditorBinding.inflate(layoutInflater)
@@ -32,7 +33,7 @@ class ScriptEditorActivity : BaseActivity<ActivityScriptEditorBinding>(), Script
     }
 
     override fun setupViewModel() {
-        mViewModel = obtainScriptViewModel().apply {
+        mViewModel.apply {
 
         }
     }
@@ -85,9 +86,6 @@ class ScriptEditorActivity : BaseActivity<ActivityScriptEditorBinding>(), Script
     override fun onFailed(message: String) {
         showToast(message)
     }
-
-    private fun obtainScriptViewModel(): ScriptEditorViewModel = obtainViewModel(
-        ScriptEditorViewModel::class.java)
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_toolbar_accept, menu)

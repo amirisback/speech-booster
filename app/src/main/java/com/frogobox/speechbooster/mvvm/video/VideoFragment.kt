@@ -9,10 +9,11 @@ import androidx.lifecycle.Observer
 import com.frogobox.speechbooster.core.BaseFragment
 import com.frogobox.speechbooster.databinding.FragmentVideoBinding
 import com.frogobox.speechbooster.mvvm.main.MainActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class VideoFragment : BaseFragment<FragmentVideoBinding>() {
 
-    private lateinit var mViewModel: VideoScriptMainViewModel
+    private val mViewModel: VideoScriptMainViewModel by viewModel()
 
     override fun setupViewBinding(
         inflater: LayoutInflater,
@@ -22,7 +23,7 @@ class VideoFragment : BaseFragment<FragmentVideoBinding>() {
     }
 
     override fun setupViewModel() {
-        mViewModel = (activity as MainActivity).obtainVideoViewModel().apply {
+        mViewModel.apply {
 
             eventIsEmpty.observe(this@VideoFragment, Observer {
 

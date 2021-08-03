@@ -35,6 +35,7 @@ import com.frogobox.speechbooster.util.helper.ConstHelper.Arg.ARGUMENTS_SCRIPT
 import com.frogobox.speechbooster.util.helper.FunHelper.Func.createFolderPictureVideo
 import com.frogobox.speechbooster.util.helper.FunHelper.Func.getVideoFilePath
 import com.frogobox.speechbooster.mvvm.video.VideoScriptRecordViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.IOException
 import java.util.*
 import java.util.concurrent.Semaphore
@@ -45,7 +46,7 @@ import kotlin.collections.ArrayList
 class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListener,
     ActivityCompat.OnRequestPermissionsResultCallback {
 
-    private lateinit var mViewModel: VideoScriptRecordViewModel
+    private val mViewModel: VideoScriptRecordViewModel by viewModel()
     private lateinit var previewSize: Size
     private lateinit var videoSize: Size
     private lateinit var previewRequestBuilder: CaptureRequest.Builder
@@ -182,7 +183,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
     }
 
     override fun setupViewModel() {
-        mViewModel = (activity as RecordActivity).obtainVideoRecordViewModel().apply {
+        mViewModel.apply {
 
         }
     }

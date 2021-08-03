@@ -25,11 +25,12 @@ import com.frogobox.speechbooster.util.helper.FunHelper.Func.createDialogDefault
 import com.frogobox.speechbooster.mvvm.favorite.FavoriteEditorViewCallback
 import com.frogobox.speechbooster.route.Implicit.Activity.startRecordActivity
 import com.frogobox.speechbooster.route.Implicit.Activity.startScriptEditorActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>(), ScriptEditorViewCallback,
     FavoriteEditorViewCallback {
 
-    private lateinit var mViewModel: ScriptDetailViewModel
+    private val mViewModel: ScriptDetailViewModel by viewModel()
 
     override fun setupViewBinding(): ActivityScriptDetailBinding {
         return ActivityScriptDetailBinding.inflate(layoutInflater)
@@ -42,16 +43,13 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>(), Script
     }
 
     override fun setupViewModel() {
-        mViewModel = obtainScriptDetailViewModel().apply {
+        mViewModel.apply {
             isFavoriteLive.observe(this@ScriptDetailActivity, Observer {
                 setupFavoriteView(it)
                 setupButtonFav(it)
             })
         }
     }
-
-    fun obtainScriptDetailViewModel(): ScriptDetailViewModel =
-        obtainViewModel(ScriptDetailViewModel::class.java)
 
     private fun setupViewElement(title: String, date: String, desc: String, bundle: Bundle) {
         binding.apply {

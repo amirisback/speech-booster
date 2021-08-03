@@ -1,11 +1,11 @@
 package com.frogobox.speechbooster.mvvm.script
 
 import android.app.Application
+import com.frogobox.frogosdk.core.FrogoLiveEvent
 import com.frogobox.speechbooster.core.BaseViewModel
 import com.frogobox.speechbooster.source.model.Script
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.FrogoDataSource
-import com.frogobox.speechbooster.util.SingleLiveEvent
 
 /**
  * Created by Faisal Amir
@@ -29,7 +29,7 @@ class ScriptMainViewModel(
     private val frogoDataRepository: FrogoDataRepository
 ) : BaseViewModel(application) {
 
-    var scriptListLive = SingleLiveEvent<List<Script>>()
+    var scriptListLive = FrogoLiveEvent<List<Script>>()
 
     fun getScriptData() {
         frogoDataRepository.getRoomScript(object :

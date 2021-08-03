@@ -4,12 +4,10 @@ package com.frogobox.speechbooster.mvvm.main
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.frogobox.speechbooster.R
+import com.frogobox.recycler.core.IFrogoBindingAdapter
 import com.frogobox.speechbooster.core.BaseFragment
-import com.frogobox.speechbooster.core.BaseListener
 import com.frogobox.speechbooster.databinding.FragmentRepositoryFavoriteBinding
+import com.frogobox.speechbooster.databinding.RecyclerviewItemScriptBinding
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_DETAIL
 import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.util.helper.FunHelper.Func.noAction
@@ -18,15 +16,13 @@ import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_FAVORITE_SCRIPT
 import com.frogobox.speechbooster.route.Implicit.Activity.startScriptDetailActivity
-import com.frogobox.speechbooster.mvvm.favorite.FavoriteScriptAdapter
 import com.frogobox.speechbooster.mvvm.favorite.FavoriteScriptMainViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBinding>(),
-    BaseListener<FavoriteScript> {
+class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBinding>() {
 
-    private lateinit var mViewModel: FavoriteScriptMainViewModel
-
-
+    private val mViewModel: FavoriteScriptMainViewModel by viewModel()
+    
     override fun setupViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup
@@ -45,17 +41,17 @@ class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBindin
     }
 
     override fun setupViewModel() {
-        mViewModel = (activity as MainActivity).obtainFavoriteViewModel().apply {
+        mViewModel.apply {
 
-            eventIsEmpty.observe(this@RepositoryFavoriteFragment, Observer {
+            eventIsEmpty.observe(viewLifecycleOwner, {
                 binding?.empty?.let { it1 -> setupEventEmptyView(it1.emptyView, it) }
             })
 
-            eventShowProgress.observe(this@RepositoryFavoriteFragment, Observer {
+            eventShowProgress.observe(viewLifecycleOwner, {
                 binding?.progress?.let { it1 -> setupEventProgressView(it1.progressView, it) }
             })
 
-            favoriteListLive.observe(this@RepositoryFavoriteFragment, Observer {
+            favoriteListLive.observe(viewLifecycleOwner, {
                 setupRecyclerView(it)
             })
 
@@ -67,26 +63,47 @@ class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBindin
     }
 
     private fun setupRecyclerView(data: List<FavoriteScript>) {
-        val adapter = FavoriteScriptAdapter()
-        context?.let { adapter.setRecyclerViewLayout(it, R.layout.recyclerview_item_script) }
-        adapter.setRecyclerViewListener(this)
-        adapter.setRecyclerViewData(data)
-        binding?.apply {
-            recyclerView.adapter = adapter
-            recyclerView.layoutManager =
-                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        }
-    }
 
-    override fun onItemClicked(data: FavoriteScript) {
-        val extras = createBaseBundle(TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT, data)
-        val option = createOptionBundle(TAG_ACTIVITY_DETAIL)
-        context?.let { startScriptDetailActivity(it, extras, option) }
-    }
+        val adapterCallback =
+            object : IFrogoBindingAdapter<FavoriteScript, RecyclerviewItemScriptBinding> {
+                override fun onItemClicked(data: FavoriteScript) {
 
-    override fun onItemLongClicked(data: FavoriteScript) {
-        noAction()
-    }
+                    val extras = createBaseBundle(TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT, data)
+                    val option = createOptionBundle(TAG_ACTIVITY_DETAIL)
+                    context?.let { startScriptDetailActivity(it, extras, option) }
+                }
 
+                override fun onItemLongClicked(data: FavoriteScript) {
+                    noAction()
+                }
+
+                override fun setViewBinding(parent: ViewGroup): RecyclerviewItemScriptBinding {
+                    return RecyclerviewItemScriptBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                }
+
+                override fun setupInitComponent(
+                    binding: RecyclerviewItemScriptBinding,
+                    data: FavoriteScript
+                ) {
+                    binding.apply {
+                        tvTitle.text = data.title
+                        tvDescription.text = data.description
+                        tvDate.text = data.dateTime
+                    }
+                }
+            }
+
+        binding?.recyclerView!!.injectorBinding<FavoriteScript, RecyclerviewItemScriptBinding>()
+            .addData(data)
+            .addCallback(adapterCallback)
+            .createLayoutStaggeredGrid(2)
+            .build()
+
+
+    }
 
 }

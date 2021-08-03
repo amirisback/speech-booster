@@ -1,11 +1,12 @@
 package com.frogobox.speechbooster.mvvm.category
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.frogobox.speechbooster.R
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import com.frogobox.recycler.core.IFrogoBindingAdapter
 import com.frogobox.speechbooster.core.BaseActivity
-import com.frogobox.speechbooster.core.BaseListener
 import com.frogobox.speechbooster.databinding.ActivityCategoryScriptBinding
+import com.frogobox.speechbooster.databinding.RecyclerviewItemCategoryScriptBinding
 import com.frogobox.speechbooster.source.model.CategoryScript
 import com.frogobox.speechbooster.source.model.RepositoryScript
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
@@ -17,11 +18,11 @@ import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_DETAI
 import com.frogobox.speechbooster.util.helper.ConstHelper.TypeData.TYPE_OBJECT
 import com.frogobox.speechbooster.util.helper.FunHelper.Func.noAction
 import com.frogobox.speechbooster.route.Implicit.Activity.startScriptDetailActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CategoryScriptActivity : BaseActivity<ActivityCategoryScriptBinding>(),
-    BaseListener<RepositoryScript> {
+class CategoryScriptActivity : BaseActivity<ActivityCategoryScriptBinding>() {
 
-    private lateinit var mViewModel: CategoryScriptViewModel
+    private val mViewModel: CategoryScriptViewModel by viewModel()
 
     override fun setupViewBinding(): ActivityCategoryScriptBinding {
         return ActivityCategoryScriptBinding.inflate(layoutInflater)
@@ -34,13 +35,10 @@ class CategoryScriptActivity : BaseActivity<ActivityCategoryScriptBinding>(),
     }
 
     override fun setupViewModel() {
-        mViewModel = obtainCategoryScriptViewModel().apply {
+        mViewModel.apply {
 
         }
     }
-
-    fun obtainCategoryScriptViewModel(): CategoryScriptViewModel =
-        obtainViewModel(CategoryScriptViewModel::class.java)
 
     private fun setupData() {
         val extraDataResult = getBaseBundle<CategoryScript>(this, TYPE_OBJECT, EXTRA_CATEGORY)
@@ -48,26 +46,44 @@ class CategoryScriptActivity : BaseActivity<ActivityCategoryScriptBinding>(),
     }
 
     private fun setupRecyclerView(data: List<RepositoryScript>) {
-        val adapter = CategoryScriptAdapter()
-        adapter.setRecyclerViewLayout(this, R.layout.recyclerview_item_category_script)
-        adapter.setRecyclerViewListener(this)
-        adapter.setRecyclerViewData(data)
-        binding.apply {
-            recyclerView.adapter = adapter
-            recyclerView.layoutManager = LinearLayoutManager(this@CategoryScriptActivity, LinearLayoutManager.VERTICAL, false)
 
-        }
+        val adapterCallback =
+            object : IFrogoBindingAdapter<RepositoryScript, RecyclerviewItemCategoryScriptBinding> {
+                override fun onItemClicked(data: RepositoryScript) {
+                    val extras = createBaseBundle(TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT, data)
+                    val option = createOptionBundle(TAG_ACTIVITY_DETAIL)
+                    startScriptDetailActivity(this@CategoryScriptActivity, extras, option)
+                }
 
-    }
+                override fun onItemLongClicked(data: RepositoryScript) {
+                    noAction()
+                }
 
-    override fun onItemClicked(data: RepositoryScript) {
-        val extras = createBaseBundle(TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT, data)
-        val option = createOptionBundle(TAG_ACTIVITY_DETAIL)
-        startScriptDetailActivity(this, extras, option)
-    }
+                override fun setViewBinding(parent: ViewGroup): RecyclerviewItemCategoryScriptBinding {
+                    return RecyclerviewItemCategoryScriptBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                }
 
-    override fun onItemLongClicked(data: RepositoryScript) {
-        noAction()
+                override fun setupInitComponent(
+                    binding: RecyclerviewItemCategoryScriptBinding,
+                    data: RepositoryScript
+                ) {
+                    binding.apply {
+                        tvTitleExampleScript.text = data.title
+                        tvDescriptionExampleScript.text = data.description
+                    }
+                }
+            }
+
+        binding.recyclerView.injectorBinding<RepositoryScript, RecyclerviewItemCategoryScriptBinding>()
+            .addData(data)
+            .addCallback(adapterCallback)
+            .createLayoutLinearVertical(false)
+            .build()
+
     }
 
 }

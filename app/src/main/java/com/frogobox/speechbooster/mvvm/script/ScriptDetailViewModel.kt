@@ -2,12 +2,12 @@ package com.frogobox.speechbooster.mvvm.script
 
 import android.app.Application
 import android.util.Log
+import com.frogobox.frogosdk.core.FrogoLiveEvent
 import com.frogobox.speechbooster.core.BaseViewModel
 import com.frogobox.speechbooster.util.helper.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
 import com.frogobox.speechbooster.source.model.FavoriteScript
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.FrogoDataSource
-import com.frogobox.speechbooster.util.SingleLiveEvent
 import com.frogobox.speechbooster.util.helper.ConstHelper.Const.OPTION_DELETE
 import com.frogobox.speechbooster.util.helper.ConstHelper.Const.OPTION_GET
 import com.frogobox.speechbooster.util.helper.ConstHelper.Date.DATE_EEEE_DD_MM_YYYY
@@ -36,7 +36,7 @@ class ScriptDetailViewModel(
     private val frogoDataRepository: FrogoDataRepository
 ) : BaseViewModel(application) {
 
-    val isFavoriteLive = SingleLiveEvent<Boolean>()
+    val isFavoriteLive = FrogoLiveEvent<Boolean>()
 
     fun deleteScriptData(tableId: Int, callback: ScriptEditorViewCallback){
         callback.onShowProgress()

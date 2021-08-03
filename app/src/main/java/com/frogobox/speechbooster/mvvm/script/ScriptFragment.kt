@@ -3,13 +3,13 @@ package com.frogobox.speechbooster.mvvm.script
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.frogobox.speechbooster.R
+import com.frogobox.recycler.core.IFrogoBindingAdapter
 import com.frogobox.speechbooster.core.BaseFragment
-import com.frogobox.speechbooster.core.BaseListener
 import com.frogobox.speechbooster.databinding.FragmentScriptBinding
+import com.frogobox.speechbooster.databinding.RecyclerviewItemScriptBinding
 import com.frogobox.speechbooster.util.helper.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_CREATE
 import com.frogobox.speechbooster.util.helper.ConstHelper.Tag.TAG_ACTIVITY_EDIT
@@ -21,11 +21,11 @@ import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
 import com.frogobox.speechbooster.route.Implicit.Activity.startScriptDetailActivity
 import com.frogobox.speechbooster.route.Implicit.Activity.startScriptEditorActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ScriptFragment : BaseFragment<FragmentScriptBinding>(),
-    BaseListener<Script> {
+class ScriptFragment : BaseFragment<FragmentScriptBinding>() {
 
-    private lateinit var mViewModel: ScriptMainViewModel
+    private val mViewModel: ScriptMainViewModel by viewModel()
 
     override fun setupViewBinding(
         inflater: LayoutInflater,
@@ -45,7 +45,7 @@ class ScriptFragment : BaseFragment<FragmentScriptBinding>(),
     }
 
     override fun setupViewModel() {
-        mViewModel = (activity as MainActivity).obtainScriptMainViewModel().apply {
+        mViewModel.apply {
 
             eventIsEmpty.observe(this@ScriptFragment, Observer {
                 binding?.empty?.let { it1 -> setupEventEmptyView(it1.emptyView, it) }
@@ -77,25 +77,43 @@ class ScriptFragment : BaseFragment<FragmentScriptBinding>(),
     }
 
     private fun setupRecyclerView(data: List<Script>) {
-        val adapter = ScriptAdapter()
-        context?.let { adapter.setRecyclerViewLayout(it, R.layout.recyclerview_item_script) }
-        adapter.setRecyclerViewListener(this)
-        adapter.setRecyclerViewData(data)
-        binding?.apply {
-            recyclerView.adapter = adapter
-            recyclerView.layoutManager =
-                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+
+        val adapterCallback = object : IFrogoBindingAdapter<Script, RecyclerviewItemScriptBinding> {
+            override fun onItemClicked(data: Script) {
+                val extras = createBaseBundle(TYPE_OBJECT, EXTRA_SCRIPT, data)
+                val option = createOptionBundle(TAG_ACTIVITY_EDIT)
+                context?.let { startScriptDetailActivity(it, extras, option) }
+            }
+
+            override fun onItemLongClicked(data: Script) {
+                noAction()
+            }
+
+            override fun setViewBinding(parent: ViewGroup): RecyclerviewItemScriptBinding {
+                return RecyclerviewItemScriptBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            }
+
+            override fun setupInitComponent(binding: RecyclerviewItemScriptBinding, data: Script) {
+                binding.apply {
+                    tvTitle.text = data.title
+                    tvDescription.text = data.description
+                    tvDate.text = data.dateTime
+
+                    if (data.favorite!!) {
+                        ivFavorite.visibility = View.VISIBLE
+                    } else {
+                        ivFavorite.visibility = View.GONE
+                    }
+                }
+            }
         }
-    }
 
-    override fun onItemClicked(data: Script) {
-        val extras = createBaseBundle(TYPE_OBJECT, EXTRA_SCRIPT, data)
-        val option = createOptionBundle(TAG_ACTIVITY_EDIT)
-        context?.let { startScriptDetailActivity(it, extras, option) }
-    }
+        binding?.recyclerView!!.injectorBinding<Script, RecyclerviewItemScriptBinding>()
+            .addData(data)
+            .addCallback(adapterCallback)
+            .createLayoutStaggeredGrid(2)
+            .build()
 
-    override fun onItemLongClicked(data: Script) {
-        noAction()
     }
 
 }

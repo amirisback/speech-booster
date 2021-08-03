@@ -8,10 +8,6 @@ import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityMainBinding
 import com.frogobox.speechbooster.mvvm.script.ScriptFragment
 import com.frogobox.speechbooster.mvvm.video.VideoFragment
-import com.frogobox.speechbooster.mvvm.category.CategoryViewModel
-import com.frogobox.speechbooster.mvvm.favorite.FavoriteScriptMainViewModel
-import com.frogobox.speechbooster.mvvm.script.ScriptMainViewModel
-import com.frogobox.speechbooster.mvvm.video.VideoScriptMainViewModel
 
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -27,18 +23,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         setupBottomNav(R.id.framelayout_main_container)
         setupFragment(savedInstanceState)
     }
-
-    fun obtainScriptMainViewModel(): ScriptMainViewModel =
-        obtainViewModel(ScriptMainViewModel::class.java)
-
-    fun obtainCategoryViewModel(): CategoryViewModel =
-        obtainViewModel(CategoryViewModel::class.java)
-
-    fun obtainFavoriteViewModel(): FavoriteScriptMainViewModel =
-        obtainViewModel(FavoriteScriptMainViewModel::class.java)
-
-    fun obtainVideoViewModel(): VideoScriptMainViewModel =
-        obtainViewModel(VideoScriptMainViewModel::class.java)
 
     private fun setupFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {

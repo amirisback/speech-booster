@@ -38,9 +38,6 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>() {
         setupReadExternalStoragePermission()
     }
 
-    fun obtainVideoRecordViewModel(): VideoScriptRecordViewModel =
-        obtainViewModel(VideoScriptRecordViewModel::class.java)
-
     private fun setupRoleFragmentInstance() {
 
         val recordFragment = RecordFragment()
