@@ -14,7 +14,7 @@ class RepositoryFragment : BaseFragment<FragmentRepositoryBinding>() {
 
     override fun setupViewBinding(
         inflater: LayoutInflater,
-        container: ViewGroup
+        container: ViewGroup?
     ): FragmentRepositoryBinding {
         return FragmentRepositoryBinding.inflate(inflater, container, false)
     }

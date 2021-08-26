@@ -2,7 +2,10 @@ package com.frogobox.speechbooster.core
 
 import android.os.Bundle
 import androidx.viewbinding.ViewBinding
-import com.frogobox.frogosdk.core.FrogoFragment
+import com.frogobox.admob.core.FrogoAdmob
+import com.frogobox.sdk.core.FrogoFragment
+import com.google.android.gms.ads.AdView
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -21,5 +24,20 @@ import com.frogobox.frogosdk.core.FrogoFragment
  *
  */
 abstract class BaseFragment<VB : ViewBinding> : FrogoFragment<VB>() {
+
+    protected lateinit var mActivity: BaseActivity<*>
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        mActivity = (activity as BaseActivity<*>)
+    }
+
+    protected fun setupShowAdsBanner(mAdView: AdView) {
+        mActivity.setupShowAdsBanner(mAdView)
+    }
+
+    protected fun setupShowAdsInterstitial() {
+        mActivity.setupShowAdsInterstitial()
+    }
 
 }

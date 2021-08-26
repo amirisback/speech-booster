@@ -5,7 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.lifecycle.Observer
-import com.frogobox.frogosdk.core.FrogoFunc.createDialogDefault
+import com.frogobox.sdk.core.FrogoFunc.createDialogDefault
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityScriptDetailBinding

@@ -2,10 +2,10 @@ package com.frogobox.speechbooster.mvvm.script
 
 import android.app.Application
 import android.util.Log
-import com.frogobox.frogosdk.core.FrogoDate.DATE_EEEE_DD_MM_YYYY
-import com.frogobox.frogosdk.core.FrogoDate.getCurrentDate
-import com.frogobox.frogosdk.core.FrogoLiveEvent
-import com.frogobox.frogosdk.core.FrogoViewModel
+import com.frogobox.sdk.core.FrogoDate.DATE_EEEE_DD_MM_YYYY
+import com.frogobox.sdk.core.FrogoDate.getCurrentDate
+import com.frogobox.sdk.core.FrogoLiveEvent
+import com.frogobox.sdk.core.FrogoViewModel
 import com.frogobox.speechbooster.util.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
 import com.frogobox.speechbooster.source.model.FavoriteScript
 import com.frogobox.speechbooster.source.FrogoDataRepository

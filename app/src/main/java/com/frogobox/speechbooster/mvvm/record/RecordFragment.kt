@@ -19,8 +19,8 @@ import android.view.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
-import com.frogobox.frogosdk.core.FrogoFunc.createFolderPictureVideo
-import com.frogobox.frogosdk.core.FrogoFunc.getVideoFilePath
+import com.frogobox.sdk.core.FrogoFunc.createFolderPictureVideo
+import com.frogobox.sdk.core.FrogoFunc.getVideoFilePath
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.core.BaseFragment
 import com.frogobox.speechbooster.databinding.FragmentRecordBinding
@@ -117,7 +117,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
 
     override fun setupViewBinding(
         inflater: LayoutInflater,
-        container: ViewGroup
+        container: ViewGroup?
     ): FragmentRecordBinding {
         return FragmentRecordBinding.inflate(inflater, container, false)
     }

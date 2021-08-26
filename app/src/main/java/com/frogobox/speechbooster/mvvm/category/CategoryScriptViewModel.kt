@@ -2,7 +2,7 @@ package com.frogobox.speechbooster.mvvm.category
 
 import android.app.Application
 import android.content.Context
-import com.frogobox.frogosdk.core.FrogoViewModel
+import com.frogobox.sdk.core.FrogoViewModel
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.source.model.RepositoryScript
 import com.frogobox.speechbooster.source.FrogoDataRepository

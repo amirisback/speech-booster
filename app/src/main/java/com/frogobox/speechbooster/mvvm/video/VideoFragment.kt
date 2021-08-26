@@ -17,7 +17,7 @@ class VideoFragment : BaseFragment<FragmentVideoBinding>() {
 
     override fun setupViewBinding(
         inflater: LayoutInflater,
-        container: ViewGroup
+        container: ViewGroup?
     ): FragmentVideoBinding {
         return FragmentVideoBinding.inflate(inflater, container, false)
     }

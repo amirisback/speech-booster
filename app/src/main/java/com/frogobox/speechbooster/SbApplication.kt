@@ -1,6 +1,6 @@
 package com.frogobox.speechbooster
 
-import com.frogobox.frogosdk.FrogoApplication
+import com.frogobox.sdk.FrogoApplication
 import com.frogobox.speechbooster.di.repositoryModule
 import com.frogobox.speechbooster.di.viewModelModule
 import org.koin.core.KoinApplication

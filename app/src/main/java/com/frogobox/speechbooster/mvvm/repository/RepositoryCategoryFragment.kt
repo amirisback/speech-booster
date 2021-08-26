@@ -11,7 +11,7 @@ import com.frogobox.speechbooster.databinding.FragmentRepositoryCategoryBinding
 import com.frogobox.speechbooster.databinding.RecyclerviewItemCategoryBinding
 import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_CATEGORY
 import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_OBJECT
-import com.frogobox.frogosdk.core.FrogoFunc.noAction
+import com.frogobox.sdk.core.FrogoFunc.noAction
 import com.frogobox.speechbooster.source.model.CategoryScript
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.route.Implicit.Activity.startCategoryScriptActivity
@@ -24,7 +24,7 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
 
     override fun setupViewBinding(
         inflater: LayoutInflater,
-        container: ViewGroup
+        container: ViewGroup?
     ): FragmentRepositoryCategoryBinding {
         return FragmentRepositoryCategoryBinding.inflate(inflater, container, false)
     }

@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import com.frogobox.frogosdk.core.FrogoDate.DATE_EEEE_DD_MM_YYYY
-import com.frogobox.frogosdk.core.FrogoDate.getCurrentDate
+import com.frogobox.sdk.core.FrogoDate.DATE_EEEE_DD_MM_YYYY
+import com.frogobox.sdk.core.FrogoDate.getCurrentDate
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityScriptEditorBinding

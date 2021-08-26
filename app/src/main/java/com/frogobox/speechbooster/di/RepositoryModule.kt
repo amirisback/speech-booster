@@ -1,7 +1,7 @@
 package com.frogobox.speechbooster.di
 
 import androidx.preference.PreferenceManager
-import com.frogobox.frogosdk.util.AppExecutors
+import com.frogobox.sdk.util.AppExecutors
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.dao.FavoriteScriptDao
 import com.frogobox.speechbooster.source.dao.ScriptDao

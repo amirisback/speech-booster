@@ -18,30 +18,26 @@
         android:roundIcon="@drawable/ic_launcher_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".mvvm.main.SplashScreenActivity"
-            android:theme="@style/AppThemeNoToolbar">
 
-        </activity>
         <activity android:name=".mvvm.category.CategoryScriptActivity" />
         <activity android:name=".mvvm.main.AboutUsActivity" />
-        <activity
-            android:name=".mvvm.record.RecordActivity"
-            android:theme="@style/AppThemeNoToolbarDark" />
         <activity android:name=".mvvm.script.ScriptEditorActivity" />
         <activity android:name=".mvvm.video.VideoDetailActivity" />
         <activity android:name=".mvvm.script.ScriptDetailActivity" />
         <activity
+            android:name=".mvvm.main.SplashScreenActivity"
+            android:theme="@style/AppThemeNoToolbar" />
+        <activity
+            android:name=".mvvm.record.RecordActivity"
+            android:theme="@style/AppThemeNoToolbarDark" />
+        <activity
             android:name=".mvvm.main.MainActivity"
+            android:exported="true"
             android:theme="@style/AppThemeNoToolbarSplash">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
 
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->

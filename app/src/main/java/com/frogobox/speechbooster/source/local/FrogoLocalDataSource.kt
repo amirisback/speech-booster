@@ -2,8 +2,8 @@ package com.frogobox.speechbooster.source.local
 
 import android.content.SharedPreferences
 import androidx.annotation.VisibleForTesting
-import com.frogobox.frogosdk.core.FrogoLocalCallback
-import com.frogobox.frogosdk.util.AppExecutors
+import com.frogobox.sdk.core.FrogoLocalResponse
+import com.frogobox.sdk.util.AppExecutors
 import com.frogobox.speechbooster.source.model.FavoriteScript
 import com.frogobox.speechbooster.source.model.Script
 import com.frogobox.speechbooster.source.model.VideoScript
@@ -49,7 +49,7 @@ class FrogoLocalDataSource private constructor(
             favoriteScriptDao.searchData(scriptId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : FrogoLocalCallback<List<FavoriteScript>>() {
+                .subscribe(object : FrogoLocalResponse<List<FavoriteScript>>() {
                     override fun onCallbackSucces(data: List<FavoriteScript>) {
                         callback.onShowProgressDialog()
                         callback.onSuccess(data)
@@ -101,7 +101,7 @@ class FrogoLocalDataSource private constructor(
             favoriteScriptDao.getAllData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : FrogoLocalCallback<List<FavoriteScript>>() {
+                .subscribe(object : FrogoLocalResponse<List<FavoriteScript>>() {
                     override fun onCallbackSucces(data: List<FavoriteScript>) {
                         callback.onShowProgressDialog()
                         callback.onSuccess(data)
@@ -132,7 +132,7 @@ class FrogoLocalDataSource private constructor(
             videoScriptDao.getAllData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : FrogoLocalCallback<List<VideoScript>>() {
+                .subscribe(object : FrogoLocalResponse<List<VideoScript>>() {
                     override fun onCallbackSucces(data: List<VideoScript>) {
                         callback.onShowProgressDialog()
                         callback.onSuccess(data)
@@ -162,7 +162,7 @@ class FrogoLocalDataSource private constructor(
             scriptDao.getAllData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : FrogoLocalCallback<List<Script>>() {
+                .subscribe(object : FrogoLocalResponse<List<Script>>() {
                     override fun onCallbackSucces(data: List<Script>) {
                         callback.onShowProgressDialog()
                         callback.onSuccess(data)

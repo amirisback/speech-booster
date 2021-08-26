@@ -3,7 +3,7 @@ package com.frogobox.speechbooster.mvvm.category
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.frogobox.frogosdk.core.FrogoFunc.noAction
+import com.frogobox.sdk.core.FrogoFunc.noAction
 import com.frogobox.recycler.core.IFrogoBindingAdapter
 import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityCategoryScriptBinding

@@ -10,7 +10,7 @@ import com.frogobox.speechbooster.databinding.FragmentRepositoryFavoriteBinding
 import com.frogobox.speechbooster.databinding.RecyclerviewItemScriptBinding
 import com.frogobox.speechbooster.util.ConstHelper.Tag.TAG_ACTIVITY_DETAIL
 import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_OBJECT
-import com.frogobox.frogosdk.core.FrogoFunc.noAction
+import com.frogobox.sdk.core.FrogoFunc.noAction
 import com.frogobox.speechbooster.source.model.FavoriteScript
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
@@ -25,7 +25,7 @@ class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBindin
     
     override fun setupViewBinding(
         inflater: LayoutInflater,
-        container: ViewGroup
+        container: ViewGroup?
     ): FragmentRepositoryFavoriteBinding {
         return FragmentRepositoryFavoriteBinding.inflate(inflater, container, false)
     }

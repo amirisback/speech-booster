@@ -14,7 +14,7 @@ import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.Tag.TAG_ACTIVITY_CREATE
 import com.frogobox.speechbooster.util.ConstHelper.Tag.TAG_ACTIVITY_EDIT
 import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_OBJECT
-import com.frogobox.frogosdk.core.FrogoFunc.noAction
+import com.frogobox.sdk.core.FrogoFunc.noAction
 import com.frogobox.speechbooster.source.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
@@ -28,7 +28,7 @@ class ScriptFragment : BaseFragment<FragmentScriptBinding>() {
 
     override fun setupViewBinding(
         inflater: LayoutInflater,
-        container: ViewGroup
+        container: ViewGroup?
     ): FragmentScriptBinding {
         return FragmentScriptBinding.inflate(inflater, container, false)
     }
