@@ -1,7 +1,7 @@
 package com.frogobox.speechbooster.di
 
 import com.frogobox.speechbooster.mvvm.category.CategoryScriptViewModel
-import com.frogobox.speechbooster.mvvm.category.CategoryViewModel
+import com.frogobox.speechbooster.mvvm.repository.RepositoryCategoryViewModel
 import com.frogobox.speechbooster.mvvm.favorite.FavoriteScriptMainViewModel
 import com.frogobox.speechbooster.mvvm.script.ScriptDetailViewModel
 import com.frogobox.speechbooster.mvvm.script.ScriptEditorViewModel
@@ -32,7 +32,7 @@ val viewModelModule = module {
     }
 
     viewModel {
-        CategoryViewModel(androidApplication(), get())
+        RepositoryCategoryViewModel(androidApplication(), get())
     }
 
     viewModel {

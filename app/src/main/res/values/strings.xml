@@ -24,6 +24,8 @@
     <string name="title_category_health">Kesehatan</string>
     <string name="title_category_education">Pendidikan</string>
     <string name="title_category_general">Umum</string>
+    <string name="title_category_news">Berita</string>
+    <string name="title_category_movie">Film</string>
 
     <string name="text_edit">Edit</string>
     <string name="text_delete">Delete</string>

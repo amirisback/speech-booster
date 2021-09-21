@@ -1,4 +1,4 @@
-package com.frogobox.speechbooster.mvvm.category
+package com.frogobox.speechbooster.mvvm.repository
 
 import android.app.Application
 import android.content.Context
@@ -24,7 +24,7 @@ import com.frogobox.speechbooster.source.FrogoDataRepository
  * com.frogobox.speechbooster.viewmodel
  *
  */
-class CategoryViewModel (
+class RepositoryCategoryViewModel (
     application: Application,
     private val frogoDataRepository: FrogoDataRepository
 ) : FrogoViewModel(application) {
@@ -36,6 +36,8 @@ class CategoryViewModel (
         categoryList.add(CategoryScript(context.getString(R.string.title_category_education), R.drawable.ic_repo_education))
         categoryList.add(CategoryScript(context.getString(R.string.title_category_health), R.drawable.ic_repo_healthy))
         categoryList.add(CategoryScript(context.getString(R.string.title_category_general), R.drawable.ic_repo_general))
+        categoryList.add(CategoryScript(context.getString(R.string.title_category_news), R.drawable.ic_repo_news))
+        categoryList.add(CategoryScript(context.getString(R.string.title_category_movie), R.drawable.ic_repo_movie))
         return categoryList
     }
 

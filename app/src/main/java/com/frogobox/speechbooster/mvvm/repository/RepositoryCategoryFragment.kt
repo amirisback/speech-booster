@@ -15,12 +15,11 @@ import com.frogobox.sdk.core.FrogoFunc.noAction
 import com.frogobox.speechbooster.source.model.CategoryScript
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
 import com.frogobox.speechbooster.route.Implicit.Activity.startCategoryScriptActivity
-import com.frogobox.speechbooster.mvvm.category.CategoryViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBinding>() {
 
-    private val mViewModel: CategoryViewModel by viewModel()
+    private val mViewModel: RepositoryCategoryViewModel by viewModel()
 
     override fun setupViewBinding(
         inflater: LayoutInflater,

@@ -16,6 +16,13 @@
         tools:context=".mvvm.category.CategoryScriptActivity"
         tools:listitem="@layout/recyclerview_item_category_script" />
 
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <include android:id="@+id/ads"
         layout="@layout/view_ads_banner" />
 

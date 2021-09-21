@@ -2,6 +2,7 @@ package com.frogobox.speechbooster.mvvm.category
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.frogobox.sdk.core.FrogoFunc.noAction
 import com.frogobox.recycler.core.IFrogoBindingAdapter
@@ -36,13 +37,25 @@ class CategoryScriptActivity : BaseActivity<ActivityCategoryScriptBinding>() {
 
     override fun setupViewModel() {
         mViewModel.apply {
-
+            repository.observe(this@CategoryScriptActivity, {
+                setupRecyclerView(it)
+            })
+            eventShowProgress.observe(this@CategoryScriptActivity, {
+                if (it) {
+                    binding.progressBar.visibility = View.VISIBLE
+                } else {
+                    binding.progressBar.visibility = View.GONE
+                }
+            })
+            eventFailed.observe(this@CategoryScriptActivity, {
+                showToast(it)
+            })
         }
     }
 
     private fun setupData() {
         val extraDataResult = getBaseBundle<CategoryScript>(this, TYPE_OBJECT, EXTRA_CATEGORY)
-        setupRecyclerView(mViewModel.showExampleData(this, extraDataResult.category))
+        mViewModel.showExampleData(this, extraDataResult.category)
     }
 
     private fun setupRecyclerView(data: List<RepositoryScript>) {
