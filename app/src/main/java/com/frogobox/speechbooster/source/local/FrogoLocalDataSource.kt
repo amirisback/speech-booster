@@ -2,7 +2,7 @@ package com.frogobox.speechbooster.source.local
 
 import android.content.SharedPreferences
 import androidx.annotation.VisibleForTesting
-import com.frogobox.sdk.core.FrogoLocalResponse
+import com.frogobox.sdk.core.FrogoLocalCallback
 import com.frogobox.sdk.util.AppExecutors
 import com.frogobox.speechbooster.source.model.FavoriteScript
 import com.frogobox.speechbooster.source.model.Script
@@ -49,7 +49,7 @@ class FrogoLocalDataSource private constructor(
             favoriteScriptDao.searchData(scriptId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : FrogoLocalResponse<List<FavoriteScript>>() {
+                .subscribe(object : FrogoLocalCallback<List<FavoriteScript>>() {
                     override fun onCallbackSucces(data: List<FavoriteScript>) {
                         callback.onShowProgressDialog()
                         callback.onSuccess(data)
@@ -101,7 +101,7 @@ class FrogoLocalDataSource private constructor(
             favoriteScriptDao.getAllData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : FrogoLocalResponse<List<FavoriteScript>>() {
+                .subscribe(object : FrogoLocalCallback<List<FavoriteScript>>() {
                     override fun onCallbackSucces(data: List<FavoriteScript>) {
                         callback.onShowProgressDialog()
                         callback.onSuccess(data)
@@ -132,7 +132,7 @@ class FrogoLocalDataSource private constructor(
             videoScriptDao.getAllData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : FrogoLocalResponse<List<VideoScript>>() {
+                .subscribe(object : FrogoLocalCallback<List<VideoScript>>() {
                     override fun onCallbackSucces(data: List<VideoScript>) {
                         callback.onShowProgressDialog()
                         callback.onSuccess(data)
@@ -162,7 +162,7 @@ class FrogoLocalDataSource private constructor(
             scriptDao.getAllData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : FrogoLocalResponse<List<Script>>() {
+                .subscribe(object : FrogoLocalCallback<List<Script>>() {
                     override fun onCallbackSucces(data: List<Script>) {
                         callback.onShowProgressDialog()
                         callback.onSuccess(data)
