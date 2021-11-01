@@ -139,18 +139,18 @@ android {
 dependencies {
 
     implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("androidx.core:core-ktx:1.6.0")
+    implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.preference:preference-ktx:1.1.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.1")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     
 
     implementation("androidx.activity:activity-ktx:${Dependency.ACTIVITY_KTX_VERSION}")
     implementation("androidx.fragment:fragment-ktx:${Dependency.FRAGMENT_KTX_VERSION}")
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-beta01")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
 
     implementation("androidx.room:room-runtime:${Dependency.ROOM_VERSION}")
     implementation("androidx.room:room-ktx:${Dependency.ROOM_VERSION}")
@@ -159,20 +159,20 @@ dependencies {
 
     implementation("com.google.code.gson:gson:2.8.8")
     implementation("com.google.android.material:material:1.4.0")
-    implementation("com.google.android.gms:play-services-ads:20.3.0")
+    implementation("com.google.android.gms:play-services-ads:20.4.0")
 
-    implementation("com.squareup.okhttp3:okhttp:4.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.2")
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.retrofit2:adapter-rxjava:2.3.0")
+    implementation("com.squareup.retrofit2:adapter-rxjava:2.9.0")
     implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
 
     implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
-    implementation("io.reactivex.rxjava2:rxjava:2.2.19")
+    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
 
-    implementation("com.github.amirisback:frogo-recycler-view:3.8.6")
+    implementation("com.github.amirisback:frogo-recycler-view:3.8.8")
     implementation("com.github.amirisback:frogo-log:2.0.4")
     implementation("com.github.amirisback:frogo-notification:1.0.7")
     implementation("com.github.amirisback:frogo-admob:4.1.2")
@@ -180,7 +180,7 @@ dependencies {
     implementation("com.github.frogobox:frogo-android-sdk:2.0.4")
 
     implementation("com.github.frogobox:frogo-android-ui-kit:1.0.4")
-    implementation("com.github.frogobox:frogo-consume-api:1.0.5")
+    implementation("com.github.frogobox:frogo-consume-api:1.0.7")
 
     implementation("com.github.javiersantos:PiracyChecker:1.2.8")
     implementation("com.github.bumptech.glide:glide:4.12.0")
@@ -189,10 +189,10 @@ dependencies {
     implementation("com.readystatesoftware.chuck:library:1.1.0")
 
     api("com.google.dagger:dagger:2.38.1")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2-native-mt")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 
-    kapt("androidx.lifecycle:lifecycle-compiler:2.4.0-beta01")
+    kapt("androidx.lifecycle:lifecycle-compiler:2.4.0")
     kapt("androidx.room:room-compiler:2.3.0")
     kapt("com.google.dagger:dagger-compiler:2.37")
     kapt("com.github.bumptech.glide:compiler:4.11.0")
