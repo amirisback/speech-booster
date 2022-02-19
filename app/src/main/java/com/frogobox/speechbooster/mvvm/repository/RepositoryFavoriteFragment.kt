@@ -4,6 +4,7 @@ package com.frogobox.speechbooster.mvvm.repository
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.IFrogoBindingAdapter
 import com.frogobox.speechbooster.core.BaseFragment
 import com.frogobox.speechbooster.databinding.FragmentRepositoryFavoriteBinding
@@ -66,14 +67,23 @@ class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBindin
 
         val adapterCallback =
             object : IFrogoBindingAdapter<FavoriteScript, RecyclerviewItemScriptBinding> {
-                override fun onItemClicked(data: FavoriteScript) {
-
+                override fun onItemClicked(
+                    binding: RecyclerviewItemScriptBinding,
+                    data: FavoriteScript,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<FavoriteScript>
+                ) {
                     val extras = createBaseBundle(TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT, data)
                     val option = createOptionBundle(TAG_ACTIVITY_DETAIL)
                     context?.let { startScriptDetailActivity(it, extras, option) }
                 }
 
-                override fun onItemLongClicked(data: FavoriteScript) {
+                override fun onItemLongClicked(
+                    binding: RecyclerviewItemScriptBinding,
+                    data: FavoriteScript,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<FavoriteScript>
+                ) {
                     noAction()
                 }
 
@@ -87,7 +97,9 @@ class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBindin
 
                 override fun setupInitComponent(
                     binding: RecyclerviewItemScriptBinding,
-                    data: FavoriteScript
+                    data: FavoriteScript,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<FavoriteScript>
                 ) {
                     binding.apply {
                         tvTitle.text = data.title

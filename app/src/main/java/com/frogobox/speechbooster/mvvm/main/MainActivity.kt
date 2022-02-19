@@ -35,7 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         setSupportActionBar(binding.toolbar.toolbarMain)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_toolbar_main, menu)
         return true
     }

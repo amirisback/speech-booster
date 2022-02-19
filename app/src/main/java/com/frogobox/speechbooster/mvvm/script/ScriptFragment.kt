@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.IFrogoBindingAdapter
 import com.frogobox.speechbooster.core.BaseFragment
 import com.frogobox.speechbooster.databinding.FragmentScriptBinding
@@ -78,13 +79,23 @@ class ScriptFragment : BaseFragment<FragmentScriptBinding>() {
     private fun setupRecyclerView(data: List<Script>) {
 
         val adapterCallback = object : IFrogoBindingAdapter<Script, RecyclerviewItemScriptBinding> {
-            override fun onItemClicked(data: Script) {
+            override fun onItemClicked(
+                binding: RecyclerviewItemScriptBinding,
+                data: Script,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<Script>
+            ) {
                 val extras = createBaseBundle(TYPE_OBJECT, EXTRA_SCRIPT, data)
                 val option = createOptionBundle(TAG_ACTIVITY_EDIT)
                 context?.let { startScriptDetailActivity(it, extras, option) }
             }
 
-            override fun onItemLongClicked(data: Script) {
+            override fun onItemLongClicked(
+                binding: RecyclerviewItemScriptBinding,
+                data: Script,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<Script>
+            ) {
                 noAction()
             }
 
@@ -92,7 +103,12 @@ class ScriptFragment : BaseFragment<FragmentScriptBinding>() {
                 return RecyclerviewItemScriptBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             }
 
-            override fun setupInitComponent(binding: RecyclerviewItemScriptBinding, data: Script) {
+            override fun setupInitComponent(
+                binding: RecyclerviewItemScriptBinding,
+                data: Script,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<Script>
+            ) {
                 binding.apply {
                     tvTitle.text = data.title
                     tvDescription.text = data.description

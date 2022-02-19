@@ -236,7 +236,7 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         if (tagOption() == TAG_ACTIVITY_EDIT) {
             menuInflater.inflate(R.menu.menu_toolbar_edit_delete, menu)
         }

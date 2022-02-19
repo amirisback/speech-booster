@@ -88,7 +88,7 @@ class ScriptEditorActivity : BaseActivity<ActivityScriptEditorBinding>(), LocalD
         showToast(message)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_toolbar_accept, menu)
         return true
     }

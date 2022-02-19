@@ -4,6 +4,7 @@ package com.frogobox.speechbooster.mvvm.repository
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.IFrogoBindingAdapter
 
 import com.frogobox.speechbooster.core.BaseFragment
@@ -47,12 +48,22 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
 
         val adapterCallback =
             object : IFrogoBindingAdapter<CategoryScript, RecyclerviewItemCategoryBinding> {
-                override fun onItemClicked(data: CategoryScript) {
+                override fun onItemClicked(
+                    binding: RecyclerviewItemCategoryBinding,
+                    data: CategoryScript,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<CategoryScript>
+                ) {
                     val extras = createBaseBundle(TYPE_OBJECT, EXTRA_CATEGORY, data)
                     context?.let { startCategoryScriptActivity(it, extras) }
                 }
 
-                override fun onItemLongClicked(data: CategoryScript) {
+                override fun onItemLongClicked(
+                    binding: RecyclerviewItemCategoryBinding,
+                    data: CategoryScript,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<CategoryScript>
+                ) {
                     noAction()
                 }
 
@@ -62,7 +73,9 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
 
                 override fun setupInitComponent(
                     binding: RecyclerviewItemCategoryBinding,
-                    data: CategoryScript
+                    data: CategoryScript,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<CategoryScript>
                 ) {
                     binding.apply {
                         ivCategory.setImageResource(data.imageCategory)

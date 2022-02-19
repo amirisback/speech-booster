@@ -124,7 +124,7 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoActivity<VB>() {
         )
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         return true
     }
 
