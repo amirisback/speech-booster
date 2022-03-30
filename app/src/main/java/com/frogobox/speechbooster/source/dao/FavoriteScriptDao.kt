@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.frogobox.speechbooster.source.model.FavoriteScript
-import io.reactivex.Single
+import io.reactivex.rxjava3.core.Single
 
 /**
  * Created by Faisal Amir

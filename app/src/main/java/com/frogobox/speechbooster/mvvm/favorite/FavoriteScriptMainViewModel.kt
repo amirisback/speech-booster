@@ -1,8 +1,8 @@
 package com.frogobox.speechbooster.mvvm.favorite
 
 import android.app.Application
-import com.frogobox.sdk.core.FrogoLiveEvent
-import com.frogobox.sdk.core.FrogoViewModel
+import com.frogobox.sdk.FrogoMutableLiveData
+import com.frogobox.sdk.FrogoViewModel
 import com.frogobox.speechbooster.source.model.FavoriteScript
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.FrogoDataSource
@@ -29,7 +29,7 @@ class FavoriteScriptMainViewModel (
     private val frogoDataRepository: FrogoDataRepository
 ) : FrogoViewModel(application) {
 
-    var favoriteListLive = FrogoLiveEvent<List<FavoriteScript>>()
+    var favoriteListLive = FrogoMutableLiveData<List<FavoriteScript>>()
 
     fun getFavoriteData() {
         frogoDataRepository.getRoomFavoriteScript(object :
@@ -44,11 +44,11 @@ class FavoriteScriptMainViewModel (
 
             override fun onSuccess(data: List<FavoriteScript>) {
                 favoriteListLive.value = data
-                eventEmptyData.value = false
+                eventEmpty.value = false
             }
 
             override fun onEmpty() {
-                eventEmptyData.value = true
+                eventEmpty.value = true
             }
 
             override fun onFinish() {

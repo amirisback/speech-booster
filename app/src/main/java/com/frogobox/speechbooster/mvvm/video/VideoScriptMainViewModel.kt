@@ -1,11 +1,11 @@
 package com.frogobox.speechbooster.mvvm.video
 
 import android.app.Application
-import com.frogobox.sdk.core.FrogoLiveEvent
-import com.frogobox.sdk.core.FrogoViewModel
-import com.frogobox.speechbooster.source.model.VideoScript
+import com.frogobox.sdk.FrogoMutableLiveData
+import com.frogobox.sdk.FrogoViewModel
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.FrogoDataSource
+import com.frogobox.speechbooster.source.model.VideoScript
 
 /**
  * Created by Faisal Amir
@@ -24,12 +24,12 @@ import com.frogobox.speechbooster.source.FrogoDataSource
  * com.frogobox.speechbooster.viewmodel
  *
  */
-class VideoScriptMainViewModel (
+class VideoScriptMainViewModel(
     application: Application,
     private val frogoDataRepository: FrogoDataRepository
 ) : FrogoViewModel(application) {
 
-    val videoListLive = FrogoLiveEvent<List<VideoScript>>()
+    val videoListLive = FrogoMutableLiveData<List<VideoScript>>()
 
     fun getVideoData() {
         frogoDataRepository.getRoomVideoScript(object :
@@ -44,11 +44,11 @@ class VideoScriptMainViewModel (
 
             override fun onSuccess(data: List<VideoScript>) {
                 videoListLive.value = data
-                eventEmptyData.value = false
+                eventEmpty.value = false
             }
 
             override fun onEmpty() {
-                eventEmptyData.value = true
+                eventEmpty.value = true
             }
 
             override fun onFinish() {

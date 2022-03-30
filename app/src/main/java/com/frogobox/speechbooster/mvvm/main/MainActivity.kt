@@ -19,7 +19,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun setupViewModel() {}
 
-    override fun setupUI(savedInstanceState: Bundle?) {
+    override fun setupOnCreate(savedInstanceState: Bundle?) {
         setupToolbar()
         setupBottomNav(R.id.framelayout_main_container)
         setupFragment(savedInstanceState)
@@ -43,7 +43,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.toolbar_menu_about -> {
-                baseStartActivity<AboutUsActivity>()
+                frogoStartActivity<AboutUsActivity>()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -58,17 +58,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
                 when (it.itemId) {
                     R.id.bottom_menu_myscript -> {
-                        setupCustomTitleToolbar(R.string.title_myscript)
+                        supportActionBar?.title = getString(R.string.title_myscript)
                         setupChildFragment(frameLayout, ScriptFragment())
                     }
 
                     R.id.bottom_menu_video -> {
-                        setupCustomTitleToolbar(R.string.title_video)
+                        supportActionBar?.title = getString(R.string.title_video)
                         setupChildFragment(frameLayout, VideoFragment())
                     }
 
                     R.id.bottom_menu_sample_script -> {
-                        setupCustomTitleToolbar(R.string.title_repository_script)
+                        supportActionBar?.title = getString(R.string.title_repository_script)
                         setupChildFragment(frameLayout, RepositoryFragment())
                     }
                 }

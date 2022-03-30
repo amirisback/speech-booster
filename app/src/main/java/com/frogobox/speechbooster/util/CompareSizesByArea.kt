@@ -2,6 +2,7 @@ package com.frogobox.speechbooster.util
 
 import android.util.Size
 import java.lang.Long
+import kotlin.Comparator
 
 /**
  * Created by Faisal Amir

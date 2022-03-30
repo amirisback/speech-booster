@@ -6,12 +6,10 @@ import android.os.Handler
 import android.view.*
 import androidx.core.content.ContextCompat
 import androidx.viewbinding.ViewBinding
-import com.frogobox.admob.core.FrogoAdmob
-import com.frogobox.sdk.core.FrogoActivity
+import com.frogobox.admob.ui.FrogoSdkAdmobActivity
 import com.frogobox.speechbooster.R
-import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 import com.frogobox.speechbooster.util.ConstHelper
-import com.google.android.gms.ads.AdView
+import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
 
 
 /**
@@ -31,41 +29,7 @@ import com.google.android.gms.ads.AdView
  * com.frogobox.publicspeakingbooster.base
  *
  */
-abstract class BaseActivity<VB : ViewBinding> : FrogoActivity<VB>() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setupAdmob()
-    }
-
-    private fun setupAdmob() {
-        setupAdsPublisher(getString(R.string.admob_publisher_id))
-        setupAdsBanner(getString(R.string.admob_banner))
-        setupAdsInterstitial(getString(R.string.admob_interstitial))
-    }
-
-    private fun setupAdsPublisher(mPublisherId: String) {
-        FrogoAdmob.setupPublisherID(mPublisherId)
-        FrogoAdmob.Publisher.setupPublisher(this)
-    }
-
-    private fun setupAdsBanner(mAdUnitId: String) {
-        FrogoAdmob.setupBannerAdUnitID(mAdUnitId)
-    }
-
-    private fun setupAdsInterstitial(mAdUnitId: String) {
-        FrogoAdmob.setupInterstialAdUnitID(mAdUnitId)
-        FrogoAdmob.Interstitial.setupInterstitial(this)
-    }
-
-    fun setupShowAdsBanner(mAdView: AdView) {
-        FrogoAdmob.Banner.setupBanner(mAdView)
-        FrogoAdmob.Banner.showBanner(mAdView)
-    }
-
-    fun setupShowAdsInterstitial() {
-        FrogoAdmob.Interstitial.showInterstitial(this)
-    }
+abstract class BaseActivity<VB : ViewBinding> : FrogoSdkAdmobActivity<VB>() {
 
     protected fun setupNoLimitStatBar() {
         val windows = window // in Activity's onCreate() for instance
@@ -77,17 +41,9 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoActivity<VB>() {
 
     protected inline fun <reified ClassActivity> setupSplashScreen() {
         Handler().postDelayed({
-            baseStartActivity<ClassActivity>()
+            frogoStartActivity<ClassActivity>()
             this@BaseActivity.finish()
         }, ConstHelper.Const.SPLASH_INTERVAL.toLong())
-    }
-
-    protected fun setupFullScreen() {
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
     }
 
     protected fun setupChildFragment(frameId: Int, fragment: BaseFragment<*>) {
@@ -102,7 +58,7 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoActivity<VB>() {
         argumentKey: String,
         extraDataResult: Model
     ) {
-        fragment.baseNewInstance(argumentKey, extraDataResult)
+        fragment.frogoNewInstance(argumentKey, extraDataResult)
     }
 
     protected fun tagOption(): Int {

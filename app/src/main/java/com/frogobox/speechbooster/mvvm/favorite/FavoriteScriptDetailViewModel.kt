@@ -1,7 +1,7 @@
 package com.frogobox.speechbooster.mvvm.favorite
 
 import android.app.Application
-import com.frogobox.sdk.core.FrogoViewModel
+import com.frogobox.sdk.FrogoViewModel
 import com.frogobox.speechbooster.source.FrogoDataRepository
 
 /**
@@ -21,7 +21,7 @@ import com.frogobox.speechbooster.source.FrogoDataRepository
  * com.frogobox.speechbooster.viewmodel
  *
  */
-class FavoriteScriptDetailViewModel (
+class FavoriteScriptDetailViewModel(
     application: Application,
     private val frogoDataRepository: FrogoDataRepository
 ) : FrogoViewModel(application) {

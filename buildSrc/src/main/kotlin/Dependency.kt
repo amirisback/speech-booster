@@ -14,14 +14,7 @@
 object Dependency {
 
     // dependencies version
-    const val KOTLIN_VERSION = "1.5.21"
-    const val COMPOSE_VERSION = "1.0.2"
-
-    const val KOIN_VERSION = "3.1.1"
-
-    const val ACTIVITY_KTX_VERSION = "1.3.1"
-    const val FRAGMENT_KTX_VERSION = "1.3.6"
-
-    const val ROOM_VERSION = "2.3.0"
+    const val KOTLIN_VERSION = Version.JetBrains.kotlin
+    const val COMPOSE_VERSION = Version.Androidx.compose
 
 }

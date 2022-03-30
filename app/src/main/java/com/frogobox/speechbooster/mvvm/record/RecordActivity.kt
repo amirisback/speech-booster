@@ -13,7 +13,6 @@ import com.frogobox.speechbooster.databinding.ActivityRecordBinding
 import com.frogobox.speechbooster.source.model.FavoriteScript
 import com.frogobox.speechbooster.source.model.RepositoryScript
 import com.frogobox.speechbooster.source.model.Script
-import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
 import com.frogobox.speechbooster.util.ConstHelper.Arg.ARGUMENTS_EXAMPLE_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.Arg.ARGUMENTS_FAVORITE_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.Arg.ARGUMENTS_SCRIPT
@@ -21,9 +20,14 @@ import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_EXAMPLE_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_FAVORITE_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_OBJECT
+import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
 
 
 class RecordActivity : BaseActivity<ActivityRecordBinding>() {
+
+    companion object {
+        const val READ_EXTERNAL_STORAGE_PERMMISSION_RESULT = 0
+    }
 
     override fun setupViewBinding(): ActivityRecordBinding {
         return ActivityRecordBinding.inflate(layoutInflater)
@@ -31,7 +35,7 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>() {
 
     override fun setupViewModel() {}
 
-    override fun setupUI(savedInstanceState: Bundle?) {
+    override fun setupOnCreate(savedInstanceState: Bundle?) {
         setupNoLimitStatBar()
         setupRoleFragmentInstance()
         setupReadExternalStoragePermission()
@@ -44,21 +48,27 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>() {
         when {
             checkExtra(EXTRA_SCRIPT) -> {
                 val extraDataResultScript = getBaseBundle<Script>(this, TYPE_OBJECT, EXTRA_SCRIPT)
-                recordFragment.baseNewInstance(ARGUMENTS_SCRIPT, extraDataResultScript)
+                recordFragment.frogoNewInstance(ARGUMENTS_SCRIPT, extraDataResultScript)
                 setupChildFragment(R.id.container, recordFragment)
             }
 
             checkExtra(EXTRA_EXAMPLE_SCRIPT) -> {
                 val extraDataResultExampleScript =
                     getBaseBundle<RepositoryScript>(this, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
-                recordFragment.baseNewInstance(ARGUMENTS_EXAMPLE_SCRIPT, extraDataResultExampleScript)
+                recordFragment.frogoNewInstance(
+                    ARGUMENTS_EXAMPLE_SCRIPT,
+                    extraDataResultExampleScript
+                )
                 setupChildFragment(R.id.container, recordFragment)
             }
 
             checkExtra(EXTRA_FAVORITE_SCRIPT) -> {
                 val extraDataResultFavoriteScript =
                     getBaseBundle<FavoriteScript>(this, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
-                recordFragment.baseNewInstance(ARGUMENTS_FAVORITE_SCRIPT, extraDataResultFavoriteScript)
+                recordFragment.frogoNewInstance(
+                    ARGUMENTS_FAVORITE_SCRIPT,
+                    extraDataResultFavoriteScript
+                )
                 setupChildFragment(R.id.container, recordFragment)
             }
         }
@@ -98,13 +108,7 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>() {
                     READ_EXTERNAL_STORAGE_PERMMISSION_RESULT
                 )
             }
-        } else {
-
         }
-    }
-
-    companion object {
-        private val READ_EXTERNAL_STORAGE_PERMMISSION_RESULT = 0
     }
 
 }

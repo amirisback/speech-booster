@@ -1,11 +1,11 @@
 package com.frogobox.speechbooster.mvvm.script
 
 import android.app.Application
-import com.frogobox.sdk.core.FrogoViewModel
-import com.frogobox.speechbooster.util.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
-import com.frogobox.speechbooster.source.model.Script
+import com.frogobox.sdk.FrogoViewModel
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.local.LocalDataCallback
+import com.frogobox.speechbooster.source.model.Script
+import com.frogobox.speechbooster.util.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
 
 /**
  * Created by Faisal Amir

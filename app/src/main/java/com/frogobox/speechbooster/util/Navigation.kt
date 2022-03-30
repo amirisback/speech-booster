@@ -40,17 +40,23 @@ object Navigation {
 
         fun <T> createBaseBundle(typeKey: String, extraKey: String, data: T): Bundle {
             val extraBundle = Bundle()
-            if (typeKey.equals(TYPE_INT)) {
-                extraBundle.putInt(extraKey, data as Int)
-            } else if (typeKey.equals(TYPE_STRING)) {
-                extraBundle.putString(extraKey, data as String)
-            } else if (typeKey.equals(TYPE_FLOAT)) {
-                extraBundle.putFloat(extraKey, data as Float)
-            } else if (typeKey.equals(TYPE_OBJECT)) {
-                val extraData = Gson().toJson(data)
-                extraBundle.putString(extraKey, extraData)
-            } else if (typeKey.equals(TYPE_BOOLEAN)) {
-                extraBundle.putBoolean(extraKey, data as Boolean)
+            when {
+                typeKey == TYPE_INT -> {
+                    extraBundle.putInt(extraKey, data as Int)
+                }
+                typeKey == TYPE_STRING -> {
+                    extraBundle.putString(extraKey, data as String)
+                }
+                typeKey == TYPE_FLOAT -> {
+                    extraBundle.putFloat(extraKey, data as Float)
+                }
+                typeKey == TYPE_OBJECT -> {
+                    val extraData = Gson().toJson(data)
+                    extraBundle.putString(extraKey, extraData)
+                }
+                typeKey == TYPE_BOOLEAN -> {
+                    extraBundle.putBoolean(extraKey, data as Boolean)
+                }
             }
             return extraBundle
         }
@@ -60,17 +66,23 @@ object Navigation {
             typeKey: String,
             extraKey: String
         ): T {
-            if (typeKey.equals(TYPE_INT)) {
-                bundle = activity.intent.extras?.getInt(extraKey)!!
-            } else if (typeKey.equals(TYPE_STRING)) {
-                bundle = activity.intent.extras?.getString(extraKey)!!
-            } else if (typeKey.equals(TYPE_FLOAT)) {
-                bundle = activity.intent.extras?.getFloat(extraKey)!!
-            } else if (typeKey.equals(TYPE_OBJECT)) {
-                val extraBundle = activity.intent.extras?.getString(extraKey)
-                bundle = Gson().fromJson(extraBundle, T::class.java)!!
-            } else if (typeKey.equals(TYPE_BOOLEAN)) {
-                bundle = activity.intent.extras?.getBoolean(extraKey)!!
+            when {
+                typeKey == TYPE_INT -> {
+                    bundle = activity.intent.extras?.getInt(extraKey)!!
+                }
+                typeKey == TYPE_STRING -> {
+                    bundle = activity.intent.extras?.getString(extraKey)!!
+                }
+                typeKey == TYPE_FLOAT -> {
+                    bundle = activity.intent.extras?.getFloat(extraKey)!!
+                }
+                typeKey == TYPE_OBJECT -> {
+                    val extraBundle = activity.intent.extras?.getString(extraKey)
+                    bundle = Gson().fromJson(extraBundle, T::class.java)!!
+                }
+                typeKey == TYPE_BOOLEAN -> {
+                    bundle = activity.intent.extras?.getBoolean(extraKey)!!
+                }
             }
             return bundle as T
         }

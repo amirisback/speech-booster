@@ -3,10 +3,8 @@ package com.frogobox.speechbooster.source.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.frogobox.speechbooster.source.model.FavoriteScript
-import com.frogobox.speechbooster.source.model.Script
 import com.frogobox.speechbooster.source.model.VideoScript
-import io.reactivex.Single
+import io.reactivex.rxjava3.core.Single
 
 /**
  * Created by Faisal Amir

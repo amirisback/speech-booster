@@ -13,7 +13,7 @@ class SplashScreenActivity : BaseActivity<ActivitySplashScreenBinding>() {
 
     override fun setupViewModel() {}
 
-    override fun setupUI(savedInstanceState: Bundle?) {
+    override fun setupOnCreate(savedInstanceState: Bundle?) {
         setupFullScreen()
         setupSplashScreen<MainActivity>()
     }

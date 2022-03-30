@@ -2,8 +2,7 @@ package com.frogobox.speechbooster.core
 
 import android.os.Bundle
 import androidx.viewbinding.ViewBinding
-import com.frogobox.admob.core.FrogoAdmob
-import com.frogobox.sdk.core.FrogoFragment
+import com.frogobox.sdk.FrogoFragment
 import com.google.android.gms.ads.AdView
 
 /**
@@ -33,11 +32,8 @@ abstract class BaseFragment<VB : ViewBinding> : FrogoFragment<VB>() {
     }
 
     protected fun setupShowAdsBanner(mAdView: AdView) {
-        mActivity.setupShowAdsBanner(mAdView)
+        mActivity.showAdBanner(mAdView)
     }
 
-    protected fun setupShowAdsInterstitial() {
-        mActivity.setupShowAdsInterstitial()
-    }
 
 }

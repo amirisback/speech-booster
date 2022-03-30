@@ -19,8 +19,8 @@ import android.view.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
-import com.frogobox.sdk.core.FrogoFunc.createFolderPictureVideo
-import com.frogobox.sdk.core.FrogoFunc.getVideoFilePath
+import com.frogobox.sdk.FrogoFunc.createFolderPictureVideo
+import com.frogobox.sdk.FrogoFunc.getVideoFilePath
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.core.BaseFragment
 import com.frogobox.speechbooster.databinding.FragmentRecordBinding
@@ -35,12 +35,12 @@ import com.frogobox.speechbooster.util.ConstHelper.Arg.ARGUMENTS_EXAMPLE_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.Arg.ARGUMENTS_FAVORITE_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.Arg.ARGUMENTS_SCRIPT
 import com.frogobox.speechbooster.mvvm.video.VideoScriptRecordViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.IOException
 import java.util.*
 import java.util.concurrent.Semaphore
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListener,
@@ -122,7 +122,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
         return FragmentRecordBinding.inflate(inflater, container, false)
     }
 
-    override fun setupUI(savedInstanceState: Bundle?) {
+    override fun setupOnViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.imgRecordMenu.setOnClickListener(this)
         setupRoleView()
         finishRecord()
@@ -192,13 +192,13 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
 
         if (arguments != null) {
             if (checkArgument(ARGUMENTS_SCRIPT)) {
-                val argumentsScript = baseGetInstance<Script>(ARGUMENTS_SCRIPT)
+                val argumentsScript = frogoGetInstance<Script>(ARGUMENTS_SCRIPT)
                 setupViewElement(argumentsScript.title!!, argumentsScript.description!!)
             } else if (checkArgument(ARGUMENTS_EXAMPLE_SCRIPT)) {
-                val argumentsExampleScript = baseGetInstance<RepositoryScript>(ARGUMENTS_EXAMPLE_SCRIPT)
+                val argumentsExampleScript = frogoGetInstance<RepositoryScript>(ARGUMENTS_EXAMPLE_SCRIPT)
                 setupViewElement(argumentsExampleScript.title!!, argumentsExampleScript.description!!)
             } else if (checkArgument(ARGUMENTS_FAVORITE_SCRIPT)) {
-                val argumentsFavoriteScript = baseGetInstance<FavoriteScript>(ARGUMENTS_FAVORITE_SCRIPT)
+                val argumentsFavoriteScript = frogoGetInstance<FavoriteScript>(ARGUMENTS_FAVORITE_SCRIPT)
                 setupViewElement(argumentsFavoriteScript.title!!, argumentsFavoriteScript.description!!)
             }
 

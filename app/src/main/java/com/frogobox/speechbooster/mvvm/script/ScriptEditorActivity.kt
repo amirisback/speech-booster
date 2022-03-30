@@ -4,17 +4,17 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import com.frogobox.sdk.core.FrogoDate.DATE_EEEE_DD_MM_YYYY
-import com.frogobox.sdk.core.FrogoDate.getCurrentDate
+import com.frogobox.coresdk.FrogoDate.DATE_EEEE_DD_MM_YYYY
+import com.frogobox.coresdk.FrogoDate.getCurrentDate
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityScriptEditorBinding
 import com.frogobox.speechbooster.source.local.LocalDataCallback
+import com.frogobox.speechbooster.source.model.Script
 import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.Tag.TAG_ACTIVITY_CREATE
 import com.frogobox.speechbooster.util.ConstHelper.Tag.TAG_ACTIVITY_EDIT
 import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_OBJECT
-import com.frogobox.speechbooster.source.model.Script
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -26,11 +26,11 @@ class ScriptEditorActivity : BaseActivity<ActivityScriptEditorBinding>(), LocalD
         return ActivityScriptEditorBinding.inflate(layoutInflater)
     }
 
-    override fun setupUI(savedInstanceState: Bundle?) {
+    override fun setupOnCreate(savedInstanceState: Bundle?) {
         setupDetailActivity("")
         binding.tvScriptDate.text = getCurrentDate(DATE_EEEE_DD_MM_YYYY)
-        setupRole({setupExtraData()}){}
-        setupShowAdsBanner(binding.adsBanner)
+        setupRole({ setupExtraData() }) {}
+        showAdBanner(binding.adsBanner)
     }
 
     override fun setupViewModel() {
@@ -39,7 +39,7 @@ class ScriptEditorActivity : BaseActivity<ActivityScriptEditorBinding>(), LocalD
         }
     }
 
-    private fun setupRole(listenerEdit: ()-> Unit, listenerCreate: () -> Unit){
+    private fun setupRole(listenerEdit: () -> Unit, listenerCreate: () -> Unit) {
         if (tagOption() == TAG_ACTIVITY_EDIT) {
             listenerEdit()
         } else if (tagOption() == TAG_ACTIVITY_CREATE) {
@@ -50,20 +50,28 @@ class ScriptEditorActivity : BaseActivity<ActivityScriptEditorBinding>(), LocalD
     private fun saveToRoom() {
         val textTitle = binding.etScriptTitle.text.toString()
         val textDescription = binding.etScriptDescription.text.toString()
-        val dataScript = Script(title = textTitle, description = textDescription, dateTime = getCurrentDate(DATE_EEEE_DD_MM_YYYY))
+        val dataScript = Script(
+            title = textTitle,
+            description = textDescription,
+            dateTime = getCurrentDate(DATE_EEEE_DD_MM_YYYY)
+        )
         mViewModel.saveScriptData(dataScript, this)
     }
 
     private fun updateToRoom() {
-        val extraData = getBaseBundle<Script>(this, TYPE_OBJECT,  EXTRA_SCRIPT)
+        val extraData = getBaseBundle<Script>(this, TYPE_OBJECT, EXTRA_SCRIPT)
         val textTitle = binding.etScriptTitle.text.toString()
         val textDescription = binding.etScriptDescription.text.toString()
-        val dataScript = Script(title = textTitle, description = textDescription, dateTime = getCurrentDate(DATE_EEEE_DD_MM_YYYY))
+        val dataScript = Script(
+            title = textTitle,
+            description = textDescription,
+            dateTime = getCurrentDate(DATE_EEEE_DD_MM_YYYY)
+        )
         mViewModel.updateScriptData(extraData.table_id, dataScript, this)
     }
 
     private fun setupExtraData() {
-        val extraData = getBaseBundle<Script>(this, TYPE_OBJECT,  EXTRA_SCRIPT)
+        val extraData = getBaseBundle<Script>(this, TYPE_OBJECT, EXTRA_SCRIPT)
         binding.etScriptTitle.setText(extraData.title)
         binding.etScriptDescription.setText(extraData.description)
     }
@@ -99,7 +107,7 @@ class ScriptEditorActivity : BaseActivity<ActivityScriptEditorBinding>(), LocalD
             R.id.toolbar_menu_accept -> {
                 setupRole({
                     updateToRoom()
-                }){
+                }) {
                     saveToRoom()
                 }
                 true

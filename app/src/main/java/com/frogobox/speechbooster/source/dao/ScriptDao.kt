@@ -2,10 +2,10 @@ package com.frogobox.speechbooster.source.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.frogobox.speechbooster.source.model.Script
-import io.reactivex.Single
+import io.reactivex.rxjava3.core.Single
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License

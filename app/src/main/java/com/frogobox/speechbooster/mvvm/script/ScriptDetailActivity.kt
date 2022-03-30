@@ -5,16 +5,16 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.lifecycle.Observer
-import com.frogobox.sdk.core.FrogoFunc.createDialogDefault
+import com.frogobox.sdk.FrogoFunc.createDialogDefault
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityScriptDetailBinding
+import com.frogobox.speechbooster.route.Implicit.Activity.startRecordActivity
+import com.frogobox.speechbooster.route.Implicit.Activity.startScriptEditorActivity
+import com.frogobox.speechbooster.source.local.LocalDataCallback
 import com.frogobox.speechbooster.source.model.FavoriteScript
 import com.frogobox.speechbooster.source.model.RepositoryScript
 import com.frogobox.speechbooster.source.model.Script
-import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
-import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
-import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
 import com.frogobox.speechbooster.util.ConstHelper.Const.DEFAULT_NULL
 import com.frogobox.speechbooster.util.ConstHelper.Const.OPTION_GET
 import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_EXAMPLE_SCRIPT
@@ -22,9 +22,9 @@ import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_FAVORITE_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.Tag.TAG_ACTIVITY_EDIT
 import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_OBJECT
-import com.frogobox.speechbooster.route.Implicit.Activity.startRecordActivity
-import com.frogobox.speechbooster.route.Implicit.Activity.startScriptEditorActivity
-import com.frogobox.speechbooster.source.local.LocalDataCallback
+import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
+import com.frogobox.speechbooster.util.Navigation.BundleHelper.createOptionBundle
+import com.frogobox.speechbooster.util.Navigation.BundleHelper.getBaseBundle
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
@@ -35,10 +35,10 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
         return ActivityScriptDetailBinding.inflate(layoutInflater)
     }
 
-    override fun setupUI(savedInstanceState: Bundle?) {
+    override fun setupOnCreate(savedInstanceState: Bundle?) {
         setupDetailActivity("")
         setupRoleView()
-        setupShowAdsBanner(binding.adsBanner)
+        showAdBanner(binding.adsBanner)
     }
 
     override fun setupViewModel() {
@@ -63,7 +63,7 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
             }
             btnStartRecord.setOnClickListener {
                 startRecordActivity(this@ScriptDetailActivity, bundle)
-                setupShowAdsInterstitial()
+                // setupShowAdsInterstitial()
             }
         }
 
@@ -126,7 +126,7 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
             } else {
                 listenerAddToFavorite()
             }
-            setupShowAdsInterstitial()
+            // setupShowAdsInterstitial()
         }
     }
 
@@ -171,7 +171,7 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
             script_id = extraScript.script_id!!
             description = extraScript.description!!
         }
-        mViewModel.addToFavorite(title, script_id, description, object : LocalDataCallback{
+        mViewModel.addToFavorite(title, script_id, description, object : LocalDataCallback {
 
             override fun onShowProgress() {
                 binding.progress.progressView.visibility = View.VISIBLE
@@ -210,7 +210,7 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
         val messageDialog = getString(R.string.dialog_message_delete)
         createDialogDefault(this, titleDialog, messageDialog, {
             val data = getBaseBundle<Script>(this, TYPE_OBJECT, EXTRA_SCRIPT)
-            mViewModel.deleteScriptData(data.table_id, object : LocalDataCallback{
+            mViewModel.deleteScriptData(data.table_id, object : LocalDataCallback {
                 override fun onShowProgress() {
                     binding.progress.progressView.visibility = View.VISIBLE
                 }
@@ -231,7 +231,7 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
                 }
             })
 
-        }){
+        }) {
 
         }
     }

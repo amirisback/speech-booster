@@ -1,11 +1,11 @@
 package com.frogobox.speechbooster.mvvm.script
 
 import android.app.Application
-import com.frogobox.sdk.core.FrogoLiveEvent
-import com.frogobox.sdk.core.FrogoViewModel
-import com.frogobox.speechbooster.source.model.Script
+import com.frogobox.sdk.FrogoMutableLiveData
+import com.frogobox.sdk.FrogoViewModel
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.FrogoDataSource
+import com.frogobox.speechbooster.source.model.Script
 
 /**
  * Created by Faisal Amir
@@ -29,7 +29,7 @@ class ScriptMainViewModel(
     private val frogoDataRepository: FrogoDataRepository
 ) : FrogoViewModel(application) {
 
-    var scriptListLive = FrogoLiveEvent<List<Script>>()
+    var scriptListLive = FrogoMutableLiveData<List<Script>>()
 
     fun getScriptData() {
         frogoDataRepository.getRoomScript(object :
@@ -44,11 +44,11 @@ class ScriptMainViewModel(
 
             override fun onSuccess(data: List<Script>) {
                 scriptListLive.value = data
-                eventEmptyData.value = false
+                eventEmpty.value = false
             }
 
             override fun onEmpty() {
-                eventEmptyData.value = true
+                eventEmpty.value = true
             }
 
             override fun onFinish() {

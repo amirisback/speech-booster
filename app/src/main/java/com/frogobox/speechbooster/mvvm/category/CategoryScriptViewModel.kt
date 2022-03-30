@@ -2,18 +2,18 @@ package com.frogobox.speechbooster.mvvm.category
 
 import android.app.Application
 import android.content.Context
-import com.frogobox.api.core.ConsumeApiResponse
 import com.frogobox.api.movie.ConsumeMovieApi
-import com.frogobox.api.movie.model.TrendingMovie
-import com.frogobox.api.movie.response.Trending
-import com.frogobox.api.movie.util.MovieUrl
 import com.frogobox.api.news.ConsumeNewsApi
-import com.frogobox.api.news.model.Article
-import com.frogobox.api.news.response.ArticleResponse
-import com.frogobox.api.news.util.NewsConstant
-import com.frogobox.api.news.util.NewsUrl
-import com.frogobox.sdk.core.FrogoLiveEvent
-import com.frogobox.sdk.core.FrogoViewModel
+import com.frogobox.coreapi.ConsumeApiResponse
+import com.frogobox.coreapi.movie.MovieUrl
+import com.frogobox.coreapi.movie.model.TrendingMovie
+import com.frogobox.coreapi.movie.response.Trending
+import com.frogobox.coreapi.news.NewsConstant
+import com.frogobox.coreapi.news.NewsUrl
+import com.frogobox.coreapi.news.model.Article
+import com.frogobox.coreapi.news.response.ArticleResponse
+import com.frogobox.sdk.FrogoMutableLiveData
+import com.frogobox.sdk.FrogoViewModel
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.model.RepositoryScript
@@ -40,7 +40,7 @@ class CategoryScriptViewModel(
     private val frogoDataRepository: FrogoDataRepository
 ) : FrogoViewModel(application) {
 
-    var repository = FrogoLiveEvent<MutableList<RepositoryScript>>()
+    var repository = FrogoMutableLiveData<MutableList<RepositoryScript>>()
 
     private fun setupNewsData(i: Int, article: Article): RepositoryScript {
         return RepositoryScript("news_$i", article.title, article.description)

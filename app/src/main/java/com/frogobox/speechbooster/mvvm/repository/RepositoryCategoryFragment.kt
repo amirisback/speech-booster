@@ -3,19 +3,18 @@ package com.frogobox.speechbooster.mvvm.repository
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.IFrogoBindingAdapter
-
 import com.frogobox.speechbooster.core.BaseFragment
 import com.frogobox.speechbooster.databinding.FragmentRepositoryCategoryBinding
 import com.frogobox.speechbooster.databinding.RecyclerviewItemCategoryBinding
+import com.frogobox.speechbooster.route.Implicit.Activity.startCategoryScriptActivity
+import com.frogobox.speechbooster.source.model.CategoryScript
 import com.frogobox.speechbooster.util.ConstHelper.Extra.EXTRA_CATEGORY
 import com.frogobox.speechbooster.util.ConstHelper.TypeData.TYPE_OBJECT
-import com.frogobox.sdk.core.FrogoFunc.noAction
-import com.frogobox.speechbooster.source.model.CategoryScript
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.createBaseBundle
-import com.frogobox.speechbooster.route.Implicit.Activity.startCategoryScriptActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBinding>() {
@@ -29,7 +28,7 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
         return FragmentRepositoryCategoryBinding.inflate(inflater, container, false)
     }
 
-    override fun setupUI(savedInstanceState: Bundle?) {
+    override fun setupOnViewCreated(view: View, savedInstanceState: Bundle?) {
         setupData()
         setupShowAdsBanner(binding.ads.adsBanner)
     }
@@ -64,11 +63,14 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
                     position: Int,
                     notifyListener: FrogoRecyclerNotifyListener<CategoryScript>
                 ) {
-                    noAction()
                 }
 
                 override fun setViewBinding(parent: ViewGroup): RecyclerviewItemCategoryBinding {
-                    return RecyclerviewItemCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                    return RecyclerviewItemCategoryBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
                 }
 
                 override fun setupInitComponent(

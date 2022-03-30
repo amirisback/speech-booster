@@ -3,6 +3,7 @@ package com.frogobox.speechbooster.mvvm.repository
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 
 import com.frogobox.speechbooster.R
@@ -21,7 +22,7 @@ class RepositoryFragment : BaseFragment<FragmentRepositoryBinding>() {
 
     override fun setupViewModel() {}
 
-    override fun setupUI(savedInstanceState: Bundle?) {
+    override fun setupOnViewCreated(view: View, savedInstanceState: Bundle?) {
         setupViewPager()
     }
 

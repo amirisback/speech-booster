@@ -3,6 +3,7 @@ package com.frogobox.speechbooster.mvvm.video
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 
@@ -25,23 +26,22 @@ class VideoFragment : BaseFragment<FragmentVideoBinding>() {
     override fun setupViewModel() {
         mViewModel.apply {
 
-            eventEmptyData.observe(this@VideoFragment, Observer {
+            eventEmpty.observe(this@VideoFragment) {
 
-            })
+            }
 
-            videoListLive.observe(this@VideoFragment, Observer {
+            videoListLive.observe(this@VideoFragment) {
 
-            })
+            }
 
-            eventShowProgress.observe(this@VideoFragment, Observer {
+            eventShowProgress.observe(this@VideoFragment) {
 
-            })
+            }
 
         }
     }
 
-    override fun setupUI(savedInstanceState: Bundle?) {
+    override fun setupOnViewCreated(view: View, savedInstanceState: Bundle?) {
 
     }
-
 }

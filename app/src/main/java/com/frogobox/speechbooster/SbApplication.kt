@@ -23,4 +23,8 @@ class SbApplication : FrogoApplication() {
         koinApplication.modules(listOf(repositoryModule, viewModelModule))
     }
 
+    override fun setupOnCreate() {
+
+    }
+
 }
