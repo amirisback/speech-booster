@@ -1,6 +1,7 @@
-g## Speech Booster
-Speech Booster, Aplikasi Belajar Pidato
-- Link PlayStore [Click Here](https://play.google.com/store/apps/details?id=com.frogobox.speechbooster)
+## Speech Booster
+[![Android CI](https://github.com/amirisback/speech-booster/actions/workflows/android-ci.yml/badge.svg)](https://github.com/amirisback/speech-booster/actions/workflows/android-ci.yml)
+[![Scan with Detekt](https://github.com/amirisback/speech-booster/actions/workflows/detekt-analysis.yml/badge.svg)](https://github.com/amirisback/speech-booster/actions/workflows/detekt-analysis.yml)
+- Speech Booster, Aplikasi Belajar Pidato
 
 ## Screen Shoot
 
@@ -56,12 +57,8 @@ Name Of Contribute
 
 Waiting for your contribute
 
-## Insipiration
-- Belajar Pidato [Click Here](https://play.google.com/store/apps/details?id=org.d3ifcool.belajarpidato)
-
 ## Attention !!!
 - Please enjoy and don't forget fork and give a star
 - Don't Forget Follow My Github Account
-
 
 ![ScreenShoot Apps](docs/image/mad_score.png?raw=true)
