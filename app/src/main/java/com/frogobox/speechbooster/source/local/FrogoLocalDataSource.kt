@@ -2,7 +2,7 @@ package com.frogobox.speechbooster.source.local
 
 import android.content.SharedPreferences
 import androidx.annotation.VisibleForTesting
-import com.frogobox.coresdk.FrogoLocalObserver
+import com.frogobox.coresdk.observer.FrogoLocalObserver
 import com.frogobox.sdk.util.AppExecutors
 import com.frogobox.speechbooster.source.FrogoDataSource
 import com.frogobox.speechbooster.source.dao.FavoriteScriptDao
@@ -50,26 +50,23 @@ class FrogoLocalDataSource private constructor(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : FrogoLocalObserver<List<FavoriteScript>>() {
-                    override fun onCallbackSucces(data: List<FavoriteScript>) {
-                        callback.onShowProgressDialog()
-                        callback.onSuccess(data)
-                        if (data.size == 0) {
-                            callback.onEmpty()
-                        }
-                        callback.onHideProgressDialog()
-
-                    }
-
-                    override fun onCallbackError(code: Int, errorMessage: String) {
+                    override fun onLocalFailure(code: Int, errorMessage: String) {
                         callback.onFailed(code, errorMessage)
                     }
 
-                    override fun onAddSubscribe(disposable: Disposable) {
+                    override fun onLocalFinish() {
+                        callback.onHideProgressDialog()
+                    }
+
+                    override fun onLocalStartObserver(disposable: Disposable) {
                         addSubscribe(disposable = disposable)
                     }
 
-                    override fun onCompleted() {
-                        callback.onHideProgressDialog()
+                    override fun onLocalSuccess(data: List<FavoriteScript>) {
+                        callback.onSuccess(data)
+                        if (data.isEmpty()) {
+                            callback.onEmpty()
+                        }
                     }
                 })
         }
@@ -102,26 +99,23 @@ class FrogoLocalDataSource private constructor(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : FrogoLocalObserver<List<FavoriteScript>>() {
-                    override fun onCallbackSucces(data: List<FavoriteScript>) {
-                        callback.onShowProgressDialog()
-                        callback.onSuccess(data)
-                        if (data.size == 0) {
-                            callback.onEmpty()
-                        }
-                        callback.onHideProgressDialog()
-
-                    }
-
-                    override fun onCallbackError(code: Int, errorMessage: String) {
+                    override fun onLocalFailure(code: Int, errorMessage: String) {
                         callback.onFailed(code, errorMessage)
                     }
 
-                    override fun onAddSubscribe(disposable: Disposable) {
+                    override fun onLocalFinish() {
+                        callback.onHideProgressDialog()
+                    }
+
+                    override fun onLocalStartObserver(disposable: Disposable) {
                         addSubscribe(disposable = disposable)
                     }
 
-                    override fun onCompleted() {
-                        callback.onHideProgressDialog()
+                    override fun onLocalSuccess(data: List<FavoriteScript>) {
+                        callback.onSuccess(data)
+                        if (data.isEmpty()) {
+                            callback.onEmpty()
+                        }
                     }
                 })
         }
@@ -133,25 +127,23 @@ class FrogoLocalDataSource private constructor(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : FrogoLocalObserver<List<VideoScript>>() {
-                    override fun onCallbackSucces(data: List<VideoScript>) {
-                        callback.onShowProgressDialog()
-                        callback.onSuccess(data)
-                        if (data.size == 0) {
-                            callback.onEmpty()
-                        }
-                        callback.onHideProgressDialog()
-                    }
-
-                    override fun onCallbackError(code: Int, errorMessage: String) {
+                    override fun onLocalFailure(code: Int, errorMessage: String) {
                         callback.onFailed(code, errorMessage)
                     }
 
-                    override fun onAddSubscribe(disposable: Disposable) {
+                    override fun onLocalFinish() {
+                        callback.onHideProgressDialog()
+                    }
+
+                    override fun onLocalStartObserver(disposable: Disposable) {
                         addSubscribe(disposable = disposable)
                     }
 
-                    override fun onCompleted() {
-                        callback.onHideProgressDialog()
+                    override fun onLocalSuccess(data: List<VideoScript>) {
+                        callback.onSuccess(data)
+                        if (data.isEmpty()) {
+                            callback.onEmpty()
+                        }
                     }
                 })
         }
@@ -163,26 +155,26 @@ class FrogoLocalDataSource private constructor(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : FrogoLocalObserver<List<Script>>() {
-                    override fun onCallbackSucces(data: List<Script>) {
-                        callback.onShowProgressDialog()
-                        callback.onSuccess(data)
-                        if (data.size == 0) {
-                            callback.onEmpty()
-                        }
-                        callback.onHideProgressDialog()
-                    }
 
-                    override fun onCallbackError(code: Int, errorMessage: String) {
+                    override fun onLocalFailure(code: Int, errorMessage: String) {
                         callback.onFailed(code, errorMessage)
                     }
 
-                    override fun onAddSubscribe(disposable: Disposable) {
+                    override fun onLocalFinish() {
+                        callback.onHideProgressDialog()
+                    }
+
+                    override fun onLocalStartObserver(disposable: Disposable) {
                         addSubscribe(disposable = disposable)
                     }
 
-                    override fun onCompleted() {
-                        callback.onHideProgressDialog()
+                    override fun onLocalSuccess(data: List<Script>) {
+                        callback.onSuccess(data)
+                        if (data.isEmpty()) {
+                            callback.onEmpty()
+                        }
                     }
+
                 })
         }
     }

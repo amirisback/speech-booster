@@ -3,9 +3,6 @@ package com.frogobox.speechbooster.di
 import androidx.preference.PreferenceManager
 import com.frogobox.sdk.util.AppExecutors
 import com.frogobox.speechbooster.source.FrogoDataRepository
-import com.frogobox.speechbooster.source.dao.FavoriteScriptDao
-import com.frogobox.speechbooster.source.dao.ScriptDao
-import com.frogobox.speechbooster.source.dao.VideoScriptDao
 import com.frogobox.speechbooster.source.local.FrogoAppDatabase
 import com.frogobox.speechbooster.source.local.FrogoLocalDataSource
 import com.frogobox.speechbooster.source.remote.FrogoRemoteDataSource
@@ -45,7 +42,7 @@ val repositoryModule = module {
     }
 
     single {
-        FrogoLocalDataSource.getInstance(AppExecutors(), get(), get(),get(),get())
+        FrogoLocalDataSource.getInstance(AppExecutors(), get(), get(), get(), get())
     }
 
     single {

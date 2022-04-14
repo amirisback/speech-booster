@@ -1,7 +1,7 @@
 package com.frogobox.speechbooster.mvvm.favorite
 
 import android.app.Application
-import com.frogobox.sdk.FrogoViewModel
+import com.frogobox.sdk.view.FrogoViewModel
 import com.frogobox.speechbooster.source.FrogoDataRepository
 
 /**

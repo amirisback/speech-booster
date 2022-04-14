@@ -2,7 +2,7 @@ package com.frogobox.speechbooster.core
 
 import android.os.Bundle
 import androidx.viewbinding.ViewBinding
-import com.frogobox.sdk.FrogoFragment
+import com.frogobox.sdk.view.FrogoFragment
 import com.google.android.gms.ads.AdView
 
 /**

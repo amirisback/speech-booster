@@ -19,28 +19,27 @@ import android.view.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
-import com.frogobox.sdk.FrogoFunc.createFolderPictureVideo
-import com.frogobox.sdk.FrogoFunc.getVideoFilePath
+import com.frogobox.sdk.util.FrogoFunc.createFolderPictureVideo
+import com.frogobox.sdk.util.FrogoFunc.getVideoFilePath
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.core.BaseFragment
 import com.frogobox.speechbooster.databinding.FragmentRecordBinding
-import com.frogobox.speechbooster.util.ConstHelper
-import com.frogobox.speechbooster.util.CompareSizesByArea
-import com.frogobox.speechbooster.util.DialogConfirmation
-import com.frogobox.speechbooster.util.DialogError
-import com.frogobox.speechbooster.source.model.RepositoryScript
+import com.frogobox.speechbooster.mvvm.video.VideoScriptRecordViewModel
 import com.frogobox.speechbooster.source.model.FavoriteScript
+import com.frogobox.speechbooster.source.model.RepositoryScript
 import com.frogobox.speechbooster.source.model.Script
+import com.frogobox.speechbooster.util.CompareSizesByArea
+import com.frogobox.speechbooster.util.ConstHelper
 import com.frogobox.speechbooster.util.ConstHelper.Arg.ARGUMENTS_EXAMPLE_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.Arg.ARGUMENTS_FAVORITE_SCRIPT
 import com.frogobox.speechbooster.util.ConstHelper.Arg.ARGUMENTS_SCRIPT
-import com.frogobox.speechbooster.mvvm.video.VideoScriptRecordViewModel
+import com.frogobox.speechbooster.util.DialogConfirmation
+import com.frogobox.speechbooster.util.DialogError
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.IOException
 import java.util.*
 import java.util.concurrent.Semaphore
 import java.util.concurrent.TimeUnit
-import kotlin.collections.ArrayList
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListener,
@@ -128,7 +127,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
         finishRecord()
     }
 
-    private fun finishRecord(){
+    private fun finishRecord() {
         binding.imgToolbarHome.setOnClickListener {
             frogoActivity.finish()
         }
@@ -163,7 +162,11 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
         }
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         if (requestCode == ConstHelper.Code.CODE_REQUEST_VIDEO_PERMISSIONS) {
             if (grantResults.size == ConstHelper.Code.CODE_VIDEO_PERMISSIONS.size) {
                 for (result in grantResults) {
@@ -188,25 +191,33 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
         }
     }
 
-    private fun setupRoleView(){
+    private fun setupRoleView() {
 
         if (arguments != null) {
             if (checkArgument(ARGUMENTS_SCRIPT)) {
                 val argumentsScript = frogoGetInstance<Script>(ARGUMENTS_SCRIPT)
                 setupViewElement(argumentsScript.title!!, argumentsScript.description!!)
             } else if (checkArgument(ARGUMENTS_EXAMPLE_SCRIPT)) {
-                val argumentsExampleScript = frogoGetInstance<RepositoryScript>(ARGUMENTS_EXAMPLE_SCRIPT)
-                setupViewElement(argumentsExampleScript.title!!, argumentsExampleScript.description!!)
+                val argumentsExampleScript =
+                    frogoGetInstance<RepositoryScript>(ARGUMENTS_EXAMPLE_SCRIPT)
+                setupViewElement(
+                    argumentsExampleScript.title!!,
+                    argumentsExampleScript.description!!
+                )
             } else if (checkArgument(ARGUMENTS_FAVORITE_SCRIPT)) {
-                val argumentsFavoriteScript = frogoGetInstance<FavoriteScript>(ARGUMENTS_FAVORITE_SCRIPT)
-                setupViewElement(argumentsFavoriteScript.title!!, argumentsFavoriteScript.description!!)
+                val argumentsFavoriteScript =
+                    frogoGetInstance<FavoriteScript>(ARGUMENTS_FAVORITE_SCRIPT)
+                setupViewElement(
+                    argumentsFavoriteScript.title!!,
+                    argumentsFavoriteScript.description!!
+                )
             }
 
         }
 
     }
 
-    private fun setupViewElement(title: String, desc: String){
+    private fun setupViewElement(title: String, desc: String) {
         binding.apply {
             tvTitle.text = title
             tvDescription.text = desc
@@ -512,7 +523,12 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
         it.width == it.height * 4 / 3 && it.width <= 1080
     } ?: choices[choices.size - 1]
 
-    private fun chooseOptimalSize(choices: Array<Size>, width: Int, height: Int, aspectRatio: Size): Size {
+    private fun chooseOptimalSize(
+        choices: Array<Size>,
+        width: Int,
+        height: Int,
+        aspectRatio: Size
+    ): Size {
 
         // Collect the supported resolutions that are at least as big as the preview Surface
         val w = aspectRatio.width

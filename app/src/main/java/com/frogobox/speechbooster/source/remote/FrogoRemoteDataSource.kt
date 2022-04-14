@@ -1,7 +1,7 @@
 package com.frogobox.speechbooster.source.remote
 
 import android.content.Context
-import com.frogobox.sdk.FrogoFunc.noAction
+import com.frogobox.sdk.util.FrogoFunc.noAction
 import com.frogobox.speechbooster.source.FrogoDataSource
 import com.frogobox.speechbooster.source.model.FavoriteScript
 import com.frogobox.speechbooster.source.model.Script

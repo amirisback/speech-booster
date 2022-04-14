@@ -5,11 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
-
 import com.frogobox.speechbooster.core.BaseFragment
 import com.frogobox.speechbooster.databinding.FragmentVideoBinding
-import com.frogobox.speechbooster.mvvm.main.MainActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class VideoFragment : BaseFragment<FragmentVideoBinding>() {

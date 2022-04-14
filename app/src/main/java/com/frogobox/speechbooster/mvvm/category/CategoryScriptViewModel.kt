@@ -12,8 +12,8 @@ import com.frogobox.coreapi.news.NewsConstant
 import com.frogobox.coreapi.news.NewsUrl
 import com.frogobox.coreapi.news.model.Article
 import com.frogobox.coreapi.news.response.ArticleResponse
-import com.frogobox.sdk.FrogoMutableLiveData
-import com.frogobox.sdk.FrogoViewModel
+import com.frogobox.sdk.util.FrogoMutableLiveData
+import com.frogobox.sdk.view.FrogoViewModel
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.model.RepositoryScript
@@ -443,8 +443,12 @@ class CategoryScriptViewModel(
                 val consumeMovieApi = ConsumeMovieApi(MovieUrl.API_KEY)
                 consumeMovieApi.getTrendingMovieDay(object :
                     ConsumeApiResponse<Trending<TrendingMovie>> {
-                    override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    override fun onFailed(statusCode: Int, errorMessage: String) {
                         eventFailed.postValue(errorMessage)
+                    }
+
+                    override fun onFinish() {
+
                     }
 
                     override fun onHideProgress() {
@@ -470,8 +474,11 @@ class CategoryScriptViewModel(
                     null,
                     null,
                     object : ConsumeApiResponse<ArticleResponse> {
-                        override fun onFailed(statusCode: Int, errorMessage: String?) {
+                        override fun onFailed(statusCode: Int, errorMessage: String) {
                             eventFailed.postValue(errorMessage)
+                        }
+
+                        override fun onFinish() {
                         }
 
                         override fun onHideProgress() {
