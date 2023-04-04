@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.IFrogoBindingAdapter
+import com.frogobox.sdk.ext.showToast
 import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityCategoryScriptBinding
 import com.frogobox.speechbooster.databinding.RecyclerviewItemCategoryScriptBinding
@@ -29,7 +30,8 @@ class CategoryScriptActivity : BaseActivity<ActivityCategoryScriptBinding>() {
         return ActivityCategoryScriptBinding.inflate(layoutInflater)
     }
 
-    override fun setupOnCreate(savedInstanceState: Bundle?) {
+    override fun onCreateExt(savedInstanceState: Bundle?) {
+        super.onCreateExt(savedInstanceState)
         setupDetailActivity("")
         setupData()
         showAdBanner(binding.ads.adsBanner)

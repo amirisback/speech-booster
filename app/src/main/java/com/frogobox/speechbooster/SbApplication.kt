@@ -1,6 +1,6 @@
 package com.frogobox.speechbooster
 
-import com.frogobox.sdk.FrogoApplication
+import com.frogobox.sdk.FrogoKoinApplication
 import com.frogobox.speechbooster.di.repositoryModule
 import com.frogobox.speechbooster.di.viewModelModule
 import org.koin.core.KoinApplication
@@ -17,14 +17,10 @@ import org.koin.core.KoinApplication
  * All rights reserved
  *
  */
-class SbApplication : FrogoApplication() {
+class SbApplication : FrogoKoinApplication() {
 
     override fun setupKoinModule(koinApplication: KoinApplication) {
         koinApplication.modules(listOf(repositoryModule, viewModelModule))
-    }
-
-    override fun setupOnCreate() {
-
     }
 
 }

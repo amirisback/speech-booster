@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.IFrogoBindingAdapter
+import com.frogobox.sdk.ext.emptyViewHandle
+import com.frogobox.sdk.ext.progressViewHandle
 import com.frogobox.speechbooster.core.BaseFragment
 import com.frogobox.speechbooster.databinding.FragmentRepositoryFavoriteBinding
 import com.frogobox.speechbooster.databinding.RecyclerviewItemScriptBinding
@@ -31,7 +33,8 @@ class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBindin
         return FragmentRepositoryFavoriteBinding.inflate(inflater, container, false)
     }
 
-    override fun setupOnViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreatedExt(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreatedExt(view, savedInstanceState)
         setupDataRoomFavorite()
         setupShowAdsBanner(binding.ads.adsBanner)
     }
@@ -45,11 +48,11 @@ class RepositoryFavoriteFragment : BaseFragment<FragmentRepositoryFavoriteBindin
         mViewModel.apply {
 
             eventEmpty.observe(viewLifecycleOwner) {
-                setupEmptyView(binding.empty.emptyView, it)
+                binding.empty.emptyView.emptyViewHandle(it)
             }
 
             eventShowProgress.observe(viewLifecycleOwner) {
-                setupProgressView(binding.progress.progressView, it)
+                binding.progress.progressView.progressViewHandle(it)
             }
 
             favoriteListLive.observe(viewLifecycleOwner) {

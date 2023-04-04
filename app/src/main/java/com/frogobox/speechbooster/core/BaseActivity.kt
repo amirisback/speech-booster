@@ -1,12 +1,13 @@
 package com.frogobox.speechbooster.core
 
 import android.graphics.drawable.ColorDrawable
-import android.os.Bundle
 import android.os.Handler
 import android.view.*
 import androidx.core.content.ContextCompat
 import androidx.viewbinding.ViewBinding
-import com.frogobox.admob.ui.FrogoSdkAdmobActivity
+import com.frogobox.admob.ui.FrogoAdmobBindActivity
+import com.frogobox.sdk.ext.newInstanceExt
+import com.frogobox.sdk.ext.startActivityExt
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.util.ConstHelper
 import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
@@ -29,7 +30,7 @@ import com.frogobox.speechbooster.util.Navigation.BundleHelper.getOptionBundle
  * com.frogobox.publicspeakingbooster.base
  *
  */
-abstract class BaseActivity<VB : ViewBinding> : FrogoSdkAdmobActivity<VB>() {
+abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobBindActivity<VB>() {
 
     protected fun setupNoLimitStatBar() {
         val windows = window // in Activity's onCreate() for instance
@@ -41,7 +42,7 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoSdkAdmobActivity<VB>() {
 
     protected inline fun <reified ClassActivity> setupSplashScreen() {
         Handler().postDelayed({
-            frogoStartActivity<ClassActivity>()
+            startActivityExt<ClassActivity>()
             this@BaseActivity.finish()
         }, ConstHelper.Const.SPLASH_INTERVAL.toLong())
     }
@@ -58,7 +59,7 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoSdkAdmobActivity<VB>() {
         argumentKey: String,
         extraDataResult: Model
     ) {
-        fragment.frogoNewInstance(argumentKey, extraDataResult)
+        fragment.newInstanceExt(argumentKey, extraDataResult)
     }
 
     protected fun tagOption(): Int {
@@ -93,6 +94,5 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoSdkAdmobActivity<VB>() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
 
 }

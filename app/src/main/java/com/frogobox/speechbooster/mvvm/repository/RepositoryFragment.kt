@@ -22,7 +22,8 @@ class RepositoryFragment : BaseFragment<FragmentRepositoryBinding>() {
 
     override fun setupViewModel() {}
 
-    override fun setupOnViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreatedExt(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreatedExt(view, savedInstanceState)
         setupViewPager()
     }
 

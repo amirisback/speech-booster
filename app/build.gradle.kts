@@ -7,6 +7,7 @@ plugins {
 android {
 
     compileSdk = ProjectSetting.PROJECT_COMPILE_SDK
+    namespace = "com.frogobox.speechbooster"
 
     defaultConfig {
         applicationId = ProjectSetting.PROJECT_APP_ID
@@ -89,16 +90,11 @@ android {
 
     buildFeatures {
         viewBinding = true
-        compose = true
     }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Dependency.COMPOSE_VERSION
     }
 
     packagingOptions {
@@ -117,36 +113,6 @@ android {
 
 dependencies {
 
-    implementation(Androidx.appCompat)
-    implementation(Androidx.preferenceKtx)
-    implementation(Androidx.constraintLayout)
-    implementation(Androidx.activityKtx)
-    implementation(Androidx.fragmentKtx)
-    implementation(Androidx.Core.ktx)
-
-    implementation(Androidx.Lifecycle.viewmodelKtx)
-    implementation(Androidx.Lifecycle.runtimeKtx)
-    implementation(Androidx.Lifecycle.livedataKtx)
-
-    implementation(Androidx.Room.runtime)
-    implementation(Androidx.Room.ktx)
-    implementation(Androidx.Room.rxJava3)
-
-    implementation(Google.gson)
-    implementation(Google.material)
-    implementation(Google.admob)
-
-    implementation(Square.OkHttp.okhttp)
-    implementation(Square.OkHttp.loggingInterceptor)
-
-    implementation(Square.Retrofit2.retrofit)
-    implementation(Square.Retrofit2.converterGson)
-    implementation(Square.Retrofit2.adapterRxJava3)
-
-    implementation(Reactivex.rxJava3)
-    implementation(Reactivex.rxKotlin3)
-    implementation(Reactivex.rxAndroid3)
-
     implementation(Frogo.sdk)
     implementation(Frogo.ui)
     implementation(Frogo.recyclerView)
@@ -159,14 +125,8 @@ dependencies {
     implementation(Koin.core)
     implementation(Koin.android)
     implementation(Koin.androidCompat)
-    implementation(Koin.androidxWorkManager)
-    implementation(Koin.androidxCompose)
-    implementation(Koin.ktor)
 
-    implementation("com.github.javiersantos:PiracyChecker:1.2.8")
-
-    api(JetBrains.coroutinesCore)
-    api(JetBrains.coroutinesAndroid)
+    implementation(GitHub.piracyChecker)
 
     kapt(Androidx.Lifecycle.compiler)
     kapt(Androidx.Room.compiler)

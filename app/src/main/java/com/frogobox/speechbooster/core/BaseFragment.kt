@@ -2,6 +2,8 @@ package com.frogobox.speechbooster.core
 
 import android.os.Bundle
 import androidx.viewbinding.ViewBinding
+import com.frogobox.sdk.ext.showToast
+import com.frogobox.sdk.view.FrogoBindFragment
 import com.frogobox.sdk.view.FrogoFragment
 import com.google.android.gms.ads.AdView
 
@@ -22,7 +24,7 @@ import com.google.android.gms.ads.AdView
  * com.frogobox.publicspeakingbooster.base
  *
  */
-abstract class BaseFragment<VB : ViewBinding> : FrogoFragment<VB>() {
+abstract class BaseFragment<VB : ViewBinding> : FrogoBindFragment<VB>() {
 
     protected lateinit var mActivity: BaseActivity<*>
 
@@ -33,6 +35,10 @@ abstract class BaseFragment<VB : ViewBinding> : FrogoFragment<VB>() {
 
     protected fun setupShowAdsBanner(mAdView: AdView) {
         mActivity.showAdBanner(mAdView)
+    }
+
+    protected fun showToast(message: String) {
+        requireContext().showToast(message)
     }
 
 

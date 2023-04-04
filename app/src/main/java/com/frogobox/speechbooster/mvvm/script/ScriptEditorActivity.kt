@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import com.frogobox.coresdk.util.FrogoDate.DATE_EEEE_DD_MM_YYYY
 import com.frogobox.coresdk.util.FrogoDate.getCurrentDate
+import com.frogobox.sdk.ext.showToast
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityScriptEditorBinding
@@ -26,7 +27,8 @@ class ScriptEditorActivity : BaseActivity<ActivityScriptEditorBinding>(), LocalD
         return ActivityScriptEditorBinding.inflate(layoutInflater)
     }
 
-    override fun setupOnCreate(savedInstanceState: Bundle?) {
+    override fun onCreateExt(savedInstanceState: Bundle?) {
+        super.onCreateExt(savedInstanceState)
         setupDetailActivity("")
         binding.tvScriptDate.text = getCurrentDate(DATE_EEEE_DD_MM_YYYY)
         setupRole({ setupExtraData() }) {}

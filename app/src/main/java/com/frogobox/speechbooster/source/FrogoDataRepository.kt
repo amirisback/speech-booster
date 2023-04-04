@@ -23,8 +23,10 @@ import com.frogobox.speechbooster.source.remote.FrogoRemoteDataSource
  * com.frogobox.speechbooster.source
  *
  */
-open class FrogoDataRepository(private val remoteDataSource: FrogoRemoteDataSource,
-                               private val localDataSource: FrogoLocalDataSource) : FrogoDataSource {
+open class FrogoDataRepository(
+    private val remoteDataSource: FrogoRemoteDataSource,
+    private val localDataSource: FrogoLocalDataSource
+) : FrogoDataSource {
 
 
     override fun searchRoomFavorite(
@@ -105,13 +107,12 @@ open class FrogoDataRepository(private val remoteDataSource: FrogoRemoteDataSour
     }
 
     override fun getRoomScript(callback: FrogoDataSource.GetRoomDataCallBack<List<Script>>) {
-       return localDataSource.getRoomScript(callback)
+        return localDataSource.getRoomScript(callback)
     }
 
     override fun nukeRoomScript(): Boolean {
         return localDataSource.nukeRoomScript()
     }
-
 
 
     companion object {
@@ -126,7 +127,10 @@ open class FrogoDataRepository(private val remoteDataSource: FrogoRemoteDataSour
          * @return the [FrogoRepository] instance
          */
         @JvmStatic
-        fun getInstance(FrogoRemoteDataSource: FrogoRemoteDataSource, gitsLocalDataSource: FrogoLocalDataSource) =
+        fun getInstance(
+            FrogoRemoteDataSource: FrogoRemoteDataSource,
+            gitsLocalDataSource: FrogoLocalDataSource
+        ) =
             INSTANCE ?: synchronized(FrogoDataRepository::class.java) {
                 INSTANCE ?: FrogoDataRepository(FrogoRemoteDataSource, gitsLocalDataSource)
                     .also { INSTANCE = it }
@@ -141,5 +145,5 @@ open class FrogoDataRepository(private val remoteDataSource: FrogoRemoteDataSour
             INSTANCE = null
         }
     }
-    
+
 }

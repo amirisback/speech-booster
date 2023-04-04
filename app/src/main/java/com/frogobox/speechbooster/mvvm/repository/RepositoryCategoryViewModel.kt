@@ -2,7 +2,7 @@ package com.frogobox.speechbooster.mvvm.repository
 
 import android.app.Application
 import android.content.Context
-import com.frogobox.sdk.view.FrogoViewModel
+import com.frogobox.speechbooster.core.BaseViewModel
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.source.model.CategoryScript
 import com.frogobox.speechbooster.source.FrogoDataRepository
@@ -27,7 +27,7 @@ import com.frogobox.speechbooster.source.FrogoDataRepository
 class RepositoryCategoryViewModel (
     application: Application,
     private val frogoDataRepository: FrogoDataRepository
-) : FrogoViewModel(application) {
+) : BaseViewModel(application) {
 
     fun showExampleData(context: Context) : MutableList<CategoryScript> {
         val categoryList = mutableListOf<CategoryScript>()

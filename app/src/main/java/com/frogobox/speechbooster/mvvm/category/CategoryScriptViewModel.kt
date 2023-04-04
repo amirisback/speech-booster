@@ -13,8 +13,8 @@ import com.frogobox.coreapi.news.NewsUrl
 import com.frogobox.coreapi.news.model.Article
 import com.frogobox.coreapi.news.response.ArticleResponse
 import com.frogobox.sdk.util.FrogoMutableLiveData
-import com.frogobox.sdk.view.FrogoViewModel
 import com.frogobox.speechbooster.R
+import com.frogobox.speechbooster.core.BaseViewModel
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.model.RepositoryScript
 
@@ -38,7 +38,7 @@ import com.frogobox.speechbooster.source.model.RepositoryScript
 class CategoryScriptViewModel(
     application: Application,
     private val frogoDataRepository: FrogoDataRepository
-) : FrogoViewModel(application) {
+) : BaseViewModel(application) {
 
     var repository = FrogoMutableLiveData<MutableList<RepositoryScript>>()
 

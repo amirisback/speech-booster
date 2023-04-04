@@ -7,6 +7,8 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.frogobox.sdk.ext.hasExtraExt
+import com.frogobox.sdk.ext.newInstanceExt
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityRecordBinding
@@ -35,7 +37,8 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>() {
 
     override fun setupViewModel() {}
 
-    override fun setupOnCreate(savedInstanceState: Bundle?) {
+    override fun onCreateExt(savedInstanceState: Bundle?) {
+        super.onCreateExt(savedInstanceState)
         setupNoLimitStatBar()
         setupRoleFragmentInstance()
         setupReadExternalStoragePermission()
@@ -46,26 +49,26 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>() {
         val recordFragment = RecordFragment()
 
         when {
-            checkExtra(EXTRA_SCRIPT) -> {
+            hasExtraExt(EXTRA_SCRIPT) -> {
                 val extraDataResultScript = getBaseBundle<Script>(this, TYPE_OBJECT, EXTRA_SCRIPT)
-                recordFragment.frogoNewInstance(ARGUMENTS_SCRIPT, extraDataResultScript)
+                recordFragment.newInstanceExt(ARGUMENTS_SCRIPT, extraDataResultScript)
                 setupChildFragment(R.id.container, recordFragment)
             }
 
-            checkExtra(EXTRA_EXAMPLE_SCRIPT) -> {
+            hasExtraExt(EXTRA_EXAMPLE_SCRIPT) -> {
                 val extraDataResultExampleScript =
                     getBaseBundle<RepositoryScript>(this, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
-                recordFragment.frogoNewInstance(
+                recordFragment.newInstanceExt(
                     ARGUMENTS_EXAMPLE_SCRIPT,
                     extraDataResultExampleScript
                 )
                 setupChildFragment(R.id.container, recordFragment)
             }
 
-            checkExtra(EXTRA_FAVORITE_SCRIPT) -> {
+            hasExtraExt(EXTRA_FAVORITE_SCRIPT) -> {
                 val extraDataResultFavoriteScript =
                     getBaseBundle<FavoriteScript>(this, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
-                recordFragment.frogoNewInstance(
+                recordFragment.newInstanceExt(
                     ARGUMENTS_FAVORITE_SCRIPT,
                     extraDataResultFavoriteScript
                 )

@@ -19,6 +19,7 @@ import android.view.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
+import com.frogobox.sdk.ext.getInstanceExt
 import com.frogobox.sdk.util.FrogoFunc.createFolderPictureVideo
 import com.frogobox.sdk.util.FrogoFunc.getVideoFilePath
 import com.frogobox.speechbooster.R
@@ -121,7 +122,8 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
         return FragmentRecordBinding.inflate(inflater, container, false)
     }
 
-    override fun setupOnViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreatedExt(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreatedExt(view, savedInstanceState)
         binding.imgRecordMenu.setOnClickListener(this)
         setupRoleView()
         finishRecord()
@@ -195,18 +197,18 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(), View.OnClickListen
 
         if (arguments != null) {
             if (checkArgument(ARGUMENTS_SCRIPT)) {
-                val argumentsScript = frogoGetInstance<Script>(ARGUMENTS_SCRIPT)
+                val argumentsScript = getInstanceExt<Script>(ARGUMENTS_SCRIPT)
                 setupViewElement(argumentsScript.title!!, argumentsScript.description!!)
             } else if (checkArgument(ARGUMENTS_EXAMPLE_SCRIPT)) {
                 val argumentsExampleScript =
-                    frogoGetInstance<RepositoryScript>(ARGUMENTS_EXAMPLE_SCRIPT)
+                    getInstanceExt<RepositoryScript>(ARGUMENTS_EXAMPLE_SCRIPT)
                 setupViewElement(
                     argumentsExampleScript.title!!,
                     argumentsExampleScript.description!!
                 )
             } else if (checkArgument(ARGUMENTS_FAVORITE_SCRIPT)) {
                 val argumentsFavoriteScript =
-                    frogoGetInstance<FavoriteScript>(ARGUMENTS_FAVORITE_SCRIPT)
+                    getInstanceExt<FavoriteScript>(ARGUMENTS_FAVORITE_SCRIPT)
                 setupViewElement(
                     argumentsFavoriteScript.title!!,
                     argumentsFavoriteScript.description!!

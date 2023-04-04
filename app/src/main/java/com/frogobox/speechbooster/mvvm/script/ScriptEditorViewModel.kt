@@ -1,7 +1,7 @@
 package com.frogobox.speechbooster.mvvm.script
 
 import android.app.Application
-import com.frogobox.sdk.view.FrogoViewModel
+import com.frogobox.speechbooster.core.BaseViewModel
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.local.LocalDataCallback
 import com.frogobox.speechbooster.source.model.Script
@@ -27,7 +27,7 @@ import com.frogobox.speechbooster.util.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
 class ScriptEditorViewModel(
     application: Application,
     private val frogoDataRepository: FrogoDataRepository
-) : FrogoViewModel(application) {
+) : BaseViewModel(application) {
 
     fun saveScriptData(data: Script, callback: LocalDataCallback) {
         callback.onShowProgress()

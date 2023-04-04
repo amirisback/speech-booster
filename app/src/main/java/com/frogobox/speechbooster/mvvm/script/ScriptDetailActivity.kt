@@ -5,6 +5,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.lifecycle.Observer
+import com.frogobox.sdk.ext.hasExtraExt
+import com.frogobox.sdk.ext.showToast
 import com.frogobox.sdk.util.FrogoFunc.createDialogDefault
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.core.BaseActivity
@@ -35,7 +37,8 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
         return ActivityScriptDetailBinding.inflate(layoutInflater)
     }
 
-    override fun setupOnCreate(savedInstanceState: Bundle?) {
+    override fun onCreateExt(savedInstanceState: Bundle?) {
+        super.onCreateExt(savedInstanceState)
         setupDetailActivity("")
         setupRoleView()
         showAdBanner(binding.adsBanner)
@@ -70,7 +73,7 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
     }
 
     private fun setupRoleView() {
-        if (checkExtra(EXTRA_SCRIPT)) {
+        if (hasExtraExt(EXTRA_SCRIPT)) {
             val extraScript = getBaseBundle<Script>(this, TYPE_OBJECT, EXTRA_SCRIPT)
             val bundleScript = createBaseBundle(TYPE_OBJECT, EXTRA_SCRIPT, extraScript)
             mViewModel.getFavoriteData(extraScript.table_id.toString(), OPTION_GET)
@@ -80,7 +83,7 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
                 extraScript.description!!,
                 bundleScript
             )
-        } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)) {
+        } else if (hasExtraExt(EXTRA_EXAMPLE_SCRIPT)) {
             val extraExampleScript =
                 getBaseBundle<RepositoryScript>(this, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
             val bundleExampleScript =
@@ -92,7 +95,7 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
                 bundleExampleScript
             )
             extraExampleScript.id?.let { mViewModel.getFavoriteData(it, OPTION_GET) }
-        } else if (checkExtra(EXTRA_FAVORITE_SCRIPT)) {
+        } else if (hasExtraExt(EXTRA_FAVORITE_SCRIPT)) {
             val extraFavoreiteScript =
                 getBaseBundle<FavoriteScript>(this, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
             val bundleFavoreiteScript =
@@ -131,14 +134,14 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
     }
 
     private fun listenerDeleteFromFavorite() {
-        if (checkExtra(EXTRA_SCRIPT)) {
+        if (hasExtraExt(EXTRA_SCRIPT)) {
             val extraScript = getBaseBundle<Script>(this, TYPE_OBJECT, EXTRA_SCRIPT)
             setupDeleteFromFavorite(extraScript.table_id.toString())
-        } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)) {
+        } else if (hasExtraExt(EXTRA_EXAMPLE_SCRIPT)) {
             val extraExampleScript =
                 getBaseBundle<RepositoryScript>(this, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
             extraExampleScript.id?.let { setupDeleteFromFavorite(it) }
-        } else if (checkExtra(EXTRA_FAVORITE_SCRIPT)) {
+        } else if (hasExtraExt(EXTRA_FAVORITE_SCRIPT)) {
             val extraFavoriteScript =
                 getBaseBundle<FavoriteScript>(this, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
             extraFavoriteScript.script_id?.let { setupDeleteFromFavorite(it) }
@@ -153,18 +156,18 @@ class ScriptDetailActivity : BaseActivity<ActivityScriptDetailBinding>() {
         var script_id = ""
         var description = ""
 
-        if (checkExtra(EXTRA_SCRIPT)) {
+        if (hasExtraExt(EXTRA_SCRIPT)) {
             val extraScript = getBaseBundle<Script>(this, TYPE_OBJECT, EXTRA_SCRIPT)
             title = extraScript.title!!
             script_id = extraScript.table_id.toString()
             description = extraScript.description!!
-        } else if (checkExtra(EXTRA_EXAMPLE_SCRIPT)) {
+        } else if (hasExtraExt(EXTRA_EXAMPLE_SCRIPT)) {
             val extraExampleScript =
                 getBaseBundle<RepositoryScript>(this, TYPE_OBJECT, EXTRA_EXAMPLE_SCRIPT)
             title = extraExampleScript.title!!
             script_id = extraExampleScript.id!!
             description = extraExampleScript.description!!
-        } else if (checkExtra(EXTRA_FAVORITE_SCRIPT)) {
+        } else if (hasExtraExt(EXTRA_FAVORITE_SCRIPT)) {
             val extraScript =
                 getBaseBundle<FavoriteScript>(this, TYPE_OBJECT, EXTRA_FAVORITE_SCRIPT)
             title = extraScript.title!!

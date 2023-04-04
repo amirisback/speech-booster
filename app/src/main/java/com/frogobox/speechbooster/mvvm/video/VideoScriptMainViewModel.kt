@@ -2,7 +2,7 @@ package com.frogobox.speechbooster.mvvm.video
 
 import android.app.Application
 import com.frogobox.sdk.util.FrogoMutableLiveData
-import com.frogobox.sdk.view.FrogoViewModel
+import com.frogobox.speechbooster.core.BaseViewModel
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.FrogoDataSource
 import com.frogobox.speechbooster.source.model.VideoScript
@@ -27,7 +27,7 @@ import com.frogobox.speechbooster.source.model.VideoScript
 class VideoScriptMainViewModel(
     application: Application,
     private val frogoDataRepository: FrogoDataRepository
-) : FrogoViewModel(application) {
+) : BaseViewModel(application) {
 
     val videoListLive = FrogoMutableLiveData<List<VideoScript>>()
 

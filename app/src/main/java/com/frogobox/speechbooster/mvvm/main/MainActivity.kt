@@ -3,6 +3,7 @@ package com.frogobox.speechbooster.mvvm.main
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.frogobox.sdk.ext.startActivityExt
 import com.frogobox.speechbooster.R
 import com.frogobox.speechbooster.core.BaseActivity
 import com.frogobox.speechbooster.databinding.ActivityMainBinding
@@ -19,7 +20,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun setupViewModel() {}
 
-    override fun setupOnCreate(savedInstanceState: Bundle?) {
+    override fun onCreateExt(savedInstanceState: Bundle?) {
+        super.onCreateExt(savedInstanceState)
         setupToolbar()
         setupBottomNav(R.id.framelayout_main_container)
         setupFragment(savedInstanceState)
@@ -43,7 +45,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.toolbar_menu_about -> {
-                frogoStartActivity<AboutUsActivity>()
+                startActivityExt<AboutUsActivity>()
                 true
             }
             else -> super.onOptionsItemSelected(item)

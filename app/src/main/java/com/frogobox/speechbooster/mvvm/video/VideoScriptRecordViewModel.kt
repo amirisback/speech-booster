@@ -1,7 +1,7 @@
 package com.frogobox.speechbooster.mvvm.video
 
 import android.app.Application
-import com.frogobox.sdk.view.FrogoViewModel
+import com.frogobox.speechbooster.core.BaseViewModel
 import com.frogobox.speechbooster.source.FrogoDataRepository
 import com.frogobox.speechbooster.source.local.LocalDataCallback
 import com.frogobox.speechbooster.source.model.VideoScript
@@ -27,7 +27,7 @@ import com.frogobox.speechbooster.util.ConstHelper.Const.DEFAULT_ERROR_MESSAGE
 class VideoScriptRecordViewModel(
     application: Application,
     private val frogoDataRepository: FrogoDataRepository
-) : FrogoViewModel(application) {
+) : BaseViewModel(application) {
 
     fun saveVideoData(data: VideoScript, callback: LocalDataCallback) {
         callback.onShowProgress()

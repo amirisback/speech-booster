@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.IFrogoBindingAdapter
+import com.frogobox.sdk.ext.emptyViewHandle
+import com.frogobox.sdk.ext.progressViewHandle
 import com.frogobox.speechbooster.core.BaseFragment
 import com.frogobox.speechbooster.databinding.FragmentScriptBinding
 import com.frogobox.speechbooster.databinding.RecyclerviewItemScriptBinding
@@ -32,7 +34,8 @@ class ScriptFragment : BaseFragment<FragmentScriptBinding>() {
         return FragmentScriptBinding.inflate(inflater, container, false)
     }
 
-    override fun setupOnViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreatedExt(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreatedExt(view, savedInstanceState)
         setupFabButton()
         setupDataRoomScript()
     }
@@ -46,7 +49,7 @@ class ScriptFragment : BaseFragment<FragmentScriptBinding>() {
         mViewModel.apply {
 
             eventEmpty.observe(this@ScriptFragment) {
-                setupEmptyView(binding.empty.emptyView, it)
+                binding.empty.emptyView.emptyViewHandle(it)
             }
 
             scriptListLive.observe(this@ScriptFragment) {
@@ -54,7 +57,7 @@ class ScriptFragment : BaseFragment<FragmentScriptBinding>() {
             }
 
             eventShowProgress.observe(this@ScriptFragment) {
-                setupProgressView(binding.progress.progressView, it)
+                binding.progress.progressView.progressViewHandle(it)
             }
 
         }

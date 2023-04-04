@@ -28,7 +28,8 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
         return FragmentRepositoryCategoryBinding.inflate(inflater, container, false)
     }
 
-    override fun setupOnViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreatedExt(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreatedExt(view, savedInstanceState)
         setupData()
         setupShowAdsBanner(binding.ads.adsBanner)
     }
